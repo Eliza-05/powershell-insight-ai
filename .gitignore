@@ -1,0 +1,129 @@
+# =====================================================================
+# PowerShell Insight AI — .gitignore (monorepo Python + React)
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Pruebas, cobertura y linters
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------
+# Node / React / Vite
+# ---------------------------------------------------------------------
+node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+frontend/coverage/
+*.tsbuildinfo
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------------------------------------------------------------------
+# Seguridad: secretos y credenciales
+# ---------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+secrets/
+credentials/
+*credentials*.json
+*secret*.json
+*.local.json
+
+# ---------------------------------------------------------------------
+# Datasets: muestras externas o potencialmente peligrosas
+# Nunca se versionan. Solo datasets/safe_samples/ y datasets/metadata/
+# (revisados manualmente) forman parte del repositorio.
+# ---------------------------------------------------------------------
+datasets/raw/
+datasets/external/
+datasets/quarantine/
+datasets/private/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# ---------------------------------------------------------------------
+# Experimentos: salidas masivas, cachés y artefactos de modelos
+# Los resultados pequeños y revisados se agregan explícitamente.
+# ---------------------------------------------------------------------
+experiments/results/raw/
+experiments/results/tmp/
+experiments/cache/
+experiments/**/runs/
+*.jsonl.gz
+*.parquet
+
+# Artefactos de modelos (los modelos los gestiona Ollama fuera del repo)
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+models/
+
+# ---------------------------------------------------------------------
+# Logs y temporales
+# ---------------------------------------------------------------------
+logs/
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------
+# Sistema operativo y editores
+# ---------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
