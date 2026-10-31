@@ -55,8 +55,8 @@ flowchart LR
 - **Límites:** nunca invoca PowerShell ni evalúa expresiones arbitrarias; aplica límites de profundidad, tamaño y tiempo. Debe poder usarse sin FastAPI.
 
 ### Detección (`backend/app/services/detection/`)
-- **Responsable de:** reglas deterministas que asignan comportamientos (B01–B08) con evidencia localizada.
-- **Límites:** produce hallazgos, no veredictos de maliciosidad.
+- **Responsable de:** reglas deterministas que asignan comportamientos funcionales (B01–B07) con evidencia localizada, y registro separado de las técnicas de ofuscación detectadas.
+- **Límites:** produce hallazgos, no veredictos de maliciosidad. Los envoltorios de ejecución añadidos por la ofuscación no generan comportamientos.
 
 ### LLM (`backend/app/services/llm/`)
 - **Responsable de:** cliente de Ollama, plantillas de prompt versionadas, parámetros de inferencia (temperatura, semilla), parseo y validación de la salida estructurada.

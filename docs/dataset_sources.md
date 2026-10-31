@@ -1,55 +1,31 @@
 # Fuentes de datos candidatas
 
-> **Ninguna de estas fuentes ha sido descargada, inspeccionada ni validada todavía.** La información sobre su contenido es preliminar y debe confirmarse en la Fase 0. Ninguna muestra externa se incorpora a este repositorio.
+> **Estado:** las fuentes se revisaron **documentalmente** en la Fase 0A (README, licencias, estructura y metadatos públicos). **No se ha descargado, clonado ni ejecutado ninguna muestra ni herramienta**, y ninguna muestra externa se incorpora a este repositorio. El análisis detallado, con el nivel de verificación de cada hallazgo, está en [dataset_audit.md](dataset_audit.md); el uso previsto de cada fuente, en [dataset_selection_plan.md](dataset_selection_plan.md).
 
 ## Principios generales
 
 - Un script **no ofuscado no es necesariamente benigno**.
 - Un script proveniente de un repositorio ofensivo o de investigación **no es necesariamente malicioso**.
-- Las etiquetas de origen (p. ej., "malicioso"/"benigno", "ofuscado"/"no ofuscado") no equivalen a etiquetas de comportamiento; estas se asignan según la [taxonomía](behavior_taxonomy.md).
+- Las etiquetas de origen (p. ej., "malicioso"/"benigno", "ofuscado"/"no ofuscado") no equivalen a etiquetas de comportamiento; estas se asignan según la [taxonomía B01–B07](behavior_taxonomy.md).
+- Un repositorio público no concede por sí mismo derechos de redistribución, y la licencia del código de una herramienta no cubre automáticamente los datos que referencia.
 - Toda muestra externa se maneja fuera del repositorio (`datasets/raw/`, `datasets/external/`, `datasets/quarantine/` o `datasets/private/`, ignorados por Git), en un entorno aislado y sin ejecutarla. Ver [security.md](security.md).
-- De cada muestra utilizada se registra en `datasets/metadata/`: hash SHA-256, fuente, versión/commit de la fuente, licencia y etiquetas.
+- De cada muestra utilizada se registra en el manifiesto (`datasets/metadata/`): hash SHA-256, fuente, versión o commit de la fuente, licencia y etiquetas.
 
----
+## Resumen
 
-## 1. Revoke-Obfuscation
+| Fuente | Qué es | Licencia | Limitación principal | Uso previsto |
+|---|---|---|---|---|
+| [Revoke-Obfuscation](https://github.com/danielbohannon/Revoke-Obfuscation) | Detector de ofuscación con etiquetas ofuscado/no ofuscado sobre un corpus externo | Apache 2.0 (código); corpus sin licencia declarada | Sus etiquetas indican ofuscación, no maliciosidad ni comportamiento | Referencia metodológica; benignos opcionales |
+| [Malicious-PowerShell-Dataset (Fa2y)](https://github.com/Fa2y/Malicious-PowerShell-Dataset) | Muestras declaradas maliciosas, de repositorios ofensivos y sandboxes | Sin licencia visible | Etiqueta implícita por procedencia, con ruido; emparejamiento original/ofuscado no garantizado | Metadatos; ≤ 6 scripts revisados en entorno aislado (opcional) |
+| [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation) | Herramienta de transformación, no dataset etiquetado | Apache 2.0 | Añade envoltorios IEX; la mayoría de técnicas no son resolubles estáticamente | Generador del estrato no soportado, en entorno aislado |
+| [MPSD](https://github.com/das-lab/mpsd) | Muestras maliciosas, benignas y mixtas de un artículo académico | Sin licencia visible (pendiente de confirmar) | Etiquetas binarias declaradas por los autores, no B01–B07 | Referencia; benignos opcionales |
+| [Azure-Samples/azure-docs-powershell-samples](https://github.com/Azure-Samples/azure-docs-powershell-samples) | Ejemplos administrativos de Azure PowerShell de la documentación de Microsoft | MIT | Orientados a la nube; poca correspondencia con comportamientos del host | Candidata para administrativos legítimos (S1) |
+| [MITRE ATT&CK STIX](https://github.com/mitre-attack/attack-stix-data) | Representación de ATT&CK en STIX 2.1 | Ver términos de uso de MITRE | El mapeo comportamiento → técnica no es uno a uno; hay que fijar la versión | Mapeo opcional (`threat_intelligence`) |
 
-- **URL:** https://github.com/danielbohannon/Revoke-Obfuscation
-- **Propósito:** herramienta de detección de ofuscación en PowerShell basada en características del AST, publicada junto con investigación sobre detección de scripts ofuscados.
-- **Utilidad potencial:** posible fuente de scripts etiquetados como ofuscados/no ofuscados; referencia de características para el motor estático; línea de comparación conceptual.
-- **Datos esperados:** scripts PowerShell y etiquetas de ofuscación (por confirmar si los datos completos están en el repositorio o deben obtenerse aparte).
-- **Riesgos metodológicos:** las etiquetas indican ofuscación, no comportamiento ni maliciosidad; antigüedad del corpus; posible solapamiento con datos de entrenamiento del LLM.
-- **Pendiente de verificar:** disponibilidad real del corpus, formato, licencia, volumen, presencia de código malicioso activo.
+## Pendiente de verificar (Fase 0B)
 
-## 2. Malicious-PowerShell-Dataset
-
-- **URL:** https://github.com/Fa2y/Malicious-PowerShell-Dataset
-- **Propósito:** recopilación de scripts PowerShell presentada como maliciosa, orientada a investigación de detección.
-- **Utilidad potencial:** fuente de scripts con comportamientos reales para el conjunto experimental, previo etiquetado por comportamiento.
-- **Datos esperados:** scripts PowerShell, posiblemente acompañados de metadatos o etiquetas binarias (por confirmar).
-- **Riesgos metodológicos:** contiene previsiblemente malware real (manejo solo en entorno aislado); duplicados y variantes de una misma familia que pueden contaminar la separación desarrollo/evaluación; etiquetas sin criterios documentados; procedencia heterogénea.
-- **Pendiente de verificar:** licencia y condiciones de uso, procedencia, formato, duplicados, distribución de comportamientos, criterio de etiquetado.
-
-## 3. Invoke-Obfuscation
-
-- **URL:** https://github.com/danielbohannon/Invoke-Obfuscation
-- **Propósito:** framework de ofuscación de PowerShell, usado para investigación y para probar capacidades de detección.
-- **Utilidad potencial:** referencia de técnicas de ofuscación que el motor estático debe reconocer; posible generación controlada de pares (original ↔ ofuscado) a partir de scripts **inertes** para evaluar la recuperación de código.
-- **Datos esperados:** código de la herramienta, no un dataset.
-- **Riesgos metodológicos:** ejecutar la herramienta implica ejecutar PowerShell (solo en entorno aislado y sobre scripts inertes); las ofuscaciones generadas pueden no representar la distribución real de ataques; riesgo de sesgar el motor estático hacia una sola herramienta.
-- **Pendiente de verificar:** licencia, técnicas soportadas, procedimiento seguro de generación y si su uso es necesario o basta con documentar las técnicas.
-
-## 4. MITRE ATT&CK STIX Data
-
-- **URL:** https://github.com/mitre-attack/attack-stix-data
-- **Propósito:** representación oficial de ATT&CK en formato STIX 2.1.
-- **Utilidad potencial:** mapeo opcional de comportamientos a técnicas (módulo `threat_intelligence`); vocabulario de referencia para la taxonomía.
-- **Datos esperados:** archivos JSON STIX 2.1 con tácticas, técnicas, subtécnicas y relaciones, versionados por release de ATT&CK.
-- **Riesgos metodológicos:** el mapeo comportamiento → técnica no es uno a uno; cambios entre versiones de ATT&CK (fijar versión).
-- **Pendiente de verificar:** versión a utilizar, tamaño del archivo, si se versiona en el repo o se descarga localmente, licencia y atribución.
-
----
-
-## Fuentes de muestras benignas
-
-El diseño experimental requiere también scripts benignos (incluidos benignos que presenten comportamientos como B01 o B05). Fuentes candidatas a evaluar en la Fase 0: scripts administrativos de repositorios públicos con licencia abierta, documentación oficial y scripts escritos por el equipo. Ninguna ha sido seleccionada todavía.
+- Contenido real, volumen, duplicados y casi-duplicados de las fuentes que se usen, en entorno aislado.
+- Relación entre los porcentajes de ofuscación declarados por Fa2y y emparejamiento de sus variantes.
+- Licencias no declaradas (corpus de Revoke-Obfuscation, Fa2y, MPSD).
+- Número y tamaño de los scripts de Azure-Samples.
+- Versión de ATT&CK a utilizar y si los datos STIX se versionan o se descargan localmente.

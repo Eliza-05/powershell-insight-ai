@@ -33,7 +33,7 @@ Desarrollar y evaluar un prototipo que combine desofuscación estática, reglas 
 
 - Carga y visualización de scripts PowerShell en un editor web.
 - Desofuscación estática (sin ejecutar el script) de técnicas comunes.
-- Identificación determinista de comportamientos según una [taxonomía propia](docs/behavior_taxonomy.md).
+- Identificación determinista de siete comportamientos funcionales (B01–B07) según una [taxonomía propia](docs/behavior_taxonomy.md), separada del registro de técnicas de ofuscación y de la valoración de riesgo.
 - Explicación asistida por un LLM local, con salida estructurada.
 - Validación y trazabilidad de evidencias (cada hallazgo vinculado a fragmentos del script).
 - Mapeo opcional a técnicas de MITRE ATT&CK.
@@ -105,7 +105,7 @@ Se compararán tres configuraciones sobre un conjunto de scripts etiquetado:
 - **B — LLM directo:** el modelo analiza el script ofuscado sin preprocesamiento.
 - **C — Desofuscación + LLM:** el modelo recibe el script original y los elementos recuperados por el motor estático.
 
-Se evaluarán la identificación de comportamientos (precision, recall, F1), la calidad explicativa (validez de evidencias, afirmaciones no respaldadas) y la recuperación de código. Detalle en [docs/methodology.md](docs/methodology.md).
+Se evaluarán la identificación de comportamientos (precision, recall, F1; evaluación principal), la calidad explicativa (validez de evidencias, afirmaciones no respaldadas) y la recuperación de código. El ground truth se construye con 20–30 scripts base propios (administrativos y simulaciones inertes) y variantes generadas de forma controlada, divididos por familias entre desarrollo y prueba. Los resultados de la evaluación controlada y de generalización se reportan por separado y, dado el tamaño del conjunto, se consideran exploratorios. Detalle en [docs/methodology.md](docs/methodology.md) y [docs/dataset_selection_plan.md](docs/dataset_selection_plan.md).
 
 ## 9. Estado actual
 
@@ -113,8 +113,10 @@ Se evaluarán la identificación de comportamientos (precision, recall, F1), la 
 |---|---|
 | Estructura del repositorio | ✅ Creada |
 | Documentación inicial | ✅ Creada |
-| Validación de datasets | ⏳ Pendiente |
-| Validación del modelo en Ollama | ⏳ Pendiente |
+| Fase 0A: auditoría documental de fuentes y diseño del dataset y del piloto | 📝 Documentación preparada, pendiente de aprobación |
+| Fase 0B: verificación de fuentes en entorno aislado | ⏳ Pendiente |
+| Fase 0B: piloto del modelo en Ollama | ⏳ Pendiente |
+| Dataset experimental | ⏳ No iniciado (solo plantillas) |
 | Motor de desofuscación | ⏳ No iniciado |
 | Motor de reglas | ⏳ No iniciado |
 | Integración LLM | ⏳ No iniciado |
@@ -139,8 +141,10 @@ Ver [docs/security.md](docs/security.md) y [docs/development.md](docs/developmen
 - Bohannon, D. *Invoke-Obfuscation*. https://github.com/danielbohannon/Invoke-Obfuscation
 - Bohannon, D. y Holmes, L. *Revoke-Obfuscation*. https://github.com/danielbohannon/Revoke-Obfuscation
 - Fa2y. *Malicious-PowerShell-Dataset*. https://github.com/Fa2y/Malicious-PowerShell-Dataset
+- Fang, Y., Zhou, X. y Huang, C. *Effective method for detecting malicious PowerShell scripts based on hybrid features*. Neurocomputing, 448, 2021 (MPSD). https://github.com/das-lab/mpsd
+- Microsoft. *Azure PowerShell documentation samples*. https://github.com/Azure-Samples/azure-docs-powershell-samples
 - MITRE. *ATT&CK STIX Data*. https://github.com/mitre-attack/attack-stix-data
 - MITRE ATT&CK — T1059.001 Command and Scripting Interpreter: PowerShell. https://attack.mitre.org/techniques/T1059/001/
 - Ollama. https://ollama.com
 
-Análisis de fuentes de datos en [docs/dataset_sources.md](docs/dataset_sources.md).
+Análisis de fuentes de datos en [docs/dataset_sources.md](docs/dataset_sources.md) y [docs/dataset_audit.md](docs/dataset_audit.md); plan del piloto en [docs/pilot_plan.md](docs/pilot_plan.md).
