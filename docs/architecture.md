@@ -1,6 +1,6 @@
 # Arquitectura del proyecto
 
-> Estado implementado: infraestructura del piloto (Fase 0B) y motor Python de desofuscación estática (Fase 1A, [contrato y límites](deobfuscator.md)). La API, React, las reglas B01–B07 y el pipeline A/B/C siguen siendo diseño previsto.
+> Estado implementado: infraestructura del piloto (Fase 0B), desofuscador estático aprobado (Fase 1A, [contrato](deobfuscator.md)) y detector determinista B01–B07 aprobado y cerrado por el responsable dentro de su subconjunto (Fase 1B, [reglas y límites](behavior_detector.md), [cierre](phase1b_closure.md)). La API, React y el pipeline experimental A/B/C siguen siendo diseño previsto. La Fase 2 está bloqueada por la selección definitiva del LLM.
 
 ## 1. Visión general
 
@@ -54,9 +54,9 @@ flowchart LR
 - **Implementado:** API Python `deobfuscate`, lexer y gramática limitada, Base64 de lanzador/inline, concatenación literal y sustitución conservadora de variables. Las capas y transformaciones conservan rangos, dependencias y procedencia. `OT-FORMAT` se detecta sin resolver; no hay normalización global ni reescritura del script.
 - **Límites:** nunca invoca PowerShell, red ni expresiones arbitrarias; aplica cotas de tamaño, profundidad, expansión, número de registros y presupuesto determinista de trabajo. No depende de FastAPI ni del LLM. Un plazo de reloj externo corresponde al futuro servicio, no cambia las decisiones deterministas del motor. Contratos y alcance exacto en [deobfuscator.md](deobfuscator.md).
 
-### Detección (`backend/app/services/detection/`)
-- **Responsable de:** reglas deterministas que asignan comportamientos funcionales (B01–B07) con evidencia localizada, y registro separado de las técnicas de ofuscación detectadas.
-- **Límites:** produce hallazgos, no veredictos de maliciosidad. Los envoltorios de ejecución añadidos por la ofuscación no generan comportamientos.
+### Detección (`backend/app/services/behavior_detection/`)
+- **Implementado:** API Python `analyze_behaviors`, doce reglas para subconjuntos B01–B07, extracción de invocaciones sobre el lexer existente, condiciones contextuales, hallazgos con citas verificables, indicios separados y deduplicación por identidad de operación. Conserva el resultado completo de 1A y sus dependencias. [Contrato y cobertura](behavior_detector.md).
+- **Límites:** no ejecuta texto, consulta ground truth ni usa el LLM. No produce riesgo o veredictos de maliciosidad. EncodedCommand y `&` no generan B02; los wrappers IEX declarados se excluyen y la procedencia funcional desconocida se comunica. Las relaciones no probadas y OT-FORMAT producen abstenciones. Se aplican presupuestos deterministas y cotas de hallazgos/evidencias. La aprobación de 1B acepta ese alcance y los FN P3/P7; no equivale a una evaluación experimental independiente de A.
 
 ### LLM (`backend/app/services/llm/`)
 - **Responsable de:** cliente de Ollama, plantillas de prompt versionadas, parámetros de inferencia (temperatura, semilla), parseo y validación de la salida estructurada.
