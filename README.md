@@ -6,7 +6,7 @@ LLM-powered static analysis and deobfuscation of PowerShell scripts for cybersec
 
 Proyecto final de la asignatura **Ciberinteligencia**.
 
-> **Estado: Fase 0B cerrada formalmente (2026-11-01); Fase 1A sin iniciar.** El repositorio contiene la documentación, el cliente mínimo de Ollama, el dataset controlado, los resultados y las pruebas del piloto ([cierre](docs/phase0b_closure.md)). El sistema de análisis, la API y la interfaz web **todavía no están implementados**. No existen resultados de la evaluación experimental A/B/C.
+> **Estado: Fase 0B cerrada formalmente (2026-11-01); Fase 1A aprobada técnicamente y cerrada por autorización del responsable dentro del subconjunto documentado ([cierre y reproducibilidad](docs/phase1a_closure.md)). Fase 1B sin iniciar.** El repositorio contiene el piloto preservado ([cierre](docs/phase0b_closure.md)) y un [motor Python de desofuscación estática](docs/deobfuscator.md) con límites, trazabilidad y pruebas. Las reglas B01–B07, la API y la interfaz web **todavía no están implementadas**. No existen resultados de la evaluación experimental A/B/C.
 
 ---
 
@@ -117,9 +117,10 @@ Se evaluarán la identificación de comportamientos (precision, recall, F1; eval
 | Documentación inicial | ✅ Creada |
 | Fase 0A: auditoría documental de fuentes y diseño del dataset y del piloto | 📝 Documentación preparada, pendiente de aprobación |
 | Fase 0B: verificación de fuentes en entorno aislado | ↪️ Trasladada: prerrequisito antes de usar muestras externas (decisión D3, [roadmap](docs/roadmap.md)) |
-| Fase 0B: piloto del modelo en Ollama | ✅ Cerrada formalmente (2026-11-01); D2 aprobada con observaciones para las 20 anotaciones y la v0.2 completa. Qwen2.5-Coder 7B no supera el criterio de etiquetas: sigue como candidato provisional no aprobado por el piloto v1; selección definitiva antes de la Fase 2 (DEV-01). Se mantienen DEV-02 y DEC-01. Fase 1A sin iniciar ([resultados](docs/pilot_results.md), [cierre](docs/phase0b_closure.md)) |
+| Fase 0B: piloto del modelo en Ollama | ✅ Cerrada formalmente (2026-11-01); D2 aprobada con observaciones para las 20 anotaciones y la v0.2 completa. Qwen2.5-Coder 7B sigue como candidato provisional no aprobado por el piloto v1; selección definitiva antes de la Fase 2 (DEV-01). Se mantienen DEV-02 y DEC-01 ([resultados](docs/pilot_results.md), [cierre](docs/phase0b_closure.md)) |
+| Fase 1A: desofuscación estática | Aprobada técnicamente y cerrada por autorización expresa del responsable en el [subconjunto documentado](docs/deobfuscator.md); 274 pruebas finales aprobadas. [Acta y limitación residual de reproducibilidad binaria](docs/phase1a_closure.md). Publicación pendiente a cargo del responsable; Fase 1B sin iniciar |
 | Dataset experimental | ⏳ No iniciado (solo plantillas) |
-| Motor de desofuscación | ⏳ No iniciado |
+| Motor de desofuscación | Implementado en el subconjunto de la Fase 1A: Base64, concatenación y variables; `-f` detectado sin resolución. [Contrato y límites](docs/deobfuscator.md) |
 | Motor de reglas | ⏳ No iniciado |
 | Integración LLM | ⏳ No iniciado |
 | Frontend | ⏳ No iniciado |

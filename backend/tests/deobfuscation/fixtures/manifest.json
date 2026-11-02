@@ -1,0 +1,23 @@
+{
+  "purpose": "Own inert fixtures for Phase 1A regression tests only; not research evaluation data.",
+  "source": "Written by the project with AI assistance; never executed as PowerShell.",
+  "fixtures": [
+    {
+      "file": "linear_strings.ps1.txt",
+      "sha256": "7ed96fd59208aa9b110208710399b71319135999aa23dad809101b4ad3229cf8",
+      "size_bytes": 181,
+      "expected_strings": [
+        "training-only",
+        "https://example.com/demo.csv"
+      ]
+    },
+    {
+      "file": "inline_text.ps1.txt",
+      "sha256": "fd762e79bb0592f1339109bd52b94829e53a96326f7b70b6a79e8d48d08c39fb",
+      "size_bytes": 144,
+      "expected_strings": [
+        "lab-only"
+      ]
+    }
+  ]
+}

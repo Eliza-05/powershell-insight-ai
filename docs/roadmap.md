@@ -33,7 +33,7 @@ flowchart LR
 > - **D3 adoptada:** las actividades no completadas se trasladan ([DEV-02](methodology.md#dev-02--traslado-de-actividades-de-la-fase-0b-decisión-d3-2026-11-01); tabla siguiente).
 > - **D2 aprobada con observaciones:** las 20 anotaciones originales y la v0.2 completa, incluidos A-P021–A-P024, sustituciones y relaciones contextuales. Etiquetas y riesgos confirmados; histórico intacto y ausencia de segundo anotador documentada ([pilot_annotation_review.md](pilot_annotation_review.md)).
 >
-> **La Fase 0B está formalmente cerrada (autorización confirmada para el 2026-11-01).** Se conservan DEV-01, DEV-02 y la política estricta como principal (DEC-01). **La Fase 1A permanece sin iniciar por instrucción del responsable.**
+> **La Fase 0B está formalmente cerrada (autorización confirmada para el 2026-11-01).** Se conservan DEV-01, DEV-02 y la política estricta como principal (DEC-01). La Fase 1A se autorizó después en una solicitud separada; su estado actual se registra abajo. El acta histórica de cierre no se modifica.
 
 **Actividades trasladadas (D3).** "Propietario" es el responsable del proyecto, que aprueba cada entregable; la ejecución puede contar con asistencia de IA bajo su supervisión.
 
@@ -60,8 +60,8 @@ flowchart LR
 - **Criterios de aceptación:** pruebas pasan; ningún componente ejecuta código del script; límites de tamaño y profundidad aplicados.
 - **Dependencias:** Fase 0 (taxonomía aprobada y criterios validados con el conjunto de desarrollo).
 - **Subfases (decisiones D1 y D3, 2026-11-01):**
-  - **Fase 1A — Desofuscador estático** ([phase1_deobfuscator_proposal.md](phase1_deobfuscator_proposal.md)) y ejemplos seguros complementarios para sus pruebas. Prerrequisito de cierre 0B cumplido; **sin iniciar por instrucción del responsable**. Se mantiene su alcance sin LLM ([DEV-01](methodology.md#10-desviaciones-y-decisiones-metodológicas-registradas)).
-  - **Fase 1B — Reglas B01–B07, scripts base de desarrollo y prueba agrupados por familias, y generador de variantes.** Depende de la Fase 1A.
+  - **Fase 1A — Desofuscador estático: aprobado técnicamente y cerrado por autorización expresa del responsable dentro del subconjunto documentado.** API Python independiente; cuatro técnicas con recuperación acotada, `OT-FORMAT` detectada sin resolución, trazabilidad por capas, límites, fixtures inertes y 274 pruebas finales aprobadas. [Cierre y situación exacta de reproducibilidad CRLF/LF](phase1a_closure.md); [implementación y criterios](deobfuscator.md); [propuesta histórica](phase1_deobfuscator_proposal.md). Se mantiene el alcance sin LLM (DEV-01), sin modificar los artefactos de la Fase 0B. Publicación pendiente a cargo del responsable.
+  - **Fase 1B — Sin iniciar:** reglas B01–B07, scripts base de desarrollo y prueba agrupados por familias, y generador de variantes. Debe consumir los contratos y la trazabilidad de la Fase 1A; requiere una autorización posterior para su desarrollo.
 
 ## Fase 2 — Integración del LLM
 

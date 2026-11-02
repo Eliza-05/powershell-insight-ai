@@ -1,6 +1,6 @@
-# Arquitectura prevista
+# Arquitectura del proyecto
 
-> Documento de diseño. Ningún componente descrito aquí está implementado todavía.
+> Estado implementado: infraestructura del piloto (Fase 0B) y motor Python de desofuscación estática (Fase 1A, [contrato y límites](deobfuscator.md)). La API, React, las reglas B01–B07 y el pipeline A/B/C siguen siendo diseño previsto.
 
 ## 1. Visión general
 
@@ -51,8 +51,8 @@ flowchart LR
 - **Responsable de:** contratos de datos con Pydantic (solicitud de análisis, artefacto recuperado, hallazgo, evidencia, respuesta del LLM). Estos contratos permiten que el frontend avance en paralelo.
 
 ### Desofuscación (`backend/app/services/deobfuscation/`)
-- **Responsable de:** transformaciones estáticas controladas (p. ej., decodificación Base64, resolución de concatenaciones, normalización de mayúsculas/acentos graves, reordenamiento de formato).
-- **Límites:** nunca invoca PowerShell ni evalúa expresiones arbitrarias; aplica límites de profundidad, tamaño y tiempo. Debe poder usarse sin FastAPI.
+- **Implementado:** API Python `deobfuscate`, lexer y gramática limitada, Base64 de lanzador/inline, concatenación literal y sustitución conservadora de variables. Las capas y transformaciones conservan rangos, dependencias y procedencia. `OT-FORMAT` se detecta sin resolver; no hay normalización global ni reescritura del script.
+- **Límites:** nunca invoca PowerShell, red ni expresiones arbitrarias; aplica cotas de tamaño, profundidad, expansión, número de registros y presupuesto determinista de trabajo. No depende de FastAPI ni del LLM. Un plazo de reloj externo corresponde al futuro servicio, no cambia las decisiones deterministas del motor. Contratos y alcance exacto en [deobfuscator.md](deobfuscator.md).
 
 ### Detección (`backend/app/services/detection/`)
 - **Responsable de:** reglas deterministas que asignan comportamientos funcionales (B01–B07) con evidencia localizada, y registro separado de las técnicas de ofuscación detectadas.

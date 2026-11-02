@@ -1,0 +1,2 @@
+# Inert UTF-8 text conversion; never executed by the project.
+[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('bGFi' + 'LW9ubHk='))

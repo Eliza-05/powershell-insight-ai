@@ -1,0 +1,4 @@
+# Inert fixture for static parsing only; not an evaluation sample.
+$label = 'training-' + 'only'
+$destination = 'https://' + 'example.com/demo.csv'
+Write-Output $label $destination

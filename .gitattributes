@@ -3,3 +3,17 @@
 datasets/safe_samples/**/*.ps1.txt text eol=lf
 datasets/metadata/*.csv text eol=lf
 datasets/metadata/*.json text eol=lf
+backend/tests/deobfuscation/fixtures/*.ps1.txt text eol=lf
+backend/tests/deobfuscation/fixtures/*.json text eol=lf
+
+# Excepciones historicas: los hashes registrados identifican estos bytes CRLF.
+# Git conserva blobs LF; el checkout debe reconstruir el formato original.
+datasets/metadata/pilot_annotations.json text eol=crlf
+datasets/metadata/pilot_annotations_v0.2.json text eol=crlf
+experiments/results/pilot/pilot-v1_20261101T001806Z/*.json text eol=crlf
+experiments/results/pilot/pilot-v1_20261101T001806Z/*.jsonl text eol=crlf
+experiments/results/pilot/derived/pilot-v1_20261101T001806Z_review-v2/*.json text eol=crlf
+# Estos otros artefactos historicos se registraron con LF.
+experiments/results/pilot/pilot-v1_20261101T001806Z/runs_table.csv text eol=lf
+experiments/results/pilot/pilot-v1_20261101T001806Z.SHA256SUMS text eol=lf
+experiments/reviews/pilot-v1_evidence_review_v2.json text eol=lf
