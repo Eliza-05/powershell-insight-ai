@@ -1,0 +1,16 @@
+{
+  "kind": "derived-evaluation",
+  "source_results_dir": "pilot-v1_20261101T001806Z",
+  "source_sha256": {
+    "raw_runs.jsonl": "99ba92d52ffd35089176b1bd12b2e37a1f2826b7a8badf7b85dcd43d3b6018f3",
+    "run_metadata.json": "2113f98fb26be3530cd80c8dde4dc9ad22d5717f13c57c9b6ee4656a9e1c7a32"
+  },
+  "review_file": "experiments/reviews/pilot-v1_evidence_review_v2.json",
+  "review_sha256": "0cd48c6796650a46e066b445466b84fdef49bbbc2485860887874c3c4b0c77e9",
+  "versions": {
+    "evidence_review": "evidence-review-v2",
+    "derived_metrics": "derived-metrics-v2"
+  },
+  "derived_at": "2026-11-02T03:01:57+00:00",
+  "note": "Evaluación derivada. No sustituye a summary.json ni a semantic_review.json del piloto v1, que se conservan sin cambios. Los veredictos de soporte son preliminares (AI-assist) y están pendientes de validación humana."
+}

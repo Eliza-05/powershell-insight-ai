@@ -6,7 +6,7 @@ LLM-powered static analysis and deobfuscation of PowerShell scripts for cybersec
 
 Proyecto final de la asignatura **Ciberinteligencia**.
 
-> **Estado: fase inicial.** El repositorio contiene únicamente la estructura base y la documentación del proyecto. El sistema de análisis, la API, la interfaz web y la integración con el LLM **todavía no están implementados**. No existen resultados experimentales.
+> **Estado: Fase 0B cerrada formalmente (2026-11-01); Fase 1A sin iniciar.** El repositorio contiene la documentación, el cliente mínimo de Ollama, el dataset controlado, los resultados y las pruebas del piloto ([cierre](docs/phase0b_closure.md)). El sistema de análisis, la API y la interfaz web **todavía no están implementados**. No existen resultados de la evaluación experimental A/B/C.
 
 ---
 
@@ -54,7 +54,9 @@ Desarrollar y evaluar un prototipo que combine desofuscación estática, reglas 
 | Pruebas de backend | Pytest |
 | MITRE ATT&CK | STIX 2.1 (opcional) |
 
-Ninguna de estas tecnologías está instalada todavía.
+Por ahora solo se usan Ollama, Pydantic y Pytest, en el piloto de la Fase 0B ([backend/requirements-pilot.txt](backend/requirements-pilot.txt)). El resto no está instalado todavía.
+
+Para preparar el entorno local (`.venv`, Ollama, modelo, pruebas y piloto) en Windows, ver [docs/setup_windows.md](docs/setup_windows.md).
 
 ## 6. Arquitectura general
 
@@ -114,8 +116,8 @@ Se evaluarán la identificación de comportamientos (precision, recall, F1; eval
 | Estructura del repositorio | ✅ Creada |
 | Documentación inicial | ✅ Creada |
 | Fase 0A: auditoría documental de fuentes y diseño del dataset y del piloto | 📝 Documentación preparada, pendiente de aprobación |
-| Fase 0B: verificación de fuentes en entorno aislado | ⏳ Pendiente |
-| Fase 0B: piloto del modelo en Ollama | ⏳ Pendiente |
+| Fase 0B: verificación de fuentes en entorno aislado | ↪️ Trasladada: prerrequisito antes de usar muestras externas (decisión D3, [roadmap](docs/roadmap.md)) |
+| Fase 0B: piloto del modelo en Ollama | ✅ Cerrada formalmente (2026-11-01); D2 aprobada con observaciones para las 20 anotaciones y la v0.2 completa. Qwen2.5-Coder 7B no supera el criterio de etiquetas: sigue como candidato provisional no aprobado por el piloto v1; selección definitiva antes de la Fase 2 (DEV-01). Se mantienen DEV-02 y DEC-01. Fase 1A sin iniciar ([resultados](docs/pilot_results.md), [cierre](docs/phase0b_closure.md)) |
 | Dataset experimental | ⏳ No iniciado (solo plantillas) |
 | Motor de desofuscación | ⏳ No iniciado |
 | Motor de reglas | ⏳ No iniciado |
@@ -130,7 +132,7 @@ Ver [docs/roadmap.md](docs/roadmap.md): validación de datasets y modelo → mot
 ## 11. Precauciones de seguridad
 
 - El sistema realiza **exclusivamente análisis estático**: nunca ejecuta ni evalúa scripts.
-- El repositorio **no contiene malware real**. Las muestras externas se manejan fuera del repositorio, en entornos aislados, y los directorios correspondientes están excluidos por `.gitignore`.
+- El repositorio **no contiene malware real**. Las muestras externas solo podrán manejarse fuera del repositorio, en un entorno aislado, y los directorios correspondientes están excluidos por `.gitignore`. Ese entorno **aún no existe**; mientras tanto, el proyecto solo usa scripts propios y controlados.
 - El contenido de los scripts (comentarios, cadenas) se trata como entrada no confiable, incluida la prevención de *prompt injection* contra el LLM.
 - No se versionan secretos: usar `.env` local a partir de [.env.example](.env.example).
 

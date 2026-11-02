@@ -1,0 +1,4 @@
+$a = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
+$b = 'PilotLabUpdater'
+$d = 'C:\ProgramData\PilotLab\no-existe\updater.exe'
+New-ItemProperty -Path $a -Name $b -Value $d -PropertyType String -Force

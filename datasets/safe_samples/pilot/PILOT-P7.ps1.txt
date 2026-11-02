@@ -1,0 +1,4 @@
+$u = '{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'
+$c = '{1}{0}' -f 'WebRequest', 'Invoke-'
+$destino = Join-Path -Path $env:TEMP -ChildPath ('{0}.{1}' -f 'report', 'csv')
+& $c -Uri $u -OutFile $destino -UseBasicParsing

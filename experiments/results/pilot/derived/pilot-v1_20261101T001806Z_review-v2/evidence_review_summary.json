@@ -1,0 +1,65 @@
+{
+  "review_version": "evidence-review-v2",
+  "human_validation": "pending",
+  "citations": {
+    "denominator": 41,
+    "existence_by_provenance": {
+      "analyzed_input:original": 17,
+      "analyzed_input:obfuscated_variant": 24
+    },
+    "individual_support": {
+      "individual": 9,
+      "insufficient": 32
+    }
+  },
+  "findings": {
+    "denominator": 24,
+    "strict_policy": {
+      "individual": 9,
+      "insufficient": 9,
+      "contextual": 6
+    },
+    "strict_supported": 15,
+    "uncited_context_allowed": {
+      "individual": 9,
+      "insufficient": 6,
+      "contextual": 9
+    },
+    "uncited_context_allowed_supported": 18,
+    "per_behavior_strict": {
+      "B01": {
+        "contextual": 6,
+        "individual": 3,
+        "insufficient": 3
+      },
+      "B02": {
+        "insufficient": 3
+      },
+      "B03": {
+        "insufficient": 3,
+        "individual": 3
+      },
+      "B05": {
+        "individual": 3
+      }
+    }
+  },
+  "text_claims": {
+    "denominator_runs": 24,
+    "runs_by_kind": {
+      "false_operation": 6,
+      "unsupported_assertion": 3,
+      "speculative": 6,
+      "misclassification": 3
+    },
+    "runs_with_any_issue": 15,
+    "runs_with_false_or_unsupported_assertion": 9
+  },
+  "unreported_evidence": [
+    {
+      "case_id": "P5",
+      "behavior_id": "B02",
+      "runs": 3
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+$u = 'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'
+$c = 'Invoke-' + 'Web' + 'Request'
+$destino = Join-Path -Path $env:TEMP -ChildPath ('rep' + 'ort.csv')
+& $c -Uri $u -OutFile $destino -UseBasicParsing

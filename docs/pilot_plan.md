@@ -1,7 +1,7 @@
 # Plan del piloto — Fase 0A
 
 **Proyecto:** PowerShell Insight AI
-**Estado:** diseño. **No se ha instalado ni ejecutado Ollama** y los scripts del piloto aún no están escritos. Se escriben en la Fase 0B, con la [taxonomía v0.2 (B01–B07)](behavior_taxonomy.md) como referencia.
+**Estado:** diseño de la Fase 0A, **ejecutado en la Fase 0B** (casos P1–P8; P10 no incluido). Resultados y decisión pendiente en [pilot_results.md](pilot_results.md). Este plan, sus casos y sus umbrales no se modificaron tras observar los resultados.
 
 ## 1. Objetivo
 
@@ -49,6 +49,7 @@ Casos opcionales si hay tiempo:
   - **No se espera B07**: el script no lee, almacena ni transmite material de credenciales a terceros.
   - `risk_label` esperado: `benign`.
   - Se considera error etiquetar B07, citar `Get-Credential` como evidencia de B06 o B07, o valorar el caso como `suspicious`/`high_risk` solo por usar credenciales.
+  - *Nota de auditoría (2026-11-01; la expectativa original de esta lista no se modificó):* P10 **no se incluyó en el piloto v1** y sigue fuera de él. Si la operación remota es una consulta de servicios (`Get-Service`), la taxonomía v0.2 la clasifica como B05, así que el caso podría justificar **B05 y B06 a la vez**. Antes de escribir P10, el equipo debe decidir entre esperar B05 + B06 o cambiar la operación remota por una que no sea reconocimiento ([pilot_audit.md](pilot_audit.md) §7).
 
 ### 3.1 Caso P7: evaluación separada del desofuscador y del modelo
 

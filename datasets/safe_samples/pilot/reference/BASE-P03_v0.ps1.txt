@@ -1,0 +1,2 @@
+$destino = Join-Path -Path $env:TEMP -ChildPath 'report.csv'
+Invoke-WebRequest -Uri 'https://example.com/report.csv' -OutFile $destino -UseBasicParsing

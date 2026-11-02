@@ -1,0 +1,5 @@
+# Inventario rapido: los cinco procesos con mayor tiempo de CPU acumulado.
+Get-Process |
+    Sort-Object -Property CPU -Descending |
+    Select-Object -First 5 -Property Name, Id, CPU |
+    Format-Table -AutoSize

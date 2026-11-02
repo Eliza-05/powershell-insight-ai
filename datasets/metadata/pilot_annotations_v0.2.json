@@ -1,0 +1,1179 @@
+{
+  "schema_version": "0.2",
+  "taxonomy_version": "0.2",
+  "status": "derived_human_review_approved",
+  "description": "Version derivada de las anotaciones del piloto. Corrige metadatos de procedencia, anade la evidencia de origen remoto de P3/P7 y documenta las dependencias contextuales. NO cambia ninguna etiqueta funcional. El piloto v1 se evaluo con la v0.1, que se conserva sin cambios; esta version no altera sus metricas.",
+  "base_file": "datasets/metadata/pilot_annotations.json",
+  "base_schema_version": "0.1",
+  "base_sha256": "f27e3b8cd70a8dd0522a7eeee760651a6eaf1cd0eb5d00fcad0c0bc5f7b245c5",
+  "supersedes_proposal": {
+    "file": "datasets/metadata/pilot_annotations_v0.2_change_proposal.json",
+    "note": "Primera propuesta (C1/C2 marcaban 'rejected'). Revisada a peticion del responsable: la evidencia de A-P006/A-P018 es valida y se conserva mediante sustitucion con procedencia correcta. La propuesta se mantiene sin cambios como registro historico."
+  },
+  "applies_to_pilot_v1_metrics": false,
+  "human_review": {
+    "status": "approved_with_observations",
+    "reviewer": "Responsable del proyecto",
+    "reviewer_name": null,
+    "identity_basis": "Rol del usuario que autorizo expresamente D2 en esta conversacion; no se ha proporcionado un nombre personal ni una firma.",
+    "date": "2026-11-01",
+    "date_basis": "Fecha de autorizacion confirmada por el responsable; no atribuye una fecha anterior a la revision tecnica.",
+    "decision_id": "D2",
+    "approval_source": "Autorizacion expresa del responsable en esta conversacion y confirmacion de la fecha 2026-11-01.",
+    "record": "docs/pilot_annotation_review.md",
+    "annotation_ids": [
+      "A-P001",
+      "A-P002",
+      "A-P003",
+      "A-P004",
+      "A-P005",
+      "A-P006",
+      "A-P007",
+      "A-P008",
+      "A-P009",
+      "A-P010",
+      "A-P011",
+      "A-P012",
+      "A-P013",
+      "A-P014",
+      "A-P015",
+      "A-P016",
+      "A-P017",
+      "A-P018",
+      "A-P019",
+      "A-P020",
+      "A-P021",
+      "A-P022",
+      "A-P023",
+      "A-P024"
+    ],
+    "decisions": [
+      "Aprobadas las 20 anotaciones originales con las observaciones y correcciones de procedencia documentadas.",
+      "Aprobada la v0.2, incluidas A-P021 a A-P024, las sustituciones, las dependencias contextuales y las relaciones de comparacion sin pertenencia.",
+      "Confirmadas la taxonomia B01-B07 y las etiquetas funcionales y riesgos de escenario establecidos para P1-P8.",
+      "Adoptada la politica estricta como evaluacion principal; permisiva como secundaria (DEC-01).",
+      "El piloto v1 conserva sus resultados historicos; la v0.2 no modifica sus metricas.",
+      "No hubo segundo anotador independiente; no se calcula acuerdo entre anotadores y se conserva esta limitacion.",
+      "Qwen2.5-Coder 7B sigue como candidato provisional no aprobado por el piloto v1; seleccion definitiva obligatoria antes de la Fase 2 y de A/B/C definitivo (DEV-01)."
+    ],
+    "superseded_records": "A-P006 y A-P018 conservan su estado y metadatos historicos; se aprueba su sustitucion, no su procedencia antigua.",
+    "scope": "Cierre D2 del ground truth y del checklist. No equivale a una segunda anotacion independiente ni a validar cada cita de la revision separada evidence-review-v2. No inicia la Fase 1A."
+  },
+  "field_definitions": {
+    "annotation_id": "Identificador unico de la anotacion (p. ej., A-0001).",
+    "sample_id": "sample_id del manifiesto al que pertenece la evidencia.",
+    "behavior_id": "Comportamiento de la taxonomia v0.2.",
+    "evidence_source": "Procedencia real del fragmento (vocabulario v0.2, ver allowed_values).",
+    "evidence_text": "Fragmento literal, copiado sin modificar.",
+    "start_line": "Primera linea del fragmento (base 1), referida al archivo indicado por evidence_source.",
+    "end_line": "Ultima linea del fragmento (base 1); igual a start_line si ocupa una sola linea.",
+    "transformation_id": "Transformacion controlada que produjo el texto (p. ej., REF-DECODE-P2). null si no hubo transformacion.",
+    "verification_status": "Estado de verificacion de la evidencia.",
+    "annotator": "Iniciales de quien registro la anotacion.",
+    "notes": "Notas libres, p. ej., subtipo de B07 o motivo de rechazo.",
+    "file_ref": "Archivo del repositorio al que se refieren start_line y end_line.",
+    "reference_id": "Identificador del original de referencia escrito a mano, solo para evidence_source 'reference_manual'.",
+    "record_status": "'active' o 'superseded'. Un registro sustituido se conserva y apunta a su reemplazo.",
+    "support_alone": "'individual' si el fragmento basta por si solo; 'requires_context' si necesita otras evidencias o contexto de su misma linea. Independiente de la procedencia y de las categorias descriptivas del checklist.",
+    "context": "Pertenencia a grupos de evidencia, relaciones de comparacion separadas, rol, dependencias y contexto de la misma linea.",
+    "human_review": "Estado de revision autorizado expresamente por el responsable. El objeto global registra rol, fuente, fecha de autorizacion y alcance; en registros superseded la aprobacion corresponde a su sustitucion."
+  },
+  "allowed_values": {
+    "behavior_id": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07"
+    ],
+    "evidence_source": [
+      "original",
+      "obfuscated_variant",
+      "reference_manual",
+      "reference_decoded",
+      "deobfuscator_recovered",
+      "model_recovered"
+    ],
+    "verification_status": [
+      "pending",
+      "verified_literal",
+      "verified_review",
+      "rejected"
+    ],
+    "record_status": [
+      "active",
+      "superseded"
+    ],
+    "support_alone": [
+      "individual",
+      "requires_context"
+    ],
+    "context_role": [
+      "evidence",
+      "reference_comparison",
+      "superseded"
+    ],
+    "human_review": [
+      "pending",
+      "approved_with_observations"
+    ]
+  },
+  "provenance_rules": [
+    "original: texto de un script original efectivamente enviado al modelo; excluye originales manuales de referencia. obfuscated_variant: texto de una variante ofuscada enviada al modelo.",
+    "reference_manual: original escrito a mano por el equipo en reference/; no se envia al modelo.",
+    "reference_decoded: texto decodificado por el equipo con una transformacion controlada (reference_recovery.py).",
+    "deobfuscator_recovered: reservado para artefactos del desofuscador (Fase 1A). No se usa en el piloto.",
+    "model_recovered: reservado para texto que un modelo dice haber recuperado. No es ground truth.",
+    "Solo 'deobfuscator_recovered' cuenta como salida del motor; reference_manual y reference_decoded nunca.",
+    "Las referencias manuales no son evidencia aportada por el modelo. Solo pueden ser miembros de grupos de su propia muestra PILOT-REF-*; su relacion con grupos de casos analizados es exclusivamente de comparacion y no justifica hallazgos de esos casos. Ningun grupo de anotaciones implica por si mismo que el modelo haya citado sus miembros."
+  ],
+  "transformations": {
+    "REF-DECODE-P2": "Decodificacion Base64 UTF-16LE del argumento -EncodedCommand de PILOT-P2 (reference_recovery.py).",
+    "REF-DECODE-P6": "Decodificacion Base64 UTF-16LE del argumento -EncodedCommand de PILOT-P6 (reference_recovery.py).",
+    "REF-BASE-P03-v0": "Original de referencia escrito a mano antes de construir P3 y P7."
+  },
+  "evidence_groups": [
+    {
+      "group_id": "G-P1-B05",
+      "sample_id": "PILOT-P1",
+      "behavior_id": "B05",
+      "members": [
+        "A-P001"
+      ],
+      "sufficiency": "sufficient",
+      "note": "Consulta de procesos del host y salida en pantalla."
+    },
+    {
+      "group_id": "G-P2-B05",
+      "sample_id": "PILOT-P2",
+      "behavior_id": "B05",
+      "members": [
+        "A-P002"
+      ],
+      "sufficiency": "sufficient",
+      "note": "Igual que P1, sobre la decodificacion controlada del equipo."
+    },
+    {
+      "group_id": "G-REFB03-B01",
+      "sample_id": "PILOT-REF-B03",
+      "behavior_id": "B01",
+      "members": [
+        "A-P003"
+      ],
+      "sufficiency": "sufficient",
+      "note": "Cmdlet de descarga con URL remota literal en el mismo fragmento."
+    },
+    {
+      "group_id": "G-P3-B01",
+      "sample_id": "PILOT-P3",
+      "behavior_id": "B01",
+      "members": [
+        "A-P021",
+        "A-P004",
+        "A-P005"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "URL remota (linea 1) + nombre del cmdlet construido (linea 2) + invocacion que usa ambos (linea 4). Ninguna basta sola."
+    },
+    {
+      "group_id": "G-REFB04-B03",
+      "sample_id": "PILOT-REF-B04",
+      "behavior_id": "B03",
+      "members": [
+        "A-P007"
+      ],
+      "sufficiency": "sufficient",
+      "note": "New-ItemProperty solo es persistencia porque la misma linea apunta a la clave Run (contexto de la misma linea)."
+    },
+    {
+      "group_id": "G-P4-B03",
+      "sample_id": "PILOT-P4",
+      "behavior_id": "B03",
+      "members": [
+        "A-P009",
+        "A-P008"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "Clave Run en $a (linea 1) + escritura en $a (linea 4)."
+    },
+    {
+      "group_id": "G-P5-B01",
+      "sample_id": "PILOT-P5",
+      "behavior_id": "B01",
+      "members": [
+        "A-P011",
+        "A-P010"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "Net.WebClient + DownloadString sobre la URL remota literal de la misma linea."
+    },
+    {
+      "group_id": "G-P5-B02",
+      "sample_id": "PILOT-P5",
+      "behavior_id": "B02",
+      "members": [
+        "A-P012",
+        "A-P010"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "IEX ejecuta el resultado de DownloadString: codigo obtenido en tiempo de ejecucion."
+    },
+    {
+      "group_id": "G-P6-B01",
+      "sample_id": "PILOT-P6",
+      "behavior_id": "B01",
+      "members": [
+        "A-P014",
+        "A-P013"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "Igual que G-P5-B01, sobre la decodificacion controlada (URL concatenada en la misma linea)."
+    },
+    {
+      "group_id": "G-P6-B02",
+      "sample_id": "PILOT-P6",
+      "behavior_id": "B02",
+      "members": [
+        "A-P015",
+        "A-P013"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "Igual que G-P5-B02. B02 se atribuye al IEX del contenido original, no al lanzador -EncodedCommand."
+    },
+    {
+      "group_id": "G-P7-B01",
+      "sample_id": "PILOT-P7",
+      "behavior_id": "B01",
+      "members": [
+        "A-P022",
+        "A-P016",
+        "A-P017"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "URL remota construida con -f (linea 1) + nombre del cmdlet con -f (linea 2) + invocacion (linea 4)."
+    },
+    {
+      "group_id": "G-P8-B03",
+      "sample_id": "PILOT-P8",
+      "behavior_id": "B03",
+      "members": [
+        "A-P019",
+        "A-P020"
+      ],
+      "sufficiency": "sufficient_together",
+      "note": "New-ItemProperty sobre la clave Run literal de la misma linea."
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "C-A-P002",
+      "operation": "relabel",
+      "annotation_id": "A-P002",
+      "field": "evidence_source",
+      "from": "recovered",
+      "to": "reference_decoded",
+      "reason": "Procedencia: decodificacion controlada preparada por el equipo (REF-DECODE-P2), no contenido recuperado por el motor. La evidencia y su ubicacion no cambian."
+    },
+    {
+      "change_id": "C1",
+      "operation": "supersede",
+      "annotation_id": "A-P006",
+      "replacement": "A-P023",
+      "reason": "Procedencia mal registrada (evidence_source 'recovered' con transformation_id REF-BASE-P03-v0, que es el original escrito a mano). La evidencia NO es falsa: se conserva integra en A-P023 con evidence_source 'reference_manual'."
+    },
+    {
+      "change_id": "C-A-P013",
+      "operation": "relabel",
+      "annotation_id": "A-P013",
+      "field": "evidence_source",
+      "from": "recovered",
+      "to": "reference_decoded",
+      "reason": "Procedencia: decodificacion controlada preparada por el equipo (REF-DECODE-P6), no contenido recuperado por el motor. La evidencia y su ubicacion no cambian."
+    },
+    {
+      "change_id": "C-A-P014",
+      "operation": "relabel",
+      "annotation_id": "A-P014",
+      "field": "evidence_source",
+      "from": "recovered",
+      "to": "reference_decoded",
+      "reason": "Procedencia: decodificacion controlada preparada por el equipo (REF-DECODE-P6), no contenido recuperado por el motor. La evidencia y su ubicacion no cambian."
+    },
+    {
+      "change_id": "C-A-P015",
+      "operation": "relabel",
+      "annotation_id": "A-P015",
+      "field": "evidence_source",
+      "from": "recovered",
+      "to": "reference_decoded",
+      "reason": "Procedencia: decodificacion controlada preparada por el equipo (REF-DECODE-P6), no contenido recuperado por el motor. La evidencia y su ubicacion no cambian."
+    },
+    {
+      "change_id": "C2",
+      "operation": "supersede",
+      "annotation_id": "A-P018",
+      "replacement": "A-P024",
+      "reason": "Procedencia mal registrada (evidence_source 'recovered' con transformation_id REF-BASE-P03-v0, que es el original escrito a mano). La evidencia NO es falsa: se conserva integra en A-P024 con evidence_source 'reference_manual'."
+    },
+    {
+      "change_id": "C3",
+      "operation": "add",
+      "annotation_id": "A-P021",
+      "reason": "Taxonomia B01: la descarga debe tener un origen remoto; v0.1 no anotaba la URL."
+    },
+    {
+      "change_id": "C4",
+      "operation": "add",
+      "annotation_id": "A-P022",
+      "reason": "Taxonomia B01: la descarga debe tener un origen remoto; v0.1 no anotaba la URL."
+    },
+    {
+      "change_id": "C-A-P003",
+      "operation": "relabel",
+      "annotation_id": "A-P003",
+      "field": "evidence_source",
+      "from": "original",
+      "to": "reference_manual",
+      "reference_id": {
+        "from": null,
+        "to": "REF-BASE-P03-v0"
+      },
+      "reason": "Original de referencia creado manualmente por el equipo, no enviado al modelo. Se conservan identidad, evidencia, archivo, lineas, comportamiento y soporte; se explicita reference_id."
+    },
+    {
+      "change_id": "C-A-P007",
+      "operation": "relabel",
+      "annotation_id": "A-P007",
+      "field": "evidence_source",
+      "from": "original",
+      "to": "reference_manual",
+      "reference_id": {
+        "from": null,
+        "to": "REF-BASE-P04-v0"
+      },
+      "reason": "Original de referencia creado manualmente por el equipo, no enviado al modelo. Se conservan identidad, evidencia, archivo, lineas, comportamiento y soporte; se explicita reference_id."
+    },
+    {
+      "change_id": "C-CONTEXT-A-P023",
+      "operation": "move_context_link",
+      "annotation_id": "A-P023",
+      "from_field": "context.evidence_groups",
+      "to_field": "context.comparison_groups",
+      "groups": [
+        "G-P3-B01"
+      ],
+      "reason": "Relacion de comparacion intencional, no pertenencia. Conserva members y sufficiency de todos los grupos y la evaluacion historica; no cuenta como evidencia del modelo ni soporte necesario del caso."
+    },
+    {
+      "change_id": "C-CONTEXT-A-P024",
+      "operation": "move_context_link",
+      "annotation_id": "A-P024",
+      "from_field": "context.evidence_groups",
+      "to_field": "context.comparison_groups",
+      "groups": [
+        "G-P7-B01"
+      ],
+      "reason": "Relacion de comparacion intencional, no pertenencia. Conserva members y sufficiency de todos los grupos y la evaluacion historica; no cuenta como evidencia del modelo ni soporte necesario del caso."
+    },
+    {
+      "change_id": "D2",
+      "operation": "human_review",
+      "date": "2026-11-01",
+      "review_ref": "human_review",
+      "annotation_ids": [
+        "A-P001",
+        "A-P002",
+        "A-P003",
+        "A-P004",
+        "A-P005",
+        "A-P006",
+        "A-P007",
+        "A-P008",
+        "A-P009",
+        "A-P010",
+        "A-P011",
+        "A-P012",
+        "A-P013",
+        "A-P014",
+        "A-P015",
+        "A-P016",
+        "A-P017",
+        "A-P018",
+        "A-P019",
+        "A-P020",
+        "A-P021",
+        "A-P022",
+        "A-P023",
+        "A-P024"
+      ],
+      "document_status": {
+        "from": "derived_human_review_pending",
+        "to": "derived_human_review_approved"
+      },
+      "human_review_status": {
+        "from": "pending",
+        "to": "approved_with_observations"
+      },
+      "verification_update": {
+        "annotation_ids": [
+          "A-P001",
+          "A-P002",
+          "A-P003",
+          "A-P004",
+          "A-P005",
+          "A-P007",
+          "A-P008",
+          "A-P009",
+          "A-P010",
+          "A-P011",
+          "A-P012",
+          "A-P013",
+          "A-P014",
+          "A-P015",
+          "A-P016",
+          "A-P017",
+          "A-P019",
+          "A-P020",
+          "A-P021",
+          "A-P022",
+          "A-P023",
+          "A-P024"
+        ],
+        "field": "verification_status",
+        "from": "verified_literal",
+        "to": "verified_review"
+      },
+      "reason": "Aprobacion expresa del responsable con las observaciones del checklist. Los 22 registros activos pasan a revision verificada. Los 2 sustituidos conservan su estado historico. Sin cambios de evidencia, procedencia, soporte, grupos, etiquetas, riesgos ni metricas del piloto v1."
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "A-P001",
+      "sample_id": "PILOT-P1",
+      "behavior_id": "B05",
+      "evidence_source": "original",
+      "evidence_text": "Get-Process",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P1.ps1.txt",
+      "record_status": "active",
+      "support_alone": "individual",
+      "context": {
+        "evidence_groups": [
+          "G-P1-B05"
+        ],
+        "role": "evidence",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P002",
+      "sample_id": "PILOT-P2",
+      "behavior_id": "B05",
+      "evidence_source": "reference_decoded",
+      "evidence_text": "Get-Process",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": "REF-DECODE-P2",
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Referencia preparada con decodificacion Base64 controlada; no es salida del desofuscador.",
+      "file_ref": "datasets/safe_samples/pilot/reference/PILOT-P2_decoded.ps1.txt",
+      "record_status": "active",
+      "support_alone": "individual",
+      "context": {
+        "evidence_groups": [
+          "G-P2-B05"
+        ],
+        "role": "evidence",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "changed_in": "0.2",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P003",
+      "sample_id": "PILOT-REF-B03",
+      "behavior_id": "B01",
+      "evidence_source": "reference_manual",
+      "evidence_text": "Invoke-WebRequest -Uri 'https://example.com/report.csv'",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": null,
+      "reference_id": "REF-BASE-P03-v0",
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt",
+      "record_status": "active",
+      "support_alone": "individual",
+      "context": {
+        "evidence_groups": [
+          "G-REFB03-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations",
+      "changed_in": "0.2"
+    },
+    {
+      "annotation_id": "A-P004",
+      "sample_id": "PILOT-P3",
+      "behavior_id": "B01",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "'Invoke-' + 'Web' + 'Request'",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Nombre del cmdlet de descarga.",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P3.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P3-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P005",
+          "A-P021"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P005",
+      "sample_id": "PILOT-P3",
+      "behavior_id": "B01",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "& $c -Uri $u",
+      "start_line": 4,
+      "end_line": 4,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Llamada de descarga (el & es operacion anadida).",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P3.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P3-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P004",
+          "A-P021"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P006",
+      "sample_id": "PILOT-P3",
+      "behavior_id": "B01",
+      "evidence_source": "recovered",
+      "evidence_text": "Invoke-WebRequest",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": "REF-BASE-P03-v0",
+      "reference_id": null,
+      "verification_status": "verified_literal",
+      "annotator": "AI-assist",
+      "notes": "Original de referencia.",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt",
+      "record_status": "superseded",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [],
+        "role": "superseded",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "superseded_by": "A-P023",
+      "supersession_reason": "Procedencia mal registrada (evidence_source 'recovered' con transformation_id REF-BASE-P03-v0, que es el original escrito a mano). La evidencia NO es falsa: se conserva integra en A-P023 con evidence_source 'reference_manual'.",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P007",
+      "sample_id": "PILOT-REF-B04",
+      "behavior_id": "B03",
+      "evidence_source": "reference_manual",
+      "evidence_text": "New-ItemProperty",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": "REF-BASE-P04-v0",
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P04_v0.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-REFB04-B03"
+        ],
+        "role": "evidence",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "human_review": "approved_with_observations",
+      "changed_in": "0.2"
+    },
+    {
+      "annotation_id": "A-P008",
+      "sample_id": "PILOT-P4",
+      "behavior_id": "B03",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "New-ItemProperty",
+      "start_line": 4,
+      "end_line": 4,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P4.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P4-B03"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P009"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P009",
+      "sample_id": "PILOT-P4",
+      "behavior_id": "B03",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "CurrentVersion\\Run",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Clave Run en $a.",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P4.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P4-B03"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P008"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P010",
+      "sample_id": "PILOT-P5",
+      "behavior_id": "B01",
+      "evidence_source": "original",
+      "evidence_text": "DownloadString",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P5.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P5-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P011"
+        ],
+        "also_supports_groups": [
+          "G-P5-B02"
+        ],
+        "same_line_context": true
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P011",
+      "sample_id": "PILOT-P5",
+      "behavior_id": "B01",
+      "evidence_source": "original",
+      "evidence_text": "Net.WebClient",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P5.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P5-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P010"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P012",
+      "sample_id": "PILOT-P5",
+      "behavior_id": "B02",
+      "evidence_source": "original",
+      "evidence_text": "IEX",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Ejecuta el texto descargado.",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P5.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P5-B02"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P010"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P013",
+      "sample_id": "PILOT-P6",
+      "behavior_id": "B01",
+      "evidence_source": "reference_decoded",
+      "evidence_text": "DownloadString",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": "REF-DECODE-P6",
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Referencia preparada con decodificacion Base64 controlada; no es salida del desofuscador.",
+      "file_ref": "datasets/safe_samples/pilot/reference/PILOT-P6_decoded.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P6-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P014"
+        ],
+        "also_supports_groups": [
+          "G-P6-B02"
+        ],
+        "same_line_context": true
+      },
+      "changed_in": "0.2",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P014",
+      "sample_id": "PILOT-P6",
+      "behavior_id": "B01",
+      "evidence_source": "reference_decoded",
+      "evidence_text": "WebClient",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": "REF-DECODE-P6",
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/reference/PILOT-P6_decoded.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P6-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P013"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "changed_in": "0.2",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P015",
+      "sample_id": "PILOT-P6",
+      "behavior_id": "B02",
+      "evidence_source": "reference_decoded",
+      "evidence_text": "IEX",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": "REF-DECODE-P6",
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/reference/PILOT-P6_decoded.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P6-B02"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P013"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "changed_in": "0.2",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P016",
+      "sample_id": "PILOT-P7",
+      "behavior_id": "B01",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "'WebRequest', 'Invoke-'",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Piezas del nombre del cmdlet.",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P7.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P7-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P017",
+          "A-P022"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P017",
+      "sample_id": "PILOT-P7",
+      "behavior_id": "B01",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "& $c -Uri $u",
+      "start_line": 4,
+      "end_line": 4,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P7.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P7-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P016",
+          "A-P022"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P018",
+      "sample_id": "PILOT-P7",
+      "behavior_id": "B01",
+      "evidence_source": "recovered",
+      "evidence_text": "Invoke-WebRequest",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": "REF-BASE-P03-v0",
+      "reference_id": null,
+      "verification_status": "verified_literal",
+      "annotator": "AI-assist",
+      "notes": "Original de referencia.",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt",
+      "record_status": "superseded",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [],
+        "role": "superseded",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "superseded_by": "A-P024",
+      "supersession_reason": "Procedencia mal registrada (evidence_source 'recovered' con transformation_id REF-BASE-P03-v0, que es el original escrito a mano). La evidencia NO es falsa: se conserva integra en A-P024 con evidence_source 'reference_manual'.",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P019",
+      "sample_id": "PILOT-P8",
+      "behavior_id": "B03",
+      "evidence_source": "original",
+      "evidence_text": "New-ItemProperty",
+      "start_line": 4,
+      "end_line": 4,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P8.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P8-B03"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P020"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P020",
+      "sample_id": "PILOT-P8",
+      "behavior_id": "B03",
+      "evidence_source": "original",
+      "evidence_text": "CurrentVersion\\Run",
+      "start_line": 4,
+      "end_line": 4,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P8.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P8-B03"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P019"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": true
+      },
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P021",
+      "sample_id": "PILOT-P3",
+      "behavior_id": "B01",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Origen remoto de la descarga, construido por concatenacion. Una URL aislada no demuestra una descarga: se interpreta junto con A-P004 (cmdlet) y A-P005 (invocacion).",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P3.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P3-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P004",
+          "A-P005"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "added_in": "0.2",
+      "change_ref": "C3",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P022",
+      "sample_id": "PILOT-P7",
+      "behavior_id": "B01",
+      "evidence_source": "obfuscated_variant",
+      "evidence_text": "'{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'",
+      "start_line": 1,
+      "end_line": 1,
+      "transformation_id": null,
+      "reference_id": null,
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Origen remoto de la descarga, construido con -f. Una URL aislada no demuestra una descarga: se interpreta junto con A-P016 (cmdlet) y A-P017 (invocacion).",
+      "file_ref": "datasets/safe_samples/pilot/PILOT-P7.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [
+          "G-P7-B01"
+        ],
+        "role": "evidence",
+        "depends_on": [
+          "A-P016",
+          "A-P017"
+        ],
+        "also_supports_groups": [],
+        "same_line_context": false
+      },
+      "added_in": "0.2",
+      "change_ref": "C4",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P023",
+      "sample_id": "PILOT-P3",
+      "behavior_id": "B01",
+      "evidence_source": "reference_manual",
+      "evidence_text": "Invoke-WebRequest",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": null,
+      "reference_id": "REF-BASE-P03-v0",
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Nombre del cmdlet en el original de referencia escrito a mano (no enviado al modelo). Sirve de comparacion para el caso; no es salida del desofuscador ni del modelo.",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [],
+        "role": "reference_comparison",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": true,
+        "comparison_groups": [
+          "G-P3-B01"
+        ]
+      },
+      "supersedes": "A-P006",
+      "added_in": "0.2",
+      "change_ref": "C1",
+      "human_review": "approved_with_observations"
+    },
+    {
+      "annotation_id": "A-P024",
+      "sample_id": "PILOT-P7",
+      "behavior_id": "B01",
+      "evidence_source": "reference_manual",
+      "evidence_text": "Invoke-WebRequest",
+      "start_line": 2,
+      "end_line": 2,
+      "transformation_id": null,
+      "reference_id": "REF-BASE-P03-v0",
+      "verification_status": "verified_review",
+      "annotator": "AI-assist",
+      "notes": "Nombre del cmdlet en el original de referencia escrito a mano (no enviado al modelo). Sirve de comparacion para el caso; no es salida del desofuscador ni del modelo.",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt",
+      "record_status": "active",
+      "support_alone": "requires_context",
+      "context": {
+        "evidence_groups": [],
+        "role": "reference_comparison",
+        "depends_on": [],
+        "also_supports_groups": [],
+        "same_line_context": true,
+        "comparison_groups": [
+          "G-P7-B01"
+        ]
+      },
+      "supersedes": "A-P018",
+      "added_in": "0.2",
+      "change_ref": "C2",
+      "human_review": "approved_with_observations"
+    }
+  ],
+  "context_field_definitions": {
+    "evidence_groups": "Pertenencia a grupos del mismo comportamiento: debe ser reciproca con evidence_groups[].members.",
+    "also_supports_groups": "Pertenencia adicional a grupos de otro comportamiento del mismo caso: tambien debe ser reciproca con members.",
+    "comparison_groups": "Opcional (ausente equivale a []): relacion de comparacion con grupos del mismo caso y comportamiento, sin pertenencia ni contribucion a su suficiencia.",
+    "role": "evidence: soporte del grupo propio (incluidos grupos de muestras PILOT-REF-*); reference_comparison: referencia del equipo para comparar con un caso, sin membresia ni dependencias justificativas; superseded: registro historico sustituido.",
+    "depends_on": "Anotaciones activas de soporte del mismo caso; nunca referencias con rol reference_comparison.",
+    "same_line_context": "Indica si la interpretacion requiere contexto adicional de la misma linea."
+  },
+  "references": {
+    "REF-BASE-P03-v0": {
+      "sample_id": "PILOT-REF-B03",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt"
+    },
+    "REF-BASE-P04-v0": {
+      "sample_id": "PILOT-REF-B04",
+      "file_ref": "datasets/safe_samples/pilot/reference/BASE-P04_v0.ps1.txt"
+    }
+  }
+}

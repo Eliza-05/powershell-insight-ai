@@ -1,0 +1,103 @@
+{
+  "config_id": "pilot-v1",
+  "config": {
+    "config_id": "pilot-v1",
+    "phase": "0B",
+    "description": "Piloto de viabilidad del modelo local (docs/pilot_plan.md). Configuracion B unicamente: el modelo recibe el script tal cual, sin desofuscacion previa. No evalua A/B/C.",
+    "host": "http://127.0.0.1:11434",
+    "model": "qwen2.5-coder:7b",
+    "prompt_path": "experiments/prompts/pilot_analysis_v1.md",
+    "manifest_path": "datasets/metadata/pilot_manifest.csv",
+    "annotations_path": "datasets/metadata/pilot_annotations.json",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 2048
+    },
+    "keep_alive": "15m",
+    "repetitions": 3,
+    "cases": [
+      {
+        "case_id": "P1",
+        "sample_id": "PILOT-P1",
+        "references": []
+      },
+      {
+        "case_id": "P2",
+        "sample_id": "PILOT-P2",
+        "references": [
+          "datasets/safe_samples/pilot/reference/PILOT-P2_decoded.ps1.txt"
+        ]
+      },
+      {
+        "case_id": "P3",
+        "sample_id": "PILOT-P3",
+        "references": [
+          "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt"
+        ]
+      },
+      {
+        "case_id": "P4",
+        "sample_id": "PILOT-P4",
+        "references": [
+          "datasets/safe_samples/pilot/reference/BASE-P04_v0.ps1.txt"
+        ]
+      },
+      {
+        "case_id": "P5",
+        "sample_id": "PILOT-P5",
+        "references": []
+      },
+      {
+        "case_id": "P6",
+        "sample_id": "PILOT-P6",
+        "references": [
+          "datasets/safe_samples/pilot/reference/PILOT-P6_decoded.ps1.txt",
+          "datasets/safe_samples/pilot/PILOT-P5.ps1.txt"
+        ]
+      },
+      {
+        "case_id": "P7",
+        "sample_id": "PILOT-P7",
+        "references": [
+          "datasets/safe_samples/pilot/reference/BASE-P03_v0.ps1.txt"
+        ]
+      },
+      {
+        "case_id": "P8",
+        "sample_id": "PILOT-P8",
+        "references": []
+      }
+    ],
+    "notes": [
+      "num_ctx 8192 cubre el prompt de sistema (~1.5k tokens), el script mas largo del piloto y la salida; prompt_eval_count se registra por ejecucion.",
+      "num_predict 2048 limita salidas desbocadas; una salida truncada (done_reason=length) cuenta como error.",
+      "Con temperatura 0 y semilla fija las repeticiones deberian ser casi deterministas: la estabilidad mide determinismo, no variabilidad de muestreo.",
+      "references: textos de referencia preparados por transformacion textual controlada (no por el desofuscador de la Fase 1). Solo se usan para la comprobacion literal de evidencias."
+    ]
+  },
+  "config_path": "experiments/configurations/pilot_v1.json",
+  "prompt_id": "pilot-analysis-v1",
+  "prompt_sha256": "6b04c06737400362087bd09ee50460ed573d44e1f5cd3fa1f602ddbf7e1696a1",
+  "schema_version": "pilot-schema-v1",
+  "taxonomy_version": "0.2",
+  "environment": {
+    "ollama_version": "0.40.13",
+    "model": "qwen2.5-coder:7b",
+    "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "model_size_bytes": 4683087561,
+    "model_family": "qwen2",
+    "parameter_size": "7.6B",
+    "quantization_level": "Q4_K_M",
+    "model_format": "gguf",
+    "python": "3.13.3",
+    "platform": "Windows-11",
+    "packages": {
+      "ollama": "0.6.3",
+      "pydantic": "2.14.2",
+      "pytest": "9.2.0"
+    }
+  },
+  "started_at": "20261101T001806Z"
+}

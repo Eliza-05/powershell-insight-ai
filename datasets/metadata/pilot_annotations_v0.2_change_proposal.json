@@ -1,0 +1,82 @@
+{
+  "proposal_id": "pilot-annotations-v0.2-proposal",
+  "status": "proposed_not_applied",
+  "owner_decision": null,
+  "created": "2026-11-01",
+  "prepared_by": "AI-assist",
+  "base_file": "datasets/metadata/pilot_annotations.json",
+  "base_sha256": "f27e3b8cd70a8dd0522a7eeee760651a6eaf1cd0eb5d00fcad0c0bc5f7b245c5",
+  "description": "Cambios propuestos sobre las anotaciones del piloto (revision docs/pilot_annotation_review.md). NO estan aplicados. El archivo base (v0.1) es la referencia con la que se evaluo el piloto v1 y no se modifica. Si el responsable aprueba algun cambio, se generara un archivo nuevo (p. ej., pilot_annotations_v0.2.json) y el piloto v1 seguira evaluado con el v0.1.",
+  "changes": [
+    {
+      "change_id": "C1",
+      "finding": "H1",
+      "operation": "modify",
+      "annotation_id": "A-P006",
+      "fields": {
+        "verification_status": {"from": "verified_literal", "to": "rejected"},
+        "notes": {"from": "Original de referencia.", "to": "Rechazada en v0.2: evidence_source 'recovered' no corresponde; el archivo es el original escrito a mano (REF-BASE-P03-v0). La evidencia del original queda en A-P003."}
+      },
+      "rationale": "field_definitions.evidence_source define 'recovered' como contenido recuperado por el desofuscador; REF-BASE-P03-v0 es el original manual. 'rejected' ya es un valor permitido, asi que no cambia el esquema.",
+      "affects_v1_metrics": false
+    },
+    {
+      "change_id": "C2",
+      "finding": "H1",
+      "operation": "modify",
+      "annotation_id": "A-P018",
+      "fields": {
+        "verification_status": {"from": "verified_literal", "to": "rejected"},
+        "notes": {"from": "Original de referencia.", "to": "Rechazada en v0.2: misma razon que A-P006."}
+      },
+      "rationale": "Igual que C1.",
+      "affects_v1_metrics": false
+    },
+    {
+      "change_id": "C3",
+      "finding": "H3",
+      "operation": "add",
+      "annotation": {
+        "annotation_id": "A-P021",
+        "sample_id": "PILOT-P3",
+        "behavior_id": "B01",
+        "evidence_source": "obfuscated_variant",
+        "evidence_text": "'https://' + 'example' + '.com/' + 'rep' + 'ort.csv'",
+        "start_line": 1,
+        "end_line": 1,
+        "transformation_id": null,
+        "verification_status": "verified_literal",
+        "annotator": "AI-assist",
+        "notes": "Origen remoto de la descarga (URL construida por concatenacion). Se interpreta junto con A-P004 y A-P005.",
+        "file_ref": "datasets/safe_samples/pilot/PILOT-P3.ps1.txt"
+      },
+      "rationale": "La taxonomia B01 exige una llamada de descarga cuyo origen es remoto; v0.1 no anota la URL.",
+      "affects_v1_metrics": false
+    },
+    {
+      "change_id": "C4",
+      "finding": "H3",
+      "operation": "add",
+      "annotation": {
+        "annotation_id": "A-P022",
+        "sample_id": "PILOT-P7",
+        "behavior_id": "B01",
+        "evidence_source": "obfuscated_variant",
+        "evidence_text": "'{2}{0}{3}{1}' -f 'example.com/', 'csv', 'https://', 'report.'",
+        "start_line": 1,
+        "end_line": 1,
+        "transformation_id": null,
+        "verification_status": "verified_literal",
+        "annotator": "AI-assist",
+        "notes": "Origen remoto de la descarga (URL construida con -f). Se interpreta junto con A-P016 y A-P017.",
+        "file_ref": "datasets/safe_samples/pilot/PILOT-P7.ps1.txt"
+      },
+      "rationale": "Igual que C3.",
+      "affects_v1_metrics": false
+    }
+  ],
+  "not_proposed_as_data_changes": {
+    "H2": "Distinguir 'team_reference_decoded' de 'deobfuscator_recovered' requiere un cambio de esquema de anotaciones; se propone para los conjuntos de la Fase 1B, no para el piloto.",
+    "H4": "Un campo 'evidence_group' requiere un cambio de esquema; idem."
+  }
+}

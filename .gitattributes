@@ -1,0 +1,5 @@
+# Las muestras y metadatos del dataset se identifican por SHA-256: se fija LF
+# para que el hash no cambie con core.autocrlf en Windows.
+datasets/safe_samples/**/*.ps1.txt text eol=lf
+datasets/metadata/*.csv text eol=lf
+datasets/metadata/*.json text eol=lf

@@ -13,6 +13,7 @@ Este proyecto trabaja con código potencialmente malicioso. Las siguientes restr
 - El repositorio **no contiene malware real**. `datasets/safe_samples/` solo admite scripts benignos o simulaciones inertes revisadas manualmente.
 - Las muestras externas se almacenan fuera del control de versiones (`datasets/raw/`, `datasets/external/`, `datasets/quarantine/`, `datasets/private/`, todos ignorados por Git).
 - Las muestras externas se manipulan únicamente en un entorno adecuado y aislado (p. ej., máquina virtual sin acceso a la red de producción ni a datos personales).
+  - **Estado (2026-11-01):** ese entorno **todavía no existe**. Prepararlo es un prerrequisito trasladado (decisión D3, [roadmap.md](roadmap.md)). Hasta entonces, el proyecto **solo usa scripts propios y controlados** y no descarga ni inspecciona muestras externas.
 - **No se deshabilitan** el antivirus ni otros mecanismos de protección del equipo de desarrollo. Si una herramienta de seguridad bloquea una muestra, esta se trabaja en el entorno aislado, no se crea una exclusión en el equipo personal.
 - No se publican archivos peligrosos, comprimidos con malware, credenciales ni información sensible.
 

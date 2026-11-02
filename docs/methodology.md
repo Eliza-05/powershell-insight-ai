@@ -32,6 +32,16 @@ Para cada afirmación del LLM se verifica:
 - si la interpretación es semánticamente correcta (revisión manual con rúbrica);
 - si hay afirmaciones sin respaldo.
 
+**Niveles de soporte de la evidencia** (adoptados al cierre de la Fase 0B; ver la sección 10):
+
+1. **Coincidencia literal:** la cita existe en una fuente identificable (script original, variante ofuscada o artefacto recuperado). Se comprueba de forma automática.
+2. **Soporte individual:** el fragmento basta por sí solo para justificar el comportamiento.
+3. **Soporte contextual:** varios fragmentos relacionados justifican juntos el hallazgo.
+4. **Soporte insuficiente:** la evidencia existe, pero no sostiene la conclusión.
+5. **Errores en las explicaciones textuales:** operaciones inexistentes, afirmaciones no establecidas, especulación o clasificación contraria a la taxonomía.
+
+**Métrica principal: política estricta.** Solo cuentan los fragmentos que el sistema citó o recuperó y que se pueden verificar contra el script. Como evaluación **secundaria**, claramente separada, se informa la política permisiva, que admite contexto del script no citado. Una referencia decodificada preparada por el equipo nunca cuenta como recuperación del sistema. Los veredictos semánticos producidos con ayuda de IA son **preliminares** hasta su revisión humana.
+
 ### 3.3 Recuperación de código (motor de desofuscación)
 Con pares conocidos (script original ↔ versión ofuscada generada de forma controlada), se mide cuánto del contenido original recupera el motor estático, usando las cadenas clave esperadas (`expected_recovered_strings`) registradas en el manifiesto. Esta evaluación es independiente de la del LLM: que el modelo interprete una técnica que el motor no reconstruye no se penaliza en ninguna de las dos.
 
@@ -51,7 +61,7 @@ Los resultados de cada grupo se reportan por separado y por tipo de transformaci
 | Precision | A, B, C | Comportamientos predichos que son correctos |
 | Recall | A, B, C | Comportamientos reales que fueron detectados |
 | F1 | A, B, C | Media armónica de precision y recall (micro y macro por comportamiento) |
-| Validez de evidencias | B, C | Proporción de evidencias citadas que existen y respaldan la afirmación |
+| Validez de evidencias | B, C | Proporción de evidencias citadas que existen y respaldan la afirmación. Principal: hallazgos con soporte individual o contextual según la política estricta (sección 3.2); secundaria: política permisiva |
 | Corrección semántica | B, C | Evaluación manual de la explicación según rúbrica |
 | Afirmaciones no respaldadas | B, C | Número o proporción de afirmaciones sin evidencia verificable |
 | Tiempo de procesamiento | A, B, C | Tiempo por script en hardware documentado |
@@ -79,7 +89,7 @@ Las etiquetas se asignan al original. Una variante solo hereda esas etiquetas cu
 - **Piloto separado:** los casos del [piloto](pilot_plan.md) no se reutilizan en desarrollo ni en prueba.
 - **Separación por familias:** las variantes de un mismo base y los bases de una misma familia quedan en el mismo conjunto. Se revisan casi-duplicados antes de congelar.
 - **Sesgo del generador:** se reservan formas sintácticas que no se usan durante el desarrollo, se incluyen técnicas no soportadas y se reportan los resultados por transformación ([dataset_selection_plan.md](dataset_selection_plan.md#43-generador-propio-y-mitigación-de-sesgo)).
-- **Congelación:** el conjunto de prueba, la taxonomía, las reglas, los prompts y la versión del modelo se congelan antes de los ajustes definitivos. Cualquier cambio posterior se documenta en este archivo con su motivo.
+- **Congelación:** el conjunto de prueba, la taxonomía, las reglas, los prompts y la versión del modelo se congelan antes de los ajustes definitivos. Cualquier cambio posterior se documenta en este archivo con su motivo (sección 10).
 - **Contaminación del modelo:** los scripts públicos pueden formar parte de los datos de entrenamiento del LLM; esta limitación se documentará en el informe.
 
 ## 8. Reproducibilidad
@@ -96,5 +106,30 @@ Las etiquetas se asignan al original. Una variante solo hereda esas etiquetas cu
 - El análisis estático no puede resolver toda ofuscación dependiente de la ejecución.
 - La equivalencia funcional entre original y variantes se revisa estáticamente, sin demostración formal.
 - Si el etiquetado lo realiza una sola persona, no puede estimarse el acuerdo entre anotadores.
+
+## 10. Desviaciones y decisiones metodológicas registradas
+
+Cada desviación respecto de un plan aprobado se registra aquí con su motivo, su alcance y sus condiciones. **Los criterios originales no se modifican retroactivamente.**
+
+### DEV-01 — Inicio de la Fase 1A sin modelo seleccionado (decisión D1, 2026-11-01)
+
+| Campo | Contenido |
+|---|---|
+| Regla original | [pilot_plan.md](pilot_plan.md) §6: si el modelo no cumple los criterios de viabilidad, "se prueba otro tamaño o modelo antes de la Fase 1" |
+| Situación | Qwen2.5-Coder 7B no superó el criterio de etiquetas exactas en el piloto v1 (4/7 frente a ≥ 5/7) ([pilot_results.md](pilot_results.md)) |
+| Desviación | La **Fase 1A** (desofuscador estático determinista) puede empezar sin haber seleccionado el LLM, una vez cerrada formalmente la Fase 0B |
+| Justificación | La Fase 1A no usa el LLM: implementa la recuperación estática (configuración A) y sus pruebas |
+| Alcance | Solo la Fase 1A. No autoriza a usar el LLM en la Fase 1A ni a ajustar prompts o modelos con P1–P8 |
+| Condiciones | (1) Qwen2.5-Coder 7B queda solo como **candidato provisional / línea base experimental**, no como modelo del proyecto. (2) La **selección definitiva del LLM es obligatoria antes de la Fase 2 y antes de cualquier experimento comparativo definitivo A/B/C**. (3) Esa selección se hará con **ejemplos nuevos** registrados antes de ejecutar; P1–P8 no bastan por sí solos para seleccionar ni ajustar el modelo. (4) Los criterios del §6 del plan del piloto se mantienen sin cambios |
+| Aprobación | Propietario del proyecto, 2026-11-01 |
+| Registro | [phase0b_closure.md](phase0b_closure.md) §12, [roadmap.md](roadmap.md) |
+
+### DEV-02 — Traslado de actividades de la Fase 0B (decisión D3, 2026-11-01)
+
+Las actividades de la Fase 0B que no se completaron se trasladan a la Fase 1A, la Fase 1B, la Fase 4 y a un prerrequisito previo al uso de muestras externas. Las fases de destino, las dependencias y los criterios de aceptación están en [roadmap.md](roadmap.md). **Mientras no exista el entorno aislado, el proyecto solo usa scripts propios y controlados.** Aprobación: propietario del proyecto, 2026-11-01.
+
+### DEC-01 — Política estricta de evidencias como métrica principal (2026-11-01)
+
+Ver la sección 3.2. La política permisiva se conserva como evaluación secundaria. No se modifican los resultados ni las respuestas originales del piloto v1. Aprobación: propietario del proyecto, 2026-11-01.
 - La corrección semántica incluye juicio humano.
 - Los resultados dependen del modelo elegido y no se generalizan automáticamente a otros LLM.
