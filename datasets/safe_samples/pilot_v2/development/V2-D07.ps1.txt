@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+Get-MpPreference | Select-Object ExclusionPath
+Add-MpPreference -ExclusionPath 'Q:\Academic\missing-cache'

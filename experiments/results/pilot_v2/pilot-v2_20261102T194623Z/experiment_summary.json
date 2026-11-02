@@ -1,0 +1,177 @@
+{
+  "created_at": "2026-11-02T20:37:10.305497+00:00",
+  "decision": "PENDIENTE / INCONCLUSO",
+  "model_validated": false,
+  "phase2_unblocked": false,
+  "phase2_started": false,
+  "reason": "Selection interrupted after four inference attempts by available-commit safety margin; no 72-call quality verdict and no human output adjudication.",
+  "model": {
+    "tag": "qwen3.5:4b-q4_K_M",
+    "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+    "quantization": "Q4_K_M",
+    "download_bytes": 3324173934,
+    "ollama_version": "0.40.13",
+    "installed": true,
+    "loaded_successfully": true,
+    "unloaded_after_stop": true
+  },
+  "approval": {
+    "kind": "owner_global_batch_acceptance",
+    "case_count": 48,
+    "individual_votes": 0,
+    "independent_reviewers": 0,
+    "reference": "experiments/reviews/pilot_v2_owner_global_approval.json",
+    "source_sha256": "be1e80b04a5b241d38ac47658a7df393d479ec02746fa0b51f57abc4ee5dfb6c"
+  },
+  "dataset_freeze": {
+    "path": "experiments/freezes/pilot-v2_20261102T194623Z",
+    "sha256": "82ad9d3a4fe04a5e6c9e88b4b267744b01e996e79c52a9f5b3135bb11fefb19f",
+    "frozen_at": "2026-11-02T19:46:23.515420+00:00",
+    "cases": 48,
+    "development": 24,
+    "selection": 24,
+    "families_per_split": 12,
+    "source_and_reference_files": 56
+  },
+  "selection_freeze": {
+    "frozen_at": "2026-11-02T20:21:10.945756+00:00",
+    "prompt_id": "pilot-analysis-v2-development-r1",
+    "prompt_sha256": "353d580e16d8ed16299fd0ca763ef23e33ef53587b477823c58b865e5ccd12be",
+    "configuration_sha256": "9faa0a9e4cce31df2a9296e7738cdbb5f30d21f79c21dada4dd83a332b2a13c8",
+    "prompt_revisions_consumed": 1,
+    "source": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/selection_lock.json"
+  },
+  "effective_request_controls": {
+    "model": "qwen3.5:4b-q4_K_M",
+    "think": false,
+    "truncate": false,
+    "shift": false,
+    "stream": false,
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 2048,
+      "num_gpu": 0,
+      "num_thread": 10,
+      "num_batch": 256,
+      "draft_num_predict": 0,
+      "repeat_penalty": 1.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "top_k": 20,
+      "top_p": 0.95,
+      "min_p": 0.0
+    },
+    "schema_sha256": "87987747256d0b70f1b3605a75f68b38c8440a8b155755480778bc4835707a0d",
+    "execution_authority": "frozen owner global approval; copied draft flags are preserved provenance, not active denials"
+  },
+  "budget": {
+    "base": 102,
+    "with_sole_revision": 126,
+    "attempted_inferences": 58,
+    "server_responses_received": 57,
+    "usable_outputs": 55,
+    "development_truncations": 2,
+    "selection_resource_cancellations": 1,
+    "selection_not_executed": 68,
+    "automatic_retries": 0,
+    "model_unload_control_requests": 1,
+    "unload_generated_tokens": 0
+  },
+  "stages": {
+    "technical": {
+      "planned": 6,
+      "attempted": 6,
+      "responses_received": 6,
+      "usable": 6,
+      "truncated": 0,
+      "complete": true,
+      "stopped_reason": null,
+      "wall_seconds_sum": 202.7943211999991,
+      "min_available_ram_bytes": 7533871104,
+      "min_available_commit_bytes": 10001768448,
+      "metrics_file": "metrics_technical.json"
+    },
+    "development": {
+      "planned": 24,
+      "attempted": 24,
+      "responses_received": 24,
+      "usable": 23,
+      "truncated": 1,
+      "complete": true,
+      "stopped_reason": null,
+      "wall_seconds_sum": 782.3373995999973,
+      "min_available_ram_bytes": 5683867648,
+      "min_available_commit_bytes": 8023457792,
+      "metrics_file": "metrics_development_r0.json"
+    },
+    "revision": {
+      "planned": 24,
+      "attempted": 24,
+      "responses_received": 24,
+      "usable": 23,
+      "truncated": 1,
+      "complete": true,
+      "stopped_reason": null,
+      "wall_seconds_sum": 833.9031045000156,
+      "min_available_ram_bytes": 3541598208,
+      "min_available_commit_bytes": 6746963968,
+      "metrics_file": "metrics_development_r1.json"
+    },
+    "selection": {
+      "planned": 72,
+      "attempted": 4,
+      "responses_received": 3,
+      "usable": 3,
+      "truncated": 0,
+      "complete": false,
+      "stopped_reason": "resource_margin_violation",
+      "wall_seconds_sum": 76.27353959999527,
+      "min_available_ram_bytes": 3238744064,
+      "min_available_commit_bytes": 2085564416,
+      "metrics_file": "metrics_selection_partial.json"
+    }
+  },
+  "inference_wall_seconds_sum": 1895.3083649000073,
+  "selection_interruption": {
+    "call_id": "selection/004_V2-S15_r1",
+    "started_at": "2026-11-02T20:23:54.869122+00:00",
+    "finished_at": "2026-11-02T20:24:09.663963+00:00",
+    "available_ram_min_bytes": 3238744064,
+    "available_commit_min_bytes": 2085564416,
+    "safety_margin_bytes": 2147483648,
+    "counter_errors": [],
+    "oom_observed": false,
+    "safety_scope": "Guard checked both physical RAM and available system commit before the first experiment call; quality r1 RAM threshold/formulas were not changed. This stop is not a completed quality rejection.",
+    "no_user_apps_closed": true,
+    "no_global_settings_changed": true,
+    "no_adaptive_resume_or_retry": true
+  },
+  "output_semantics": {
+    "human_reviews": 0,
+    "selection_usable_outputs_available": 3,
+    "selection_findings_requiring_adjudication": 3,
+    "strict_support_rate": null,
+    "critical_fabrications": null,
+    "uncertainty_gate": null,
+    "injection_resistance_gate": null,
+    "note": "Global dataset acceptance does not adjudicate model output. No invented human judgments or zero-fabrication verdict."
+  },
+  "invariants": {
+    "all_request_payloads_match_frozen_source_prompt_and_parameters": true,
+    "selection_code_hashes_match_freeze": true,
+    "samples_executed": false,
+    "sample_urls_accessed": false,
+    "expected_annotations_sent_to_model": false,
+    "gemma_used": false,
+    "qwen25_rerun": false
+  },
+  "required_next_decisions": [
+    "Resolve stable host commit headroom before any further inference.",
+    "Owner must expressly decide handling of the interrupted reserve; no automatic retry of S15 or new 72-call run.",
+    "Any changed model/prompt/protocol after access requires a new justified design and independent selection data.",
+    "Human output adjudication remains necessary for positive semantic/critical-fabrication approval."
+  ],
+  "source_note": "Original proposed/draft pending flags are retained as provenance; actual batch acceptance and freezes are in the authority records."
+}

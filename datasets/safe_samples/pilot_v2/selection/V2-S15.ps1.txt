@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$login = Get-Credential -UserName 'ACADEMIC\fictional-user' -Message 'Authorized local sign-in'
+Start-Process -FilePath 'Q:\Academic\missing-maintenance.exe' -Credential $login

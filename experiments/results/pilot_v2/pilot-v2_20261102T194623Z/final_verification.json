@@ -1,0 +1,50 @@
+{
+  "verified_at": "2026-11-02T20:51:30.826016+00:00",
+  "status": "all_static_and_integrity_checks_passed_experiment_inconclusive",
+  "pytest": {
+    "passed": 731,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 4.55,
+    "previous_regressions": 488,
+    "pilot_v2_checks": 243,
+    "command": "python -X utf8 -B -m pytest -q -p no:cacheprovider backend/tests --basetemp <fresh external temporary directory> --tb=short"
+  },
+  "dataset_cases": 48,
+  "source_and_reference_hashes": 56,
+  "draft_exports_matching": 72,
+  "protected_r1_baseline_files_matching_recorded_correction": 62,
+  "unchanged_contract_files": 18,
+  "tracked_files": 140,
+  "tracked_files_unchanged": 138,
+  "authorized_tracked_doc_updates": [
+    "README.md",
+    "docs/roadmap.md"
+  ],
+  "historical_result_hashes": 6,
+  "original_selection_study_unchanged": true,
+  "index_sha256": "e69d11d638a1d876490acfc9c597dc592534b3d128169bb416f6dafe30e20dc9",
+  "branch": "develop",
+  "head": "0b2a67d5cbac841ff53c1a5e0f29ee65b3ac9bda",
+  "staged_changes": 0,
+  "git_diff_check_passed": true,
+  "new_file_whitespace_checks": 149,
+  "nonblocking_existing_checkout_conversion_warnings": [
+    "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it",
+    "warning: in the working copy of 'docs/roadmap.md', LF will be replaced by CRLF the next time Git touches it"
+  ],
+  "local_links_checked": 233,
+  "raw_artifact_hashes_verified": 138,
+  "inference_attempts": 58,
+  "selection_inference_attempts": 4,
+  "selection_not_executed": 68,
+  "all_payloads_checked_against_frozen_materials": true,
+  "selected_prompt_config_code_still_frozen": true,
+  "only_authorized_model_installed_by_task": "qwen3.5:4b-q4_K_M",
+  "model_unloaded_from_memory": true,
+  "sample_execution_performed": false,
+  "phase2_started": false,
+  "phase2_unblocked": false,
+  "closure_inventory_sha256": "77c8c1d5f89b64775bfebd9737c3e9721a2d82c3b72e91a611c19bafe32382f7",
+  "note": "Passing tests validate implementation/integrity, not model quality or absent human output adjudications. Checkout-conversion warnings preserve the existing Git policy; no global config or source bytes are changed."
+}

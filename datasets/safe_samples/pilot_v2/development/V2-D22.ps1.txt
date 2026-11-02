@@ -1,0 +1,4 @@
+# Synthetic academic fixture. Text only: never execute.
+$runtimeBytes = Read-Host 'Academic Base64 supplied only at run time'
+$runtimeCode = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))
+Invoke-Expression $runtimeCode

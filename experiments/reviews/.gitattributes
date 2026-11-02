@@ -1,0 +1,7 @@
+pilot_v2_human_review.json text eol=lf
+pilot_v2_protocol_review_round1.json text eol=lf
+pilot_v2_single_model_decision.json text eol=lf
+pilot_v2_d03_d04_prefreeze_correction.json text eol=lf
+pilot_v2_owner_global_approval.json text eol=lf
+pilot_v2_execution_binding.json text eol=lf
+.gitattributes text eol=lf

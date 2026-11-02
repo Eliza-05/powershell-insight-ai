@@ -1,0 +1,36 @@
+{
+  "observation_date": "2026-11-02",
+  "inference_performed": false,
+  "model_download_performed": false,
+  "ollama_cli_version": "0.40.13",
+  "ollama_api_version": "0.40.13",
+  "python_client_version": "0.6.3",
+  "read_only_endpoints_used": ["GET /api/version", "GET /api/tags", "GET /api/ps", "POST /api/show"],
+  "reference": {"tag": "qwen2.5-coder:7b", "capabilities": ["completion", "tools", "insert"],
+                "thinking_metadata": null, "template_source": "go_template", "renderer": null, "parser": null},
+  "new_candidates": [
+    {"tag": "qwen3.5:4b-q4_K_M", "local_show_http_status": 404, "installed": false,
+     "documented_family_support_release": "0.17.4", "version_level_support": "supported_by_official_release_history",
+     "exact_tag_load_and_generation": "not_verified_requires_later_authorized_download_and_test"},
+    {"tag": "gemma4:e2b-it-q4_K_M", "local_show_http_status": 404, "installed": false,
+     "documented_family_support_release": "0.20.0", "version_level_support": "supported_by_official_release_history",
+     "exact_tag_load_and_generation": "not_verified_requires_later_authorized_download_and_test"}
+  ],
+  "loaded_models_at_observation": [],
+  "api_options_documented_at_exact_version": ["think", "format", "truncate", "num_ctx", "num_predict", "num_gpu", "num_thread", "draft_num_predict"],
+  "client_chat_supported_keywords_observed": ["think", "format", "options", "keep_alive", "stream"],
+  "client_chat_missing_proposed_keyword": "truncate",
+  "separate_reasoning_and_answer_text": "message.thinking and message.content documented, new candidates not observed locally",
+  "separate_reasoning_token_counts": "not_guaranteed_by_native_eval_count_record_null_if_absent",
+  "sources_consulted_2026_11_02": [
+    "https://github.com/ollama/ollama/releases/tag/v0.17.4",
+    "https://github.com/ollama/ollama/releases/tag/v0.20.0",
+    "https://github.com/ollama/ollama/releases/tag/v0.40.13",
+    "https://raw.githubusercontent.com/ollama/ollama/v0.40.13/api/types.go",
+    "https://docs.ollama.com/capabilities/thinking",
+    "https://docs.ollama.com/capabilities/structured-outputs",
+    "https://docs.ollama.com/api/chat",
+    "https://ollama.com/library/qwen3.5:4b-q4_K_M",
+    "https://ollama.com/library/gemma4:e2b-it-q4_K_M"
+  ]
+}

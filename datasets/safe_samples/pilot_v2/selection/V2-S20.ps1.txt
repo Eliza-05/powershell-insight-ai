@@ -1,0 +1,5 @@
+# Synthetic academic fixture. Text only: never execute.
+$record = '{"example":"Set-MpPreference","DisableRealtimeMonitoring":true}' | ConvertFrom-Json
+$title = '{1}{0}' -f 'Preference', 'Set-Mp'
+Write-Output $title
+$record | ConvertTo-Json

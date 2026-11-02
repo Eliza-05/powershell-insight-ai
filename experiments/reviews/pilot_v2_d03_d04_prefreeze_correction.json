@@ -1,0 +1,82 @@
+{
+  "correction_id": "pilot-v2-d03-d04-explicit-invocation-prefreeze",
+  "date": "2026-11-02",
+  "source": "Explicit owner instruction to resolve the D03/D04 functional-execution ambiguity before freeze",
+  "affected_family": "V2-DEV-F02",
+  "affected_cases": [
+    "V2-D03",
+    "V2-D04"
+  ],
+  "change": "Append [AcademicBanner]::Text() after Add-Type in both equivalent bodies; regenerate D04 Base64 UTF-16LE and dependent evidence/coordinates/hashes.",
+  "before_freeze": true,
+  "dataset_frozen": false,
+  "individual_cases_human_validated": 0,
+  "sample_execution_performed": false,
+  "inference_performed": false,
+  "criteria_changed": false,
+  "selection_cases_changed": false,
+  "other_families_changed": false,
+  "labels_changed": false,
+  "prompt_revision_consumed": false,
+  "expected_behavior": "If compilation/loading succeeds, explicitly call the generated static method and return the constant lab only; static expectation, not observed execution.",
+  "equivalence": "D03 after its storage header equals D04 decoded UTF-16LE body and its UTF-8 reference byte-for-byte.",
+  "historical_baseline": "experiments/pilot_v2/review_round1_baseline.json",
+  "historical_baseline_preserved": true,
+  "preserved_file_updates": {
+    "datasets/safe_samples/pilot_v2/development/V2-D03.ps1.txt": {
+      "before_sha256": "a94e880d1855814b8bf4b193b94b39c214d12e0066139d73908f11ad81dcda2d",
+      "after_sha256": "add145b67edf0c95458dd396faacba0cc5f5bcbbf0336e45e6d74c17d6597561"
+    },
+    "datasets/safe_samples/pilot_v2/development/V2-D04.ps1.txt": {
+      "before_sha256": "0e6a60e1be24242b5f42fd122560c36afa10f9559b304ad1f05bb1b6a3857f78",
+      "after_sha256": "6734c99330b913048bd64ef63b82ed0636724da3140985f9fb3967813ade32a4"
+    },
+    "datasets/safe_samples/pilot_v2/references/V2-D04_decoded.ps1.txt": {
+      "before_sha256": "e56d121db94e42b60dbf23e2532406ec1d38b7c179feb009b49165d768e371b1",
+      "after_sha256": "0374cdaeffc03bbf042056b8c71f9847706c663bc32ab80524b0dcfe8904001f"
+    },
+    "datasets/metadata/pilot_v2_manifest.json": {
+      "before_sha256": "29adf031f11277263e7c88ef20e330568f480afb977e90ea10314edbf56c5a78",
+      "after_sha256": "491f4fbef3629ba54dcd403848c81b51ac0e86d0d53e29e8053a328befd65bda"
+    },
+    "datasets/metadata/pilot_v2_manifest.csv": {
+      "before_sha256": "8fdc9efb7505fabe61f5bf067fe820a77024a90f5a6397fec021c74ec22d809b",
+      "after_sha256": "276b77f844f10b66f3478d364991689bd745bac5e66c257dc3f659f03d295676"
+    },
+    "datasets/metadata/pilot_v2_annotations.json": {
+      "before_sha256": "f5f719f031b60e176af7ba7a4a610547ef1af13ebe66e6f346bc9adafdd0b1da",
+      "after_sha256": "f291d72ab1cdfb2ed5470a5834cdefa75aa89f201bf64a8569651d07a888c4eb"
+    },
+    "experiments/reviews/pilot_v2_human_review.json": {
+      "before_sha256": "fc3b5f758ba44ed7c5ffd17e88900e618558b2f3af9c4805eca9c9c9a7284d7d",
+      "after_sha256": "3230af20f2c6f2a5677a940fb49c9622712ee5582c462ac3a0e325d2d7b82610"
+    }
+  },
+  "unaffected_records": {
+    "case": "03b476ad49df519bde0acb4f39d89064fa32f25d82e66181309c8cc848fee22b",
+    "annotation": "7a7bad0aa81077702a9502d508898607b86d7fd82f9db9c1376d86cb5df00065",
+    "family": "f74fdf3195b86204d17fb9e9bc4809c8a849a40ebf778ad7dc8d1ce8170959e6",
+    "review": "a64138496d1f10231941267abbd8bb51901a472038205985f3d76717079577b5"
+  },
+  "unchanged_contract_files": {
+    "docs/llm_model_selection.md": "edf42d69e1ae411db2a94d4295dbc0fe511e6130550f4232dda9b53ca5d10b04",
+    "experiments/configurations/.gitattributes": "d5f7c8c3a42b7255bf7b92565c44da6d85a3a25c77966b36a0533e1e308a1274",
+    "experiments/configurations/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/configurations/pilot_v1.json": "f831dfdfb06dedf0e7ed81fc6d3f28f63b59b41db11e3af31d8e3fa9dd8d582e",
+    "experiments/configurations/pilot_v2_metrics_proposed.json": "168259754c48546f0219c899867191e2459d03bbc141b5802976bea5791aa433",
+    "experiments/configurations/pilot_v2_proposed.json": "9faa0a9e4cce31df2a9296e7738cdbb5f30d21f79c21dada4dd83a332b2a13c8",
+    "experiments/configurations/pilot_v2_proposed_r0_snapshot.json": "bc547ca68b6bfa2fd707b1f94de0c66fed6dd2b91aee6f77480d0e621c53aecf",
+    "experiments/configurations/pilot_v2_response.schema.json": "87987747256d0b70f1b3605a75f68b38c8440a8b155755480778bc4835707a0d",
+    "experiments/configurations/pilot_v2_thresholds_proposed.json": "f526703bd41b22325423448eb2440dde925eb2b729ad48d08da73d685d26e929",
+    "experiments/configurations/pilot_v2_thresholds_proposed_r0_snapshot.json": "927571a5b83831571077e7dbd01e92a2337eefab70e6e424025ff13156f60180",
+    "experiments/pilot_v2/preparation_baseline.json": "fadac8a468bc181dd139263488744c79d53500aa104cf25bf4c1ad972552cf83",
+    "experiments/pilot_v2/prompt_revision_log.json": "922dd7cadcb8959491f275490ef21dd62ebe3042ace816a4f45e2fafde47abef",
+    "experiments/pilot_v2/review_round1_baseline.json": "eb8820c76275e054178813c0cb50b9f32e5a38cf9171cf34e820b935fee3c59c",
+    "experiments/prompts/.gitattributes": "0101d59eb2a0c1bcf5384859047011b0cd37e303f5667c77f0f9a0a17c4dcdb7",
+    "experiments/prompts/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "experiments/prompts/pilot_analysis_v1.md": "6b04c06737400362087bd09ee50460ed573d44e1f5cd3fa1f602ddbf7e1696a1",
+    "experiments/prompts/pilot_analysis_v2_candidate.md": "ad95a92167e1f2c9b96a2e52248442938f0360b15895e4cc69b18fc3db061545",
+    "experiments/reviews/pilot_v2_single_model_decision.json": "bd301e8e81237f46d58542f5b5f70e346481579229aadfbe5a08dc7959bf3d65"
+  },
+  "human_case_decisions": "All 48 cases remain pending explicit owner confirmation; this scoped correction does not approve annotations or authorize execution."
+}

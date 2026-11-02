@@ -1,0 +1,4 @@
+# Synthetic academic fixture. Text only: never execute.
+$action = New-ScheduledTaskAction -Execute 'Q:\Academic\missing-archive-job.exe'
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+Register-ScheduledTask -TaskName 'AcademicArchiveJob' -Action $action -Trigger $trigger

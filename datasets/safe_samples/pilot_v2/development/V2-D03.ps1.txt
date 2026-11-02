@@ -1,0 +1,4 @@
+# Synthetic academic fixture. Text only: never execute.
+$source = 'public static class AcademicBanner { public static string Text() { return "lab only"; } }'
+Add-Type -TypeDefinition $source
+[AcademicBanner]::Text()

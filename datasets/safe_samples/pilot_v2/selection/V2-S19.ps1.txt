@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$record = '{"example":"Set-MpPreference","DisableRealtimeMonitoring":true}' | ConvertFrom-Json
+$record | ConvertTo-Json

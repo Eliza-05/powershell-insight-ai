@@ -1,0 +1,27 @@
+{
+  "review_id": "pilot-v2-protocol-review-round1",
+  "date": "2026-11-02",
+  "source": "Explicit user request: PowerShell Insight AI - Revision final del protocolo del piloto v2",
+  "preliminary_acceptance": {
+    "structure_24_development_24_selection": true,
+    "principal_candidate_qwen35_4b": true,
+    "alternative_candidate_gemma4_e2b": true,
+    "scope": "Preliminary structure and candidate roles only; not validation of any individual case"
+  },
+  "individual_cases_human_validated": 0,
+  "thresholds_approved": false,
+  "dataset_freeze_authorized": false,
+  "downloads_authorized": false,
+  "inference_authorized": false,
+  "phase2_authorized": false,
+  "human_name_recorded": null,
+  "signature": null,
+  "pending_owner_decisions": [
+    "48 individual cases and evidence/context assumptions",
+    "18/24 global case success distinct from exact labels on 22 determinable cases",
+    "all mandatory threshold definitions and denominators",
+    "proposed retain decisions for S04 and S20",
+    "selection arms and execution budget",
+    "thinking policy and later effective compatibility checks"
+  ]
+}

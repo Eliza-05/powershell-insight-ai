@@ -1,0 +1,7 @@
+{
+  "purpose": "synthetic_functional_only",
+  "source": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA",
+  "decoded_fixture": "Get-Process -Id 92047",
+  "not_scientific_evaluation": true,
+  "maximum_calls_this_run": 2
+}

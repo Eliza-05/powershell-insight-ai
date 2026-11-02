@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$runtimeCode = Read-Host 'Academic code supplied only at run time'
+Invoke-Expression $runtimeCode

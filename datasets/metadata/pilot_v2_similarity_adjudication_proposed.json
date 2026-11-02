@@ -1,0 +1,52 @@
+{
+  "status": "technical_proposal_not_human_adjudication",
+  "date": "2026-11-02",
+  "cases_changed": false,
+  "selection_replaced_or_expanded": false,
+  "decisions": [
+    {
+      "case_id": "V2-S04",
+      "historical_file": "backend/tests/deobfuscation/fixtures/linear_strings.ps1.txt",
+      "historical_sha256": "7ed96fd59208aa9b110208710399b71319135999aa23dad809101b4ad3229cf8",
+      "historical_source": "# Inert fixture for static parsing only; not an evaluation sample.\n$label = 'training-' + 'only'\n$destination = 'https://' + 'example.com/demo.csv'\nWrite-Output $label $destination\n",
+      "case_file": "datasets/safe_samples/pilot_v2/selection/V2-S04.ps1.txt",
+      "case_sha256": "1a6d402da1a6eaa281b018aa3a5a924dd843b16d4fa38b1e52324afc96733be2",
+      "case_source": "# Synthetic academic fixture. Text only: never execute.\n$program = 'Write-' + 'Output \"academic marker\"'\n$job = [scriptblock]::Create($program)\n$job.Invoke()\n",
+      "historical_canonical": "$variable = <string> + <string> $variable = <string> + <string> write-output $variable $variable",
+      "case_canonical": "$variable = <string> + <string> $variable = [scriptblock]::create( $variable ) $variable .invoke()",
+      "recorded_text_similarity": 0.732,
+      "same_raw_source": false,
+      "same_canonical_text": false,
+      "same_family_technical_proposal": false,
+      "experimental_contamination_assessment": "No family-copy leakage identified from this comparison; common syntax and author exposure do not establish total independence.",
+      "reason": "The historical fixture only concatenates and displays strings. S04 builds code, creates a ScriptBlock and invokes it: a distinct operation/data-flow family.",
+      "recommended_action": "retain_unchanged_pending_owner_adjudication",
+      "owner_decision": null,
+      "human_review_status": "pending_human"
+    },
+    {
+      "case_id": "V2-S20",
+      "historical_file": "backend/tests/deobfuscation/fixtures/linear_strings.ps1.txt",
+      "historical_sha256": "7ed96fd59208aa9b110208710399b71319135999aa23dad809101b4ad3229cf8",
+      "historical_source": "# Inert fixture for static parsing only; not an evaluation sample.\n$label = 'training-' + 'only'\n$destination = 'https://' + 'example.com/demo.csv'\nWrite-Output $label $destination\n",
+      "case_file": "datasets/safe_samples/pilot_v2/selection/V2-S20.ps1.txt",
+      "case_sha256": "51e29ba6f6b67d8473d3acdf13d50a581ebf0e1a7676d5ce515b62420d71cd9d",
+      "case_source": "# Synthetic academic fixture. Text only: never execute.\n$record = '{\"example\":\"Set-MpPreference\",\"DisableRealtimeMonitoring\":true}' | ConvertFrom-Json\n$title = '{1}{0}' -f 'Preference', 'Set-Mp'\nWrite-Output $title\n$record | ConvertTo-Json\n",
+      "historical_canonical": "$variable = <string> + <string> $variable = <string> + <string> write-output $variable $variable",
+      "case_canonical": "$variable = <string> | convertfrom-json $variable = <string> -f <string> , <string> write-output $variable $variable | convertto-json",
+      "recorded_text_similarity": 0.7686,
+      "same_raw_source": false,
+      "same_canonical_text": false,
+      "same_family_technical_proposal": false,
+      "experimental_contamination_assessment": "No family-copy leakage identified from this comparison; common syntax and author exposure do not establish total independence.",
+      "reason": "The historical fixture concatenates scalar strings including a URL. S20 parses JSON, formats display text and serializes data without invoking the mentioned defense command: a distinct construction family.",
+      "recommended_action": "retain_unchanged_pending_owner_adjudication",
+      "owner_decision": null,
+      "human_review_status": "pending_human"
+    }
+  ],
+  "limits": [
+    "Text similarity is not a semantic clone proof.",
+    "The author knows both partitions and historical syntax; this limitation remains disclosed."
+  ]
+}

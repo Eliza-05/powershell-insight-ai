@@ -1,0 +1,143 @@
+{
+  "memory": {
+    "monotonic": 21515.0275664,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 13520035840,
+    "commit_limit_bytes": 51667382272,
+    "commit_used_bytes": 40393973760,
+    "commit_available_bytes": 11273408512,
+    "memory_load_percent": 59,
+    "processes": [
+      {
+        "pid": 4512,
+        "name": "ollama app.exe",
+        "parent": 12652,
+        "is_ollama_runtime": true,
+        "page_faults": 37962,
+        "peak_working_set": 29343744,
+        "working_set": 1531904,
+        "peak_paged_pool": 332472,
+        "paged_pool": 307640,
+        "peak_nonpaged_pool": 94640,
+        "nonpaged_pool": 20912,
+        "pagefile": 55988224,
+        "peak_pagefile": 56971264,
+        "private": 55988224,
+        "cpu_seconds": 1.46875
+      },
+      {
+        "pid": 6200,
+        "name": "ollama.exe",
+        "parent": 4512,
+        "is_ollama_runtime": true,
+        "page_faults": 138088,
+        "peak_working_set": 100249600,
+        "working_set": 1769472,
+        "peak_paged_pool": 619288,
+        "paged_pool": 342744,
+        "peak_nonpaged_pool": 8069776,
+        "nonpaged_pool": 29888,
+        "pagefile": 88895488,
+        "peak_pagefile": 141012992,
+        "private": 88895488,
+        "cpu_seconds": 48.734375
+      },
+      {
+        "pid": 16280,
+        "name": "conhost.exe",
+        "parent": 6200,
+        "is_ollama_runtime": true,
+        "page_faults": 6515,
+        "peak_working_set": 10158080,
+        "working_set": 704512,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 11800,
+        "nonpaged_pool": 10880,
+        "pagefile": 1785856,
+        "peak_pagefile": 1912832,
+        "private": 1785856,
+        "cpu_seconds": 0.109375
+      },
+      {
+        "pid": 40324,
+        "name": "python.exe",
+        "parent": 17836,
+        "is_ollama_runtime": false,
+        "page_faults": 10919,
+        "peak_working_set": 31735808,
+        "working_set": 22519808,
+        "peak_paged_pool": 157496,
+        "paged_pool": 157024,
+        "peak_nonpaged_pool": 24248,
+        "nonpaged_pool": 12776,
+        "pagefile": 13066240,
+        "peak_pagefile": 24117248,
+        "private": 13066240,
+        "cpu_seconds": 0.140625
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "version": {
+    "version": "0.40.13"
+  },
+  "tags": {
+    "models": [
+      {
+        "name": "qwen3.5:4b-q4_K_M",
+        "model": "qwen3.5:4b-q4_K_M",
+        "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+        "size": 3324173934,
+        "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+        "details": {
+          "parent_model": "model.gguf",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560,
+          "runner": "llamacpp"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen2.5-coder:7b",
+        "model": "qwen2.5-coder:7b",
+        "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+        "size": 4683087561,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      }
+    ]
+  },
+  "ps": {
+    "models": []
+  }
+}

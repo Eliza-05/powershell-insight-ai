@@ -1,0 +1,752 @@
+{
+  "status": "AI_assist_static_review_pending_human_not_experimental_results",
+  "all_cases": 48,
+  "individual_human_approvals": 0,
+  "dispositions": {
+    "static_support_identified_pending_human": 32,
+    "clear_negative_exclusion_identified_pending_human": 12,
+    "conditionally_sufficient_for_synthetic_role_pending_owner": 2,
+    "review_abstention_not_true_negative": 2
+  },
+  "coverage": {
+    "development": {
+      "B01": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": null
+      },
+      "B02": {
+        "positive_cases": 4,
+        "independent_positive_families": 2,
+        "planned_selection_calls_if_three_repetitions": null
+      },
+      "B03": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": null
+      },
+      "B04": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": null
+      },
+      "B05": {
+        "positive_cases": 8,
+        "independent_positive_families": 4,
+        "planned_selection_calls_if_three_repetitions": null
+      },
+      "B06": {
+        "positive_cases": 4,
+        "independent_positive_families": 2,
+        "planned_selection_calls_if_three_repetitions": null
+      },
+      "B07": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": null
+      }
+    },
+    "selection": {
+      "B01": {
+        "positive_cases": 4,
+        "independent_positive_families": 2,
+        "planned_selection_calls_if_three_repetitions": 12
+      },
+      "B02": {
+        "positive_cases": 4,
+        "independent_positive_families": 2,
+        "planned_selection_calls_if_three_repetitions": 12
+      },
+      "B03": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": 6
+      },
+      "B04": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": 6
+      },
+      "B05": {
+        "positive_cases": 6,
+        "independent_positive_families": 3,
+        "planned_selection_calls_if_three_repetitions": 18
+      },
+      "B06": {
+        "positive_cases": 4,
+        "independent_positive_families": 2,
+        "planned_selection_calls_if_three_repetitions": 12
+      },
+      "B07": {
+        "positive_cases": 2,
+        "independent_positive_families": 1,
+        "planned_selection_calls_if_three_repetitions": 6
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "V2-D01",
+      "split": "development",
+      "source_sha256": "d5edb204af7fdfa5909c51b4e423454789d967ad89ad6fa804528e9987dbe6e8",
+      "labels": [
+        "B01"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Transferencia administrativa de catalogo; no hay evaluador ni envio independiente.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D02",
+      "split": "development",
+      "source_sha256": "297b0f2a9c2d2f7129b7483c11550f2445395189517960a393619178a187ad00",
+      "labels": [
+        "B01"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Transferencia administrativa de catalogo; no hay evaluador ni envio independiente.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D03",
+      "split": "development",
+      "source_sha256": "add145b67edf0c95458dd396faacba0cc5f5bcbbf0336e45e6d74c17d6597561",
+      "labels": [
+        "B02"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B02 se propone por la cadena fuente C# -> Add-Type -> [AcademicBanner]::Text(). La invocacion explicita usa el tipo compilado y retornaria lab only si la compilacion/carga tiene exito; no se ejecuto. D04 codifica exactamente el cuerpo de D03 en UTF-16LE/Base64. Correccion anterior a congelacion; confirmacion humana pendiente.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D04",
+      "split": "development",
+      "source_sha256": "6734c99330b913048bd64ef63b82ed0636724da3140985f9fb3967813ade32a4",
+      "labels": [
+        "B02"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B02 se propone por la cadena fuente C# -> Add-Type -> [AcademicBanner]::Text(). La invocacion explicita usa el tipo compilado y retornaria lab only si la compilacion/carga tiene exito; no se ejecuto. D04 codifica exactamente el cuerpo de D03 en UTF-16LE/Base64. Correccion anterior a congelacion; confirmacion humana pendiente.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D05",
+      "split": "development",
+      "source_sha256": "4b5da42330ec6633420c776075116ff09f5aa224f4e3f5a009a945451b295a91",
+      "labels": [
+        "B03"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B03 exige las tres piezas: action con ejecutable fijo, trigger AtLogOn y registro que enlaza ambos. El path inexistente no prueba exito ni elimina el intento de configurar inicio futuro.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D06",
+      "split": "development",
+      "source_sha256": "a85d81b116343ae3003b8d31cbb3797144936d8bbddb7eaf843a712d7e8191f9",
+      "labels": [
+        "B03"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B03 exige las tres piezas: action con ejecutable fijo, trigger AtLogOn y registro que enlaza ambos. El path inexistente no prueba exito ni elimina el intento de configurar inicio futuro.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D07",
+      "split": "development",
+      "source_sha256": "36c1ff055e385fbbc7b550b094c92ab5aae2357a8e1bc6f264a609b3eacd050f",
+      "labels": [
+        "B04",
+        "B05"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Get-MpPreference consulta (B05); Add-MpPreference con ExclusionPath cambia configuracion defensiva (B04). La consulta no es evidencia de modificacion.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D08",
+      "split": "development",
+      "source_sha256": "d141cfdd290a79222b86ec51ab446d88ad1149d00eb70ff9bf582e06972fc3aa",
+      "labels": [
+        "B04",
+        "B05"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Get-MpPreference consulta (B05); Add-MpPreference con ExclusionPath cambia configuracion defensiva (B04). La consulta no es evidencia de modificacion.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_01.md"
+    },
+    {
+      "case_id": "V2-D09",
+      "split": "development",
+      "source_sha256": "e5d06c36c3355b430001efd46232533d5f9eff54e280601c64660f4fd2a9e5a2",
+      "labels": [
+        "B05"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Recopila identificadores y espacio de discos como inventario administrativo.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D10",
+      "split": "development",
+      "source_sha256": "dfeca0e9430db9bc1a7b0db229ec712b3177c416bbcf9c96ddbf0cec02aab685",
+      "labels": [
+        "B05"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Recopila identificadores y espacio de discos como inventario administrativo.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D11",
+      "split": "development",
+      "source_sha256": "97b3305aa1723a253dd120f80cfbb85247fb87b957671ea60408661a2779aeff",
+      "labels": [
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Inventario de interfaces y envio de mensaje constante; no se envia el inventario.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D12",
+      "split": "development",
+      "source_sha256": "b511b7a733c81d175e290ffefb6b74aded3e43628d5a715abc86a72cbee887c6",
+      "labels": [
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Inventario de interfaces y envio de mensaje constante; no se envia el inventario.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D13",
+      "split": "development",
+      "source_sha256": "5f536e58cba602a66571cefd2a03af96266f3e67565cb497bd3f4303dee3bf44",
+      "labels": [
+        "B07"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Retrieve usa la URL como clave de un almacen local; RetrievePassword intenta poblar material de credencial almacenada (B07), no establece comunicacion de red. Disponibilidad WinRT y existencia del registro no verificadas.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D14",
+      "split": "development",
+      "source_sha256": "c9f447dd84b120547824860835d7764ba0487717bf01b2044c6c816713ec7cd7",
+      "labels": [
+        "B07"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Retrieve usa la URL como clave de un almacen local; RetrievePassword intenta poblar material de credencial almacenada (B07), no establece comunicacion de red. Disponibilidad WinRT y existencia del registro no verificadas.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D15",
+      "split": "development",
+      "source_sha256": "c418f20b0ba29e9b495f2a4712563f466dd23fba479c2f865b0d3962fa5485a2",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Solo muestra cadenas; ninguna operacion consume URL o clave como destino.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D16",
+      "split": "development",
+      "source_sha256": "1639fe4dec4e494ef9137389c116fd81d7e311bfe65d5262c3128e70e4d20dc9",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Solo muestra cadenas; ninguna operacion consume URL o clave como destino.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_02.md"
+    },
+    {
+      "case_id": "V2-D17",
+      "split": "development",
+      "source_sha256": "5a054ad27282a632b8b190dd3662a054a4ce2670f78a4a641521fecb3c796f30",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Solicitud legitima de objeto de autenticacion; no se guarda, extrae ni transmite material.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D18",
+      "split": "development",
+      "source_sha256": "83da1fe78b41bb212cfa7c0fd0373d8bb965c5eafdaca8e42cc4ad3841e0a374",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Solicitud legitima de objeto de autenticacion; no se guarda, extrae ni transmite material.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D19",
+      "split": "development",
+      "source_sha256": "cfd3c716447a4cceb84577deb30dedbecd38bc29709a10773b1afabfea13af9c",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "El cmdlet de defensa esta dentro de una cadena no evaluada.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D20",
+      "split": "development",
+      "source_sha256": "73014a4865ae05dcab04a6e42cf5ebf70a98dcfdf96b594f32efffc6d1ce0712",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "El cmdlet de defensa esta dentro de una cadena no evaluada.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D21",
+      "split": "development",
+      "source_sha256": "9daa5d778cac06663b2f2c6a24a46f9f03edac38a8d79e361f21285319aa39fa",
+      "labels": [
+        "B02"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "La evaluacion dinamica es visible; los efectos del codigo introducido son desconocidos.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D22",
+      "split": "development",
+      "source_sha256": "b881b6514614ad10f382a308cbe9e9acd8a0309233dbc62750b272b14d7ee768",
+      "labels": [
+        "B02"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "La evaluacion dinamica es visible; los efectos del codigo introducido son desconocidos.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D23",
+      "split": "development",
+      "source_sha256": "8d127470dce8d1ee5211d9ec03201180037bca132e753176a488fb43ecebcb33",
+      "labels": [
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Consulta de defensa y envio explicito son visibles; el cuerpo no se conoce.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-D24",
+      "split": "development",
+      "source_sha256": "fcc413ff3cd3860d877235e7b53c9cc102ec2ff127ce3ebe797f80153f1b7edb",
+      "labels": [
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Consulta de defensa y envio explicito son visibles; el cuerpo no se conoce.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_development_03.md"
+    },
+    {
+      "case_id": "V2-S01",
+      "split": "selection",
+      "source_sha256": "a1078b8414f8b4d36eac472ed48be4bb551f0e53e093bc6591357e9b0ef31cb2",
+      "labels": [
+        "B01"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Obtiene indice administrativo y lo guarda; no invoca lo descargado.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S02",
+      "split": "selection",
+      "source_sha256": "ec5c633588a56d91a3dba65bce3df65177be4bf9c99be7f112dc90e5d24e137f",
+      "labels": [
+        "B01"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Obtiene indice administrativo y lo guarda; no invoca lo descargado.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S03",
+      "split": "selection",
+      "source_sha256": "868fe68bbefd34521e8cc99c7fd683318cbfbf4c489a295ff95a5d77bc41ced1",
+      "labels": [
+        "B02"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Crea e invoca codigo funcional para mostrar un marcador, sin red ni inventario.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S04",
+      "split": "selection",
+      "source_sha256": "1a6d402da1a6eaa281b018aa3a5a924dd843b16d4fa38b1e52324afc96733be2",
+      "labels": [
+        "B02"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Crea e invoca codigo funcional para mostrar un marcador, sin red ni inventario.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S05",
+      "split": "selection",
+      "source_sha256": "831873440f7cf399fe510b688093d7da4f0f7280b7ee5168e21fe37cd7b7119f",
+      "labels": [
+        "B03"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B03 depende del enlace APPDATA -> carpeta Startup -> archivo .cmd escrito por Set-Content. Se configura contenido para inicio de sesion; no se afirma que se escribiera ni que se ejecutara.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S06",
+      "split": "selection",
+      "source_sha256": "8f8ec87c44606128bfd8457576a31b42f442b651a317315468e60a53d4bedb5d",
+      "labels": [
+        "B03"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B03 depende del enlace APPDATA -> carpeta Startup -> archivo .cmd escrito por Set-Content. Se configura contenido para inicio de sesion; no se afirma que se escribiera ni que se ejecutara.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S07",
+      "split": "selection",
+      "source_sha256": "61456904967427c57a9afe28a54c2ec965cf79ae44e4ef30d29cea2d3af726b9",
+      "labels": [
+        "B04",
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 3,
+      "technical_reading": "La lectura RunOnce es B05 y no B03. Enabled=$false cambia un perfil de firewall (B04). Test-NetConnection tiene destino/puerto propios (B06) y no demuestra descarga.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S08",
+      "split": "selection",
+      "source_sha256": "282be45162ac119f655ec4b5872f6fd3fa87821d7bcf801ebf5dfa1618613ac1",
+      "labels": [
+        "B04",
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 3,
+      "technical_reading": "La lectura RunOnce es B05 y no B03. Enabled=$false cambia un perfil de firewall (B04). Test-NetConnection tiene destino/puerto propios (B06) y no demuestra descarga.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_01.md"
+    },
+    {
+      "case_id": "V2-S09",
+      "split": "selection",
+      "source_sha256": "6fa1f11711a56e04bf7f0b004106cd913169a95927117dd13331fef0959db114",
+      "labels": [
+        "B05"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Enumera entradas de software instalado; no escribe el registro.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S10",
+      "split": "selection",
+      "source_sha256": "e02e9a9b618f347e3fd823da39cc10e3295378a0f40c665312e3645adadfc57c",
+      "labels": [
+        "B05"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "Enumera entradas de software instalado; no escribe el registro.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S11",
+      "split": "selection",
+      "source_sha256": "15bdd1ee1ade78877229086bc372055141fc9617bafa6b770e488ca3dd6d8bdf",
+      "labels": [
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Consulta usuarios y abre conexion TCP a destino ficticio; no hay envio del inventario.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S12",
+      "split": "selection",
+      "source_sha256": "5affbdb1c710f99ee62ddf9e6b5214d07d7dc17e2dc4fb6dd1422483c0ea2906",
+      "labels": [
+        "B05",
+        "B06"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "Consulta usuarios y abre conexion TCP a destino ficticio; no hay envio del inventario.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S13",
+      "split": "selection",
+      "source_sha256": "c9e0398c29037002b5037d50b63c6201dab528db242a7ce31bde2c71d30aee22",
+      "labels": [
+        "B07"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B07 se propone por lectura de exportacion declarada de terceros, ruta del escenario y seleccion de user/password conjuntamente. No basta el nombre password. La interpretacion depende del rol sintetico declarado del recurso: el responsable debe aceptarlo; no se ha probado que exista contenido real de credenciales.",
+      "technical_disposition": "conditionally_sufficient_for_synthetic_role_pending_owner",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S14",
+      "split": "selection",
+      "source_sha256": "f70bc8276813190604c5a2e0639cec29b21a308f466de6f5f0d6c908a61b180c",
+      "labels": [
+        "B07"
+      ],
+      "evidence_groups": 1,
+      "technical_reading": "B07 se propone por lectura de exportacion declarada de terceros, ruta del escenario y seleccion de user/password conjuntamente. No basta el nombre password. La interpretacion depende del rol sintetico declarado del recurso: el responsable debe aceptarlo; no se ha probado que exista contenido real de credenciales.",
+      "technical_disposition": "conditionally_sufficient_for_synthetic_role_pending_owner",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S15",
+      "split": "selection",
+      "source_sha256": "76e6f0afb3599ae4f526da26eea934e841e7e71caf5ac3f1466709572353e7a0",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Autenticacion legitima de proceso local fijo; no evalua codigo construido ni accede a almacen ajeno.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S16",
+      "split": "selection",
+      "source_sha256": "2d9738b15e93015c1435547010eb01cc3530f9617cffbb6ff3733ab8a05ba5e0",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Autenticacion legitima de proceso local fijo; no evalua codigo construido ni accede a almacen ajeno.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_02.md"
+    },
+    {
+      "case_id": "V2-S17",
+      "split": "selection",
+      "source_sha256": "74981a61998190c6b98c400b54265961f937a1dc8ff69997503343680a63f24b",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "La operacion de descarga solo aparece dentro de codigo no invocado en el texto suministrado.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S18",
+      "split": "selection",
+      "source_sha256": "d32218af5f8eed498815cca016884716b1fb4d03f803e839d8ba9f392326f099",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "La operacion de descarga solo aparece dentro de codigo no invocado en el texto suministrado.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S19",
+      "split": "selection",
+      "source_sha256": "682f3e447f7ba58a68d835f1058ffbcc3cf3c8bc3cbea3d77fe953e733abdd4f",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Se manipulan datos JSON y texto; no se llama al cmdlet mencionado.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S20",
+      "split": "selection",
+      "source_sha256": "51e29ba6f6b67d8473d3acdf13d50a581ebf0e1a7676d5ce515b62420d71cd9d",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Se manipulan datos JSON y texto; no se llama al cmdlet mencionado.",
+      "technical_disposition": "clear_negative_exclusion_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S21",
+      "split": "selection",
+      "source_sha256": "97c5e322701775a9d379558adf4fd686d69783549c0e04bf740bcd1e8a26900b",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Solo se conoce el despacho por & hacia un valor no resoluble. No se asigna B02 automaticamente, ni se conoce ausencia real de otras operaciones. Exact match de etiquetas=N/A; se revisan abstencion e incertidumbre por separado.",
+      "technical_disposition": "review_abstention_not_true_negative",
+      "human_status": "pending_human",
+      "reference_set_determinable": false,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S22",
+      "split": "selection",
+      "source_sha256": "1dbc3e2cbd2b3941d4b70a0efda18bd664d401e361bc49a476036c47ba587c75",
+      "labels": [],
+      "evidence_groups": 0,
+      "technical_reading": "Solo se conoce el despacho por & hacia un valor no resoluble. No se asigna B02 automaticamente, ni se conoce ausencia real de otras operaciones. Exact match de etiquetas=N/A; se revisan abstencion e incertidumbre por separado.",
+      "technical_disposition": "review_abstention_not_true_negative",
+      "human_status": "pending_human",
+      "reference_set_determinable": false,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S23",
+      "split": "selection",
+      "source_sha256": "2ec1c385acc21ec330e1b8b5a3509999ae963b779b1ce27383c34ee89237a8ab",
+      "labels": [
+        "B01",
+        "B02"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "El texto permite fijar B01+B02 exteriores por respuesta HTTP -> Content -> Create -> Invoke. Los efectos del cuerpo remoto ausente siguen desconocidos; esta incertidumbre no hace indeterminadas las dos etiquetas exteriores.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    },
+    {
+      "case_id": "V2-S24",
+      "split": "selection",
+      "source_sha256": "2f4568915d6d7ff23c53d6de74ea0246210f2ee61c7bc677dfc7569f84b6c97d",
+      "labels": [
+        "B01",
+        "B02"
+      ],
+      "evidence_groups": 2,
+      "technical_reading": "El texto permite fijar B01+B02 exteriores por respuesta HTTP -> Content -> Create -> Invoke. Los efectos del cuerpo remoto ausente siguen desconocidos; esta incertidumbre no hace indeterminadas las dos etiquetas exteriores.",
+      "technical_disposition": "static_support_identified_pending_human",
+      "human_status": "pending_human",
+      "reference_set_determinable": true,
+      "review_block": "docs/pilot_v2_review_selection_03.md"
+    }
+  ],
+  "limits": [
+    "Only development D03/D04 sources and dependent records corrected before freeze; labels and all other family records unchanged.",
+    "One positive family per split for B03/B04/B07; insufficient for category generalization.",
+    "Literal existence is checked separately; this technical review is not a second independent annotator."
+  ]
+}

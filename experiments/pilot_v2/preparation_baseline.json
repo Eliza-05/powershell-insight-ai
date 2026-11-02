@@ -1,0 +1,13 @@
+{
+  "purpose": "Read-only integrity baseline captured before pilot v2 preparation; not experimental results",
+  "date": "2026-11-02",
+  "branch": "develop",
+  "head": "0b2a67d5cbac841ff53c1a5e0f29ee65b3ac9bda",
+  "tracked_file_count": 140,
+  "tracked_tree_sha256": "354df5732239e7e2208a97fd919e8fb04504ca76af1cd918bf936aebad4dbb73",
+  "tree_algorithm": "SHA256 of UTF-8 LF-joined git-ls-files paths plus colon plus uppercase SHA256 of each worktree file, no final LF",
+  "index_sha256": "e69d11d638a1d876490acfc9c597dc592534b3d128169bb416f6dafe30e20dc9",
+  "preexisting_untracked_study": "docs/llm_model_selection.md",
+  "preexisting_study_sha256": "edf42d69e1ae411db2a94d4295dbc0fe511e6130550f4232dda9b53ca5d10b04",
+  "historical_result_hash_manifest": "experiments/results/pilot/pilot-v1_20261101T001806Z.SHA256SUMS"
+}

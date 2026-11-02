@@ -1,0 +1,32 @@
+{
+  "freeze_id": "pilot-v2_20261102T194623Z",
+  "effective_at": "2026-11-02T19:46:23.515420+00:00",
+  "dataset_frozen": true,
+  "r1_criteria_frozen_and_approved": true,
+  "prompt_selection_frozen": false,
+  "schema_version": "pilot-schema-v1",
+  "taxonomy_version": "0.2",
+  "protocol": "r1 metrics; single-model r2; D03/D04 pre-freeze correction; explicit closure authorization",
+  "approval_path": "experiments/reviews/pilot_v2_owner_global_approval.json",
+  "approval_sha256": "013a442a721e099daa5a143f5c265d0b6b0ff8e09698870331739a6a4e09ecbc",
+  "files": {
+    "configuration.json": "9faa0a9e4cce31df2a9296e7738cdbb5f30d21f79c21dada4dd83a332b2a13c8",
+    "dataset.json": "7e2ac1236e9762ce60ce3c7158611f3d690238895e929102b7d2e4a78ff60b6e",
+    "effective_review.json": "b30a8bf3b651232fa216420ae60a88267a78d57d38dfd3e87ed674b90455e3ce",
+    "metrics.json": "168259754c48546f0219c899867191e2459d03bbc141b5802976bea5791aa433",
+    "prompt_r0.md": "ad95a92167e1f2c9b96a2e52248442938f0360b15895e4cc69b18fc3db061545",
+    "schema.json": "87987747256d0b70f1b3605a75f68b38c8440a8b155755480778bc4835707a0d",
+    "thresholds.json": "f526703bd41b22325423448eb2440dde925eb2b729ad48d08da73d685d26e929"
+  },
+  "source_files": {
+    "datasets/metadata/pilot_v2_manifest.json": "491f4fbef3629ba54dcd403848c81b51ac0e86d0d53e29e8053a328befd65bda",
+    "datasets/metadata/pilot_v2_manifest.csv": "276b77f844f10b66f3478d364991689bd745bac5e66c257dc3f659f03d295676",
+    "datasets/metadata/pilot_v2_annotations.json": "f291d72ab1cdfb2ed5470a5834cdefa75aa89f201bf64a8569651d07a888c4eb",
+    "experiments/reviews/pilot_v2_human_review.json": "3230af20f2c6f2a5677a940fb49c9622712ee5582c462ac3a0e325d2d7b82610",
+    "experiments/configurations/pilot_v2_thresholds_proposed.json": "f526703bd41b22325423448eb2440dde925eb2b729ad48d08da73d685d26e929",
+    "experiments/configurations/pilot_v2_metrics_proposed.json": "168259754c48546f0219c899867191e2459d03bbc141b5802976bea5791aa433",
+    "experiments/configurations/pilot_v2_response.schema.json": "87987747256d0b70f1b3605a75f68b38c8440a8b155755480778bc4835707a0d",
+    "experiments/configurations/pilot_v2_proposed.json": "9faa0a9e4cce31df2a9296e7738cdbb5f30d21f79c21dada4dd83a332b2a13c8",
+    "experiments/prompts/pilot_analysis_v2_candidate.md": "ad95a92167e1f2c9b96a2e52248442938f0360b15895e4cc69b18fc3db061545"
+  }
+}

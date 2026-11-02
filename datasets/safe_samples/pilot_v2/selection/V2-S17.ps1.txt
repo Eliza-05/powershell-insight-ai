@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$exampleBlock = { Invoke-WebRequest -Uri 'https://example.invalid/academic/not-called' }
+Write-Output 'The stored block is not invoked.'

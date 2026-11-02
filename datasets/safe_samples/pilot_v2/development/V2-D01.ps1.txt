@@ -1,0 +1,2 @@
+# Synthetic academic fixture. Text only: never execute.
+Start-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv' -Destination 'Q:\Academic\missing-device-catalog.csv'

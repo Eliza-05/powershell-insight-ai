@@ -1,6 +1,6 @@
 # Arquitectura del proyecto
 
-> Estado implementado: infraestructura del piloto (Fase 0B), desofuscador estático aprobado (Fase 1A, [contrato](deobfuscator.md)) y detector determinista B01–B07 aprobado y cerrado por el responsable dentro de su subconjunto (Fase 1B, [reglas y límites](behavior_detector.md), [cierre](phase1b_closure.md)). La API, React y el pipeline experimental A/B/C siguen siendo diseño previsto. La Fase 2 está bloqueada por la selección definitiva del LLM.
+> Estado implementado: pilotos históricos conservados, motores 1A/1B y servicios de aplicación A/B/C de la Fase 2 con Qwen3.5 provisional. La autorización prospectiva DEV-03 permite desarrollo sin aprobar la calidad del modelo. [Arquitectura y contratos de Fase 2](phase2_integration.md), [resultados y estado real](phase2_closure.md). FastAPI/React y la evaluación científica A/B/C siguen pendientes.
 
 ## 1. Visión general
 
@@ -10,9 +10,13 @@ La aplicación sigue una arquitectura cliente-servidor local. El navegador solo 
 flowchart LR
     U[Usuario] --> FE[Frontend React]
     FE -->|HTTP/JSON| API[API FastAPI]
-    API --> DEOB[Desofuscación estática]
+    API --> ORQ[AnalysisService A/B/C]
+    ORQ --> DEOB[Desofuscación estática 1A]
     DEOB --> DET[Detección por reglas]
-    DET --> LLM[Servicio LLM]
+    ORQ --> B[Contexto B: original]
+    DEOB --> C[Contexto C: original + recuperación 1A]
+    B --> LLM[Adaptador Ollama con recursos]
+    C --> LLM
     LLM -->|HTTP local| OLL[(Ollama)]
     LLM --> EVI[Validación de evidencias]
     DET --> EVI
@@ -30,7 +34,7 @@ flowchart LR
 4. El motor de desofuscación aplica transformaciones estáticas y produce artefactos recuperados, cada uno con su trazabilidad (posición original y transformación aplicada).
 5. El motor de detección aplica reglas deterministas sobre el script original y los artefactos, y genera hallazgos según la [taxonomía de comportamientos](behavior_taxonomy.md).
 6. Según la configuración experimental, el servicio LLM construye el prompt (script original, y opcionalmente artefactos recuperados) y solicita a Ollama una respuesta estructurada.
-7. El validador de evidencias comprueba que cada afirmación del LLM esté respaldada por fragmentos que existan realmente en el script o en los artefactos recuperados, y marca las afirmaciones no respaldadas.
+7. El validador exige JSON completo y citas literales en el origen declarado. No certifica que la cita sustente semánticamente la afirmación; los resultados LLM quedan sin revisión semántica. C nunca recibe las etiquetas del detector.
 8. Opcionalmente, los comportamientos se relacionan con técnicas MITRE ATT&CK.
 9. La API devuelve una respuesta estructurada al frontend.
 
@@ -59,11 +63,14 @@ flowchart LR
 - **Límites:** no ejecuta texto, consulta ground truth ni usa el LLM. No produce riesgo o veredictos de maliciosidad. EncodedCommand y `&` no generan B02; los wrappers IEX declarados se excluyen y la procedencia funcional desconocida se comunica. Las relaciones no probadas y OT-FORMAT producen abstenciones. Se aplican presupuestos deterministas y cotas de hallazgos/evidencias. La aprobación de 1B acepta ese alcance y los FN P3/P7; no equivale a una evaluación experimental independiente de A.
 
 ### LLM (`backend/app/services/llm/`)
-- **Responsable de:** cliente de Ollama, plantillas de prompt versionadas, parámetros de inferencia (temperatura, semilla), parseo y validación de la salida estructurada.
-- **Límites:** trata el contenido del script como dato no confiable; no sigue instrucciones contenidas en el script. Registra modelo y versión usados.
+- **Histórico conservado:** cliente y contratos de los pilotos. La aplicación utiliza los módulos separados de `services/pipelines/`, sin modificar prompts o resultados congelados.
+
+### Aplicación A/B/C (`backend/app/services/pipelines/`)
+- **Implementado:** entrada, configuración, política compartida y contextos aislados, adaptador HTTP local, controles de RAM/compromiso/concurrencia/timeout, validación de JSON/evidencias, orquestador independiente de framework, CLI y persistencia explícita sin sobrescritura. [Detalle](phase2_integration.md).
+- **Límites:** A no usa Ollama; B no desofusca; C usa solo 1A. No se ejecutan muestras. El modelo es provisional y puede producir afirmaciones falsas que superen la validación literal; el estado `completed` es operativo.
 
 ### Evidencias (`backend/app/services/evidence/`)
-- **Responsable de:** verificar que cada hallazgo (de reglas o del LLM) cite fragmentos existentes, y clasificar afirmaciones como respaldadas o no respaldadas.
+- **Responsable de:** utilidades históricas de localización literal. La validación de aplicación reside en `pipelines/validation.py`; comprueba presencia y procedencia, sin convertir citas existentes en adjudicación semántica.
 
 ### Threat intelligence (`backend/app/services/threat_intelligence/`)
 - **Responsable de:** mapeo opcional a MITRE ATT&CK a partir de datos STIX 2.1 descargados localmente.
@@ -77,4 +84,4 @@ flowchart LR
 - **Servicios independientes del framework:** los motores de análisis son módulos Python puros; FastAPI solo los expone. Esto permite reutilizarlos en experimentos y probarlos con Pytest.
 - **LLM local:** evita enviar muestras potencialmente sensibles a servicios externos y favorece la reproducibilidad (versión de modelo fija).
 - **Respuestas estructuradas:** el LLM debe responder en un formato validado por Pydantic para poder medir resultados y verificar evidencias.
-- **Sin persistencia por ahora:** no se define base de datos; los resultados experimentales se guardan como archivos en `experiments/results/`.
+- **Persistencia explícita:** no hay base de datos; `save_result` escribe un JSON nuevo solo cuando el consumidor lo solicita. Los artefactos funcionales de Fase 2 están en `artifacts/phase2/`; los resultados históricos de `experiments/results/` se conservan.

@@ -1,0 +1,11 @@
+# Piloto v2: compatibilidad observada del unico candidato
+
+Estado vigente: `qwen3.5:4b-q4_K_M` instalado mediante la autorizacion expresa del responsable; calidad pendiente del resultado del piloto. Ollama 0.40.13, Q4_K_M, 4,2B parametros GGUF y paquete de 3.324.173.934 bytes. Digest `d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04`. No se instalaron otros modelos ni dependencias.
+
+Los metadatos `/api/show` anuncian `thinking.values=[false,true]`; las seis llamadas tecnicas autorizadas aceptaron `think=false`, esquema JSON, contexto efectivo 8192 y CPU (`size_vram=0` en `/api/ps`), sin campo de pensamiento no vacio. No se extrapola de ello fiabilidad semantica. El cuerpo HTTP exacto, respuesta cruda, conteos y parametros observables quedan en las trazas del [acta](phase_model_selection_closure.md).
+
+Se usa la API HTTP nativa con `truncate=false` y `shift=false`, porque el SDK instalado no expone truncate como parametro de chat. Cada respuesta se comprueba por finalizacion, motivo de parada, presupuesto real de tokens y JSON/esquema; una salida cortada sigue siendo fallo. La API no devuelve cada opcion de muestreo aplicada: se distingue solicitud aceptada de contexto/CPU efectivamente observados. Se preservan los parametros propuestos (8192/2048, temperatura 0, semilla 42 y CPU) y se congelan antes de seleccion. Fuentes de interfaz: [chat](https://docs.ollama.com/api/chat), [controles de pensamiento](https://docs.ollama.com/capabilities/thinking) y [contrato del servidor 0.40.13](https://github.com/ollama/ollama/blob/v0.40.13/api/types.go).
+
+La observacion inicial de modelo ausente y otros tags se conserva intacta en `experiments/pilot_v2/compatibility_observation.json`; no describe el estado posterior a la descarga ni define participantes. Solo Qwen3.5 participa. No se vuelve a ejecutar Qwen2.5 y Gemma queda fuera.
+
+El primer colector de procesos omitio el hijo llama-server.exe durante tecnica/desarrollo r0. La RAM disponible y compromiso del sistema si se midieron; los contadores por proceso de esas llamadas son parciales. Se corrigio el recorrido del arbol de procesos antes de revision/seleccion, sin reejecutar llamadas ni reemplazar registros.

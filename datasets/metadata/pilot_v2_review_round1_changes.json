@@ -1,0 +1,65 @@
+{
+  "revision": "pilot-v2-final-review-r1",
+  "status": "proposal_pending_owner_case_threshold_protocol_approval",
+  "previous_inventory": "datasets/metadata/pilot_v2_preparation_inventory_r0_snapshot.json",
+  "source_ground_truth_prompt_schema_changes": false,
+  "dataset_expanded": false,
+  "runner_created": false,
+  "inferences_performed": 0,
+  "modified_relative_to_previous_preparation_inventory": [
+    {
+      "path": "backend/tests/pilot_v2/test_preparation.py",
+      "previous_sha256": "ce16ba7257d71dcd63e63b80cf4d9c1dfdc5b68fe64c15e62d0e3656cf3b78a2",
+      "current_sha256": "1b56c9fe108634dd3847b0cc92f7289b90adf9fb0fdbf09cb47f54e509def8ed"
+    },
+    {
+      "path": "docs/pilot_v2_cases.md",
+      "previous_sha256": "45eb7d64d703cf92f6447c8c8c3bca5f901fe99efcf8e1231b302681058ec07c",
+      "current_sha256": "47e46dc2f65281cb67e3013525af76366e1c958d1bb5901248cbe0f2633b3bbd"
+    },
+    {
+      "path": "docs/pilot_v2_protocol.md",
+      "previous_sha256": "5a86f40d5ef86783391255f0953b26a38333742b04bfef052f99f8526276e6a1",
+      "current_sha256": "fa60f25dd787da201423b4269e322386e54f33277c2ddc78af7c1da2d245d4cf"
+    },
+    {
+      "path": "docs/pilot_v2_review_checklist.md",
+      "previous_sha256": "66e30af5c5661ad885b57921838abca325b7046a4d69218f48f293991428f2a0",
+      "current_sha256": "5d4f46edaf6709c1b8eea02470101999af9d4742e87e9ab3fb380c0871998cf2"
+    },
+    {
+      "path": "docs/pilot_v2_validation.md",
+      "previous_sha256": "d4460600b8e6f8f354d4862392898049248630c9e827c5aaeb64958f56e8977f",
+      "current_sha256": "123e1142328ecc64b1771b8d2d26c77378f6dac40631ee37b71ad70c1a21fff0"
+    },
+    {
+      "path": "experiments/configurations/pilot_v2_proposed.json",
+      "previous_sha256": "bc547ca68b6bfa2fd707b1f94de0c66fed6dd2b91aee6f77480d0e621c53aecf",
+      "current_sha256": "830a4f03107bbf2c208e6c4a166e5830b17a52dff23324f2496510a8f54e040f"
+    },
+    {
+      "path": "experiments/configurations/pilot_v2_thresholds_proposed.json",
+      "previous_sha256": "927571a5b83831571077e7dbd01e92a2337eefab70e6e424025ff13156f60180",
+      "current_sha256": "bddc379d713392666d1dd87e585090fe16af3f6f52f9ae5d9ac1f987c3fd6d86"
+    },
+    {
+      "path": "experiments/pilot_v2/build_dataset.py",
+      "previous_sha256": "c332e93cdb00df5e9624ef58559a2f161a9b74cff9dbc1f0f8bbe6ae9271a070",
+      "current_sha256": "e56d0f4210577d98dfb27d6e41d94df21a527d9f2e12b118dd6a3265eed3a1ad"
+    },
+    {
+      "path": "experiments/reviews/.gitattributes",
+      "previous_sha256": "fb466ee2063b68d7bc5f1682f9581be277dc1a48b26ba840928105335ecc7f6a",
+      "current_sha256": "9ec3690fcc482e60ca0cd44f98f1f9e724b1891b5ecb34f758f898498863c787"
+    }
+  ],
+  "new_artifact_groups": [
+    "r0 proposal and inventory snapshots, round1 baseline",
+    "scope-limited preliminary acceptance record",
+    "metric definitions and pure hypothetical reference predicates/tests",
+    "six human review blocks and 48-case technical evidence review",
+    "proposed similarity adjudication with full sources",
+    "final methodological review and round1 change record"
+  ],
+  "note": "The current preparation inventory itself is refreshed separately and excludes its own hash; no tracked/history/staging change."
+}

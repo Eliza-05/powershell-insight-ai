@@ -1,0 +1,56 @@
+{
+  "status": "AI_assist_preliminary_not_human_adjudication",
+  "created_at": "2026-11-02T20:37:10.308891+00:00",
+  "human_reviews": 0,
+  "strict_support_rate_human": null,
+  "critical_fabrications_human": null,
+  "findings": [
+    {
+      "call_id": "selection/002_V2-S20_r1",
+      "finding_index": 0,
+      "behavior_id": "B05",
+      "strict_support_proposed": false,
+      "reason": "The cited literal JSON assignment parses fixed data; it does not query the environment. The explanation asserts an environment query absent from the source.",
+      "human_status": "pending"
+    },
+    {
+      "call_id": "selection/002_V2-S20_r1",
+      "finding_index": 1,
+      "behavior_id": "B02",
+      "strict_support_proposed": false,
+      "reason": "String formatting and Write-Output do not evaluate generated code; the constructed cmdlet-name string is never invoked. Literal citations exist but do not establish B02.",
+      "human_status": "pending"
+    },
+    {
+      "call_id": "selection/003_V2-S01_r1",
+      "finding_index": 0,
+      "behavior_id": "B01",
+      "strict_support_proposed": false,
+      "reason": "B01 label matches the source, but DownloadFile evidence contains invented ellipsis and is not literal. The other verified citation only constructs WebClient; the essential retrieval operation and its arguments are not supplied by verified cited/recovered code. Uncited source context cannot substitute under strict policy.",
+      "human_status": "pending"
+    }
+  ],
+  "other_observations": [
+    {
+      "call_id": "selection/001_V2-S17_r1",
+      "note": "Empty reference and prediction agree; stored ScriptBlock is not invoked. This is a clear negative, unlike unexecuted indeterminate S21/S22."
+    },
+    {
+      "call_id": "selection/004_V2-S15_r1",
+      "note": "Canceled due commit margin; no JSON or labels to adjudicate. Never count its absence as a successful negative."
+    }
+  ],
+  "development_examples": [
+    {
+      "case_id": "V2-D10",
+      "stage": "development",
+      "note": "r0 invented an IWR downloader, URL, file path and future-execution mechanism instead of the known CIM inventory reference."
+    },
+    {
+      "case_id": "V2-D20",
+      "stage": "development",
+      "note": "r0 claimed an invented cmdlet/parameter expansion instead of the reference that only displays a defense-command example."
+    }
+  ],
+  "rubric_note": "These are technical AI-assisted proposals, not human-authorized semantic successes or a final critical-fabrication count."
+}

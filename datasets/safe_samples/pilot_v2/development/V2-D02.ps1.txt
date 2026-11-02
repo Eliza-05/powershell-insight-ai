@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$origin = 'https://' + 'example.com/academic/device-catalog.csv'
+Start-BitsTransfer -Source $origin -Destination 'Q:\Academic\missing-device-catalog.csv'

@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$job = [scriptblock]::Create('Write-Output "academic marker"')
+$job.Invoke()

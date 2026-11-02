@@ -1,0 +1,218 @@
+{
+  "$defs": {
+    "BehaviorFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior_id": {
+          "$ref": "#/$defs/BehaviorId"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Level"
+        }
+      },
+      "required": [
+        "behavior_id",
+        "explanation",
+        "evidence",
+        "confidence"
+      ],
+      "title": "BehaviorFinding",
+      "type": "object"
+    },
+    "BehaviorId": {
+      "enum": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "title": "BehaviorId",
+      "type": "string"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "snippet": {
+          "description": "Exact code fragment supporting the finding.",
+          "title": "Snippet",
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/$defs/EvidenceOrigin"
+        }
+      },
+      "required": [
+        "snippet",
+        "origin"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "EvidenceOrigin": {
+      "enum": [
+        "analyzed_script",
+        "model_decoded"
+      ],
+      "title": "EvidenceOrigin",
+      "type": "string"
+    },
+    "Level": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Level",
+      "type": "string"
+    },
+    "ObfuscationTechnique": {
+      "enum": [
+        "OT-B64-ENCCMD",
+        "OT-B64-INLINE",
+        "OT-CONCAT",
+        "OT-VARSUB",
+        "OT-FORMAT",
+        "OT-OTHER"
+      ],
+      "title": "ObfuscationTechnique",
+      "type": "string"
+    },
+    "PromptInjectionAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "detected": {
+          "title": "Detected",
+          "type": "boolean"
+        },
+        "snippets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Snippets",
+          "type": "array"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "detected",
+        "snippets",
+        "notes"
+      ],
+      "title": "PromptInjectionAssessment",
+      "type": "object"
+    },
+    "RiskLabel": {
+      "enum": [
+        "benign",
+        "suspicious",
+        "high_risk",
+        "unknown"
+      ],
+      "title": "RiskLabel",
+      "type": "string"
+    },
+    "Uncertainty": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/Level"
+        },
+        "uninterpretable_fragments": {
+          "description": "Fragments the analyst could not interpret statically.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Uninterpretable Fragments",
+          "type": "array"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "level",
+        "uninterpretable_fragments",
+        "notes"
+      ],
+      "title": "Uncertainty",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Respuesta del modelo. El orden de los campos es el orden de generación.",
+  "properties": {
+    "obfuscation_techniques": {
+      "items": {
+        "$ref": "#/$defs/ObfuscationTechnique"
+      },
+      "title": "Obfuscation Techniques",
+      "type": "array"
+    },
+    "recovered_content": {
+      "description": "Content the analyst decoded or reconstructed statically, if any.",
+      "items": {
+        "type": "string"
+      },
+      "title": "Recovered Content",
+      "type": "array"
+    },
+    "behaviors": {
+      "items": {
+        "$ref": "#/$defs/BehaviorFinding"
+      },
+      "title": "Behaviors",
+      "type": "array"
+    },
+    "risk_label": {
+      "$ref": "#/$defs/RiskLabel"
+    },
+    "risk_rationale": {
+      "title": "Risk Rationale",
+      "type": "string"
+    },
+    "uncertainty": {
+      "$ref": "#/$defs/Uncertainty"
+    },
+    "prompt_injection": {
+      "$ref": "#/$defs/PromptInjectionAssessment"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "obfuscation_techniques",
+    "recovered_content",
+    "behaviors",
+    "risk_label",
+    "risk_rationale",
+    "uncertainty",
+    "prompt_injection",
+    "limitations"
+  ],
+  "title": "AnalysisResult",
+  "type": "object"
+}

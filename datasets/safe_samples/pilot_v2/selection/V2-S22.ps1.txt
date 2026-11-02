@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$dispatch = Import-Clixml -LiteralPath 'Q:\Academic\missing-dispatch.xml'
+& $dispatch.task

@@ -1,0 +1,4 @@
+# Synthetic academic fixture. Text only: never execute.
+Get-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\RunOnce'
+Set-NetFirewallProfile -Profile Private -Enabled $false
+Test-NetConnection -ComputerName 'audit.example.invalid' -Port 443

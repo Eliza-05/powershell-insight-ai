@@ -6,7 +6,7 @@ LLM-powered static analysis and deobfuscation of PowerShell scripts for cybersec
 
 Proyecto final de la asignatura **Ciberinteligencia**.
 
-> **Estado: Fase 0B cerrada formalmente (2026-11-01); Fase 1A aprobada y publicada; Fase 1B aprobada técnicamente y cerrada por autorización expresa del responsable dentro del subconjunto documentado ([acta](docs/phase1b_closure.md)).** Se conservan el [piloto](docs/phase0b_closure.md), el [desofuscador](docs/deobfuscator.md) y su [cierre](docs/phase1a_closure.md). El [detector B01–B07](docs/behavior_detector.md) aporta reglas parciales, evidencias y abstenciones P3/P7 como FN aceptados. Publicación de 1B pendiente por el propietario. La API web, la interfaz y el experimento A/B/C siguen pendientes; la Fase 2 está bloqueada por la selección definitiva del LLM.
+> **Estado: Fase 2 implementada con Qwen3.5 provisional bajo autorización prospectiva DEV-03.** [Integración A/B/C, uso y límites](docs/phase2_integration.md); [cierre técnico y pruebas reales, incluidos rechazos](docs/phase2_closure.md). El piloto v2 sigue **PENDIENTE / INCONCLUSO**: 58 intentos, 68 llamadas de selección pendientes; hashes, criterios e incidente de memoria conservados. Qwen3.5 no está validado científicamente. [Acta histórica](docs/phase_model_selection_closure.md). FastAPI/React y evaluación final no iniciados.
 
 ---
 
@@ -43,28 +43,28 @@ Desarrollar y evaluar un prototipo que combine desofuscación estática, reglas 
 
 | Componente | Tecnología |
 |---|---|
+| Piloto v2 del LLM | Dataset 24+24 aprobado globalmente y congelado; 6 tecnicas +24 desarrollo +24 revision +4 seleccion. Parada por compromiso <2 GiB; 68 pendientes, sin validacion. [Acta](docs/phase_model_selection_closure.md) |
 | Frontend | React + TypeScript + Vite |
 | Estilos | Tailwind CSS |
 | Editor de código | Monaco Editor (candidato) |
 | Backend | Python + FastAPI |
 | LLM | Ollama (local) |
-| Modelo candidato | Qwen2.5-Coder 7B |
+| Modelo del piloto v2 | Qwen3.5 4B Q4_K_M: pendiente/inconcluso, no validado; v1 permanece historico |
 | Validación estructurada | Pydantic |
 | Análisis experimental | Pandas + scikit-learn |
 | Pruebas de backend | Pytest |
 | MITRE ATT&CK | STIX 2.1 (opcional) |
 
-Por ahora solo se usan Ollama, Pydantic y Pytest, en el piloto de la Fase 0B ([backend/requirements-pilot.txt](backend/requirements-pilot.txt)). El resto no está instalado todavía.
+El piloto v2 reutiliza el entorno existente de Ollama, Pydantic y Pytest, con transporte HTTP y contadores Windows de la biblioteca estandar; no instala dependencias nuevas. Los requisitos del piloto historico se conservan en [backend/requirements-pilot.txt](backend/requirements-pilot.txt).
 
 Para preparar el entorno local (`.venv`, Ollama, modelo, pruebas y piloto) en Windows, ver [docs/setup_windows.md](docs/setup_windows.md).
 
 ## 6. Arquitectura general
 
 ```text
-Frontend React ──► API FastAPI ──► Desofuscación estática ──► Detección por reglas
-                                                                    │
-                     Respuesta estructurada ◄── Validación de ◄── LLM local (Ollama)
-                                                evidencias
+CLI / futura API ──► AnalysisService ──► A: desofuscador 1A + detector 1B
+                                    ├─► B: original ──► Ollama ──► validación
+                                    └─► C: original + evidencia 1A ──► Ollama ──► validación
 ```
 
 Detalle completo en [docs/architecture.md](docs/architecture.md).
@@ -81,8 +81,9 @@ powershell-insight-ai/
 │   │   ├── schemas/         # Contratos Pydantic
 │   │   └── services/
 │   │       ├── deobfuscation/        # Motor de desofuscación estática
-│   │       ├── detection/            # Motor determinista de comportamientos
-│   │       ├── llm/                  # Integración con Ollama
+│   │       ├── behavior_detection/   # Motor determinista de comportamientos
+│   │       ├── pipelines/            # Aplicación A/B/C y adaptador Ollama
+│   │       ├── llm/                  # Servicios históricos de los pilotos
 │   │       ├── evidence/             # Validación de evidencias
 │   │       └── threat_intelligence/  # MITRE ATT&CK (opcional)
 │   └── tests/               # Pruebas Pytest
@@ -117,19 +118,19 @@ Se evaluarán la identificación de comportamientos (precision, recall, F1; eval
 | Documentación inicial | ✅ Creada |
 | Fase 0A: auditoría documental de fuentes y diseño del dataset y del piloto | 📝 Documentación preparada, pendiente de aprobación |
 | Fase 0B: verificación de fuentes en entorno aislado | ↪️ Trasladada: prerrequisito antes de usar muestras externas (decisión D3, [roadmap](docs/roadmap.md)) |
-| Fase 0B: piloto del modelo en Ollama | ✅ Cerrada formalmente (2026-11-01); D2 aprobada con observaciones para las 20 anotaciones y la v0.2 completa. Qwen2.5-Coder 7B sigue como candidato provisional no aprobado por el piloto v1; selección definitiva antes de la Fase 2 (DEV-01). Se mantienen DEV-02 y DEC-01 ([resultados](docs/pilot_results.md), [cierre](docs/phase0b_closure.md)) |
+| Fase 0B: piloto del modelo en Ollama | ✅ Cerrada formalmente (2026-11-01); D2 aprobada con observaciones para las 20 anotaciones y la v0.2 completa. Qwen2.5-Coder 7B queda histórico, sin nuevas ejecuciones. Se mantienen DEV-02 y DEC-01 ([resultados](docs/pilot_results.md), [cierre](docs/phase0b_closure.md)); DEV-03 permite desarrollo de Fase 2 con Qwen3.5 provisional sin aprobar calidad |
 | Fase 1A: desofuscación estática | Aprobada, cerrada y publicada por el responsable en el [subconjunto documentado](docs/deobfuscator.md); 274 pruebas de referencia preservadas. [Acta y limitación residual de reproducibilidad binaria](docs/phase1a_closure.md) |
 | Fase 1B: detección determinista | Aprobada técnicamente y cerrada formalmente por el responsable: 12 reglas y siete categorías parciales; 488 pruebas aprobadas. FN P3/P7 aceptados. [Cierre formal](docs/phase1b_closure.md); [contrato y resultados](docs/behavior_detector.md). Publicación, dataset final y generador pendientes |
-| Dataset experimental | ⏳ No iniciado (solo plantillas) |
+| Dataset definitivo A/B/C | ⏳ No iniciado (solo plantillas) |
 | Motor de desofuscación | Implementado en el subconjunto de la Fase 1A: Base64, concatenación y variables; `-f` detectado sin resolución. [Contrato y límites](docs/deobfuscator.md) |
 | Motor de reglas | Aprobado en el [subconjunto documentado de B01–B07](docs/behavior_detector.md), sin riesgo ni LLM; no implica evaluación independiente definitiva |
-| Integración LLM | ⏳ No iniciado |
+| Integración LLM | Implementada con Qwen3.5 provisional y servicios A/B/C. [Contratos, seguridad y limitaciones](docs/phase2_integration.md); [pruebas y estado de entrega](docs/phase2_closure.md). No implica aprobación científica |
 | Frontend | ⏳ No iniciado |
-| Experimentos | ⏳ No iniciados |
+| Experimento definitivo A/B/C | No iniciado; los pilotos de modelos son independientes de esa evaluacion |
 
 ## 10. Próximas fases
 
-Ver [docs/roadmap.md](docs/roadmap.md): validación de datasets y modelo → motor estático y reglas → integración del LLM → frontend → experimentos → informe y demostración.
+Ver [docs/roadmap.md](docs/roadmap.md). La integración permite preparar la Fase 3; la validación pendiente del modelo y la evaluación independiente siguen siendo obligaciones separadas. No se inicia la Fase 3 en esta entrega.
 
 ## 11. Precauciones de seguridad
 

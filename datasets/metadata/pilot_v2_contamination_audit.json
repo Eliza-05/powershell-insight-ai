@@ -1,0 +1,142 @@
+{
+  "status": "preliminary_text_audit_human_family_review_pending",
+  "threshold_for_review_flag": 0.72,
+  "method": "casefold/whitespace/literal-variable-number abstraction and SequenceMatcher; not PowerShell parsing",
+  "limitations": [
+    "Author constructed both splits; not blind reserve authorship.",
+    "Taxonomy primitives necessarily overlap; similarity is not leakage by itself.",
+    "No semantic clone proof; detector fixtures embedded in Python need contextual human review."
+  ],
+  "source_bindings": {
+    "V2-D01": "d5edb204af7fdfa5909c51b4e423454789d967ad89ad6fa804528e9987dbe6e8",
+    "V2-D02": "297b0f2a9c2d2f7129b7483c11550f2445395189517960a393619178a187ad00",
+    "V2-D03": "add145b67edf0c95458dd396faacba0cc5f5bcbbf0336e45e6d74c17d6597561",
+    "V2-D04": "6734c99330b913048bd64ef63b82ed0636724da3140985f9fb3967813ade32a4",
+    "V2-D05": "4b5da42330ec6633420c776075116ff09f5aa224f4e3f5a009a945451b295a91",
+    "V2-D06": "a85d81b116343ae3003b8d31cbb3797144936d8bbddb7eaf843a712d7e8191f9",
+    "V2-D07": "36c1ff055e385fbbc7b550b094c92ab5aae2357a8e1bc6f264a609b3eacd050f",
+    "V2-D08": "d141cfdd290a79222b86ec51ab446d88ad1149d00eb70ff9bf582e06972fc3aa",
+    "V2-D09": "e5d06c36c3355b430001efd46232533d5f9eff54e280601c64660f4fd2a9e5a2",
+    "V2-D10": "dfeca0e9430db9bc1a7b0db229ec712b3177c416bbcf9c96ddbf0cec02aab685",
+    "V2-D11": "97b3305aa1723a253dd120f80cfbb85247fb87b957671ea60408661a2779aeff",
+    "V2-D12": "b511b7a733c81d175e290ffefb6b74aded3e43628d5a715abc86a72cbee887c6",
+    "V2-D13": "5f536e58cba602a66571cefd2a03af96266f3e67565cb497bd3f4303dee3bf44",
+    "V2-D14": "c9f447dd84b120547824860835d7764ba0487717bf01b2044c6c816713ec7cd7",
+    "V2-D15": "c418f20b0ba29e9b495f2a4712563f466dd23fba479c2f865b0d3962fa5485a2",
+    "V2-D16": "1639fe4dec4e494ef9137389c116fd81d7e311bfe65d5262c3128e70e4d20dc9",
+    "V2-D17": "5a054ad27282a632b8b190dd3662a054a4ce2670f78a4a641521fecb3c796f30",
+    "V2-D18": "83da1fe78b41bb212cfa7c0fd0373d8bb965c5eafdaca8e42cc4ad3841e0a374",
+    "V2-D19": "cfd3c716447a4cceb84577deb30dedbecd38bc29709a10773b1afabfea13af9c",
+    "V2-D20": "73014a4865ae05dcab04a6e42cf5ebf70a98dcfdf96b594f32efffc6d1ce0712",
+    "V2-D21": "9daa5d778cac06663b2f2c6a24a46f9f03edac38a8d79e361f21285319aa39fa",
+    "V2-D22": "b881b6514614ad10f382a308cbe9e9acd8a0309233dbc62750b272b14d7ee768",
+    "V2-D23": "8d127470dce8d1ee5211d9ec03201180037bca132e753176a488fb43ecebcb33",
+    "V2-D24": "fcc413ff3cd3860d877235e7b53c9cc102ec2ff127ce3ebe797f80153f1b7edb",
+    "V2-S01": "a1078b8414f8b4d36eac472ed48be4bb551f0e53e093bc6591357e9b0ef31cb2",
+    "V2-S02": "ec5c633588a56d91a3dba65bce3df65177be4bf9c99be7f112dc90e5d24e137f",
+    "V2-S03": "868fe68bbefd34521e8cc99c7fd683318cbfbf4c489a295ff95a5d77bc41ced1",
+    "V2-S04": "1a6d402da1a6eaa281b018aa3a5a924dd843b16d4fa38b1e52324afc96733be2",
+    "V2-S05": "831873440f7cf399fe510b688093d7da4f0f7280b7ee5168e21fe37cd7b7119f",
+    "V2-S06": "8f8ec87c44606128bfd8457576a31b42f442b651a317315468e60a53d4bedb5d",
+    "V2-S07": "61456904967427c57a9afe28a54c2ec965cf79ae44e4ef30d29cea2d3af726b9",
+    "V2-S08": "282be45162ac119f655ec4b5872f6fd3fa87821d7bcf801ebf5dfa1618613ac1",
+    "V2-S09": "6fa1f11711a56e04bf7f0b004106cd913169a95927117dd13331fef0959db114",
+    "V2-S10": "e02e9a9b618f347e3fd823da39cc10e3295378a0f40c665312e3645adadfc57c",
+    "V2-S11": "15bdd1ee1ade78877229086bc372055141fc9617bafa6b770e488ca3dd6d8bdf",
+    "V2-S12": "5affbdb1c710f99ee62ddf9e6b5214d07d7dc17e2dc4fb6dd1422483c0ea2906",
+    "V2-S13": "c9e0398c29037002b5037d50b63c6201dab528db242a7ce31bde2c71d30aee22",
+    "V2-S14": "f70bc8276813190604c5a2e0639cec29b21a308f466de6f5f0d6c908a61b180c",
+    "V2-S15": "76e6f0afb3599ae4f526da26eea934e841e7e71caf5ac3f1466709572353e7a0",
+    "V2-S16": "2d9738b15e93015c1435547010eb01cc3530f9617cffbb6ff3733ab8a05ba5e0",
+    "V2-S17": "74981a61998190c6b98c400b54265961f937a1dc8ff69997503343680a63f24b",
+    "V2-S18": "d32218af5f8eed498815cca016884716b1fb4d03f803e839d8ba9f392326f099",
+    "V2-S19": "682f3e447f7ba58a68d835f1058ffbcc3cf3c8bc3cbea3d77fe953e733abdd4f",
+    "V2-S20": "51e29ba6f6b67d8473d3acdf13d50a581ebf0e1a7676d5ce515b62420d71cd9d",
+    "V2-S21": "97c5e322701775a9d379558adf4fd686d69783549c0e04bf740bcd1e8a26900b",
+    "V2-S22": "1dbc3e2cbd2b3941d4b70a0efda18bd664d401e361bc49a476036c47ba587c75",
+    "V2-S23": "2ec1c385acc21ec330e1b8b5a3509999ae963b779b1ce27383c34ee89237a8ab",
+    "V2-S24": "2f4568915d6d7ff23c53d6de74ea0246210f2ee61c7bc677dfc7569f84b6c97d"
+  },
+  "cross_split_comparisons": 576,
+  "cross_split_canonical_duplicates": [],
+  "cross_split_review_flags": [],
+  "highest_cross_split_pairs": [
+    {
+      "development": "V2-D17",
+      "selection": "V2-S15",
+      "same_canonical_text": false,
+      "similarity": 0.6522
+    },
+    {
+      "development": "V2-D17",
+      "selection": "V2-S16",
+      "same_canonical_text": false,
+      "similarity": 0.6522
+    },
+    {
+      "development": "V2-D17",
+      "selection": "V2-S22",
+      "same_canonical_text": false,
+      "similarity": 0.6412
+    },
+    {
+      "development": "V2-D21",
+      "selection": "V2-S21",
+      "same_canonical_text": false,
+      "similarity": 0.6406
+    },
+    {
+      "development": "V2-D11",
+      "selection": "V2-S17",
+      "same_canonical_text": false,
+      "similarity": 0.638
+    },
+    {
+      "development": "V2-D12",
+      "selection": "V2-S17",
+      "same_canonical_text": false,
+      "similarity": 0.638
+    },
+    {
+      "development": "V2-D18",
+      "selection": "V2-S15",
+      "same_canonical_text": false,
+      "similarity": 0.6374
+    },
+    {
+      "development": "V2-D18",
+      "selection": "V2-S16",
+      "same_canonical_text": false,
+      "similarity": 0.6374
+    },
+    {
+      "development": "V2-D16",
+      "selection": "V2-S21",
+      "same_canonical_text": false,
+      "similarity": 0.6294
+    },
+    {
+      "development": "V2-D21",
+      "selection": "V2-S19",
+      "same_canonical_text": false,
+      "similarity": 0.6129
+    }
+  ],
+  "historical_comparisons": 480,
+  "historical_canonical_duplicates": [],
+  "historical_review_flags": [
+    {
+      "old_file": "backend/tests/deobfuscation/fixtures/linear_strings.ps1.txt",
+      "new_case": "V2-S04",
+      "same_canonical_text": false,
+      "similarity": 0.732
+    },
+    {
+      "old_file": "backend/tests/deobfuscation/fixtures/linear_strings.ps1.txt",
+      "new_case": "V2-S20",
+      "same_canonical_text": false,
+      "similarity": 0.7686
+    }
+  ],
+  "audit_input_sha256": "63492f8881054a9687b19f8b0d093a34f923a68d3d21320977cf791fbb03631b"
+}

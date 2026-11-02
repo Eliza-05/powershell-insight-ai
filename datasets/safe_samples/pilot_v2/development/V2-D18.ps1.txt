@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'
+& 'Write-Output' 'The supplied object is reserved for an authorized sign-in.'

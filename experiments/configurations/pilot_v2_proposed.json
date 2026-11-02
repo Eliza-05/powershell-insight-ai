@@ -1,0 +1,182 @@
+{
+  "config_id": "pilot-v2-single-model-proposed-r2",
+  "status": "draft_pending_dataset_threshold_protocol_approval",
+  "execution_enabled": false,
+  "frozen": false,
+  "host": "http://127.0.0.1:11434",
+  "configuration": "B_only_selection_pilot_not_final_ABC",
+  "thresholds_path": "experiments/configurations/pilot_v2_thresholds_proposed.json",
+  "metric_definitions_path": "experiments/configurations/pilot_v2_metrics_proposed.json",
+  "preliminary_acceptance_record": "experiments/reviews/pilot_v2_protocol_review_round1.json",
+  "development_models": [
+    "qwen3.5:4b-q4_K_M"
+  ],
+  "selection_model_policy": {
+    "model": "qwen3.5:4b-q4_K_M",
+    "purpose": "single_model_viability_and_reliability",
+    "historical_v1": "preserved_without_new_inferences_not_a_controlled_same_case_comparison",
+    "thinking_policy": "Request think=false only after supported mode is verified during authorized development; record effective behavior and do not retune against selection",
+    "quality_failure": "Report failure. Experimental use as unapproved candidate requires a new explicit methodological deviation by the responsible owner; a functioning app does not validate the model."
+  },
+  "models": [
+    {
+      "role": "only_candidate_not_quality_approved",
+      "tag": "qwen3.5:4b-q4_K_M",
+      "local_digest": null,
+      "installed": false,
+      "download_authorized": false,
+      "load_verified": false,
+      "think_requested": false,
+      "thinking_values_verified_locally": null,
+      "ram_budget_gib": [
+        4.5,
+        6.0
+      ]
+    }
+  ],
+  "manifest_path": "datasets/metadata/pilot_v2_manifest.json",
+  "annotations_path_evaluator_only": "datasets/metadata/pilot_v2_annotations.json",
+  "human_review_path": "experiments/reviews/pilot_v2_human_review.json",
+  "prompt_path": "experiments/prompts/pilot_analysis_v2_candidate.md",
+  "prompt_id": "pilot-analysis-v2-candidate-r0",
+  "response_schema_id": "pilot-schema-v1",
+  "response_schema_path": "experiments/configurations/pilot_v2_response.schema.json",
+  "model_input_allowlist": [
+    "source_text"
+  ],
+  "send_expected_labels_or_reference_texts": false,
+  "common_request_proposal": {
+    "stream": false,
+    "truncate": false,
+    "keep_alive": "15m",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 2048,
+      "num_gpu": 0,
+      "num_thread": 10,
+      "num_batch": 256,
+      "draft_num_predict": 0,
+      "repeat_penalty": 1.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "top_k": 20,
+      "top_p": 0.95,
+      "min_p": 0.0
+    }
+  },
+  "effective_request_validation_required": true,
+  "native_http_transport_proposed_not_implemented": true,
+  "sdk_0_6_3_limitation": "Client.chat supports think and format, but no truncate keyword; do not silently drop truncate=false.",
+  "token_budget": {
+    "target_max_input_tokens": 5500,
+    "no_silent_truncation": true,
+    "tokenizer_specific_check_required": true,
+    "thinking_counts_may_be_aggregate": true
+  },
+  "resources": {
+    "maximum_loaded_models": 1,
+    "maximum_parallel_requests": 1,
+    "kv_cache_policy": "f16_proposed_verify_effective",
+    "minimum_available_ram_margin_gib": 2.0,
+    "memory_sampling_seconds": 1,
+    "request_timeout_seconds": 300,
+    "automatic_retries": 0,
+    "maximum_consecutive_operational_failures_in_development": 2,
+    "windows_sleep_prevention": "owner_agreement_required_no_system_change_performed",
+    "night_budget_hours": 10,
+    "projection_multiplier": 1.2
+  },
+  "stages": [
+    {
+      "name": "development_technical_screen",
+      "models": 1,
+      "cases": [
+        "V2-D01",
+        "V2-D03",
+        "V2-D04",
+        "V2-D07",
+        "V2-D15",
+        "V2-D21"
+      ],
+      "repetitions": 1,
+      "maximum_calls": 6,
+      "selection_cases_allowed": false,
+      "quality_based_early_stopping": false
+    },
+    {
+      "name": "development_draft_prompt",
+      "models": 1,
+      "cases": "all_24_development",
+      "repetitions": 1,
+      "maximum_calls": 24,
+      "selection_cases_allowed": false
+    },
+    {
+      "name": "development_after_optional_single_prompt_revision",
+      "models": 1,
+      "cases": "all_24_development",
+      "repetitions": 1,
+      "maximum_calls": 24,
+      "optional": true,
+      "maximum_occurrences": 1,
+      "selection_cases_allowed": false
+    },
+    {
+      "name": "selection_main",
+      "models": 1,
+      "cases": "all_24_selection",
+      "repetitions": 3,
+      "maximum_calls": 72,
+      "same_frozen_prompt": true,
+      "requires_owner_approval": true
+    }
+  ],
+  "budget": {
+    "technical_screen": 6,
+    "development_without_revision": 30,
+    "development_with_revision": 54,
+    "main_selection": 72,
+    "base_total_without_revision": 102,
+    "base_total_with_revision": 126,
+    "optional_prompt_revision_additional_calls": 24,
+    "absolute_maximum_calls": 126,
+    "completed_inferences": 0
+  },
+  "budget_scenarios": [
+    {
+      "prompt_revision": false,
+      "maximum_calls": 102
+    },
+    {
+      "prompt_revision": true,
+      "maximum_calls": 126
+    }
+  ],
+  "selection_order_seed": 20261102,
+  "selection_access_policy": "one_locked_evaluation_no_adaptive_stopping_or_prompt_changes",
+  "required_approvals": [
+    "dataset",
+    "threshold_adaptations",
+    "protocol",
+    "prompt_freeze",
+    "model_downloads",
+    "inference"
+  ],
+  "approvals_before_development": [
+    "dataset",
+    "threshold_adaptations",
+    "protocol",
+    "model_downloads",
+    "inference"
+  ],
+  "prompt_freeze_required_before_selection_only": true,
+  "results_path": null,
+  "phase2_authorized": false,
+  "purpose": "Assess viability and reliability of Qwen3.5 4B only, not compare candidate models",
+  "single_model_decision_record": "experiments/reviews/pilot_v2_single_model_decision.json",
+  "selection_models": [
+    "qwen3.5:4b-q4_K_M"
+  ]
+}

@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$manualEntries = @('https://example.com/academic/readme', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run')
+$manualEntries | Sort-Object | Out-String

@@ -1,0 +1,8 @@
+{
+  "purpose": "synthetic_functional_only",
+  "source": "Write-Output ('phase2-'+'functional')",
+  "recovered_fixture": "phase2-functional",
+  "example": "literal-concat",
+  "not_scientific_evaluation": true,
+  "maximum_calls_this_run": 2
+}

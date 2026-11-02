@@ -1,0 +1,13 @@
+{
+  "prompt_id": "pilot-analysis-v2-candidate-r0",
+  "status": "candidate_not_frozen",
+  "initial_sha256": "ad95a92167e1f2c9b96a2e52248442938f0360b15895e4cc69b18fc3db061545",
+  "authored_before_case_definitions": true,
+  "model_outputs_seen": false,
+  "blind_reserve_authorship": false,
+  "methodological_revisions_used": 0,
+  "maximum_methodological_revisions": 1,
+  "revisions": [],
+  "freeze_approved_by": null,
+  "freeze_approved_at": null
+}

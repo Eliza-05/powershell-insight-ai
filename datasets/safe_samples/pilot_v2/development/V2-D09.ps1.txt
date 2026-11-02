@@ -1,0 +1,2 @@
+# Synthetic academic fixture. Text only: never execute.
+Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace

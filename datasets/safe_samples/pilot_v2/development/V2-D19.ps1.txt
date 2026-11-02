@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+Write-Output 'Set-MpPreference -DisableRealtimeMonitoring $true'
+# The quoted command above is displayed, never invoked.

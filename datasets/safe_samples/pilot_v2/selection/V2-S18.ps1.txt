@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+function Show-AcademicExample { Invoke-WebRequest -Uri 'https://example.invalid/academic/not-called' }
+Write-Output 'The declared function is not called.'

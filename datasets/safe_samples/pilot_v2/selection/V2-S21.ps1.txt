@@ -1,0 +1,3 @@
+# Synthetic academic fixture. Text only: never execute.
+$dispatch = @{ task = (Read-Host 'Academic command name known only at run time') }
+& $dispatch['task']

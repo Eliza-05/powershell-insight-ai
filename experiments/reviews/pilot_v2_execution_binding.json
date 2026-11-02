@@ -1,0 +1,7 @@
+{
+  "run_dir": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z",
+  "freeze_sha256": "82ad9d3a4fe04a5e6c9e88b4b267744b01e996e79c52a9f5b3135bb11fefb19f",
+  "bound_at": "2026-11-02T20:21:10.925664+00:00",
+  "maximum_inference_attempts": 126,
+  "note": "No automatic new experiment or model after failure"
+}

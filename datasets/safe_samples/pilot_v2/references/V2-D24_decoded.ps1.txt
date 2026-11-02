@@ -1,0 +1,3 @@
+$defenderState = Get-MpComputerStatus
+$reportBody = Read-Host 'Academic report content supplied only at run time'
+Invoke-WebRequest -Uri 'https://example.invalid/academic/report' -Method Post -Body $reportBody

@@ -1,0 +1,8 @@
+{
+  "purpose": "synthetic_functional_only",
+  "source": "& $phase2_unresolved",
+  "recovered_fixture": null,
+  "example": "unknown-command",
+  "not_scientific_evaluation": true,
+  "maximum_calls_this_run": 2
+}

@@ -1,0 +1,202 @@
+{
+  "schema_version": "pipeline-v1",
+  "run_id": "f141b074-384a-4f6b-aa73-7fcc62371886",
+  "configuration": "A",
+  "status": "completed",
+  "input_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+  "original": "Write-Output ('phase2-'+'functional')",
+  "started_at": "2026-11-02T21:09:05.312733+00:00",
+  "duration_seconds": 0.0006118000019341707,
+  "engine_versions": {
+    "orchestrator": "pipeline-v1",
+    "deobfuscator": "static-subset-v1",
+    "detector": "static-behaviors-v1"
+  },
+  "deobfuscation": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 65536,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Write-Output ('phase2-'+'functional')",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-CONCAT",
+        "source": {
+          "layer_id": "L0",
+          "start": 14,
+          "end": 36,
+          "line": 1,
+          "column": 15,
+          "end_line": 1,
+          "end_column": 37
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 14,
+          "end": 36,
+          "line": 1,
+          "column": 15,
+          "end_line": 1,
+          "end_column": 37
+        },
+        "original_fragment": "'phase2-'+'functional'",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "string",
+        "recovered_text": "phase2-functional",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-CONCAT"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 120,
+    "artifact_bytes": 39
+  },
+  "deterministic": {
+    "schema_version": "behavior-analysis-v1",
+    "ruleset_version": "static-behaviors-v1",
+    "status": "complete",
+    "coverage_partial": true,
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "complete",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "Write-Output ('phase2-'+'functional')",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        }
+      ],
+      "transformations": [
+        {
+          "transformation_id": "T0001",
+          "technique": "OT-CONCAT",
+          "source": {
+            "layer_id": "L0",
+            "start": 14,
+            "end": 36,
+            "line": 1,
+            "column": 15,
+            "end_line": 1,
+            "end_column": 37
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 14,
+            "end": 36,
+            "line": 1,
+            "column": 15,
+            "end_line": 1,
+            "end_column": 37
+          },
+          "original_fragment": "'phase2-'+'functional'",
+          "provenance": "deobfuscator_recovered",
+          "recovery_kind": "string",
+          "recovered_text": "phase2-functional",
+          "recovered_bytes_base64": null,
+          "dependencies": [],
+          "status": "success",
+          "deterministic_verified": true,
+          "warnings": [],
+          "added_operation": null,
+          "output_layer_id": null
+        }
+      ],
+      "unresolved": [],
+      "techniques_detected": [
+        "OT-CONCAT"
+      ],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 120,
+      "artifact_bytes": 39
+    },
+    "detection_limits": {
+      "max_operations": 512,
+      "max_findings": 256,
+      "max_indicators": 128,
+      "max_evidence": 1024
+    },
+    "added_operations": [],
+    "behaviors": [],
+    "findings": [],
+    "evidence": [],
+    "indicators": [],
+    "obstructing_techniques": [],
+    "warnings": [
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "limits_hit": [],
+    "operations_examined": 1,
+    "work_units": 92,
+    "artifact_bytes": 0
+  },
+  "llm": null,
+  "evidence": [],
+  "risk_label": "unknown",
+  "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+  "limitations": [
+    "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+    "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+    "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+  ],
+  "errors": [],
+  "operational": {}
+}

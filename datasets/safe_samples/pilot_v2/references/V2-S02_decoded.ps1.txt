@@ -1,0 +1,2 @@
+$transfer = [System.Net.WebClient]::new()
+$transfer.DownloadFile('https://example.com/academic/policy-index.json', 'Q:\Academic\missing-policy-index.json')

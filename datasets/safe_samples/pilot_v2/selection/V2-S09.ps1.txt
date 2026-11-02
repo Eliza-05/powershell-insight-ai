@@ -1,0 +1,2 @@
+# Synthetic academic fixture. Text only: never execute.
+Get-ChildItem -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall' | Select-Object PSChildName

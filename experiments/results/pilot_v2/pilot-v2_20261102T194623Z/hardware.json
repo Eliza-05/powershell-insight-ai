@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-11-02T20:24:48.403096+00:00",
+  "os": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "logical_processors": 20,
+  "physical_ram_bytes": 33413771264,
+  "model_storage_environment": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\PowerShellInsightAI-Local\\ollama-models",
+  "gpu_mode": "CPU; num_gpu=0 in all requests; size_vram=0 in observed api/ps",
+  "background_environment": "Personal Windows host; no user applications closed. Regression tests ran during development, not reserved selection.",
+  "process_inspection": "CIM denied; read-only Toolhelp32Snapshot/PSAPI used; own experiment exclusive lock and local residents checked; other independent HTTP clients cannot be excluded by api/ps alone.",
+  "cpu_name": "AMD Ryzen AI 9 365 w/ Radeon 880M              "
+}

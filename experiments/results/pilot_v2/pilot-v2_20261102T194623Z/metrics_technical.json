@@ -1,0 +1,331 @@
+{
+  "created_at": "2026-11-02T20:37:10.225262+00:00",
+  "scope": "Frozen r1 definitions, exact raw inputs, no human semantic adjudication fabricated",
+  "evaluator_sha256": "276e17595f8339eb058b08f991f3444a6b851b27fba198bf227917b58b98996c",
+  "recorded_attempts": 6,
+  "responses_received": 6,
+  "planned_denominators_apply_even_if_incomplete": true,
+  "partial_metrics_caution": "Missing calls are failed bookkeeping, not observed model predictions. No capability claim from incomplete selection.",
+  "decision": "PENDIENTE / INCONCLUSO",
+  "metrics": {
+    "stage": "technical",
+    "planned_calls": 6,
+    "completed_calls": 6,
+    "unavailable_calls": 0,
+    "complete": true,
+    "usable_calls": 6,
+    "json_syntax_valid_calls": 6,
+    "schema_valid_calls": 6,
+    "truncated_calls": 0,
+    "error_calls": 0,
+    "per_label": {
+      "B01": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "B02": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571
+      },
+      "B03": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "B04": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "B05": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "B06": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "B07": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "micro": {
+      "tp": 5,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "f1": 0.8333333333333334
+    },
+    "actual_operational_error_calls": 0,
+    "macro_f1_on_positive_reference_support": 0.7142857142857143,
+    "macro_supported_labels": [
+      "B01",
+      "B02",
+      "B04",
+      "B05"
+    ],
+    "determinate_planned_calls": 6,
+    "determinate_exact_calls": 5,
+    "determinate_exact_cases": 5,
+    "indeterminate_planned_calls": 0,
+    "indeterminate_usable_calls": 0,
+    "indeterminate_exact_match": null,
+    "indeterminate_tn_contribution": 0,
+    "indeterminate_unsupported_label_events": 0,
+    "indeterminate_unsupported_label_response_rate": null,
+    "indeterminate_justified_abstention_calls": 0,
+    "clear_negative_exact_calls": 1,
+    "clear_negative_planned_calls": 1,
+    "multilabel_exact_cases": 0,
+    "multilabel_cases": 1,
+    "multilabel_recall": {
+      "tp": 1,
+      "reference_support": 2,
+      "rate": 0.5
+    },
+    "risk_confusion": {
+      "benign": {
+        "benign": 3,
+        "unknown": 1
+      },
+      "suspicious": {
+        "benign": 1
+      },
+      "unknown": {
+        "high_risk": 1
+      }
+    },
+    "literal_citations": {
+      "existing": 8,
+      "denominator": 8,
+      "rate": 1.0,
+      "output_coverage": 6,
+      "planned_output_denominator": 6
+    },
+    "provenance_mismatches": 0,
+    "strict_semantic_support": {
+      "supported": null,
+      "findings": 6,
+      "reviewed_findings": 0,
+      "rate": null
+    },
+    "semantic_reviewed_runs": 0,
+    "critical_fabrications": null,
+    "claims_reviewed": null,
+    "unsupported_claims": null,
+    "global_success_cases": null,
+    "global_success_lower_bound": 0,
+    "global_success_upper_bound": 5,
+    "stable_cases": 6,
+    "resources": {
+      "minimum_available_bytes": 7533871104,
+      "margin_violation_calls": 0,
+      "oom_errors": 0,
+      "projection_volume": 126,
+      "projection_hours_with_20pct_margin": 1.4195602483999936,
+      "maximum_single_ollama_working_set_bytes": 85712896,
+      "maximum_single_ollama_private_bytes": 125288448,
+      "maximum_aggregate_ollama_working_set_bytes": 92438528,
+      "maximum_aggregate_ollama_private_bytes": 181153792,
+      "process_counter_scope_complete_calls": 0,
+      "process_counter_scope_partial_calls": 6,
+      "maximum_commit_used_bytes": 41665613824,
+      "counter_failures": 0,
+      "paging_note": "Page-fault counters recorded; hard/soft faults not separated; no invented paging throughput"
+    },
+    "latency": {
+      "sum_seconds": 202.7943211999991,
+      "mean_seconds": 33.799053533333186,
+      "median_seconds": 26.17348039999888,
+      "p95_seconds": 68.429574400001,
+      "max_seconds": 68.429574400001
+    },
+    "timings_per_call": [
+      {
+        "call_id": "technical/001_V2-D01_r1",
+        "load_seconds": 3.127692,
+        "prompt_tokens": 1260,
+        "generated_tokens": 409,
+        "cached_prompt_tokens": 0,
+        "uncached_prompt_tokens": 1260,
+        "prefill_uncached_tokens_per_second": 135.9377129083971,
+        "apparent_prefill_including_cached_tokens_per_second": 135.9377129083971,
+        "decode_tokens_per_second": 17.354481190118552,
+        "thinking_observed": false,
+        "separate_thinking_token_count": null,
+        "ollama_cpu_seconds_observed_delta": 0.21875,
+        "ollama_page_faults_observed_delta": 3591
+      },
+      {
+        "call_id": "technical/002_V2-D03_r1",
+        "load_seconds": 0.0079147,
+        "prompt_tokens": 1269,
+        "generated_tokens": 401,
+        "cached_prompt_tokens": 1004,
+        "uncached_prompt_tokens": 265,
+        "prefill_uncached_tokens_per_second": 110.95414704732174,
+        "apparent_prefill_including_cached_tokens_per_second": 531.3238211435897,
+        "decode_tokens_per_second": 17.484041234258203,
+        "thinking_observed": false,
+        "separate_thinking_token_count": null,
+        "ollama_cpu_seconds_observed_delta": 0.125,
+        "ollama_page_faults_observed_delta": 40
+      },
+      {
+        "call_id": "technical/003_V2-D04_r1",
+        "load_seconds": 0.0073432,
+        "prompt_tokens": 1502,
+        "generated_tokens": 1146,
+        "cached_prompt_tokens": 1013,
+        "uncached_prompt_tokens": 489,
+        "prefill_uncached_tokens_per_second": 115.76024895218279,
+        "apparent_prefill_including_cached_tokens_per_second": 355.5662452478089,
+        "decode_tokens_per_second": 17.87042761095212,
+        "thinking_observed": false,
+        "separate_thinking_token_count": null,
+        "ollama_cpu_seconds_observed_delta": 0.390625,
+        "ollama_page_faults_observed_delta": 34
+      },
+      {
+        "call_id": "technical/004_V2-D07_r1",
+        "load_seconds": 0.0069028,
+        "prompt_tokens": 1257,
+        "generated_tokens": 401,
+        "cached_prompt_tokens": 1013,
+        "uncached_prompt_tokens": 244,
+        "prefill_uncached_tokens_per_second": 109.73073247512508,
+        "apparent_prefill_including_cached_tokens_per_second": 565.2931586935747,
+        "decode_tokens_per_second": 17.37052224973301,
+        "thinking_observed": false,
+        "separate_thinking_token_count": null,
+        "ollama_cpu_seconds_observed_delta": 0.09375,
+        "ollama_page_faults_observed_delta": 67
+      },
+      {
+        "call_id": "technical/005_V2-D15_r1",
+        "load_seconds": 0.0062262,
+        "prompt_tokens": 1270,
+        "generated_tokens": 324,
+        "cached_prompt_tokens": 1013,
+        "uncached_prompt_tokens": 257,
+        "prefill_uncached_tokens_per_second": 117.91386965332863,
+        "apparent_prefill_including_cached_tokens_per_second": 582.6872157966045,
+        "decode_tokens_per_second": 17.64671473181514,
+        "thinking_observed": false,
+        "separate_thinking_token_count": null,
+        "ollama_cpu_seconds_observed_delta": 0.15625,
+        "ollama_page_faults_observed_delta": 1319
+      },
+      {
+        "call_id": "technical/006_V2-D21_r1",
+        "load_seconds": 0.012607,
+        "prompt_tokens": 1252,
+        "generated_tokens": 462,
+        "cached_prompt_tokens": 1014,
+        "uncached_prompt_tokens": 238,
+        "prefill_uncached_tokens_per_second": 99.63603542354106,
+        "apparent_prefill_including_cached_tokens_per_second": 524.1357829843421,
+        "decode_tokens_per_second": 18.899553455096093,
+        "thinking_observed": false,
+        "separate_thinking_token_count": null,
+        "ollama_cpu_seconds_observed_delta": 0.25,
+        "ollama_page_faults_observed_delta": 979
+      }
+    ],
+    "units": "families; two forms and three repeated calls are not independent observations",
+    "family_weighted_micro_sensitivity": {
+      "tp": 2.5,
+      "fp": 0.5,
+      "fn": 0.5,
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "f1": 0.8333333333333334
+    },
+    "family_weighting_note": "Each family has two forms and each form the same planned repetitions; weight=1/(2*repetitions). This is a descriptive sensitivity, not an independent sample estimate."
+  },
+  "gates": {},
+  "per_case": {
+    "V2-D01": {
+      "family_id": "V2-DEV-F01",
+      "label_exact": true,
+      "global_success": null,
+      "global_success_possible": true,
+      "justified_abstention": null,
+      "stable_usable_label_set": true,
+      "global_joint_passing_repetitions": 0
+    },
+    "V2-D03": {
+      "family_id": "V2-DEV-F02",
+      "label_exact": true,
+      "global_success": null,
+      "global_success_possible": true,
+      "justified_abstention": null,
+      "stable_usable_label_set": true,
+      "global_joint_passing_repetitions": 0
+    },
+    "V2-D04": {
+      "family_id": "V2-DEV-F02",
+      "label_exact": true,
+      "global_success": null,
+      "global_success_possible": true,
+      "justified_abstention": null,
+      "stable_usable_label_set": true,
+      "global_joint_passing_repetitions": 0
+    },
+    "V2-D07": {
+      "family_id": "V2-DEV-F04",
+      "label_exact": false,
+      "global_success": false,
+      "global_success_possible": false,
+      "justified_abstention": null,
+      "stable_usable_label_set": true,
+      "global_joint_passing_repetitions": 0
+    },
+    "V2-D15": {
+      "family_id": "V2-DEV-F08",
+      "label_exact": true,
+      "global_success": null,
+      "global_success_possible": true,
+      "justified_abstention": null,
+      "stable_usable_label_set": true,
+      "global_joint_passing_repetitions": 0
+    },
+    "V2-D21": {
+      "family_id": "V2-DEV-F11",
+      "label_exact": true,
+      "global_success": null,
+      "global_success_possible": true,
+      "justified_abstention": null,
+      "stable_usable_label_set": true,
+      "global_joint_passing_repetitions": 0
+    }
+  }
+}

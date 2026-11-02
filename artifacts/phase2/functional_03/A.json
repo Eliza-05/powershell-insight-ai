@@ -1,0 +1,255 @@
+{
+  "schema_version": "pipeline-v1",
+  "run_id": "88620e8d-2519-43b7-8890-539c879d7934",
+  "configuration": "A",
+  "status": "partial",
+  "input_sha256": "5744ac9fd0e72fd0bd902f6ec1162f287b30c46325b90a3eb9426167f4e914ea",
+  "original": "& $phase2_unresolved",
+  "started_at": "2026-11-02T21:12:54.153678+00:00",
+  "duration_seconds": 0.000597800000832649,
+  "engine_versions": {
+    "orchestrator": "pipeline-v1",
+    "deobfuscator": "static-subset-v1",
+    "detector": "static-behaviors-v1"
+  },
+  "deobfuscation": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "5744ac9fd0e72fd0bd902f6ec1162f287b30c46325b90a3eb9426167f4e914ea",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 65536,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "& $phase2_unresolved",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "original_fragment": "$phase2_unresolved",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 46,
+    "artifact_bytes": 18
+  },
+  "deterministic": {
+    "schema_version": "behavior-analysis-v1",
+    "ruleset_version": "static-behaviors-v1",
+    "status": "partial",
+    "coverage_partial": true,
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "5744ac9fd0e72fd0bd902f6ec1162f287b30c46325b90a3eb9426167f4e914ea",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "partial",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "& $phase2_unresolved",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        }
+      ],
+      "transformations": [
+        {
+          "transformation_id": "T0001",
+          "technique": "OT-VARSUB",
+          "source": {
+            "layer_id": "L0",
+            "start": 2,
+            "end": 20,
+            "line": 1,
+            "column": 3,
+            "end_line": 1,
+            "end_column": 21
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 2,
+            "end": 20,
+            "line": 1,
+            "column": 3,
+            "end_line": 1,
+            "end_column": 21
+          },
+          "original_fragment": "$phase2_unresolved",
+          "provenance": "deobfuscator_recovered",
+          "recovery_kind": "unresolved",
+          "recovered_text": null,
+          "recovered_bytes_base64": null,
+          "dependencies": [],
+          "status": "failed",
+          "deterministic_verified": false,
+          "warnings": [
+            "No unambiguous prior literal binding in the supported scope."
+          ],
+          "added_operation": null,
+          "output_layer_id": null
+        }
+      ],
+      "unresolved": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 2,
+            "end": 20,
+            "line": 1,
+            "column": 3,
+            "end_line": 1,
+            "end_column": 21
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0001"
+        }
+      ],
+      "techniques_detected": [
+        "OT-VARSUB"
+      ],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 46,
+      "artifact_bytes": 18
+    },
+    "detection_limits": {
+      "max_operations": 512,
+      "max_findings": 256,
+      "max_indicators": 128,
+      "max_evidence": 1024
+    },
+    "added_operations": [],
+    "behaviors": [],
+    "findings": [],
+    "evidence": [],
+    "indicators": [
+      {
+        "indicator_id": "I0001",
+        "behavior_id": null,
+        "rule_id": null,
+        "source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "reason": "Comando o invocación fuera del catálogo; no se infiere comportamiento."
+      }
+    ],
+    "obstructing_techniques": [
+      "OT-VARSUB"
+    ],
+    "warnings": [
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "limits_hit": [],
+    "operations_examined": 1,
+    "work_units": 96,
+    "artifact_bytes": 0
+  },
+  "llm": null,
+  "llm_review_status": "unreviewed_model_claims",
+  "evidence": [],
+  "risk_label": "unknown",
+  "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+  "limitations": [
+    "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+    "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+    "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+  ],
+  "errors": [],
+  "operational": {}
+}

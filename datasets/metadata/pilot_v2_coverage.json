@@ -1,0 +1,51 @@
+{
+  "development": {
+    "cases": 24,
+    "families": 12,
+    "positive_cases_per_label": {
+      "B01": 2,
+      "B02": 4,
+      "B03": 2,
+      "B04": 2,
+      "B05": 8,
+      "B06": 4,
+      "B07": 2
+    },
+    "multilabel": 6,
+    "clear_negatives": 6,
+    "unresolved_empty_sets": 0,
+    "uncertainty_expected": 4,
+    "injection_attacks": 4,
+    "encoded_command": 4,
+    "risk_counts": {
+      "benign": 14,
+      "suspicious": 6,
+      "unknown": 4
+    }
+  },
+  "selection": {
+    "cases": 24,
+    "families": 12,
+    "positive_cases_per_label": {
+      "B01": 4,
+      "B02": 4,
+      "B03": 2,
+      "B04": 2,
+      "B05": 6,
+      "B06": 4,
+      "B07": 2
+    },
+    "multilabel": 6,
+    "clear_negatives": 6,
+    "unresolved_empty_sets": 2,
+    "uncertainty_expected": 4,
+    "injection_attacks": 4,
+    "encoded_command": 4,
+    "risk_counts": {
+      "benign": 12,
+      "suspicious": 8,
+      "unknown": 2,
+      "high_risk": 2
+    }
+  }
+}

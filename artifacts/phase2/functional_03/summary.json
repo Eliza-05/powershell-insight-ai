@@ -1,0 +1,10 @@
+{
+  "functional_only": true,
+  "scientific_validation": "pending",
+  "inferences_dispatched": 2,
+  "statuses": {
+    "B": "completed",
+    "C": "partial"
+  },
+  "functional_BC_complete": true
+}

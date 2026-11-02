@@ -1,0 +1,95 @@
+{
+  "frozen_at": "2026-11-02T20:21:10.945756+00:00",
+  "dataset_freeze_sha256": "82ad9d3a4fe04a5e6c9e88b4b267744b01e996e79c52a9f5b3135bb11fefb19f",
+  "prompt_sha256": "353d580e16d8ed16299fd0ca763ef23e33ef53587b477823c58b865e5ccd12be",
+  "prompt_id": "pilot-analysis-v2-development-r1",
+  "prompt_revision_used": 1,
+  "final_prompt_is_revision": true,
+  "development_only_decision": "Exactly one development revision consumed (24 extra calls). r1 chosen for explicit analyst-comment injection handling and stricter no-invented-decoding instructions; development label accuracy remains poor and no quality approval is implied. Both versions retain one D24 truncation. No operational stop condition (OOM/margin breach/two consecutive failures) was reached. Freeze r1 and unchanged parameters for a single reserved measurement, not diagnostics or further tuning. No selection model outputs have been observed; original source-author exposure was already declared.",
+  "configuration_sha256": "9faa0a9e4cce31df2a9296e7738cdbb5f30d21f79c21dada4dd83a332b2a13c8",
+  "model_state": {
+    "model": {
+      "name": "qwen3.5:4b-q4_K_M",
+      "model": "qwen3.5:4b-q4_K_M",
+      "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+      "size": 3324173934,
+      "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+      "details": {
+        "parent_model": "model.gguf",
+        "format": "gguf",
+        "family": "qwen35",
+        "families": [
+          "qwen35"
+        ],
+        "parameter_size": "4.2B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2560,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ]
+    },
+    "residents": {
+      "models": [
+        {
+          "name": "qwen3.5:4b-q4_K_M",
+          "model": "qwen3.5:4b-q4_K_M",
+          "size": 3239523121,
+          "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "4.2B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2026-11-02T15:19:12.5526203-05:00",
+          "size_vram": 0,
+          "context_length": 8192,
+          "runner": "llamacpp"
+        }
+      ]
+    }
+  },
+  "code_hashes": {
+    "runner.py": "b1a871adf4776cfe41d4c1d61183477569e417b1bb9df607d3da0caa800a5f8f",
+    "transport.py": "4107cffc38c40aa8ae7151d4e5ab2baaacbb83428c366575ad9a911f621bcc07",
+    "resources.py": "436a87b88170e7d9b3b62a82902dfb0e1f7f3f78be646b98866f1627a905a467",
+    "artifacts.py": "e05588032968ada016091272bb93d30690ec200b641c03669b9dfda804dec235"
+  },
+  "selection_outputs_seen": false,
+  "effective_parameters_evidence": "accepted exact HTTP request; context/CPU verified via /api/ps, token counts and absence of thinking; API does not echo every sampler option",
+  "effective_request_controls": {
+    "model": "qwen3.5:4b-q4_K_M",
+    "think": false,
+    "truncate": false,
+    "shift": false,
+    "stream": false,
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 2048,
+      "num_gpu": 0,
+      "num_thread": 10,
+      "num_batch": 256,
+      "draft_num_predict": 0,
+      "repeat_penalty": 1.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "top_k": 20,
+      "top_p": 0.95,
+      "min_p": 0.0
+    },
+    "schema_sha256": "87987747256d0b70f1b3605a75f68b38c8440a8b155755480778bc4835707a0d",
+    "execution_authority": "frozen owner global approval; copied draft flags are preserved provenance, not active denials"
+  }
+}
