@@ -1,0 +1,8 @@
+{
+  "files_scanned": 1538,
+  "credential_leak_files": [],
+  "credential_in_vite_variables": false,
+  "includes_frontend_dist": true,
+  "dotenv_git_and_dependencies_excluded": true,
+  "no_metadata_api_calls_this_experiment": true
+}

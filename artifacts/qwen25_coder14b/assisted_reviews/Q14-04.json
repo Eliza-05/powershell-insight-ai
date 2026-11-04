@@ -1,0 +1,16 @@
+{
+  "call_id": "Q14-04",
+  "result_sha256": "ec6955257bba74ebdcc675390bd6c6476a5168c208a7bcc21105344e41e7cab7",
+  "at": "2026-11-04T02:14:56.727735+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "insufficient",
+  "notes": [
+    "Contrato inv?lido: detected false con snippets no vac?o. Resultado no admitido; no se transforma en predicci?n vac?a correcta.",
+    "B02 crudo falso: decodificar y mostrar una cadena mediante Write-Output no invoca su contenido.",
+    "Reconstrucci?n de Get-Process correcta, pero explicaci?n afirma ejecuci?n y consulta de procesos inexistentes como operaci?n del original. Confunde OT-B64-INLINE con OT-B64-ENCCMD.",
+    "Cita original literal. Riesgo benign y notas repetitivas no corrigen la atribuci?n funcional err?nea."
+  ]
+}

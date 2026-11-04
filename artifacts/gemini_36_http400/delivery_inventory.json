@@ -1,0 +1,23 @@
+{
+  "changed_or_created_source_files": [
+    "backend/app/services/llm/gemini.py",
+    "backend/app/services/llm/gemini_error_details.py",
+    "experiments/gemini_400_offline.py",
+    "backend/tests/pipelines/test_gemini400.py",
+    "docs/gemini_36_http400_diagnostic.md"
+  ],
+  "source_sha256": {
+    "backend/app/services/llm/gemini.py": "16ff3e9993f08b9a648f31528125d94c71a62c4dbc9ebe9e70ef10e4c07a671f",
+    "backend/app/services/llm/gemini_error_details.py": "76bca8ec0e0df76dc7fae0c91dc5062e75c5a020409398a8f317c5f73b810460",
+    "experiments/gemini_400_offline.py": "072c6d0d5dd3fc980898089d510a405ea0a622ac4f5021284f6045ccf5a5dfa2",
+    "backend/tests/pipelines/test_gemini400.py": "f9b5495786e6d4be4c270dc037a4066b376a9ffd5aa093cc9df7c229de50b819",
+    "docs/gemini_36_http400_diagnostic.md": "40075938547a3616ea7ee904ff762c9bf732358b609566e30bc60518273f0bfc"
+  },
+  "diagnosis_classification": "causa_indeterminada",
+  "confirmed_fixed_defect": "loss_of_safe_structured_error_details_only_not_historical_http400_cause",
+  "request_configuration_changed": false,
+  "prospective_probe_authorized": false,
+  "branch": "develop",
+  "git_write_operations": false,
+  "completed_at_utc": "2026-11-03T03:34:09.193645+00:00"
+}

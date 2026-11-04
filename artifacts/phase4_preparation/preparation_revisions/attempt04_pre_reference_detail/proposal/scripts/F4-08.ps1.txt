@@ -1,0 +1,4 @@
+$methodName = 'P4Local' + 'Sum'
+$method = New-Object Reflection.Emit.DynamicMethod($methodName, [int], [type[]]@([int],[int]))
+[Reflection.Emit.OpCodes]::Ldarg_0, [Reflection.Emit.OpCodes]::Ldarg_1, [Reflection.Emit.OpCodes]::Add, [Reflection.Emit.OpCodes]::Ret | ForEach-Object { $method.GetILGenerator().Emit($_) }
+$null = $method.Invoke($null, @(6,9))

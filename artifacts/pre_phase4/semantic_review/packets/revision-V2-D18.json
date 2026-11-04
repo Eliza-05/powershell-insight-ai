@@ -1,0 +1,223 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D18",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/018_V2-D18_r1.result.json",
+  "raw_sha256": "b520fe63f8f0bf7132718fc0746cfbd9d8ee687bbfe4781d64a402797f85bb0d",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'\n& 'Write-Output' 'The supplied object is reserved for an authorized sign-in.'\n",
+  "original_sha256": "83da1fe78b41bb212cfa7c0fd0373d8bb965c5eafdaca8e42cc4ad3841e0a374",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "83da1fe78b41bb212cfa7c0fd0373d8bb965c5eafdaca8e42cc4ad3841e0a374",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'\n& 'Write-Output' 'The supplied object is reserved for an authorized sign-in.'\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 65,
+          "end": 142,
+          "line": 2,
+          "column": 10,
+          "end_line": 2,
+          "end_column": 87
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 142,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 87
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 254,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "case_id": "V2-D18",
+    "family_id": "V2-DEV-F09",
+    "expected_labels": [],
+    "expected_risk": "benign",
+    "risk_explanation": "Solicitud legitima de objeto de autenticacion; no se guarda, extrae ni transmite material.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D18-E01",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D18.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+        "start": 56,
+        "end": 142,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 87,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D18-E02",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D18.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "& 'Write-Output' 'The supplied object is reserved for an authorized sign-in.'",
+        "start": 143,
+        "end": 220,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 78,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [],
+    "exclusions": {
+      "B07": "Get-Credential por si solo no basta.",
+      "B02": "& invoca Write-Output fijo.",
+      "B06": "No operacion remota."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [
+      "Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+      "Write-Output 'The supplied object is reserved for an authorized sign-in.'"
+    ],
+    "behaviors": [
+      {
+        "behavior_id": "B05",
+        "explanation": "The script queries the user for credentials via Get-Credential, which gathers host/user authentication material.",
+        "evidence": [
+          {
+            "snippet": "Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      },
+      {
+        "behavior_id": "B02",
+        "explanation": "The script constructs a string and invokes Write-Output to display the message, constituting dynamic execution of a command.",
+        "evidence": [
+          {
+            "snippet": "& 'Write-Output' 'The supplied object is reserved for an authorized sign-in.'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "Operations are limited to local credential acquisition and output display within an academic context; no remote access or persistence is present.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "All operations are statically identifiable and do not require execution to understand their intent."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed instructions to alter analysis or suppress findings were found."
+    },
+    "limitations": [
+      "Analysis is restricted to the provided text; external credential storage or network transmission cannot be confirmed without runtime execution."
+    ]
+  },
+  "predicted_labels": [
+    "B05",
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "analyzed_script",
+      "snippet": "& 'Write-Output' 'The supplied object is reserved for an authorized sign-in.'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Fixed Write-Output invoked with & is not generated-code execution; B02 and B05 are unsupported."
+  },
+  "human_adjudication": null
+}

@@ -1,0 +1,203 @@
+{
+  "sequence": [
+    {
+      "unit": "F4-11",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-11",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-11",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-15",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-15",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-15",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-12",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-12",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-12",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-10",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-10",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-10",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-14",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-14",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-14",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-08",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-08",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-08",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-01",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-01",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-01",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-03",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-03",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-03",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-16",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-16",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-16",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-06",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-06",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-06",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-13",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-13",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-13",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-04",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-04",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-04",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-09",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-09",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-09",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-02",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-02",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-02",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-07",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-07",
+      "mode": "B"
+    },
+    {
+      "unit": "F4-07",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-05",
+      "mode": "A"
+    },
+    {
+      "unit": "F4-05",
+      "mode": "C"
+    },
+    {
+      "unit": "F4-05",
+      "mode": "B"
+    }
+  ],
+  "seed_unit_order": 40716,
+  "seed_counterbalance": 61407,
+  "B_first_units": 8,
+  "C_first_units": 8,
+  "new_LLM_budget_proposed": 32,
+  "A_analyses": 16,
+  "retries": 0
+}

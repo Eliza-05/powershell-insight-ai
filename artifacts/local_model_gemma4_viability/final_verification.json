@@ -1,0 +1,33 @@
+{
+  "preexisting_files_changed_or_missing": [],
+  "missing_report_links": [],
+  "branch_expected": "develop",
+  "new_report_sha256": "514cf7582d7a59c689cc91d0c5a5c38c8bc31015672e4ba4c850caeebbe66608",
+  "new_evidence_files": {
+    "backend_tests.xml": "7b605dc8c8a1fb9bd0f98749a9559e77e42c9c8121ed67fb11bccad75bdd56e1",
+    "backend_tests_venv.txt": "b983de4b3c7607c6582a39d01bd989ddc525fbf8b6a3529feac91820e7afa57a",
+    "backend_tests_venv.xml": "512fc6ac59e14de812a996305e0fe48ef3cd213d66e0b5c71eca5f817955f311",
+    "backend_tests_workspace_tmp.txt": "5dd6efa1aad8032bb6052e9a8319929541b4b49012517a2afa20e3df3280988b",
+    "backend_tests_workspace_tmp.xml": "5462d608dc076cf63407d59e439fd72905bea5c853d29698e96f59e8695dd4ca",
+    "decision.json": "f4ec87475eae34b258c4392450fd2c2126e1c8f3727f19738edb96bc64129927",
+    "frontend_tests.xml": "81abb48997d80bc3712ade8008b7ea78b8ed846fb324abbb2103e435fa11844a",
+    "integrity_after.json": "cec438e67533655797f74bd9e85e2c5ba47985a6d13f41e70ad8454773b3de37",
+    "integrity_before.json": "7f408ffcf6bdfd262f4f40776d7cc0950cf8da1cb4f038e7ac933101b6d2317f",
+    "preflight.json": "1fd491db7ac690f73e4e173624f5c1715e18c87b680a032f01892713e2509455",
+    "preflight_readonly.py": "e666d0d5e5fbc2a1c2c37011df0dce5c22facd92bf6924096d7519e398e8f62b",
+    "public_metadata_receipt.json": "a2e8a888d8b5dca1b3ffd8b52fd11eac440492c830933850af97236101ae1249",
+    "registry_config.txt": "e5ca99f918964e7d5a912f974eae708ae59370883a5b182fc0660fe7adf3f0e4",
+    "registry_license.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "registry_manifest.json": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+    "registry_params.txt": "2365fbb6d97bf654fdda0353b7505baa2254c662122cff0f153e4b47e6220ded",
+    "upstream_config.json": "478c46e8d2c52d5c2d85bf67e3b3e8c90e7c9d91086cee27e3c267907e936bd9"
+  },
+  "final_tests": {
+    "backend_passed": 990,
+    "frontend_passed": 28,
+    "errors": 0,
+    "skipped": 0
+  },
+  "decision": "blocked_operationally",
+  "local_inference_attempts": 0
+}

@@ -1,0 +1,42 @@
+{
+  "settings": {
+    "model": "gemma4:12b",
+    "expected_digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+    "port": 11434,
+    "options": {
+      "temperature": 0.0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 2048,
+      "num_gpu": 0,
+      "num_thread": 10,
+      "num_batch": 256,
+      "draft_num_predict": 0,
+      "repeat_penalty": 1.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "top_k": 20,
+      "top_p": 0.95,
+      "min_p": 0.0
+    },
+    "think": false,
+    "keep_alive": "5m",
+    "timeout_seconds": 300.0,
+    "max_input_bytes": 65536,
+    "context_overhead_tokens": 512,
+    "minimum_margin_bytes": 2147483648,
+    "unloaded_reserve_bytes": 12987664384,
+    "loaded_growth_reserve_bytes": 1073741824
+  },
+  "runtime_minimum": "0.30.9",
+  "fresh_runtime_check_required": true,
+  "policy_version": "application-analysis-v1",
+  "policy_source": "backend\\app\\services\\pipelines\\policy_v1.md",
+  "policy_sha256": "b4202d0ecfb2697b7476804ce757970f0c76aaf55c81e5e99d34ebc4e6bceb1a",
+  "schema_sha256_canonical": "cdffda726767477dc05d46455554ffb2b89dad9e7998df87d29aee04b1634ea7",
+  "cold_required_available_bytes": 15135148032,
+  "warm_required_available_bytes": 3221225472,
+  "runtime_hard_floor_RAM_and_commit_bytes": 2147483648,
+  "fresh_preflight_required": true,
+  "current_RAM_not_measured_or_assumed": true
+}

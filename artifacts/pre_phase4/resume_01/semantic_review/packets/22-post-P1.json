@@ -1,0 +1,125 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "22-post-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/22-post-P1.json",
+  "raw_sha256": "6b39aea2b5886086555c113bea209fcd5fe271dfbbf2d645a49b2f97715571f8",
+  "original": "Invoke-RestMethod -Uri 'https://example.invalid/readiness/7319' -Method Post -Body 'known-fixture'",
+  "original_sha256": "1c332b2048c9b1da04face64e83bcbcbe2ba609525deca63b2aaa33bd2ba9802",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "1c332b2048c9b1da04face64e83bcbcbe2ba609525deca63b2aaa33bd2ba9802",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Invoke-RestMethod -Uri 'https://example.invalid/readiness/7319' -Method Post -Body 'known-fixture'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 125,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [
+      "B06"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B06",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "Invoke-RestMethod -Uri 'https://example.invalid/readiness/7319' -Method Post -Body 'known-fixture'",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The code invokes a POST request to an external URI ('https://example.invalid/readiness/7319') with a body. While the domain 'example.invalid' is a reserved IANA example domain and the body is a static string, the operation represents explicit network transmission to an unknown destination, which fits the definition of B06. The use of 'example.invalid' suggests a test environment, but the action itself is network communication."
+      }
+    ],
+    "limitations": [
+      "Static analysis cannot verify the actual reachability of the URI or the intent behind the specific payload 'known-fixture'.",
+      "The domain 'example.invalid' is a reserved example domain, but the model treats it as an unknown destination per the taxonomy definition.",
+      "Runtime context (e.g., whether this is a local test script or deployed) is unknown."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No prompt injection patterns detected. The input is a static code snippet without variable substitution or complex string construction that could be interpreted as an injection attempt.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "Invoke-RestMethod -Uri 'https://example.invalid/readiness/7319' -Method Post -Body 'known-fixture'"
+    ],
+    "risk_label": "unknown",
+    "risk_rationale": "The risk is rated 'unknown' because while the action (network POST) is identified, the destination is a reserved example domain, and the payload is static. Without runtime execution, the true impact (e.g., if the domain resolves to a real server via DNS spoofing or if this is a legitimate test) cannot be determined. The taxonomy requires explicit operation, destination, and body for B06, which are present, but the benignity of the destination is unverified.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "The code structure is clear and standard PowerShell. The primary uncertainty lies in the semantic safety of the destination URI, which is a reserved example domain but could theoretically be misconfigured or used in a social engineering context if resolved dynamically at runtime (though unlikely for a static string).",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B06"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Invoke-RestMethod -Uri 'https://example.invalid/readiness/7319' -Method Post -Body 'known-fixture'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "B06 y su cita completa coinciden con POST y cuerpo literal conocidos; no añade B01, exfiltración o C2. Describir destino/cuerpo como desconocidos o especular con DNS no está motivado por el texto conocido. No se accedió a la URL de la muestra."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P1",
+  "request_sha256": "566f33b79117065bf07d377a0be3cfa880ded795831880654c4e5b8b22f468c5"
+}

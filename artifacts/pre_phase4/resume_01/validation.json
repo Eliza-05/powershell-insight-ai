@@ -1,0 +1,208 @@
+{
+  "at": "2026-11-03T01:20:28.430934+00:00",
+  "attempted": 24,
+  "terminal_server_replies": 24,
+  "structurally_accepted": 14,
+  "rejected": 10,
+  "truncated": 4,
+  "invalid_response": 6,
+  "indeterminate": 0,
+  "remaining_budget": 0,
+  "controls": [
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-02-52.108421+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-05-38.431692+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-06-39.869909+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-07-22.225488+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-08-00.743757+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-08-59.875395+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-10-31.672458+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-11-02.940765+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-12-00.773167+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-13-06.151835+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v3/controls/2026-11-03T00-14-25.332745+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T00-15-33.884734+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T00-17-20.242276+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T00-18-13.764624+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T00-22-13.229930+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T00-27-11.523047+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T01-11-11.817990+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T01-14-20.612267+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    },
+    {
+      "path": "artifacts/pre_phase4/diagnostics_v4/controls/2026-11-03T01-16-38.688042+00-00.json",
+      "unload_verified": true,
+      "eval_count": null
+    }
+  ],
+  "new_preflight_checks": [
+    {
+      "id": "01-C-recovered-P0",
+      "dispatched": true,
+      "code": "invalid_response"
+    },
+    {
+      "id": "02-C-recovered-P1",
+      "dispatched": true,
+      "code": "truncated_response"
+    },
+    {
+      "id": "04-output-P1",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "04-output-P1",
+      "dispatched": true,
+      "code": "invalid_response"
+    },
+    {
+      "id": "06-invoke-P0",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "07-invoke-P1",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "07-invoke-P1",
+      "dispatched": true,
+      "code": "invalid_response"
+    },
+    {
+      "id": "09-download-invoke-P0",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "09-download-invoke-P0",
+      "dispatched": true,
+      "code": "invalid_response"
+    },
+    {
+      "id": "11-download-invoke-P2",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "11-download-invoke-P2",
+      "dispatched": true,
+      "code": "invalid_response"
+    },
+    {
+      "id": "13-stored-P1",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "14-stored-P2",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "15-invoke-P3",
+      "dispatched": false,
+      "code": "insufficient_memory"
+    },
+    {
+      "id": "15-invoke-P3",
+      "dispatched": true,
+      "code": "truncated_response"
+    },
+    {
+      "id": "18-C-recovered-P3",
+      "dispatched": true,
+      "code": "truncated_response"
+    },
+    {
+      "id": "19-persistence-P1",
+      "dispatched": true,
+      "code": "invalid_response"
+    },
+    {
+      "id": "21-recon-P1",
+      "dispatched": true,
+      "code": "truncated_response"
+    }
+  ],
+  "unavailable_process_counter_rows": [],
+  "literal_check_occurrences": 20,
+  "declared_source_match": 17,
+  "declared_source_mismatch": 3,
+  "unknown_declared_source": 0,
+  "active_plan_sha256": "cb27cd3f69211543f087aeb6709a753bf6866cf09b432a862c6d7c01fa9c0937",
+  "base_plan_sha256": "6ee543ebe8f71151dd94660d3c9d50c08a96ff914a5fdc8a1daac7b62a01e4df",
+  "controller_sha256": "bcf0e014c5ad8b4050eb00fc092fcda360d1065d15855f82e37e20402b9f53df"
+}

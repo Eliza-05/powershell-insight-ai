@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-04T02:17:56.400000+00:00",
+  "freeze_sha256": "0067a4c33181822ac7353b209a94cbbc4efee95d71440006faee6d9b012c2a0a",
+  "protected_count": 9188,
+  "preexisting_files_unchanged": 9187,
+  "historical_files_changed": [],
+  "own_new_audit_utility_revised": [
+    "experiments/qwen14_environment.py"
+  ],
+  "original_executed_utility_preserved": true,
+  "Gemini_requests": 5,
+  "Gemini_limit": 12,
+  "Gemini_ledger_sha256": "dd2a7f346118155de25e68f1ab2ded45bc28dfbffa722b7c25e529d8ef75d60b",
+  "new_unique_pipeline_runs": 8,
+  "real_local_inference_intents": 8,
+  "retries": 0,
+  "automatic_resume": false,
+  "all_terminal_done_stop": true,
+  "BC_configuration_equivalence": true,
+  "sample_executions": 0,
+  "unexpected_tool_calls": 0,
+  "resource_margin_violations": 0,
+  "git_index_HEAD_and_develop_ref_unchanged": true,
+  "frontend_sources_unchanged": true,
+  "metrics_independent_count_crosscheck": true,
+  "reporting_source_sha256": "6a900f2c29ba4533ae0676e9a162d8a2610c3de47ed56b6602312b2903089748"
+}

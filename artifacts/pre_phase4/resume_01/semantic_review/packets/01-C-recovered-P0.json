@@ -1,0 +1,189 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "01-C-recovered-P0",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/01-C-recovered-P0.json",
+  "raw_sha256": "356d8e790fa2c0c09fe0e951bd0b61be12bf89ff2fa00e88c32da1ffc2076e13",
+  "original": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+  "original_sha256": "2dc9439347a2293cca334a3565524bed4562054e732621a5540235459f7ad05b",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "2dc9439347a2293cca334a3565524bed4562054e732621a5540235459f7ad05b",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      },
+      {
+        "layer_id": "L1",
+        "source_name": "input",
+        "provenance": "deobfuscator_recovered",
+        "text": "Get-Process -Id 7319",
+        "depth": 1,
+        "parent_transformation_id": "T0001",
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-B64-ENCCMD",
+        "source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "script_text",
+        "recovered_text": "Get-Process -Id 7319",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [
+          "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+        ],
+        "added_operation": "LAUNCHER_ENCCMD",
+        "output_layer_id": "L1"
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-B64-ENCCMD"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 298,
+    "artifact_bytes": 96
+  },
+  "reference": {
+    "labels": [
+      "B05"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+            "source_id": "T0001"
+          }
+        ],
+        "explanation": "The input contains an encoded command (`OT-B64-ENCCMD`) which decodes to `Get-Process -Id 7319`. While the decoded text describes a process enumeration operation, the static analysis cannot verify the actual execution, invocation, or semantic equivalence of the command without runtime context. The recovery is syntactic only."
+      }
+    ],
+    "limitations": [
+      "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved.",
+      "No evidence of actual execution or invocation."
+    ],
+    "obfuscation_techniques": [
+      "OT-B64-ENCCMD"
+    ],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions found in the prompt or recovered content.",
+      "snippets": [
+        "Get-Process -Id 7319"
+      ]
+    },
+    "recovered_content": [
+      "Get-Process -Id 7319"
+    ],
+    "risk_label": "unknown",
+    "risk_rationale": "The operation involves querying process information, which is benign in isolation but can be part of reconnaissance. However, the lack of execution evidence and the use of obfuscation prevent a definitive risk classification. It is not confirmed as malicious, nor is it confirmed as benign execution.",
+    "uncertainty": {
+      "level": "high",
+      "notes": "The specific process ID (7319) is unknown to the system, and the context of why this process is being queried is unknown.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "T0001",
+      "snippet": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+      "declared_source_literal_match": false,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "invalid_response",
+    "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+  },
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Rechazo estructural: detected=false con snippets de inyección no vacíos. Además B02 no se sustenta en el envoltorio EncodedCommand de una consulta de procesos, y la cita Base64 no pertenece a T0001, que contiene Get-Process -Id 7319. Diagnóstico asistido por IA, no adjudicación humana."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "invalid_response",
+      "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+    }
+  },
+  "profile": "P0",
+  "request_sha256": "95a70903a3d494651c6494625a4c9b69791399ff9afb2d18588319d426c27366"
+}

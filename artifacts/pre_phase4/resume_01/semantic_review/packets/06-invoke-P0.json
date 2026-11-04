@@ -1,0 +1,206 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "06-invoke-P0",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/06-invoke-P0.json",
+  "raw_sha256": "2f67430717811e4f7a30f67a3c912c8ed6b367d0405d67e286271a8e339a7fef",
+  "original": "$code = \"Write-Output 'fixture 7319'\"\nInvoke-Expression $code",
+  "original_sha256": "b3d74094c8ed7138c75398bf8744bbe381d479c11368b33f7cd0951c17efed3b",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "b3d74094c8ed7138c75398bf8744bbe381d479c11368b33f7cd0951c17efed3b",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$code = \"Write-Output 'fixture 7319'\"\nInvoke-Expression $code",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 37,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 38
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 37,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 38
+        },
+        "original_fragment": "$code = \"Write-Output 'fixture 7319'\"",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_definition",
+        "recovered_text": "Write-Output 'fixture 7319'",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 61,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 61,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "original_fragment": "$code",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_use",
+        "recovered_text": "Write-Output 'fixture 7319'",
+        "recovered_bytes_base64": null,
+        "dependencies": [
+          "T0001"
+        ],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 177,
+    "artifact_bytes": 96
+  },
+  "reference": {
+    "labels": [
+      "B02"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "confidence": "high",
+        "evidence": [
+          {
+            "snippet": "$code = \"Write-Output 'fixture 7319'\"",
+            "source_id": "original"
+          },
+          {
+            "snippet": "Invoke-Expression $code",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The script defines a string variable `$code` containing the command `Write-Output 'fixture 7319'` and immediately executes it using `Invoke-Expression`. This constitutes a functional evaluation and invocation of code. The command `Write-Output` is a benign PowerShell cmdlet used to send text to the host, which does not qualify as B03 (future execution) or B06 (network connectivity). The use of `Invoke-Expression` on a string variable is the mechanism for execution, satisfying the B02 criteria."
+      }
+    ],
+    "limitations": [
+      "The specific output content ('fixture 7319') is static and does not involve dynamic data retrieval or credential access."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions found within the provided script block.",
+      "snippets": []
+    },
+    "recovered_content": [],
+    "risk_label": "benign",
+    "risk_rationale": "The operation is a direct execution of a benign `Write-Output` command. There is no evidence of remote retrieval (B01), future execution (B03), defense weakening (B04), information gathering (B05), network activity (B06), or credential access (B07). The use of `Invoke-Expression` is a standard scripting pattern and, in this context, does not indicate malicious intent or obfuscation.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "The script is self-contained and fully visible. No unknown fragments or external dependencies are present.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "$code = \"Write-Output 'fixture 7319'\"",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Invoke-Expression $code",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "B02 corresponde a la construcción de una cadena y su Invoke-Expression; cita por separado la definición y la invocación. No añade comportamientos por la benignidad de la carga. Acierto puntual asistido por IA, no prueba de generalización."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P0",
+  "request_sha256": "a5f56003598ac08e9854ec43025f971adc6aa756c6dda4c7962cb30d13cab827"
+}

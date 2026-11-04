@@ -1,0 +1,4 @@
+$client = New-Object System.Net.Http.HttpClient
+$job = $client.GetByteArrayAsync(('https://p4-catalog.example.invalid/' + 'batch.pack'))
+$octets = $job.GetAwaiter().GetResult()
+$null = $octets.Length

@@ -1,0 +1,17 @@
+{
+  "authorized": true,
+  "recorded_at_utc": "2026-11-03T03:01:11.471999+00:00",
+  "source": "explicit_owner_chat_authorization_gemini36",
+  "model": "gemini-3.6-flash",
+  "maximum_new_generations": 4,
+  "binding_sha256": "057521df10b97be4beb5b09afc2433af932f899076e409690dc4566fbaa6b6cf",
+  "project": "Default Gemini Project",
+  "tier": "Free",
+  "billing_enabled": false,
+  "rpm": 5,
+  "tpm": 250000,
+  "rpd": 20,
+  "remaining_rpd": "not_reported_or_queried",
+  "no_metadata_queries": true,
+  "historical_38_attempt_not_replaced": true
+}

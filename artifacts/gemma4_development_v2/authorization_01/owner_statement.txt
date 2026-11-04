@@ -1,0 +1,145 @@
+# PowerShell Insight AI — Autorizar y ejecutar Gemma 4 12B v2
+
+Hemos completado la preparación técnica del experimento `gemma4_local_development_v2`.
+
+Quiero avanzar con el protocolo prospectivo ya congelado, sin rediseñar el experimento ni repetir auditorías generales.
+
+## 1. Aceptación de referencias
+
+Después de revisar las referencias y justificaciones de `docs/gemma4_v2_reference_approval.md`, **confirmo mi aceptación personal de las doce referencias de desarrollo v2 y de la aclaración prospectiva a1**, siempre que los hashes actuales coincidan con el material presentado para revisión.
+
+Confirmo el tratamiento de V2-09 como indeterminado y su exclusión de precisión, recall, F1 y exactitud de los once casos determinables.
+
+Esta aceptación no equivale a adjudicar respuestas futuras ni convierte los casos de desarrollo en casos de selección independiente.
+
+Registra mi aceptación como un evento nuevo, trazable y vinculado a los hashes del protocolo.
+
+No modifiques las referencias, scripts, prompts, etiquetas ni criterios congelados.
+
+Si algún hash difiere o la aclaración a1 propone algo distinto de lo explicado, detente y solicita una nueva decisión.
+
+## 2. Autorización de inferencias
+
+**Autorizo expresamente ejecutar hasta 12 inferencias locales de Gemma 4 12B**, correspondientes exclusivamente a V2-01 hasta V2-12.
+
+Utiliza el modelo local instalado y verificado anteriormente.
+
+No descargues otros modelos, no cambies la cuantización y no modifiques los parámetros congelados.
+
+Crea el archivo de autorización que requiere el controlador, respetando su esquema existente y vinculándolo al plan aprobado.
+
+No reutilices ninguna inferencia histórica de Gemma v1 como resultado de v2.
+
+## 3. Preflight obligatorio
+
+Antes de ejecutar, comprueba:
+
+- RAM física disponible en frío ≥14,10 GiB.
+- Compromiso disponible ≥14,10 GiB.
+- Margen de seguridad congelado.
+- Espacio y recursos suficientes.
+- Digest y runtime compatibles.
+- Ningún otro modelo residente en Ollama.
+- Sesión exclusiva verificable.
+- Integridad del plan y de la autorización.
+
+La memoria que liberé anteriormente no debe considerarse disponible sin volver a medirla.
+
+Si el preflight falla, detente sin ejecutar inferencias.
+
+No cierres mis aplicaciones ni modifiques Windows automáticamente.
+
+No declares una sesión exclusiva si no puedes verificarla de acuerdo con las reglas del controlador.
+
+## 4. Ejecución
+
+Si supera el preflight, ejecuta el controlador v2 mediante el comando aprobado, con el mecanismo de autorización y sesión exclusiva implementado.
+
+Respeta estrictamente:
+
+- 10 inferencias B y 2 C.
+- Dos parejas B/C.
+- Orden congelado.
+- Una ejecución por intento.
+- Cero reintentos automáticos.
+- Configuración idéntica para B y C.
+- Sin incluir etiquetas esperadas ni resultados 1B en las solicitudes.
+- Sin modificar el prompt después de observar respuestas.
+- Resultados crudos persistentes.
+- Control de recursos entre inferencias.
+- Parada ante problemas críticos de seguridad, integridad o recursos.
+
+Un falso positivo o falso negativo ordinario debe registrarse y permitir continuar, conforme al nuevo gate.
+
+No cambies los criterios para favorecer al modelo.
+
+## 5. Evaluación
+
+Calcula los indicadores congelados:
+
+- Respuestas utilizables: mínimo 11/12.
+- Conjuntos exactos: mínimo 9 de los 11 casos determinables.
+- Precisión micro: mínimo 0,80.
+- Recall micro: mínimo 0,80.
+- F1 micro: mínimo 0,80.
+- Controles semánticos y de procedencia obligatorios.
+
+Si alguna respuesta de los once casos determinables es inutilizable, no la elimines silenciosamente del denominador: aplica la regla congelada y explica su tratamiento en las métricas.
+
+Evalúa V2-09 por separado, respetando el comportamiento esperado ante incertidumbre.
+
+Revisa especialmente los casos C:
+
+- Recuperación 1A verificada y realmente enviada.
+- Procedencia correcta de cada cita.
+- Ausencia de etiquetas inventadas a partir de código inerte.
+- Ausencia de referencias recuperadas inexistentes.
+- Ausencia de filtración de etiquetas esperadas.
+- Comparación B/C de las dos parejas.
+
+Distingue métricas automáticas de revisión semántica asistida por IA. No registres adjudicación humana de las respuestas sin que yo las revise posteriormente.
+
+## 6. Seguridad e integridad
+
+Solo utilizar los scripts sintéticos de desarrollo previstos.
+
+No ejecutar PowerShell analizado, código recuperado, comandos descargados o generados por el modelo.
+
+No enviar solicitudes a Gemini; conservar su ledger en 5/12.
+
+No modificar los históricos de Qwen, Gemini o Gemma v1.
+
+No iniciar todavía selección independiente ni Fase 4.
+
+No modificar el frontend.
+
+No ejecutar operaciones Git de escritura: add, commit, push, merge, rebase, reset o clean.
+
+## 7. Informe
+
+Al terminar, actualiza el informe de Gemma v2 indicando:
+
+1. Preflight y recursos observados.
+2. Inferencias ejecutadas y motivos de cualquier parada.
+3. Resultados individuales V2-01 a V2-12.
+4. Etiquetas esperadas y predichas.
+5. JSON válido y respuestas utilizables.
+6. Precisión, recall, F1 y exactitud.
+7. Falsos positivos y falsos negativos.
+8. Calidad de evidencias y explicaciones.
+9. Comparación entre las parejas B/C.
+10. Casos que requieren adjudicación personal.
+11. Resultado del gate.
+12. Recomendación: candidato a selección independiente / no apto en v2 / evaluación incompleta por bloqueo.
+
+Conserva la respuesta cruda y todas las evidencias, incluidas las negativas.
+
+**No declares científicamente aprobado el modelo aunque supere el gate de desarrollo.**
+
+## 8. Resultado esperado
+
+Quiero terminar la campaña de desarrollo v2 y obtener suficiente evidencia para decidir si Gemma 4 12B merece avanzar a la selección independiente.
+
+No quiero una nueva investigación general ni otra propuesta de cambiar de modelo antes de observar los resultados de esta campaña.
+
+Si todos los requisitos de seguridad y recursos se cumplen, ejecuta los doce intentos autorizados y presenta los resultados completos.

@@ -1,0 +1,54 @@
+{
+  "schema_version": "deobfuscation-v1",
+  "engine_version": "static-subset-v1",
+  "input_sha256": "775a7024994c193a9b91d8d0c0c853a3b105ba7c669ae9abb91987b69e468448",
+  "source_name": "input",
+  "input_provenance": "original",
+  "status": "partial",
+  "semantic_equivalence": "not_claimed",
+  "limits": {
+    "max_input_bytes": 65536,
+    "max_artifact_bytes": 262144,
+    "max_total_artifact_bytes": 2097152,
+    "max_transformations": 512,
+    "max_depth": 3,
+    "max_expression_depth": 24,
+    "max_concat_terms": 128,
+    "max_tokens": 50000,
+    "max_work_units": 4000000,
+    "max_unresolved": 128
+  },
+  "layers": [
+    {
+      "layer_id": "L0",
+      "source_name": "input",
+      "provenance": "original",
+      "text": "Set-WmiInstance -ComputerName 'p4-subscription.example.invalid' -Namespace root/subscription -Class __EventFilter -Arguments @{Name='P4Notice';QueryLanguage='WQL';Query='SELECT * FROM Win32_ProcessStartTrace'} -Credential (Get-Secret -Name P4Operator -Vault PSIA_Phase4_NeverCreatedVault57C21)\nSet-WmiInstance -ComputerName 'p4-subscription.example.invalid' -Namespace root/subscription -Class CommandLineEventConsumer -Arguments @{Name='P4Notice';CommandLineTemplate='cmd.exe /c echo phase4-notice'}\nSet-WmiInstance -ComputerName 'p4-subscription.example.invalid' -Namespace root/subscription -Class __FilterToConsumerBinding -Arguments @{Filter='__EventFilter.Name=\"P4Notice\"';Consumer='CommandLineEventConsumer.Name=\"P4Notice\"'}\n",
+      "depth": 0,
+      "parent_transformation_id": null,
+      "root_source": null
+    }
+  ],
+  "transformations": [],
+  "unresolved": [
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 222,
+        "end": 233,
+        "line": 1,
+        "column": 223,
+        "end_line": 1,
+        "end_column": 234
+      },
+      "technique_hint": null,
+      "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+      "transformation_id": null
+    }
+  ],
+  "techniques_detected": [],
+  "limits_hit": [],
+  "warnings": [],
+  "work_units": 958,
+  "artifact_bytes": 0
+}

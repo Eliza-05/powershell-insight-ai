@@ -1,0 +1,83 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "21-recon-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/21-recon-P1.json",
+  "raw_sha256": "e6fbccb291e48a2b230c5aeb64f29352eb90035bfbd965e3e3eba17e4e645044",
+  "original": "Get-CimInstance -ClassName Win32_OperatingSystem",
+  "original_sha256": "868555e0719bd1521817d0fde5f42b162760b552fce9903fdfb7cf4f58aa3b4c",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "868555e0719bd1521817d0fde5f42b162760b552fce9903fdfb7cf4f58aa3b4c",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Get-CimInstance -ClassName Win32_OperatingSystem",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 59,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [
+      "B05"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": null,
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "truncated_response",
+    "message": "Output cap reached; no repair or refill"
+  },
+  "historical_truncated": true,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Truncamiento a 2048 tokens: no se publica conjunto vacío como negativo acertado. El prefijo omite el reconocimiento B05 visible en Get-CimInstance Win32_OperatingSystem y repite notas/prosa dentro de limitations. No se inventa un destino remoto para esta consulta local sin ComputerName."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "truncated_response",
+      "message": "Output cap reached; no repair or refill"
+    }
+  },
+  "profile": "P1",
+  "request_sha256": "4b2d0a095cf4d28337f95f754cbf19b0e4e1d2fa27e8cd000aede3be1d434043"
+}

@@ -1,0 +1,156 @@
+# PowerShell Insight AI — Adoptar Qwen14 para investigación exploratoria y avanzar hacia el cierre
+
+He revisado el informe `docs/qwen25_coder14b_final_viability.md` y he decidido cerrar la búsqueda de modelos por ahora.
+
+**Autorizo adoptar `qwen2.5-coder:14b` exclusivamente como modelo local experimental para los enfoques B y C de PowerShell Insight AI.**
+
+Esta decisión NO significa que el modelo haya aprobado una selección científica, que sea un detector confiable ni que sus predicciones sean correctas.
+
+Aceptamos expresamente sus limitaciones documentadas: 6/8 informes utilizables, 1/8 conjuntos exactos, precisión 0,40, recall 0,3333, F1 micro 0,3636 y errores de clasificación, reconstrucción y procedencia.
+
+El propósito es finalizar un prototipo académico que permita estudiar de manera transparente cómo se comportan los enfoques A, B y C, incluyendo los errores del LLM.
+
+## 1. Registrar la decisión de alcance
+
+Crea un registro de decisión nuevo y trazable.
+
+Debe indicar:
+
+- Qwen2.5-Coder 14B queda seleccionado para uso exploratorio local.
+- La selección se basa en viabilidad operativa, no en superioridad semántica demostrada.
+- Los resultados diagnósticos anteriores permanecen intactos.
+- Las adjudicaciones personales de las ocho respuestas siguen pendientes.
+- No se declaran aprobadas H1 ni H2.
+- No se afirma que el sistema detecte malware de manera confiable.
+- No se autoriza despliegue para decisiones reales de seguridad sin revisión humana.
+
+No cambies retrospectivamente los criterios, las etiquetas ni las métricas de ninguna campaña.
+
+## 2. Integración explícita con el prototipo
+
+El informe indica que la aplicación todavía conserva como predeterminado Qwen3.5 4B, cuyos pesos fueron desinstalados.
+
+Corrige esa dependencia para que el prototipo pueda utilizar explícitamente el perfil experimental `qwen2.5-coder:14b`.
+
+Requisitos:
+
+- Mantener A como análisis determinista independiente.
+- Mantener B con el original.
+- Mantener C con el original y recuperación 1A verificada.
+- Conservar igualdad de modelo, política y parámetros entre B y C.
+- Evitar fallback silencioso a Qwen3.5, Gemini, Gemma o cualquier otro modelo.
+- Indicar claramente cuando Ollama no esté disponible o la memoria sea insuficiente.
+- No ejecutar B/C automáticamente si el usuario solo solicita A.
+- Evitar que el arranque de la aplicación dispare inferencias de prueba.
+- Mantener advertencias sobre la naturaleza experimental del LLM.
+- No presentar resultados rechazados como evidencia validada.
+
+Conserva el contrato de FastAPI y React cuando sea posible.
+
+No rediseñes la interfaz visual completa en esta etapa; solamente realiza los ajustes funcionales imprescindibles.
+
+## 3. Seguridad y presentación de resultados
+
+La aplicación debe distinguir visual y semánticamente:
+
+1. Análisis determinista de A.
+2. Predicciones experimentales de B.
+3. Predicciones experimentales de C.
+4. Evidencias literales verificadas.
+5. Explicaciones del modelo cuyo soporte semántico no ha sido adjudicado.
+6. Respuestas rechazadas por contrato o procedencia.
+7. Casos indeterminados.
+
+No permitir que una predicción de B o C se presente como veredicto definitivo.
+
+Una cita literal válida no debe describirse como prueba automática de que la clasificación es correcta.
+
+Conserva la protección frente a instrucciones adversarias incrustadas en los scripts.
+
+No ejecutar scripts PowerShell, código recuperado ni contenido generado por el LLM.
+
+## 4. Comparación exploratoria con datos existentes
+
+Antes de autorizar inferencias adicionales, construye un informe exploratorio reutilizando los resultados crudos ya registrados.
+
+Para los seis scripts sintéticos distintos usados en Qwen14:
+
+- Ejecuta A de manera estática y segura, sin llamar al LLM.
+- Reutiliza las ocho respuestas históricas de Qwen14 para B/C.
+- Relaciona correctamente cada resultado con su script y sus hashes.
+- Compara las dos parejas B/C congeladas.
+- Separa datos aceptados de respuestas rechazadas.
+- Identifica los falsos positivos, falsos negativos y problemas de evidencias.
+- Describe dónde la recuperación 1A ayudó, no cambió o perjudicó al modelo.
+
+No presentes seis scripts y ocho inferencias como ocho muestras independientes.
+
+No utilices casos de desarrollo como si fueran datos finales no vistos.
+
+No alteres respuestas ni las repares retrospectivamente.
+
+Identifica claramente qué observaciones están automatizadas, cuáles son asistidas por IA y cuáles necesitan revisión personal.
+
+## 5. Preparar la evaluación pendiente
+
+Propón un camino mínimo para la futura evaluación independiente A/B/C.
+
+Debe distinguir:
+
+- Comparación descriptiva de desarrollo, que podemos realizar ahora.
+- Evaluación independiente posterior, que requiere casos no vistos, referencias revisadas, configuración congelada y autorización de presupuesto.
+- Contraste de H1/H2, que no debe declararse satisfactorio antes de obtener esa evidencia.
+
+Dado el rendimiento observado, el objetivo de la evaluación posterior será determinar qué ocurre realmente al incorporar desofuscación, incluso si el resultado es negativo.
+
+No diseñes otra campaña de búsqueda de modelos.
+
+No cambies los objetivos científicos para garantizar un resultado favorable.
+
+## 6. Proteger el presupuesto y los históricos
+
+- No realizar inferencias nuevas de Qwen14 en este encargo.
+- No realizar solicitudes a Gemini.
+- Conservar el ledger Gemini en 5/12.
+- No descargar otros modelos.
+- No eliminar Qwen14.
+- No modificar Qwen 7B sin nueva decisión.
+- No modificar respuestas históricas de Gemma, Qwen3.5 o Gemini.
+- No ejecutar una selección independiente ni Fase 4 en este encargo.
+- No realizar operaciones Git de escritura: add, commit, push, merge, rebase, reset o clean.
+- Conservar los cambios locales en `develop`.
+
+## 7. Verificación
+
+Ejecuta las pruebas necesarias, usando mocks para B/C.
+
+Comprueba:
+
+- Selección explícita de Qwen14.
+- Funcionamiento independiente de A.
+- Separación de B/C.
+- Equivalencia de parámetros.
+- Validación de procedencia.
+- Manejo de memoria insuficiente.
+- Manejo de ausencia de Ollama.
+- Rechazo seguro de resultados inválidos.
+- No generación automática.
+- Frontend y backend compatibles.
+- Históricos y presupuestos intactos.
+
+## 8. Entregables
+
+Presenta:
+
+1. Registro de decisión del modelo experimental.
+2. Cambios de integración realizados.
+3. Estado funcional de la aplicación.
+4. Resultados de regresión.
+5. Comparación exploratoria A/B/C basada en los resultados existentes.
+6. Hallazgos y limitaciones.
+7. Adjudicaciones personales pendientes.
+8. Plan mínimo para terminar la investigación y la aplicación.
+
+No quiero más búsqueda de candidatos ni cambios extensos de arquitectura.
+
+**Objetivo: cerrar la etapa de elección del modelo, integrar Qwen14 con advertencias y controles adecuados y avanzar efectivamente hacia la finalización de PowerShell Insight AI.**

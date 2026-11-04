@@ -1,0 +1,97 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "17-long-input-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/17-long-input-P1.json",
+  "raw_sha256": "d532d1c440424ef9770d861d16cebe9fee737df9058ccc08885cb5f62061bd1c",
+  "original": "# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\nWrite-Output 'long fixture'",
+  "original_sha256": "dba06e042413736fd4848e775b7e6735b134a9c39df890473875f91bc122d33a",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "dba06e042413736fd4848e775b7e6735b134a9c39df890473875f91bc122d33a",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\n# padding 7319\nWrite-Output 'long fixture'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 884,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [],
+    "limitations": [
+      "Source text consists of repetitive comments and a single benign Write-Output statement. No executable code, dynamic evaluation, or obfuscation patterns were detected. The content appears to be a static placeholder or test fixture."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No evidence of prompt injection, data extraction, or instruction manipulation was found. The text contains only comments and a harmless output command.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "# padding 7319",
+      "Write-Output 'long fixture'"
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The provided source code is static and contains no executable logic, dynamic evaluation, credential access, or network communication. The repeated comment lines are non-functional text, and the single Write-Output command is a standard, benign PowerShell operation. There is no indication of analyst manipulation or malicious intent in this static analysis.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "Analysis is based solely on the provided static text. No runtime execution or external context was available to verify behavior or detect hidden payloads.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Etiquetas vacías correctas en 50 comentarios y una salida. La prosa afirma que no hay código ejecutable aunque sí hay Write-Output; distinguir ausencia de categorías B de ausencia de comandos. Entrada extendida modesta, no ensayo del contexto máximo."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P1",
+  "request_sha256": "69b1ee6e60432639f0c450f296294ee13edf186becb2b9185a2a4900ef7b8d16"
+}

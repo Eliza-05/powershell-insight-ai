@@ -1,0 +1,184 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "phase2-01-C",
+  "stage": "phase2",
+  "raw_artifact": "artifacts/phase2/functional_01/C.json",
+  "raw_sha256": "2e0431868d26af6af79550c850bed84a36e02f291855538c1aefb97ba6f16650",
+  "original": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA",
+  "original_sha256": "29c210f6f65097899963b99ada884ba9af49df25b5a6244840eb5f4c5fd5aa95",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "29c210f6f65097899963b99ada884ba9af49df25b5a6244840eb5f4c5fd5aa95",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      },
+      {
+        "layer_id": "L1",
+        "source_name": "input",
+        "provenance": "deobfuscator_recovered",
+        "text": "Get-Process -Id 92047",
+        "depth": 1,
+        "parent_transformation_id": "T0001",
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-B64-ENCCMD",
+        "source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "script_text",
+        "recovered_text": "Get-Process -Id 92047",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [
+          "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+        ],
+        "added_operation": "LAUNCHER_ENCCMD",
+        "output_layer_id": "L1"
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-B64-ENCCMD"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 298,
+    "artifact_bytes": 98
+  },
+  "reference": {
+    "labels": [
+      "B05"
+    ],
+    "unknown": false,
+    "human_approved": false
+  },
+  "reference_basis": "AI-assisted static diagnostic reference; human decision pending",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA",
+            "source_id": "T0001"
+          }
+        ],
+        "explanation": "The input contains an encoded command (`RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA`) identified by technique `OT-B64-ENCCMD`. Decoding this string yields the PowerShell command `Get-Process -Id 92047`. While the decoded text is syntactically valid and represents a process enumeration operation, the analysis is limited to static decoding. The actual execution, invocation context, and semantic equivalence of the command within the specific environment are not verified. The operation itself (querying process information) is benign in isolation but requires context to determine if it is part of a reconnaissance or abuse campaign."
+      }
+    ],
+    "limitations": [
+      "No execution or invocation evidence provided.",
+      "Semantic equivalence not claimed.",
+      "Decoded text validity and reachability not proved."
+    ],
+    "obfuscation_techniques": [
+      "OT-B64-ENCCMD"
+    ],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions found in the prompt or decoded content.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "Get-Process -Id 92047"
+    ],
+    "risk_label": "unknown",
+    "risk_rationale": "The decoded command `Get-Process -Id 92047` is a benign administrative tool used to query specific process information. However, the analysis is restricted to static decoding of an encoded string. Without evidence of execution, invocation, or context (e.g., whether this is a legitimate diagnostic script or part of a larger malicious payload), the risk cannot be definitively classified as benign or malicious. The presence of obfuscation (`OT-B64-ENCCMD`) suggests an attempt to hide the command's intent, but the obfuscation itself does not prove malice. The risk remains unknown due to insufficient context regarding the command's purpose and environment.",
+    "uncertainty": {
+      "level": "high",
+      "notes": "Lack of execution evidence and context prevents definitive risk classification.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "T0001",
+      "snippet": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA5ADIAMAA0ADcA",
+      "declared_source_literal_match": false,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": true,
+    "accepted": false,
+    "error": "Nonexistent evidence in source T0001"
+  },
+  "historical_error": [
+    {
+      "code": "invalid_response",
+      "message": "Nonexistent evidence in source T0001",
+      "stage": "response"
+    }
+  ],
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Deterministic decoding is Get-Process -Id 92047. B02 and invented Invoke-Expression decoding are unsupported. C must cite the recovered T source for decoded code."
+  },
+  "human_adjudication": null
+}

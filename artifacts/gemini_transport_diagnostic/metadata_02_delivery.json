@@ -1,0 +1,29 @@
+{
+  "completed_at": "2026-11-03T02:32:32.465462+00:00",
+  "status": "single_authorized_query_completed",
+  "runtime_code_hashes_unchanged": 7,
+  "requests_total": 2,
+  "new_http_attempts": 1,
+  "models_listed": 60,
+  "gemini_3_8_flash_listed": true,
+  "authentication": "accepted_for_models_list",
+  "free_generation_quota_verified": false,
+  "inferences": 0,
+  "remaining_local_reservations": 10,
+  "credential_leak_files": [],
+  "git_diff_check": "passed",
+  "branch": "develop",
+  "git_write_operations": false,
+  "tests_this_task": "No implementation changes; verified existing code/dependency hashes and execution artifacts. Previous regression results retained without rerunning.",
+  "files": {
+    "artifacts/gemini_transport_diagnostic/metadata_authorization_02.json": "5c2a04bd494f7e60bbb7085c0f9bb3a87213746fd7a1c45f4cf51d6e6f324884",
+    "artifacts/gemini_transport_diagnostic/metadata_02_precheck.json": "fa6165b3f09c46c2e7b15793f78a2b0acb7edd39589020f85881c7afdaef0c18",
+    "artifacts/gemini_transport_diagnostic/metadata_retry_02.json": "30924b6d04a915630873ea6ea7436b18c052ee25fcd57299bcdb2563b27c5536",
+    "artifacts/gemini_transport_diagnostic/metadata_02_postcheck.json": "ace9279b779db12c5e743bdaed6d79d70bf10ef890f00b9d782891a93a8fab69",
+    "artifacts/gemini_transport_diagnostic/report_before_metadata_02.md": "b6ecca527fb2f7e88413ae3a0efce10344ce87a46163af39480098fe7a128a50",
+    "artifacts/gemini_transport_diagnostic/viability_report_before_metadata_02.md": "a7c2e70a47fceee10b03cb6850bb74abd55adf483e211ed058f708ab40813eb7",
+    "docs/gemini_transport_diagnostic.md": "8cc71ba6587559b08c7e57339140c593bf27a36d7e5e4d5ad9f4bc7a7b6764b8",
+    "docs/gemini_viability.md": "ef0d6a00834875408e04ee1e2c0c38089ca4a4222a908b7b45eaf32a58842520",
+    "artifacts/gemini_viability/requests.jsonl": "cccc43f857fe318c4b4937281ca5afd23b79316f9659ecced0b160b585bde87e"
+  }
+}

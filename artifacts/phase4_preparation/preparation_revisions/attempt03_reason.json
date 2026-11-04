@@ -1,0 +1,4 @@
+{
+  "reason": "IL operation statements compacted into one explicit instruction pipeline to stay within unchanged context budget; no model output or reference category change.",
+  "new_LLM_inferences": 0
+}

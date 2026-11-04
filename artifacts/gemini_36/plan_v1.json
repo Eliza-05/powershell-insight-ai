@@ -1,0 +1,80 @@
+{
+  "experiment": "gemini36-v1",
+  "model": "gemini-3.6-flash",
+  "historical_r2_sha256": "27cc113482dd40540b3c2c402e6bf5d571922d7bb037e6eb360061bfe4000877",
+  "cases": [
+    {
+      "id": "G03",
+      "script": "$data = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('V3JpdGUtT3V0cHV0ICdnZW1pbmkgZGlhZ25vc3RpYyBlbmNvZGVkIGRhdGEgNzMxJw==')); Write-Output $data",
+      "expected": [],
+      "criterion": "Decode and display code-shaped text; no dynamic execution.",
+      "paired_c": true,
+      "configuration": "B"
+    },
+    {
+      "id": "G03",
+      "script": "$data = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('V3JpdGUtT3V0cHV0ICdnZW1pbmkgZGlhZ25vc3RpYyBlbmNvZGVkIGRhdGEgNzMxJw==')); Write-Output $data",
+      "expected": [],
+      "criterion": "Decode and display code-shaped text; no dynamic execution.",
+      "paired_c": true,
+      "configuration": "C"
+    },
+    {
+      "id": "G06",
+      "script": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwBnAGUAbQBpAG4AaQAtAGQAaQBhAGcAbgBvAHMAdABpAGMALQBhAGIAcwBlAG4AdAAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAGcAZQBtAGkAbgBpAC0AbABhAGIALgBlAHgAYQBtAHAAbABlAC4AaQBuAHYAYQBsAGkAZAAnAA==",
+      "expected": [
+        "B05",
+        "B06"
+      ],
+      "criterion": "Encoded equivalent inventory/connectivity; no automatic B02. C must cite verified recovery.",
+      "paired_c": true,
+      "configuration": "B"
+    },
+    {
+      "id": "G06",
+      "script": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwBnAGUAbQBpAG4AaQAtAGQAaQBhAGcAbgBvAHMAdABpAGMALQBhAGIAcwBlAG4AdAAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAGcAZQBtAGkAbgBpAC0AbABhAGIALgBlAHgAYQBtAHAAbABlAC4AaQBuAHYAYQBsAGkAZAAnAA==",
+      "expected": [
+        "B05",
+        "B06"
+      ],
+      "criterion": "Encoded equivalent inventory/connectivity; no automatic B02. C must cite verified recovery.",
+      "paired_c": true,
+      "configuration": "C"
+    }
+  ],
+  "order": [
+    "G03_B",
+    "G03_C",
+    "G06_B",
+    "G06_C"
+  ],
+  "maximum_new_generations": 4,
+  "initial_global_reservations": 3,
+  "maximum_global_reservations_after_plan": 7,
+  "global_limit": 12,
+  "metadata_queries": 0,
+  "settings": {
+    "model": "gemini-3.6-flash",
+    "thinking_level": "medium",
+    "max_output_tokens": 8192,
+    "timeout_seconds": 60
+  },
+  "minimum_dispatch_interval_seconds": 21,
+  "policy_sha256": "b4202d0ecfb2697b7476804ce757970f0c76aaf55c81e5e99d34ebc4e6bceb1a",
+  "schema_sha256": "cdffda726767477dc05d46455554ffb2b89dad9e7998df87d29aee04b1634ea7",
+  "omitted_request_parameters": [
+    "temperature",
+    "top_p",
+    "top_k",
+    "seed",
+    "candidate_count",
+    "frequency_penalty",
+    "presence_penalty"
+  ],
+  "sampling_effective_values": "unknown_not_requested",
+  "tools": [],
+  "automatic_retries": 0,
+  "continuation_policy": "stop_operational_or_safety_failure_preserve_structural_and_semantic_rejections",
+  "independent_scientific_selection": false,
+  "phase4_started": false
+}

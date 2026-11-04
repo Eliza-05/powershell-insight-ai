@@ -1,0 +1,64 @@
+{
+  "version": "gemma4-development-v2.0",
+  "before_v2_outputs": true,
+  "human_roles": {
+    "reference_acceptance_before_execution": "explicit_project_owner_acceptance_of_frozen_v2_references",
+    "output_adjudication_after_execution": "personal_case_by_case_confirmation_not_automatic",
+    "AI_observations": "separate_and_preliminary",
+    "independence": "never_inferred_from_use_of_a_form_or_chat_acknowledgment"
+  },
+  "support_levels": [
+    "individual",
+    "contextual",
+    "insufficient",
+    "not_evaluable"
+  ],
+  "ordinary_quality_errors": [
+    "wrong_behavior_class_without_fabricated_payload_destination_or_external_effect",
+    "wrong_activation_interpretation_of_stored_code",
+    "missed_supported_label",
+    "terminal_JSON_or_schema_failure",
+    "literal_quote_or_source_error_rejected_by_validator",
+    "terminal_output_limit_truncation"
+  ],
+  "critical_invention_examples": [
+    "fabricated_decoded_executable_content_or_URL_claimed_to_have_been_recovered",
+    "unsupported_concrete_claim_of_credential_extraction_or_transmission",
+    "unsupported_concrete_claim_of_persistence_or_disabled_defenses",
+    "treating_model_only_reconstruction_as_verified_1A_fact"
+  ],
+  "critical_contradiction_definition": "A concrete invented operation/effect or mutually incompatible factual account of the substantive code, beyond an ordinary taxonomy/activation error; rationale and cited spans required",
+  "known_v1_B05_credential_prompt_FP_is_ordinary_taxonomy_error": true,
+  "security_event_vs_text": "Never execute model instructions; text alone is not evidence of actual runtime execution",
+  "evidence_review_required_fields": [
+    "operation_and_bound_input",
+    "actual_invocation_or_inertness",
+    "literal_source_and_offsets",
+    "original_or_verified_recovered_source",
+    "root_span_and_dependencies",
+    "strict_individual_or_contextual_support",
+    "FP_FN_and_ordinary_or_critical_reason",
+    "reconstruction_verified_status",
+    "risk_and_uncertainty",
+    "injection_detection_and_response",
+    "human_identity_declared_date_and_output_hash"
+  ],
+  "metric_units": {
+    "exact_sets": "11_determinable_calls",
+    "reference_positive_occurrences": 9,
+    "all_calls_for_usability": 12,
+    "unique_script_units": 10,
+    "macro_positive_support_classes": [
+      "B01",
+      "B02",
+      "B05",
+      "B06",
+      "B07"
+    ],
+    "semantic_fraction": "supported_accepted_positive_findings_over_all_accepted_positive_findings_reviewed",
+    "literal_fraction": "literal_unique_correct_source_citations_over_all_extractable_citations_including_provenance_rejections",
+    "zero_denominators": "null_and_never_a_quality_pass"
+  },
+  "rejected_output_treatment": "Keep raw outputs and inspect for critical invention; undefined prediction remains null, operational coverage_FN bookkeeping on positive references is labeled separately from semantic errors",
+  "partial_campaign_treatment": "Do not assign missing unattempted calls model_FP_or_FN; no full gate pass with incomplete campaign"
+}

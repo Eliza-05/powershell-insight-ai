@@ -1,0 +1,46 @@
+{
+  "decision_id": "Q14-EXPLORATORY-2026-11-03",
+  "recorded_at": "2026-11-04T03:01:07.978112+00:00",
+  "owner_instruction_sha256": "6c4363bc4d3d793a833e8a6f4a0c187a49056c16dd3d14caa5841cf998714027",
+  "status": "adopted",
+  "scope": "local_exploratory_B_C_only",
+  "model": "qwen2.5-coder:14b",
+  "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+  "basis": "operational_viability_not_demonstrated_semantic_superiority",
+  "diagnostic_metrics_accepted_unchanged": {
+    "micro": {
+      "TP": 2,
+      "FP": 3,
+      "FN": 4,
+      "precision": 0.4,
+      "recall": 0.3333333333333333,
+      "F1": 0.36363636363636365
+    },
+    "usable": 6,
+    "exact_sets": {
+      "numerator": 1,
+      "denominator": 8
+    },
+    "json_valid": 8,
+    "schema_valid": 7
+  },
+  "scientific_selection_passed": false,
+  "reliable_malware_detector": false,
+  "real_security_decisions_without_human_review_authorized": false,
+  "human_output_adjudications_pending": 8,
+  "hypotheses": {
+    "H1": "not_established",
+    "H2": "not_established"
+  },
+  "new_inferences_authorized_this_assignment": 0,
+  "new_Gemini_requests_authorized": 0,
+  "independent_evaluation_started": false,
+  "phase4_started": false,
+  "model_search_closed_for_now": true,
+  "diagnostic_budget_unchanged": 8,
+  "Gemini_budget_unchanged": {
+    "used": 5,
+    "limit": 12
+  },
+  "source_archive_manifest_sha256": "1cb2a95113ebc66ca259fd8a25af6fc88a2592c751503070ea47aff7182d42a2"
+}

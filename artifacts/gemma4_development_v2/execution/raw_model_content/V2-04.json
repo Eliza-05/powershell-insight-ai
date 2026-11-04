@@ -1,0 +1,32 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B05",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Get-CimInstance -ClassName Win32_OperatingSystem",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The command queries the 'Win32_OperatingSystem' CIM class to retrieve system information, specifically the OS caption and version."
+    }
+  ],
+  "limitations": [
+    "The script only retrieves information; it does not perform any actions or network operations."
+  ],
+  "obfuscation_techniques": [],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No adversarial instructions detected in the input.",
+    "snippets": []
+  },
+  "recovered_content": [],
+  "risk_label": "benign",
+  "risk_rationale": "The command is a standard administrative query used to identify the operating system version. It does not involve network activity, credential access, or persistence.",
+  "uncertainty": {
+    "level": "low",
+    "notes": "The intent is clear and the operation is standard for system auditing.",
+    "uninterpretable_fragments": []
+  }
+}

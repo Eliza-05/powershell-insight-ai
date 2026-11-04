@@ -1,0 +1,37 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B05",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Get-Process -Name 'v2-display-only-843'",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The script decodes a Base64 string to execute a command that queries process information (Get-Process) on the host system."
+    }
+  ],
+  "limitations": [
+    "The script only outputs the decoded string to the console; it does not execute the resulting command or perform any further actions.",
+    "The process name 'v2-display-only-843' appears arbitrary and may be a placeholder or a specific target."
+  ],
+  "obfuscation_techniques": [
+    "OT-B64-ENCCMD"
+  ],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No prompt injection detected in the provided input.",
+    "snippets": []
+  },
+  "recovered_content": [
+    "Get-Process -Name 'v2-display-only-843'"
+  ],
+  "risk_label": "suspicious",
+  "risk_rationale": "The use of Base64 encoding to hide a system query (Get-Process) is a common technique to evade simple string-based detection. While the operation itself (querying processes) is a standard administrative task, the obfuscation suggests an attempt to hide the intent of the script.",
+  "uncertainty": {
+    "level": "low",
+    "notes": "The decoded command is clear and the intent to query process information is unambiguous.",
+    "uninterpretable_fragments": []
+  }
+}

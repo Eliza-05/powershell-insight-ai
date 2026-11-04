@@ -1,0 +1,18 @@
+{
+  "backend": {
+    "tests": 973,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "backend_status": "passed",
+  "new_gemini36_tests": 8,
+  "frontend_tests": 28,
+  "frontend_status": "passed",
+  "frontend_build": "passed",
+  "pip_check": "passed",
+  "git_diff_check": "passed",
+  "warning": "Known Starlette/httpx deprecation warning",
+  "api_calls_in_automated_tests": 0,
+  "real_generation_attempts_this_experiment": 1
+}

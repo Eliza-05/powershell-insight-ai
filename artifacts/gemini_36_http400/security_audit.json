@@ -1,0 +1,8 @@
+{
+  "scope": "only_changed_sources_and_new_http400_artifacts",
+  "files_scanned": 24,
+  "credential_leak_files": [],
+  "wire_reconstruction_credential": "synthetic_marker_only_no_headers_saved",
+  "http_error_body_saved": false,
+  "ledger_unchanged": true
+}

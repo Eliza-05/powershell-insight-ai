@@ -1,0 +1,33 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B02",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Invoke-Expression $text",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The script defines a script block containing 'Invoke-Expression', which is a functional evaluation of a string variable. Although the string is hardcoded as 'Write-Output 842', the use of 'Invoke-Expression' constitutes a functional evaluation of code."
+    }
+  ],
+  "limitations": [
+    "The script block `$stored` is defined but never invoked or executed in the provided snippet.",
+    "The string 'Write-Output 842' is static and does not contain malicious payloads."
+  ],
+  "obfuscation_techniques": [],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No prompt injection detected in the provided JSON input.",
+    "snippets": []
+  },
+  "recovered_content": [],
+  "risk_label": "benign",
+  "risk_rationale": "The code performs a basic functional evaluation of a static string ('Write-Output 842'). There is no evidence of network activity, credential access, persistence, or defense evasion. The operation is a standard, low-impact PowerShell command.",
+  "uncertainty": {
+    "level": "low",
+    "notes": "The script block is defined but not executed; however, the presence of Invoke-Expression is a clear functional evaluation behavior.",
+    "uninterpretable_fragments": []
+  }
+}

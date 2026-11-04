@@ -1,0 +1,10 @@
+{
+  "supersedes": "plan.json",
+  "active": "plan_r1.json",
+  "changed_case": "G01",
+  "change": "Expected labels [] -> [B05]: Get-MpPreference queries software/defense information; no B04/B07.",
+  "reason": "Local prospective taxonomy review; no Gemini inference or model output existed.",
+  "inferences_before_amendment": 0,
+  "original_plan_retained": true,
+  "recorded_at": "2026-11-03T01:58:44.928352+00:00"
+}

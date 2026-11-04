@@ -1,0 +1,198 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "20-defense-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/20-defense-P1.json",
+  "raw_sha256": "333595260850180e66037ec1ef085c286496597808c0755f7a6fb863d35bb900",
+  "original": "Set-MpPreference -DisableRealtimeMonitoring $true",
+  "original_sha256": "b47f85974a7ec2fd5aa82d52f08eb0f6cea7e596a98dd29e8b85b5c37beca0a8",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "b47f85974a7ec2fd5aa82d52f08eb0f6cea7e596a98dd29e8b85b5c37beca0a8",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Set-MpPreference -DisableRealtimeMonitoring $true",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 44,
+          "end": 49,
+          "line": 1,
+          "column": 45,
+          "end_line": 1,
+          "end_column": 50
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 44,
+          "end": 49,
+          "line": 1,
+          "column": 45,
+          "end_line": 1,
+          "end_column": 50
+        },
+        "original_fragment": "$true",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 44,
+          "end": 49,
+          "line": 1,
+          "column": 45,
+          "end_line": 1,
+          "end_column": 50
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 66,
+    "artifact_bytes": 5
+  },
+  "reference": {
+    "labels": [
+      "B04"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B04",
+        "confidence": "high",
+        "evidence": [
+          {
+            "snippet": "Set-MpPreference -DisableRealtimeMonitoring $true",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The command explicitly invokes the Set-MpPreference cmdlet to disable Real-time Monitoring, which is a core defense mechanism in Windows Defender. This action weakens host defenses by removing visibility into file operations and process execution, fitting the definition of modifying or disabling defenses rather than merely querying status."
+      },
+      {
+        "behavior_id": "B05",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "snippet": "Set-MpPreference -DisableRealtimeMonitoring $true",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The command targets the host's security software (Windows Defender) to alter its operational state, constituting a form of host discovery/modification of security posture."
+      }
+    ],
+    "limitations": [
+      "Static analysis cannot verify the actual runtime effect of disabling monitoring on the specific host environment."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No evidence of prompt injection or analyst manipulation detected in the provided text.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "Set-MpPreference -DisableRealtimeMonitoring $true"
+    ],
+    "risk_label": "high_risk",
+    "risk_rationale": "Disabling real-time monitoring significantly reduces the visibility and detection capabilities of the endpoint security solution, creating a high-risk environment for undetected malicious activity. This is an active modification of security controls, not a passive query.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "The command syntax is standard and unambiguous; no unknown inputs or runtime variables are present in the source text.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B04",
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Set-MpPreference -DisableRealtimeMonitoring $true",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "original",
+      "snippet": "Set-MpPreference -DisableRealtimeMonitoring $true",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "B04 está sustentado por desactivar monitorización; B05 se añade injustificadamente al confundir modificación con descubrimiento. Ambas citas existen y el contrato acepta, pero el segundo hallazgo no queda semánticamente respaldado. La combinación de dos etiquetas no demuestra dos comportamientos válidos."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P1",
+  "request_sha256": "8715519686a596fb96e5f50f4af04e13cba770f72a46af6db4fab401931b180f"
+}

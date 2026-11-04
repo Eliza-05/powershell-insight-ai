@@ -1,0 +1,146 @@
+{
+  "schema_version": "deobfuscation-v1",
+  "engine_version": "static-subset-v1",
+  "input_sha256": "71c91f7dda81194fe41fbe64a18bf8f2f5a91f052276f6f47d5a244208a1a656",
+  "source_name": "input",
+  "input_provenance": "original",
+  "status": "partial",
+  "semantic_equivalence": "not_claimed",
+  "limits": {
+    "max_input_bytes": 65536,
+    "max_artifact_bytes": 262144,
+    "max_total_artifact_bytes": 2097152,
+    "max_transformations": 512,
+    "max_depth": 3,
+    "max_expression_depth": 24,
+    "max_concat_terms": 128,
+    "max_tokens": 50000,
+    "max_work_units": 4000000,
+    "max_unresolved": 128
+  },
+  "layers": [
+    {
+      "layer_id": "L0",
+      "source_name": "input",
+      "provenance": "original",
+      "text": "$source = 'function Select-P4Total { param([int[]]$Values) ' + '$Values | Where-Object { $_ -gt 2 } | Measure-Object -Sum }; Select-P4Total -Values 2,5,8'\n$program = [ScriptBlock]::Create($source)\n$null = $program.Invoke()\n",
+      "depth": 0,
+      "parent_transformation_id": null,
+      "root_source": null
+    }
+  ],
+  "transformations": [
+    {
+      "transformation_id": "T0001",
+      "technique": "OT-CONCAT",
+      "source": {
+        "layer_id": "L0",
+        "start": 10,
+        "end": 154,
+        "line": 1,
+        "column": 11,
+        "end_line": 1,
+        "end_column": 155
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 10,
+        "end": 154,
+        "line": 1,
+        "column": 11,
+        "end_line": 1,
+        "end_column": 155
+      },
+      "original_fragment": "'function Select-P4Total { param([int[]]$Values) ' + '$Values | Where-Object { $_ -gt 2 } | Measure-Object -Sum }; Select-P4Total -Values 2,5,8'",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "string",
+      "recovered_text": "function Select-P4Total { param([int[]]$Values) $Values | Where-Object { $_ -gt 2 } | Measure-Object -Sum }; Select-P4Total -Values 2,5,8",
+      "recovered_bytes_base64": null,
+      "dependencies": [],
+      "status": "success",
+      "deterministic_verified": true,
+      "warnings": [],
+      "added_operation": null,
+      "output_layer_id": null
+    }
+  ],
+  "unresolved": [
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 0,
+        "end": 154,
+        "line": 1,
+        "column": 1,
+        "end_line": 1,
+        "end_column": 155
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 166,
+        "end": 196,
+        "line": 2,
+        "column": 12,
+        "end_line": 2,
+        "end_column": 42
+      },
+      "technique_hint": null,
+      "reason": "Static method outside the allowlist; no call performed.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 155,
+        "end": 196,
+        "line": 2,
+        "column": 1,
+        "end_line": 2,
+        "end_column": 42
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 205,
+        "end": 222,
+        "line": 3,
+        "column": 9,
+        "end_line": 3,
+        "end_column": 26
+      },
+      "technique_hint": null,
+      "reason": "Trailing syntax outside the expression subset.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 197,
+        "end": 222,
+        "line": 3,
+        "column": 1,
+        "end_line": 3,
+        "end_column": 26
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    }
+  ],
+  "techniques_detected": [
+    "OT-CONCAT"
+  ],
+  "limits_hit": [],
+  "warnings": [],
+  "work_units": 712,
+  "artifact_bytes": 281
+}

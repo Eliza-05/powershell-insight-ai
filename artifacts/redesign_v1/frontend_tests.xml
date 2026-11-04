@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="28" failures="0" errors="0" time="6.4046345">
+    <testsuite name="src/test/App.test.tsx" timestamp="2026-11-02T22:47:43.267Z" hostname="AsusDeEliza" tests="22" failures="0" errors="0" skipped="0" time="6.3968486">
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; starts empty with A selected and never infers on mount" time="0.2096606">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; uploads only when explicitly requested, preserves exact input and displays A" time="0.240293">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; shows a real loading state, blocks duplicates and isolates selection" time="0.209424">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; shows connection errors without manufacturing results or retries" time="0.211037">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; shows stale results after edits and does not relabel them" time="0.4026286">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; enforces UTF-8 byte limits before submitting" time="0.0755162">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; changes and persists light/dark preference without storing source" time="0.2155773">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; exposes model state and digest from the header even without the desktop sidebar" time="0.1425604">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; renders help, provisional state and pending research without starting inference" time="0.2321733">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; file import validates UTF-8 and file size without executing content" time="0.2003608">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; rejects non-UTF8 imported data and can clear input" time="0.3472649">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; loads a dropped UTF-8 file through the existing validation without running analysis" time="0.17596">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; rejects multiple dropped files instead of silently discarding one" time="0.1279996">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Workspace &gt; dismisses the system inspector with Escape and returns focus to its trigger" time="0.210397">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; retains distinct authorship for 1A techniques and LLM claims" time="0.3151241">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; marks differences without reporting a comparative quality score" time="0.3458571">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; renders ABC independently and selects each result" time="0.50847">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; keeps partial uncertainty visible and separates model recovery" time="0.4493706">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; rejected model output is never shown as accepted findings or HTML" time="0.5027982">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; shows evidence origin and locates the exact original span" time="0.5108648">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; supports keyboard navigation between result tabs" time="0.3661213">
+        </testcase>
+        <testcase classname="src/test/App.test.tsx" name="Resultados y procedencia &gt; switches comparison perspectives by keyboard without another analysis request" time="0.3953424">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/test/Editor.test.ts" timestamp="2026-11-02T22:47:43.281Z" hostname="AsusDeEliza" tests="3" failures="0" errors="0" skipped="0" time="0.0026999">
+        <testcase classname="src/test/Editor.test.ts" name="Codificación y coordenadas del editor &gt; counts the same UTF-8 bytes as the backend rather than JavaScript characters" time="0.0011882">
+        </testcase>
+        <testcase classname="src/test/Editor.test.ts" name="Codificación y coordenadas del editor &gt; maps Python code-point spans to textarea UTF-16 offsets without changing the source" time="0.0003441">
+        </testcase>
+        <testcase classname="src/test/Editor.test.ts" name="Codificación y coordenadas del editor &gt; preserves ASCII spans and accounts for non-BMP text before a finding" time="0.0002077">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/test/api.test.ts" timestamp="2026-11-02T22:47:43.283Z" hostname="AsusDeEliza" tests="3" failures="0" errors="0" skipped="0" time="0.005086">
+        <testcase classname="src/test/api.test.ts" name="Cliente HTTP &gt; sends only original text and chooses the correct endpoint" time="0.0019796">
+        </testcase>
+        <testcase classname="src/test/api.test.ts" name="Cliente HTTP &gt; propagates structured busy errors and never retries" time="0.0012993">
+        </testcase>
+        <testcase classname="src/test/api.test.ts" name="Cliente HTTP &gt; reports connection and timeout errors without claiming model results" time="0.0008428">
+        </testcase>
+    </testsuite>
+</testsuites>

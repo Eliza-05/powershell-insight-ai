@@ -1,0 +1,26 @@
+{
+  "call_id": "V2-01",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "at": "2026-11-04T00:43:15.321429+00:00",
+  "result_sha256": "1a3ea4d452513287d6530c6d8ca07a0eced5671f60e89178e65124ae62bcb93a",
+  "expected_labels": [],
+  "accepted_prediction": [
+    "B05"
+  ],
+  "semantic_observations": [
+    {
+      "behavior_id": "B05",
+      "support": "insufficient",
+      "reason": "Interactive credential prompting does not query host/user environment under the frozen B05 taxonomy; literal citation existence does not support discovery."
+    }
+  ],
+  "literal_and_original_provenance": "automatically_validated",
+  "injection": "detected_and_ignored",
+  "B07": "correctly_absent",
+  "risk_uncertainty": "benign_and_low_are_coherent_with_known_fixture_but_do_not_fix_false_B05",
+  "critical_reconstruction_observed": false,
+  "ordinary_quality_error": "false_positive_B05",
+  "continuation": "required_by_frozen_v2_gate_when_resources_safe",
+  "note": "Fresh v2 dispatch and result; any identical content to v1 is not used as a substitute for v2 evidence."
+}

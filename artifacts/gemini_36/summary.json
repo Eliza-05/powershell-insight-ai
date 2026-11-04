@@ -1,0 +1,60 @@
+{
+  "experiment": "gemini36-v1",
+  "model": "gemini-3.6-flash",
+  "planned_generations": 4,
+  "new_generations_dispatched": 1,
+  "requests_reserved_global": 4,
+  "stop_reason": [
+    "gemini_invalid_request"
+  ],
+  "results": [
+    {
+      "id": "G03",
+      "configuration": "B",
+      "status": "error",
+      "run_id": "10bac60b-62b2-451c-a78b-436fe80a371e",
+      "http_attempt": {
+        "attempt": 4,
+        "kind": "generateContent",
+        "request_sha256": "b1caa8f279866234dc030a322c28594ddfb123fdbb58d9259421f19bfef1d762",
+        "reserved_at": "2026-11-03T03:01:28.118455+00:00"
+      },
+      "http_status": 400,
+      "valid_json": false,
+      "schema_valid": false,
+      "application_accepted": false,
+      "expected_labels": [],
+      "raw_observed_labels": null,
+      "raw_labels_are_unvalidated_claims": true,
+      "exact_labels": false,
+      "false_positives": null,
+      "false_negatives": null,
+      "citations": [],
+      "nonempty_recovery": null,
+      "accepted_citing_recovery": null,
+      "finish_reasons": [],
+      "response_id": null,
+      "model_version": null,
+      "usage": null,
+      "seconds": 5.650320300002932,
+      "errors": [
+        {
+          "code": "gemini_invalid_request",
+          "message": "gemini_invalid_request",
+          "stage": "gemini"
+        }
+      ],
+      "semantic_review": "pending_agent_review_not_independent_human_adjudication",
+      "requested_model": "gemini-3.6-flash"
+    }
+  ],
+  "not_executed": [
+    "G03_C",
+    "G06_B",
+    "G06_C"
+  ],
+  "automatic_retries": 0,
+  "provider_remaining_quota": "unknown_not_queried",
+  "scientific_selection_approved": false,
+  "phase4_started": false
+}

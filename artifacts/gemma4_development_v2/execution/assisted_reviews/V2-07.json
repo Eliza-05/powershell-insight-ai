@@ -1,0 +1,18 @@
+{
+  "call_id": "V2-07",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "24d1cac12907e63d1c315174f2317d2dede73577332bd53cb62afbb56278bd30",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:50:09.417035+00:00",
+  "findings": [
+    {
+      "behavior_id": "B07",
+      "support": "individual",
+      "reason": "Get-StoredCredential -Target explicitly requests existing stored credential material, unlike Get-Credential interaction."
+    }
+  ],
+  "assessment": "Exact reference and original literal citation. Availability of custom module and actual retrieval success not asserted; both limitations acknowledged.",
+  "risk_notes": "Suspicious mechanism assessment does not prove credential theft or lateral movement; model notes context unknown.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

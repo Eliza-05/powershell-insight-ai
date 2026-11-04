@@ -1,0 +1,59 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B02",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwAzACAALQBOAGEAbQBlACAAJwB2ADIALT...AABlAG4AbABpAGQAJwA=",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The command uses the -EncodedCommand flag to execute a Base64 encoded PowerShell string. Decoding the string reveals the execution of a specific command: 'Get-Process -Name \"v2-synthetic-missing-842\"; Test-NetConnection -ComputerName \"v2-lab.example.invalid\"'. This constitutes functional evaluation/invocation of code."
+    },
+    {
+      "behavior_id": "B05",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Get-Process -Name \"v2-synthetic-missing-842\"",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The decoded command queries the host for a specific process name ('v2-synthetic-missing-842'), which is a query of host/software information."
+    },
+    {
+      "behavior_id": "B06",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Test-NetConnection -ComputerName \"v2-lab.example.invalid\"",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The decoded command uses Test-NetConnection to check connectivity to a specific remote host ('v2-lab.example.invalid'), which involves network connectivity testing."
+    }
+  ],
+  "limitations": [
+    "The exact intent (malicious vs. administrative) cannot be determined from the static command alone as the target host and process name appear synthetic/placeholder-like.",
+    "No evidence of data exfiltration or credential access is present in the decoded string."
+  ],
+  "obfuscation_techniques": [
+    "OT-B64-ENCCMD"
+  ],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No prompt injection detected in the provided JSON input.",
+    "snippets": []
+  },
+  "recovered_content": [
+    "Get-Process -Name 'v2-synthetic-missing-842'; Test-NetConnection -ComputerName 'v2-lab.example.invalid'"
+  ],
+  "risk_label": "suspicious",
+  "risk_rationale": "The use of -EncodedCommand is a common technique to hide the intent of a script. The combination of querying a specific process and testing network connectivity to a specific host is characteristic of reconnaissance or environment discovery, which are abuse-compatible operations.",
+  "uncertainty": {
+    "level": "medium",
+    "notes": "The host 'v2-lab.example.invalid' and process 'v2-synthetic-missing-842' appear to be placeholders, making it difficult to determine if this is a real-world attack or a template/test script.",
+    "uninterpretable_fragments": []
+  }
+}

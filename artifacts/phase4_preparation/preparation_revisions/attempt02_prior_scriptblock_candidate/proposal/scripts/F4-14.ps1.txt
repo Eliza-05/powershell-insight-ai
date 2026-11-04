@@ -1,0 +1,5 @@
+$buffer = New-Object IO.MemoryStream
+$zip = New-Object IO.Compression.GZipStream($buffer, [IO.Compression.CompressionMode]::Compress, $true)
+$zip.Write([byte[]]@(65,66), 0, 2)
+$zip.Dispose()
+[Convert]::ToBase64String($buffer.ToArray())

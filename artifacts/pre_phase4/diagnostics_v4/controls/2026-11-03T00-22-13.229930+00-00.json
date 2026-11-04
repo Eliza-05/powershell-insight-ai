@@ -1,0 +1,153 @@
+{
+  "kind": "unload_own_resident_not_inference",
+  "before": {
+    "model": {
+      "name": "qwen3.5:4b-q4_K_M",
+      "model": "qwen3.5:4b-q4_K_M",
+      "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+      "size": 3324173934,
+      "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+      "details": {
+        "parent_model": "model.gguf",
+        "format": "gguf",
+        "family": "qwen35",
+        "families": [
+          "qwen35"
+        ],
+        "parameter_size": "4.2B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2560,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools",
+        "thinking"
+      ]
+    },
+    "residents": [
+      {
+        "name": "qwen3.5:4b-q4_K_M",
+        "model": "qwen3.5:4b-q4_K_M",
+        "size": 3239523121,
+        "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-02T19:27:12.6125345-05:00",
+        "size_vram": 0,
+        "context_length": 8192,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "response": {
+    "model": "qwen3.5:4b-q4_K_M",
+    "created_at": "2026-11-03T00:22:12.9690363Z",
+    "message": {
+      "role": "assistant",
+      "content": ""
+    },
+    "done": true,
+    "done_reason": "unload"
+  },
+  "raw": {
+    "status": 200,
+    "raw_bytes_base64": "eyJtb2RlbCI6InF3ZW4zLjU6NGItcTRfS19NIiwiY3JlYXRlZF9hdCI6IjIwMjYtMTEtMDNUMDA6MjI6MTIuOTY5MDM2M1oiLCJtZXNzYWdlIjp7InJvbGUiOiJhc3Npc3RhbnQiLCJjb250ZW50IjoiIn0sImRvbmUiOnRydWUsImRvbmVfcmVhc29uIjoidW5sb2FkIn0=",
+    "raw_utf8": "{\"model\":\"qwen3.5:4b-q4_K_M\",\"created_at\":\"2026-11-03T00:22:12.9690363Z\",\"message\":{\"role\":\"assistant\",\"content\":\"\"},\"done\":true,\"done_reason\":\"unload\"}",
+    "transport_read_complete": true
+  },
+  "after": {
+    "models": []
+  },
+  "resources_after": {
+    "monotonic": 33706.2315601,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 15233634304,
+    "commit_limit_bytes": 51667382272,
+    "commit_used_bytes": 29978529792,
+    "commit_available_bytes": 21688852480,
+    "memory_load_percent": 54,
+    "processes": [
+      {
+        "pid": 4512,
+        "name": "ollama app.exe",
+        "parent": 12652,
+        "is_ollama_runtime": true,
+        "page_faults": 65826,
+        "peak_working_set": 29343744,
+        "working_set": 548864,
+        "peak_paged_pool": 332472,
+        "paged_pool": 314024,
+        "peak_nonpaged_pool": 94776,
+        "nonpaged_pool": 21320,
+        "pagefile": 56590336,
+        "peak_pagefile": 56971264,
+        "private": 56590336,
+        "cpu_seconds": 2.09375
+      },
+      {
+        "pid": 6200,
+        "name": "ollama.exe",
+        "parent": 4512,
+        "is_ollama_runtime": true,
+        "page_faults": 244698,
+        "peak_working_set": 100249600,
+        "working_set": 10452992,
+        "peak_paged_pool": 619288,
+        "paged_pool": 342744,
+        "peak_nonpaged_pool": 8069776,
+        "nonpaged_pool": 30296,
+        "pagefile": 101814272,
+        "peak_pagefile": 141012992,
+        "private": 101814272,
+        "cpu_seconds": 62.71875
+      },
+      {
+        "pid": 16280,
+        "name": "conhost.exe",
+        "parent": 6200,
+        "is_ollama_runtime": true,
+        "page_faults": 9966,
+        "peak_working_set": 10158080,
+        "working_set": 20480,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 11800,
+        "nonpaged_pool": 10880,
+        "pagefile": 1785856,
+        "peak_pagefile": 1912832,
+        "private": 1785856,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 38032,
+        "name": "python.exe",
+        "parent": 30008,
+        "is_ollama_runtime": false,
+        "page_faults": 283336,
+        "peak_working_set": 38670336,
+        "working_set": 11399168,
+        "peak_paged_pool": 168680,
+        "paged_pool": 168032,
+        "peak_nonpaged_pool": 18864,
+        "nonpaged_pool": 16400,
+        "pagefile": 27090944,
+        "peak_pagefile": 28000256,
+        "private": 27090944,
+        "cpu_seconds": 6.84375
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "unload_verified": true
+}

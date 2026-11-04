@@ -1,0 +1,19 @@
+{
+  "call_id": "V2-11",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "901f41e42be73c79784e841a775a4051fd567d85c69257a4d15d2263dd1e6389",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:55:13.252157+00:00",
+  "findings": [
+    {
+      "behavior_id": "B05",
+      "support": "insufficient",
+      "reason": "T0002 literally contains Get-Process but is a recovered string passed only to Write-Output. There is no invocation/evaluation edge; readable code-shaped text alone is not host reconnaissance."
+    }
+  ],
+  "assessment": "Usable report with exact literal T0002 citation and correct original root, yet false positive B05. Model recovery matches 842, unlike B V2-10 invented 843. Deterministic recovery fixes byte accuracy and admissibility, not activation semantics.",
+  "risk_notes": "Explanation and limitation incorrectly state execution and output of query result; actual output is command-shaped string. Planned wrong activation of stored/displayed code is an ordinary quality error under frozen rubric, not evidence of actual runtime execution. Suspicious/low rationale unsupported by hidden query premise.",
+  "reconstruction_verified_status": "Verified 1A sources T0002,T0003,T0004 actually sent; model recovered_content itself remains unverified claim, not an additional source.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

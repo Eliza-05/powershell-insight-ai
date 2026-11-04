@@ -1,0 +1,26 @@
+{
+  "static_request_and_pair_checks_passed": true,
+  "private_reference_leakage_detected": false,
+  "human_votes_created": 0,
+  "model_calls": 0,
+  "largest_context_budget": 6698,
+  "cold_required_available_bytes": 15135148032,
+  "current_resources_measured": false,
+  "missing_links": [],
+  "threshold_arithmetic_only": {
+    "one_ordinary_B05_FP_in_01_and_all_other_cases_correct": {
+      "TP": 9,
+      "FP": 1,
+      "FN": 0,
+      "P": 0.9,
+      "R": 1.0,
+      "F1": 0.9473684210526315,
+      "exact": 10,
+      "denominator": 11,
+      "label_and_control_thresholds_satisfied": true
+    },
+    "two_ordinary_FP_in_benign_controls_would_fail_control_budget": true,
+    "not_model_results": true
+  },
+  "execution_authorized": false
+}

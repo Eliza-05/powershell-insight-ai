@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-11-02T23:34:41.324908+00:00",
+  "prior_files": 541,
+  "unchanged_files": 536,
+  "changed_files": [
+    "backend/app/services/pipelines/config.py",
+    "backend/app/services/pipelines/ollama.py",
+    "backend/app/services/pipelines/resources.py",
+    "docs/phase4_pending.md",
+    "docs/roadmap.md"
+  ],
+  "missing_files": [],
+  "unexpected_changes": [],
+  "historical_artifacts_preserved": true,
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "head": "e399a1f4021495d02ac0bb81a7344beb80752d93",
+  "index_sha256": "d669b0388a872f2d213ef3e2225a42660efe3fa92e38b10ec1af779d3d078bc7",
+  "active_plan_source_locks": 44,
+  "source_lock_mismatches": [],
+  "broken_doc_links": []
+}

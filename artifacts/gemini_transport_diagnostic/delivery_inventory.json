@@ -1,0 +1,25 @@
+{
+  "source_files": [
+    "backend/app/services/llm/gemini.py",
+    "backend/app/services/llm/gemini_budget.py",
+    "backend/app/services/llm/gemini_errors.py",
+    "backend/tests/pipelines/test_gemini.py",
+    "backend/tests/pipelines/test_gemini_transport.py",
+    "experiments/gemini_network_diagnostic.py",
+    "experiments/gemini_metadata_retry.py",
+    "docs/gemini_viability.md",
+    "docs/gemini_transport_diagnostic.md"
+  ],
+  "sha256": {
+    "backend/app/services/llm/gemini.py": "b5ef338d8ef64631165b505e3303704c38bc1148ef772934d5f0c9a5363e3e7f",
+    "backend/app/services/llm/gemini_budget.py": "b77121b1854373224f32ab95f41ec4ce97dad49150201149bae26c49e1bb7d72",
+    "backend/app/services/llm/gemini_errors.py": "a2d786db4fb0412bebb37866727a7135cfc18eda0905236180b082d271c89844",
+    "backend/tests/pipelines/test_gemini.py": "ae8ce482558b88e096e84511b8e1dead67a1d62a0269504590bc4fd6aac681e2",
+    "backend/tests/pipelines/test_gemini_transport.py": "16a93fbcdc31b38bf99e0176ef668fb9473bfdbb99e8839d531ac251f19af344",
+    "experiments/gemini_network_diagnostic.py": "c5f19248f3df46d74451645e14382289ce16bc102587ac57db30de53aab142e8",
+    "experiments/gemini_metadata_retry.py": "10c9b9bb4969e556aea3bd92bf2bb5e8255778e08c060f9f2d69c183a14a08f7",
+    "docs/gemini_viability.md": "a7c2e70a47fceee10b03cb6850bb74abd55adf483e211ed058f708ab40813eb7",
+    "docs/gemini_transport_diagnostic.md": "b6ecca527fb2f7e88413ae3a0efce10344ce87a46163af39480098fe7a128a50"
+  },
+  "previous_results_and_ledgers_preserved": true
+}

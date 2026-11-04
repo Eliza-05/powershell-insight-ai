@@ -1,0 +1,257 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "23-vault-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/23-vault-P1.json",
+  "raw_sha256": "8226ff48ed0c88db5ff004969352886b8e4ec13655a66c94982a9e56b1971240",
+  "original": "$v=[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]::new()\n$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')\n$e.RetrievePassword()",
+  "original_sha256": "9977c7ca161f842df1c453974110b26ae71765efb4c9acf94ecfcd9747f7a35f",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "9977c7ca161f842df1c453974110b26ae71765efb4c9acf94ecfcd9747f7a35f",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$v=[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]::new()\n$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')\n$e.RetrievePassword()",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 3,
+          "end": 110,
+          "line": 1,
+          "column": 4,
+          "end_line": 1,
+          "end_column": 111
+        },
+        "technique_hint": null,
+        "reason": "Expression outside the supported grammar.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 110,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 111
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 114,
+          "end": 177,
+          "line": 2,
+          "column": 4,
+          "end_line": 2,
+          "end_column": 67
+        },
+        "technique_hint": null,
+        "reason": "Trailing syntax outside the expression subset.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 111,
+          "end": 177,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 67
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 178,
+          "end": 199,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 22
+        },
+        "technique_hint": null,
+        "reason": "Trailing syntax outside the expression subset.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 295,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [
+      "B07"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "confidence": "high",
+        "evidence": [
+          {
+            "snippet": "$v=[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]::new()",
+            "source_id": "original"
+          },
+          {
+            "snippet": "$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The code instantiates a Windows Runtime PasswordVault object and attempts to retrieve data from a remote URL ('https://example.invalid/readiness/7319'), which constitutes remote content retrieval."
+      },
+      {
+        "behavior_id": "B06",
+        "confidence": "high",
+        "evidence": [
+          {
+            "snippet": "$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The code explicitly invokes a method to retrieve content from an external network destination."
+      },
+      {
+        "behavior_id": "B07",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "snippet": "$e.RetrievePassword()",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The code attempts to retrieve password material from the retrieved object."
+      }
+    ],
+    "limitations": [
+      "Static analysis cannot verify the actual existence of the remote URL or the success of the retrieval operation.",
+      "Static analysis cannot determine the specific content of the password vault without runtime execution.",
+      "The origin of the 'fixture' parameter is unknown.",
+      "The behavior of the PasswordVault class in this specific context is inferred based on standard .NET patterns but not verified by execution."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No direct prompt injection detected. The code appears to be a functional script block rather than a prompt response.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "$v=[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]::new()",
+      "$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')",
+      "$e.RetrievePassword()"
+    ],
+    "risk_label": "high_risk",
+    "risk_rationale": "The code exhibits high-risk behavior by attempting to retrieve credentials or sensitive data from an unverified remote URL ('https://example.invalid/readiness/7319'). This pattern is consistent with credential harvesting or exfiltration attempts. The use of Windows.Security.Credentials.PasswordVault suggests an attempt to access stored passwords, potentially bypassing local security controls if the remote endpoint is malicious or compromised.",
+    "uncertainty": {
+      "level": "medium",
+      "notes": "While the remote URL is clearly present, the actual payload returned by the URL and the specific contents of the password vault are unknown. The 'fixture' parameter's value is also unknown.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B01",
+    "B06",
+    "B07"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "$v=[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]::new()",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "original",
+      "snippet": "$e=$v.Retrieve('https://example.invalid/readiness/7319','fixture')",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 2,
+      "claimed_source": "original",
+      "snippet": "$e.RetrievePassword()",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "B07 corresponde al almacén de credenciales; B01/B06 son falsos por interpretar el identificador resource con forma de URL como una descarga o transmisión. PasswordVault.Retrieve lee Credential Locker; no es una petición HTTP. Además 'fixture' es literal conocido, no parámetro de valor desconocido. Pasa literalidad pero contiene afirmaciones semánticas incorrectas; adjudicación humana pendiente."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P1",
+  "request_sha256": "3fe929865cb3045ed1f2fd8e143e5cb6c3e001764ec2d3ebda3e11df3cdd7b70"
+}

@@ -1,0 +1,162 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "12-stored-P0",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/12-stored-P0.json",
+  "raw_sha256": "1b9f681be0bc3a8b0d7387eb4404020bcf94fe8731caa6157316bde16f3393ac",
+  "original": "$stored = { Write-Output 'fixture 7319' }\nWrite-Output 'stored only'",
+  "original_sha256": "220403f5b22fb3f98c494802d9d53ae7e692594e995d3be8bfa2b493ce5c4429",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "220403f5b22fb3f98c494802d9d53ae7e692594e995d3be8bfa2b493ce5c4429",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$stored = { Write-Output 'fixture 7319' }\nWrite-Output 'stored only'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 10,
+          "end": 41,
+          "line": 1,
+          "column": 11,
+          "end_line": 1,
+          "end_column": 42
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 41,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 42
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 94,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "$stored = { Write-Output 'fixture 7319' }",
+            "source_id": "original"
+          },
+          {
+            "snippet": "Write-Output 'stored only'",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The script defines a local variable `$stored` containing a lambda expression that outputs a string. It then executes `Write-Output` with a literal string. There is no remote retrieval, network connection, credential access, or persistence mechanism. The operation is purely local and benign."
+      }
+    ],
+    "limitations": [
+      "No remote origin or network activity detected."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions found.",
+      "snippets": []
+    },
+    "recovered_content": [],
+    "risk_label": "benign",
+    "risk_rationale": "The script performs a local string output operation. No evidence of malicious intent, remote access, or system compromise is present. The use of a lambda variable is a standard PowerShell idiom and does not constitute obfuscation in this context.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "The script is self-contained and fully visible. No hidden logic or external dependencies were identified.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B01"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "$stored = { Write-Output 'fixture 7319' }",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Write-Output 'stored only'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Pasa literalidad, pero añade B01 a un ScriptBlock almacenado y una salida literal, sin recuperación remota. La explicación niega red y remotos. No hay invocación del bloque que sustente B02."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P0",
+  "request_sha256": "94d4b505aaa766b2b5556e1974d41dbba05b98f4346fc73e244140f631c1e0c0"
+}

@@ -1,0 +1,211 @@
+{
+  "schema_version": "deobfuscation-v1",
+  "engine_version": "static-subset-v1",
+  "input_sha256": "911d5ac9e6da7754c0acea6c4d5eed00c44bd65f55768df9f5331f1934f72e89",
+  "source_name": "input",
+  "input_provenance": "original",
+  "status": "partial",
+  "semantic_equivalence": "not_claimed",
+  "limits": {
+    "max_input_bytes": 65536,
+    "max_artifact_bytes": 262144,
+    "max_total_artifact_bytes": 2097152,
+    "max_transformations": 512,
+    "max_depth": 3,
+    "max_expression_depth": 24,
+    "max_concat_terms": 128,
+    "max_tokens": 50000,
+    "max_work_units": 4000000,
+    "max_unresolved": 128
+  },
+  "layers": [
+    {
+      "layer_id": "L0",
+      "source_name": "input",
+      "provenance": "original",
+      "text": "param([hashtable]$DispatchTable, [string]$EventName)\nGet-DnsClientCache | Group-Object Type | Select-Object Name,Count\n$callback = $DispatchTable[$EventName]\n& $callback -Event $EventName\n",
+      "depth": 0,
+      "parent_transformation_id": null,
+      "root_source": null
+    }
+  ],
+  "transformations": [
+    {
+      "transformation_id": "T0001",
+      "technique": "OT-VARSUB",
+      "source": {
+        "layer_id": "L0",
+        "start": 160,
+        "end": 169,
+        "line": 4,
+        "column": 3,
+        "end_line": 4,
+        "end_column": 12
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 160,
+        "end": 169,
+        "line": 4,
+        "column": 3,
+        "end_line": 4,
+        "end_column": 12
+      },
+      "original_fragment": "$callback",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "unresolved",
+      "recovered_text": null,
+      "recovered_bytes_base64": null,
+      "dependencies": [],
+      "status": "failed",
+      "deterministic_verified": false,
+      "warnings": [
+        "No unambiguous prior literal binding in the supported scope."
+      ],
+      "added_operation": null,
+      "output_layer_id": null
+    },
+    {
+      "transformation_id": "T0002",
+      "technique": "OT-VARSUB",
+      "source": {
+        "layer_id": "L0",
+        "start": 177,
+        "end": 187,
+        "line": 4,
+        "column": 20,
+        "end_line": 4,
+        "end_column": 30
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 177,
+        "end": 187,
+        "line": 4,
+        "column": 20,
+        "end_line": 4,
+        "end_column": 30
+      },
+      "original_fragment": "$EventName",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "unresolved",
+      "recovered_text": null,
+      "recovered_bytes_base64": null,
+      "dependencies": [],
+      "status": "failed",
+      "deterministic_verified": false,
+      "warnings": [
+        "No unambiguous prior literal binding in the supported scope."
+      ],
+      "added_operation": null,
+      "output_layer_id": null
+    }
+  ],
+  "unresolved": [
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 5,
+        "end": 31,
+        "line": 1,
+        "column": 6,
+        "end_line": 1,
+        "end_column": 32
+      },
+      "technique_hint": null,
+      "reason": "Expression outside the supported grammar.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 17,
+        "end": 31,
+        "line": 1,
+        "column": 18,
+        "end_line": 1,
+        "end_column": 32
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Variable in a compound argument is not substituted.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 41,
+        "end": 51,
+        "line": 1,
+        "column": 42,
+        "end_line": 1,
+        "end_column": 52
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Variable in a compound argument is not substituted.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 131,
+        "end": 157,
+        "line": 3,
+        "column": 13,
+        "end_line": 3,
+        "end_column": 39
+      },
+      "technique_hint": null,
+      "reason": "Trailing syntax outside the expression subset.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 119,
+        "end": 157,
+        "line": 3,
+        "column": 1,
+        "end_line": 3,
+        "end_column": 39
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 160,
+        "end": 169,
+        "line": 4,
+        "column": 3,
+        "end_line": 4,
+        "end_column": 12
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "No unambiguous prior literal binding in the supported scope.",
+      "transformation_id": "T0001"
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 177,
+        "end": 187,
+        "line": 4,
+        "column": 20,
+        "end_line": 4,
+        "end_column": 30
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "No unambiguous prior literal binding in the supported scope.",
+      "transformation_id": "T0002"
+    }
+  ],
+  "techniques_detected": [
+    "OT-VARSUB"
+  ],
+  "limits_hit": [],
+  "warnings": [],
+  "work_units": 321,
+  "artifact_bytes": 19
+}

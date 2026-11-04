@@ -1,0 +1,16 @@
+{
+  "call_id": "Q14-07",
+  "result_sha256": "386bc8b036bdfbf8e87b45ac26d7ff0453e7eef3e0fce781fbd5f3d2883f5b64",
+  "at": "2026-11-04T02:16:07.837159+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "contextual",
+  "notes": [
+    "B02 correcto: IEX eval?a la cadena y & $stored invoca el bloque. La cita contiene la construcci?n y evaluaci?n; la invocaci?n aparece en el contexto original y en la explicaci?n, no dentro de la cita.",
+    "No distingue correctamente el contraste almacenado/invocado a nivel de etiquetas: ambos casos recibieron B02.",
+    "OT-CONCAT no est? sustentado. Riesgo suspicious justificado en gran parte por escenarios hipot?ticos con entrada de usuario ausente del ejemplo.",
+    "Notas e incertidumbre repetitivas y frases incompletas; done_reason stop y JSON completo, sin truncamiento t?cnico informado."
+  ]
+}

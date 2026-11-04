@@ -1,0 +1,8 @@
+{
+  "command": "npm.cmd test -- --reporter=dot",
+  "exit_code": 0,
+  "test_files": 3,
+  "tests_passed": 28,
+  "source_unchanged": true,
+  "note": "npm.ps1 blocked by host execution policy; used npm.cmd without changing policy"
+}

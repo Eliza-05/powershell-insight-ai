@@ -1,0 +1,28 @@
+{
+  "call_id": "V2-03",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "64b341f79ce92122225083f52c18c4f3ffb6e796aa0e4e515b7447adac5ababc",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:49:43.422432+00:00",
+  "findings": [
+    {
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "Get-Process queries processes; functional evaluation in frozen B02 requires interpreting data as code. No such operation is shown by this citation."
+    },
+    {
+      "behavior_id": "B05",
+      "support": "individual",
+      "reason": "Get-Process queries a named process in verified T0001."
+    },
+    {
+      "behavior_id": "B06",
+      "support": "individual",
+      "reason": "Test-NetConnection probes connectivity in verified T0001."
+    }
+  ],
+  "assessment": "Usable report, false positive B02. All three literal citations are in verified T0001 with original encoded root. 1A improves admissible provenance, not exact classification. Recovered_content equals supplied recovery and is not independently admitted as evidence.",
+  "risk_notes": "Suspicious rationale acknowledges synthetic targets; querying is not functional evaluation. No claim that code actually ran.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

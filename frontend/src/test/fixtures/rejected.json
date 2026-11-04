@@ -1,0 +1,42 @@
+{
+  "schema_version": "pipeline-v1",
+  "run_id": "9d80cce0-9ca1-49ef-9e19-9addc85649d6",
+  "configuration": "B",
+  "status": "error",
+  "input_sha256": "23f076332a6357e74afb42fb7e3dfa4d264b9b178d59833be0401b5bd75d251f",
+  "original": "Write-Output 3417",
+  "started_at": "2026-11-02T21:48:35.657813+00:00",
+  "duration_seconds": 0.000158200000441866,
+  "engine_versions": {
+    "orchestrator": "pipeline-v1",
+    "llm_contract": "application-report-v1"
+  },
+  "deobfuscation": null,
+  "deterministic": null,
+  "llm": null,
+  "llm_review_status": "unreviewed_model_claims",
+  "evidence": [],
+  "risk_label": "unknown",
+  "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+  "limitations": [
+    "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+    "Provisional LLM. Schema and literal evidence checks do not certify semantic support or risk correctness."
+  ],
+  "errors": [
+    {
+      "code": "invalid_response",
+      "message": "Expecting value: line 1 column 1 (char 0)",
+      "stage": "response"
+    }
+  ],
+  "operational": {
+    "model": "qwen3.5:4b-q4_K_M",
+    "inference_dispatched": false,
+    "response": {
+      "message": {
+        "content": "INVALID <img src=x onerror=alert(1)>"
+      }
+    },
+    "synthetic_fixture": true
+  }
+}

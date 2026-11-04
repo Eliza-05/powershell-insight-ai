@@ -2,10 +2,14 @@
 from __future__ import annotations
 
 import ctypes
+import hashlib
+import json
 import os
 from pathlib import Path
 import tempfile
 import threading
+from datetime import datetime, timezone
+from uuid import uuid4
 
 from app.services.pipelines.config import GIB
 
@@ -42,10 +46,13 @@ class InferenceGate:
     An interrupted request leaves a persistent circuit marker. Closing the HTTP socket cannot
     prove server-side cancellation completed, so subsequent application calls fail closed.
     """
-    def __init__(self, path: Path | None = None):
+    def __init__(self, path: Path | None = None, *, allow_interrupted=False):
         self.path = path or Path(tempfile.gettempdir()) / "powershell-insight-phase2-inference.lock"
         self.marker = self.path.with_suffix(".blocked")
         self.handle = None
+        self.allow_interrupted = allow_interrupted
+        self.owner_nonce = None
+        self.history = self.path.with_suffix(".history.jsonl")
 
     def __enter__(self):
         if not _PROCESS_LOCK.acquire(blocking=False):
@@ -63,7 +70,7 @@ class InferenceGate:
             else:
                 import fcntl
                 fcntl.flock(self.handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
-            if self.marker.exists():
+            if self.marker.exists() and not self.allow_interrupted:
                 raise OperationalFailure("inference_interrupted", "Previous interrupted request; verify Ollama is idle before clearing " + str(self.marker))
         except Exception as exc:
             if self.handle:
@@ -74,9 +81,64 @@ class InferenceGate:
             raise OperationalFailure("inference_busy", str(exc)) from exc
         return self
 
+    def _event(self, event, **fields):
+        value = {"event": event, "at": datetime.now(timezone.utc).isoformat(),
+                 "pid": os.getpid(), "owner_nonce": self.owner_nonce, **fields}
+        with self.history.open("ab") as stream:
+            stream.write((json.dumps(value, ensure_ascii=False) + "\n").encode("utf-8"))
+            stream.flush()
+            os.fsync(stream.fileno())
+        return value
+
+    def _write_marker(self, value, *, exclusive=False):
+        with self.marker.open("x" if exclusive else "w", encoding="utf-8") as stream:
+            json.dump(value, stream, ensure_ascii=False)
+            stream.flush()
+            os.fsync(stream.fileno())
+
+    def start(self, request_sha256):
+        """Persist intent BEFORE HTTP dispatch. A process crash now leaves a closed circuit."""
+        if self.handle is None or self.handle.closed or self.marker.exists():
+            raise OperationalFailure("inference_interrupted", "Cannot dispatch without an exclusive, clear gate")
+        self.owner_nonce = str(uuid4())
+        value = {"state": "dispatch_intent", "owner_nonce": self.owner_nonce, "pid": os.getpid(),
+                 "request_sha256": request_sha256, "at": datetime.now(timezone.utc).isoformat()}
+        self._write_marker(value, exclusive=True)
+        self._event("dispatch_intent", request_sha256=request_sha256)
+
+    def complete(self):
+        """Only a terminal server reply permits ordinary completion, never socket closure."""
+        if self.handle is None or self.handle.closed:
+            raise OperationalFailure("inference_interrupted", "Completion requires the active exclusive gate")
+        value = json.loads(self.marker.read_text(encoding="utf-8"))
+        if not self.owner_nonce or value.get("owner_nonce") != self.owner_nonce:
+            raise OperationalFailure("inference_interrupted", "In-flight marker ownership changed")
+        self._event("server_finished", request_sha256=value.get("request_sha256"))
+        self.marker.unlink()
+
     def block(self, reason):
-        # Marker contains no input text or model output.
-        self.marker.write_text(reason, encoding="utf-8")
+        # Only request hashes and lifecycle metadata: no samples or model output in this journal.
+        value = {"state": "interrupted", "reason": str(reason), "pid": os.getpid(),
+                 "owner_nonce": self.owner_nonce, "at": datetime.now(timezone.utc).isoformat()}
+        self._write_marker(value)
+        self._event("interrupted", reason=str(reason))
+
+    def acknowledge_idle(self, *, reviewer, justification, server_has_no_residents):
+        """Explicit operator recovery; caller must inspect fresh state under the OS lock.
+
+        A null resident list is necessary, not proof that external clients are excluded.
+        The reviewer provides the exclusive-session attestation; this is never automatic.
+        """
+        if (not self.allow_interrupted or self.handle is None or self.handle.closed
+                or not reviewer.strip() or not justification.strip() or not server_has_no_residents):
+            raise OperationalFailure("recovery_refused", "Recovery requires a locked gate, named operator, justification and no residents")
+        if not self.marker.exists():
+            raise OperationalFailure("recovery_refused", "There is no interrupted marker to acknowledge")
+        previous = self.marker.read_bytes()
+        self._event("operator_acknowledged_idle", reviewer=reviewer, justification=justification,
+                    previous_marker_sha256=hashlib.sha256(previous).hexdigest(),
+                    previous_marker=previous.decode("utf-8", errors="replace"))
+        self.marker.unlink()
 
     def __exit__(self, *_):
         self.handle.close()  # Closing descriptor releases OS lock, without unlink races.

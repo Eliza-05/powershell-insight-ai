@@ -1,0 +1,161 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "phase2-02-C",
+  "stage": "phase2",
+  "raw_artifact": "artifacts/phase2/functional_02/C.json",
+  "raw_sha256": "41542a01b4070c7a77183f6fce8c875c89e4f0b9e4bb71516c29f6e6c84c9721",
+  "original": "Write-Output ('phase2-'+'functional')",
+  "original_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Write-Output ('phase2-'+'functional')",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-CONCAT",
+        "source": {
+          "layer_id": "L0",
+          "start": 14,
+          "end": 36,
+          "line": 1,
+          "column": 15,
+          "end_line": 1,
+          "end_column": 37
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 14,
+          "end": 36,
+          "line": 1,
+          "column": 15,
+          "end_line": 1,
+          "end_column": 37
+        },
+        "original_fragment": "'phase2-'+'functional'",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "string",
+        "recovered_text": "phase2-functional",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-CONCAT"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 120,
+    "artifact_bytes": 39
+  },
+  "reference": {
+    "labels": [],
+    "unknown": false,
+    "human_approved": false
+  },
+  "reference_basis": "AI-assisted static diagnostic reference; human decision pending",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "'phase2-'+'functional'",
+            "source_id": "T0001"
+          }
+        ],
+        "explanation": "The script constructs a string literal 'phase2-functional' using string concatenation. This operation is a benign data manipulation task. It does not constitute remote retrieval (B01) as no network URL or external resource is accessed; the string components are local literals. It does not involve functional evaluation of external code (B02) or any privileged actions (B03-B07). The operation is inert in terms of system impact."
+      }
+    ],
+    "limitations": [
+      "The analysis is limited to the provided source code snippet. Without the full context of the script (e.g., whether this string is used as a password, a command argument, or part of a larger payload), the specific intent cannot be fully determined, though the operation itself is syntactically benign."
+    ],
+    "obfuscation_techniques": [
+      "OT-CONCAT"
+    ],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions or prompt injection attempts were identified in the provided code or recovery data.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "phase2-functional"
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The operation is a simple string concatenation of literals. There is no evidence of remote access, credential theft, persistence, or network communication. The string 'phase2-functional' appears to be a label or identifier. While the string content itself is neutral, the lack of context regarding its usage (e.g., as a password in a subsequent command) prevents a definitive assessment of potential misuse, but the operation itself is not inherently malicious.",
+    "uncertainty": {
+      "level": "medium",
+      "notes": "Uncertainty exists regarding the semantic purpose of the generated string within the broader application logic, as the surrounding code is not provided.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B01"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "T0001",
+      "snippet": "'phase2-'+'functional'",
+      "declared_source_literal_match": false,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": true,
+    "accepted": false,
+    "error": "1 validation error for ModelReport\n  Value error, Unknown behavior cannot be declared benign [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+  },
+  "historical_error": [
+    {
+      "code": "invalid_response",
+      "message": "1 validation error for ModelReport\n  Value error, Unknown behavior cannot be declared benign [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "stage": "response"
+    }
+  ],
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Concatenation passed to Write-Output is not B02. C has a risk/uncertainty and literal-origin rejection; retain all raw claims."
+  },
+  "human_adjudication": null
+}

@@ -1,0 +1,6 @@
+{
+  "started_at": "2026-11-03T03:01:27.373269+00:00",
+  "model": "gemini-3.6-flash",
+  "binding_sha256": "057521df10b97be4beb5b09afc2433af932f899076e409690dc4566fbaa6b6cf",
+  "no_replay_or_automatic_restart": true
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-04T04:07:47.241162+00:00",
+  "source": "explicit_owner_async_reply",
+  "owner_reply": "Sí: archivos de texto, objetivos de laboratorio y análisis estático únicamente.",
+  "text_files_only": true,
+  "laboratory_targets_only": true,
+  "sample_execution_authorized": false,
+  "reference_labels_personally_approved": false,
+  "new_LLM_inferences_authorized": 0
+}

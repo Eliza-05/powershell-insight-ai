@@ -1,0 +1,479 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D22",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/022_V2-D22_r1.result.json",
+  "raw_sha256": "c926ef905acf4c00b4ab1d86d19d17cccc78cbe8d72b66d83d561758e4f011a0",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$runtimeBytes = Read-Host 'Academic Base64 supplied only at run time'\n$runtimeCode = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))\nInvoke-Expression $runtimeCode\n",
+  "original_sha256": "b881b6514614ad10f382a308cbe9e9acd8a0309233dbc62750b272b14d7ee768",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "b881b6514614ad10f382a308cbe9e9acd8a0309233dbc62750b272b14d7ee768",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$runtimeBytes = Read-Host 'Academic Base64 supplied only at run time'\n$runtimeCode = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))\nInvoke-Expression $runtimeCode\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 201,
+          "end": 214,
+          "line": 3,
+          "column": 76,
+          "end_line": 3,
+          "end_column": 89
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 201,
+          "end": 214,
+          "line": 3,
+          "column": 76,
+          "end_line": 3,
+          "end_column": 89
+        },
+        "original_fragment": "$runtimeBytes",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-B64-INLINE",
+        "source": {
+          "layer_id": "L0",
+          "start": 173,
+          "end": 215,
+          "line": 3,
+          "column": 48,
+          "end_line": 3,
+          "end_column": 90
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 173,
+          "end": 215,
+          "line": 3,
+          "column": 48,
+          "end_line": 3,
+          "end_column": 90
+        },
+        "original_fragment": "[Convert]::FromBase64String($runtimeBytes)",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "One or more operands cannot be recovered statically."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0003",
+        "technique": "OT-B64-INLINE",
+        "source": {
+          "layer_id": "L0",
+          "start": 141,
+          "end": 216,
+          "line": 3,
+          "column": 16,
+          "end_line": 3,
+          "end_column": 91
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 141,
+          "end": 216,
+          "line": 3,
+          "column": 16,
+          "end_line": 3,
+          "end_column": 91
+        },
+        "original_fragment": "[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "One or more operands cannot be recovered statically."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0004",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 235,
+          "end": 247,
+          "line": 4,
+          "column": 19,
+          "end_line": 4,
+          "end_column": 31
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 235,
+          "end": 247,
+          "line": 4,
+          "column": 19,
+          "end_line": 4,
+          "end_column": 31
+        },
+        "original_fragment": "$runtimeCode",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 72,
+          "end": 125,
+          "line": 2,
+          "column": 17,
+          "end_line": 2,
+          "end_column": 70
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 125,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 70
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 201,
+          "end": 214,
+          "line": 3,
+          "column": 76,
+          "end_line": 3,
+          "end_column": 89
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 173,
+          "end": 215,
+          "line": 3,
+          "column": 48,
+          "end_line": 3,
+          "end_column": 90
+        },
+        "technique_hint": "OT-B64-INLINE",
+        "reason": "One or more operands cannot be recovered statically.",
+        "transformation_id": "T0002"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 141,
+          "end": 216,
+          "line": 3,
+          "column": 16,
+          "end_line": 3,
+          "end_column": 91
+        },
+        "technique_hint": "OT-B64-INLINE",
+        "reason": "One or more operands cannot be recovered statically.",
+        "transformation_id": "T0003"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 126,
+          "end": 216,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 91
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 235,
+          "end": 247,
+          "line": 4,
+          "column": 19,
+          "end_line": 4,
+          "end_column": 31
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0004"
+      }
+    ],
+    "techniques_detected": [
+      "OT-B64-INLINE",
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 486,
+    "artifact_bytes": 142
+  },
+  "reference": {
+    "case_id": "V2-D22",
+    "family_id": "V2-DEV-F11",
+    "expected_labels": [
+      "B02"
+    ],
+    "expected_risk": "unknown",
+    "risk_explanation": "La evaluacion dinamica es visible; los efectos del codigo introducido son desconocidos.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D22-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D22.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$runtimeBytes = Read-Host 'Academic Base64 supplied only at run time'",
+        "start": 56,
+        "end": 125,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 70,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D22-E02",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D22.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$runtimeCode = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))",
+        "start": 126,
+        "end": 216,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 91,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D22-E03",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D22.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Invoke-Expression $runtimeCode",
+        "start": 217,
+        "end": 247,
+        "start_line": 4,
+        "end_line": 4,
+        "start_column": 1,
+        "end_column": 31,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D22-B02",
+        "behavior_id": "B02",
+        "evidence_ids": [
+          "V2-D22-E01",
+          "V2-D22-E02",
+          "V2-D22-E03"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "contextual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [
+          {
+            "from_evidence_id": "V2-D22-E01",
+            "to_evidence_id": "V2-D22-E02",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          },
+          {
+            "from_evidence_id": "V2-D22-E02",
+            "to_evidence_id": "V2-D22-E03",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          }
+        ],
+        "technical_explanation": "La evaluacion dinamica es visible; los efectos del codigo introducido son desconocidos.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "hidden_behaviors": "No inferir etiquetas interiores ni contenido recuperado.",
+      "B01": "Sin origen remoto conocido."
+    },
+    "uncertainty": {
+      "required": true,
+      "reason": "El texto evaluado se obtiene en tiempo de ejecucion; no es posible recuperar su contenido.",
+      "do_not_infer_hidden_behaviors": true
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [
+      "OT-VARSUB",
+      "OT-CONCAT"
+    ],
+    "recovered_content": [
+      "The script defines a variable $runtimeBytes and attempts to read user input via Read-Host. It then constructs $runtimeCode by converting the input string from Base64 using UTF8 encoding. Finally, it invokes the constructed string as executable code using Invoke-Expression."
+    ],
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "explanation": "The script constructs a string from user input and executes it dynamically.",
+        "evidence": [
+          {
+            "snippet": "Invoke-Expression $runtimeCode",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "$runtimeCode = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "high_risk",
+    "risk_rationale": "The script executes arbitrary code derived from user input, creating a significant risk for remote code execution (RCE) if the input is malicious.",
+    "uncertainty": {
+      "level": "medium",
+      "uninterpretable_fragments": [
+        "The content of $runtimeBytes is unknown as it is obtained via Read-Host at runtime."
+      ],
+      "notes": "The actual payload is unknown because it depends on user input provided during execution."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed manipulation detected in the source text."
+    },
+    "limitations": [
+      "The analysis cannot determine the specific content of the Base64-encoded payload because it is provided via Read-Host at runtime.",
+      "The script relies on user input to determine the code to execute, making static analysis of the payload impossible."
+    ]
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Invoke-Expression $runtimeCode",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "$runtimeCode = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($runtimeBytes))",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Runtime Base64 input remains unknown. r1 recovered_content is prose, not recovered code; B02 does not establish payload behavior."
+  },
+  "human_adjudication": null
+}

@@ -1,0 +1,154 @@
+{
+  "scope": "static_documented_subset_not_remote_compiler_or_full_metaschema_validator",
+  "schema_bytes": 2317,
+  "definitions": 8,
+  "root_properties": 8,
+  "root_required": 8,
+  "keywords": {
+    "$defs": 1,
+    "$ref": 9,
+    "additionalProperties": 5,
+    "enum": 4,
+    "items": 7,
+    "maxItems": 7,
+    "maxLength": 6,
+    "minItems": 1,
+    "minLength": 6,
+    "properties": 5,
+    "required": 5,
+    "type": 27
+  },
+  "ignored_constraints": [
+    {
+      "path": "#/$defs/Citation/properties/source_id/maxLength",
+      "value": 80
+    },
+    {
+      "path": "#/$defs/Citation/properties/source_id/minLength",
+      "value": 1
+    },
+    {
+      "path": "#/$defs/Citation/properties/snippet/maxLength",
+      "value": 4096
+    },
+    {
+      "path": "#/$defs/Citation/properties/snippet/minLength",
+      "value": 1
+    },
+    {
+      "path": "#/$defs/InjectionAssessment/properties/notes/maxLength",
+      "value": 2000
+    },
+    {
+      "path": "#/$defs/InjectionAssessment/properties/notes/minLength",
+      "value": 1
+    },
+    {
+      "path": "#/$defs/ModelFinding/properties/explanation/maxLength",
+      "value": 2000
+    },
+    {
+      "path": "#/$defs/ModelFinding/properties/explanation/minLength",
+      "value": 1
+    },
+    {
+      "path": "#/$defs/ModelUncertainty/properties/notes/maxLength",
+      "value": 2000
+    },
+    {
+      "path": "#/$defs/ModelUncertainty/properties/notes/minLength",
+      "value": 1
+    },
+    {
+      "path": "#/properties/risk_rationale/maxLength",
+      "value": 2000
+    },
+    {
+      "path": "#/properties/risk_rationale/minLength",
+      "value": 1
+    }
+  ],
+  "unknown_keywords": [],
+  "references": [
+    {
+      "path": "#/$defs/ModelFinding/properties/behavior_id",
+      "ref": "#/$defs/BehaviorId"
+    },
+    {
+      "path": "#/$defs/ModelFinding/properties/evidence/items",
+      "ref": "#/$defs/Citation"
+    },
+    {
+      "path": "#/$defs/ModelFinding/properties/confidence",
+      "ref": "#/$defs/Level"
+    },
+    {
+      "path": "#/$defs/ModelUncertainty/properties/level",
+      "ref": "#/$defs/Level"
+    },
+    {
+      "path": "#/properties/obfuscation_techniques/items",
+      "ref": "#/$defs/ObfuscationTechnique"
+    },
+    {
+      "path": "#/properties/behaviors/items",
+      "ref": "#/$defs/ModelFinding"
+    },
+    {
+      "path": "#/properties/risk_label",
+      "ref": "#/$defs/RiskLabel"
+    },
+    {
+      "path": "#/properties/uncertainty",
+      "ref": "#/$defs/ModelUncertainty"
+    },
+    {
+      "path": "#/properties/prompt_injection",
+      "ref": "#/$defs/InjectionAssessment"
+    }
+  ],
+  "structural_errors": [],
+  "array_bounds": [
+    {
+      "path": "#/$defs/InjectionAssessment/properties/snippets",
+      "minItems": null,
+      "maxItems": 16
+    },
+    {
+      "path": "#/$defs/ModelFinding/properties/evidence",
+      "minItems": 1,
+      "maxItems": 16
+    },
+    {
+      "path": "#/$defs/ModelUncertainty/properties/uninterpretable_fragments",
+      "minItems": null,
+      "maxItems": 32
+    },
+    {
+      "path": "#/properties/obfuscation_techniques",
+      "minItems": null,
+      "maxItems": 6
+    },
+    {
+      "path": "#/properties/recovered_content",
+      "minItems": null,
+      "maxItems": 16
+    },
+    {
+      "path": "#/properties/behaviors",
+      "minItems": null,
+      "maxItems": 7
+    },
+    {
+      "path": "#/properties/limitations",
+      "minItems": null,
+      "maxItems": 32
+    }
+  ],
+  "alternatives": [],
+  "reference_cycles": [],
+  "maximum_expanded_data_depth": 6,
+  "maximum_nested_arrays": 2,
+  "maximum_behavior_citations": 112,
+  "provider_compiler_complexity_limit": "not_published_or_measurable_locally"
+}

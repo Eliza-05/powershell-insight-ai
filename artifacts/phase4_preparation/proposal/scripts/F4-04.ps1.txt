@@ -1,0 +1,2 @@
+$channel = 'PSIA.Phase4.NeverCreated.' + 'Audit57C21'
+Clear-EventLog -LogName $channel -ComputerName 'p4-logs.example.invalid'

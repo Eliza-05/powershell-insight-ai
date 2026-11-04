@@ -1,0 +1,14 @@
+{
+  "packet_id": "development-V2-D24",
+  "packet_sha256": "e7df614133769767574c34fd1cec5cbf3022baec226ee14fe524e3273e14e2ad",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": []
+}

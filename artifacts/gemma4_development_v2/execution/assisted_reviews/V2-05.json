@@ -1,0 +1,18 @@
+{
+  "call_id": "V2-05",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "f9a112cd4954de1dbc7dd20d9e2b013010d2d0b83ec86753132ac242c4c08d14",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:49:43.470419+00:00",
+  "findings": [
+    {
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "Invoke-Expression is inside an uninvoked script block. Definition and storage alone do not establish functional evaluation."
+    }
+  ],
+  "assessment": "Ordinary false positive B02. Model explicitly notes block never executes yet labels evaluation; this is the planned stored-versus-invoked semantic error, preserved and continued. Literal citation exists but is not sufficient semantic support.",
+  "risk_notes": "Risk rationale speaks as if evaluation occurs while uncertainty/limitations state block uninvoked. Flag semantic inconsistency for personal review; no invented reconstruction or unauthorized execution.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

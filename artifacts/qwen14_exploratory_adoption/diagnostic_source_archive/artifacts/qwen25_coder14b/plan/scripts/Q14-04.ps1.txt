@@ -1,0 +1,1 @@
+$text = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('R2V0LVByb2Nlc3MgLU5hbWUgJ3YyLWRpc3BsYXktb25seS04NDIn')); Write-Output $text

@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-03T00:03:22.779387+00:00",
+  "kind": "AI_assisted_diagnostic_not_human_adjudication",
+  "findings": [
+    "B02 unsupported: EncodedCommand wrapper and process query do not establish functional dynamic evaluation",
+    "T0001 contains Get-Process -Id 7319, not the Base64 cited",
+    "detected=false with nonempty injection snippets violates structural contract"
+  ],
+  "continuation": "next never-dispatched fixed-plan ID; no prompt/parameter change; no retry",
+  "safe_completion_and_own_unload_verified": true
+}

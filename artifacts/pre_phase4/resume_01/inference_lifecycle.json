@@ -1,0 +1,345 @@
+{
+  "source": "C:\\Users\\eliza\\AppData\\Local\\Temp\\powershell-insight-phase2-inference.history.jsonl",
+  "captured_at": "2026-11-03T01:25:23.899055+00:00",
+  "events": [
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:02:08.231054+00:00",
+      "pid": 10832,
+      "owner_nonce": "61fd48ed-af52-463e-85b5-b01c95186d0a",
+      "request_sha256": "95a70903a3d494651c6494625a4c9b69791399ff9afb2d18588319d426c27366"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:02:51.756164+00:00",
+      "pid": 10832,
+      "owner_nonce": "61fd48ed-af52-463e-85b5-b01c95186d0a",
+      "request_sha256": "95a70903a3d494651c6494625a4c9b69791399ff9afb2d18588319d426c27366"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:03:23.386437+00:00",
+      "pid": 45848,
+      "owner_nonce": "56fbcfac-a653-4fd6-add3-1d2dea1acf10",
+      "request_sha256": "21ea1a81e23cb7a8b131a313c80becc792bc3f2429378badedaabb02e7bbe55e"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:05:37.973983+00:00",
+      "pid": 45848,
+      "owner_nonce": "56fbcfac-a653-4fd6-add3-1d2dea1acf10",
+      "request_sha256": "21ea1a81e23cb7a8b131a313c80becc792bc3f2429378badedaabb02e7bbe55e"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:06:06.524406+00:00",
+      "pid": 44012,
+      "owner_nonce": "d7e161f6-447a-431b-a3f5-04cd0f483deb",
+      "request_sha256": "6548b47eff712a498bc1ea92d56c43ee5086ad802f6c01ac19b44ccf8656a686"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:06:39.451305+00:00",
+      "pid": 44012,
+      "owner_nonce": "d7e161f6-447a-431b-a3f5-04cd0f483deb",
+      "request_sha256": "6548b47eff712a498bc1ea92d56c43ee5086ad802f6c01ac19b44ccf8656a686"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:06:58.205438+00:00",
+      "pid": 5368,
+      "owner_nonce": "8de9c025-20c7-41a9-ad44-ca12fd1a3d4f",
+      "request_sha256": "1dc2f4d9cc3e82c5c7bdd8de954feb364a51b9d0676df66bd1b6ae219acb8ed6"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:07:21.828770+00:00",
+      "pid": 5368,
+      "owner_nonce": "8de9c025-20c7-41a9-ad44-ca12fd1a3d4f",
+      "request_sha256": "1dc2f4d9cc3e82c5c7bdd8de954feb364a51b9d0676df66bd1b6ae219acb8ed6"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:07:37.042474+00:00",
+      "pid": 32664,
+      "owner_nonce": "b52a44c1-5a77-4f9f-9c20-e24a34bb89e0",
+      "request_sha256": "dfeada5625a90ba489f4a3fda4df20d433768a2058617fd1e2b4d3404152450a"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:08:00.257896+00:00",
+      "pid": 32664,
+      "owner_nonce": "b52a44c1-5a77-4f9f-9c20-e24a34bb89e0",
+      "request_sha256": "dfeada5625a90ba489f4a3fda4df20d433768a2058617fd1e2b4d3404152450a"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:08:21.825514+00:00",
+      "pid": 17648,
+      "owner_nonce": "dd92c871-cee5-4f13-8e0e-4b7e9a3a6bcd",
+      "request_sha256": "a5f56003598ac08e9854ec43025f971adc6aa756c6dda4c7962cb30d13cab827"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:08:59.473122+00:00",
+      "pid": 17648,
+      "owner_nonce": "dd92c871-cee5-4f13-8e0e-4b7e9a3a6bcd",
+      "request_sha256": "a5f56003598ac08e9854ec43025f971adc6aa756c6dda4c7962cb30d13cab827"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:09:29.324023+00:00",
+      "pid": 14148,
+      "owner_nonce": "67580db1-97cc-44fa-a370-62cf15aa273a",
+      "request_sha256": "2f88b02c2a3e6ce5cff57fa9e8adfa19d1888e9cc47a1812ff17519457a38edb"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:10:31.284644+00:00",
+      "pid": 14148,
+      "owner_nonce": "67580db1-97cc-44fa-a370-62cf15aa273a",
+      "request_sha256": "2f88b02c2a3e6ce5cff57fa9e8adfa19d1888e9cc47a1812ff17519457a38edb"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:10:39.809758+00:00",
+      "pid": 32460,
+      "owner_nonce": "0b064606-3b9b-484e-8993-2bb7da4e5c8d",
+      "request_sha256": "c2565c5994078fb6d4f3d5bca434e6794afcaa81fbc962b588f4e9aa48f22751"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:11:02.554523+00:00",
+      "pid": 32460,
+      "owner_nonce": "0b064606-3b9b-484e-8993-2bb7da4e5c8d",
+      "request_sha256": "c2565c5994078fb6d4f3d5bca434e6794afcaa81fbc962b588f4e9aa48f22751"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:11:24.185429+00:00",
+      "pid": 34800,
+      "owner_nonce": "9ae784bf-8f03-4c63-a8f1-81fd829f0e34",
+      "request_sha256": "637e00f04b84c885b48f56a943dc263388c41bfc0a39b52725d6b68d52deee36"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:12:00.380654+00:00",
+      "pid": 34800,
+      "owner_nonce": "9ae784bf-8f03-4c63-a8f1-81fd829f0e34",
+      "request_sha256": "637e00f04b84c885b48f56a943dc263388c41bfc0a39b52725d6b68d52deee36"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:12:32.985186+00:00",
+      "pid": 3692,
+      "owner_nonce": "2ccf408b-18e9-4be4-b587-d92ff85a5f8a",
+      "request_sha256": "a64c4f7a7f10098e739d458d498e116f5b7896916e98aeb51eefd9c257476cac"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:13:05.614758+00:00",
+      "pid": 3692,
+      "owner_nonce": "2ccf408b-18e9-4be4-b587-d92ff85a5f8a",
+      "request_sha256": "a64c4f7a7f10098e739d458d498e116f5b7896916e98aeb51eefd9c257476cac"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:13:51.045536+00:00",
+      "pid": 37228,
+      "owner_nonce": "424c6dd8-2a2a-4e66-b65a-7a156d650e79",
+      "request_sha256": "7e9412a2c65811855151e72f6ed0466fa7912f067fbd17200f4c4ba4c2ee380d"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:14:24.920407+00:00",
+      "pid": 37228,
+      "owner_nonce": "424c6dd8-2a2a-4e66-b65a-7a156d650e79",
+      "request_sha256": "7e9412a2c65811855151e72f6ed0466fa7912f067fbd17200f4c4ba4c2ee380d"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:15:01.122126+00:00",
+      "pid": 33520,
+      "owner_nonce": "efa90085-fd6c-4bc9-ad76-27b894681cc2",
+      "request_sha256": "94d4b505aaa766b2b5556e1974d41dbba05b98f4346fc73e244140f631c1e0c0"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:15:33.390753+00:00",
+      "pid": 33520,
+      "owner_nonce": "efa90085-fd6c-4bc9-ad76-27b894681cc2",
+      "request_sha256": "94d4b505aaa766b2b5556e1974d41dbba05b98f4346fc73e244140f631c1e0c0"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:15:40.917660+00:00",
+      "pid": 39612,
+      "owner_nonce": "676e0531-a367-410c-a3b6-6febc1a52da1",
+      "request_sha256": "f9a0fe400ec8aa032ea35ef44cc0d3e15ed9453b7ad742e3480b9ec8a9fbaa51"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:17:19.668692+00:00",
+      "pid": 39612,
+      "owner_nonce": "676e0531-a367-410c-a3b6-6febc1a52da1",
+      "request_sha256": "f9a0fe400ec8aa032ea35ef44cc0d3e15ed9453b7ad742e3480b9ec8a9fbaa51"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:17:32.245228+00:00",
+      "pid": 38724,
+      "owner_nonce": "b259c47a-741c-4f64-843d-0b778c3bfbfa",
+      "request_sha256": "e1ae0a0de6a248d9f0b6855573ac1933f764b48e2477a2e739b0c313967ca50e"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:18:13.282591+00:00",
+      "pid": 38724,
+      "owner_nonce": "b259c47a-741c-4f64-843d-0b778c3bfbfa",
+      "request_sha256": "e1ae0a0de6a248d9f0b6855573ac1933f764b48e2477a2e739b0c313967ca50e"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:18:36.879481+00:00",
+      "pid": 38032,
+      "owner_nonce": "04642f15-4e2e-49d3-8a89-05bc6a752979",
+      "request_sha256": "59a547eb94497a57ee0af4a7ecbfa58cea2ffd8edc47936954add4049ca6ee8a"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:22:12.616058+00:00",
+      "pid": 38032,
+      "owner_nonce": "04642f15-4e2e-49d3-8a89-05bc6a752979",
+      "request_sha256": "59a547eb94497a57ee0af4a7ecbfa58cea2ffd8edc47936954add4049ca6ee8a"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:22:46.008850+00:00",
+      "pid": 46396,
+      "owner_nonce": "08700d1d-86ad-401d-a6e0-6dbf31499674",
+      "request_sha256": "d733a9ba8f90be7e5f3b1070d8616cb7010dcb4f50acb6fe6cec4dd7c291949e"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:23:37.557056+00:00",
+      "pid": 46396,
+      "owner_nonce": "08700d1d-86ad-401d-a6e0-6dbf31499674",
+      "request_sha256": "d733a9ba8f90be7e5f3b1070d8616cb7010dcb4f50acb6fe6cec4dd7c291949e"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:23:37.839394+00:00",
+      "pid": 46396,
+      "owner_nonce": "28f0f478-a564-44bc-b35e-718db3d645fb",
+      "request_sha256": "69b1ee6e60432639f0c450f296294ee13edf186becb2b9185a2a4900ef7b8d16"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:23:57.484154+00:00",
+      "pid": 46396,
+      "owner_nonce": "28f0f478-a564-44bc-b35e-718db3d645fb",
+      "request_sha256": "69b1ee6e60432639f0c450f296294ee13edf186becb2b9185a2a4900ef7b8d16"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:23:57.776091+00:00",
+      "pid": 46396,
+      "owner_nonce": "f3869f41-3600-4e71-a51b-d60ed481b08e",
+      "request_sha256": "f3463ab298cf01acaad082b5ae582d4d780f51d26ad48ed482db6a142a7ce872"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:27:11.052627+00:00",
+      "pid": 46396,
+      "owner_nonce": "f3869f41-3600-4e71-a51b-d60ed481b08e",
+      "request_sha256": "f3463ab298cf01acaad082b5ae582d4d780f51d26ad48ed482db6a142a7ce872"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T01:10:38.265945+00:00",
+      "pid": 47280,
+      "owner_nonce": "687f937c-a2ba-44df-b035-ee20e283e9d2",
+      "request_sha256": "bce8dbaf858e234ecb0cdffa44ce9cb216ef6299f7c867c851bd6e3766420976"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T01:11:11.536788+00:00",
+      "pid": 47280,
+      "owner_nonce": "687f937c-a2ba-44df-b035-ee20e283e9d2",
+      "request_sha256": "bce8dbaf858e234ecb0cdffa44ce9cb216ef6299f7c867c851bd6e3766420976"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T01:11:57.520150+00:00",
+      "pid": 43820,
+      "owner_nonce": "7aa8d908-9aa5-4d60-9943-e4886102dec7",
+      "request_sha256": "8715519686a596fb96e5f50f4af04e13cba770f72a46af6db4fab401931b180f"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T01:12:25.786793+00:00",
+      "pid": 43820,
+      "owner_nonce": "7aa8d908-9aa5-4d60-9943-e4886102dec7",
+      "request_sha256": "8715519686a596fb96e5f50f4af04e13cba770f72a46af6db4fab401931b180f"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T01:12:25.941969+00:00",
+      "pid": 43820,
+      "owner_nonce": "429746d2-662e-40fb-b8f5-d8a28c78464d",
+      "request_sha256": "4b2d0a095cf4d28337f95f754cbf19b0e4e1d2fa27e8cd000aede3be1d434043"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T01:14:20.281671+00:00",
+      "pid": 43820,
+      "owner_nonce": "429746d2-662e-40fb-b8f5-d8a28c78464d",
+      "request_sha256": "4b2d0a095cf4d28337f95f754cbf19b0e4e1d2fa27e8cd000aede3be1d434043"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T01:14:37.290531+00:00",
+      "pid": 46576,
+      "owner_nonce": "094c9412-b221-4d11-a29d-b4a68a76efd2",
+      "request_sha256": "566f33b79117065bf07d377a0be3cfa880ded795831880654c4e5b8b22f468c5"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T01:15:14.072455+00:00",
+      "pid": 46576,
+      "owner_nonce": "094c9412-b221-4d11-a29d-b4a68a76efd2",
+      "request_sha256": "566f33b79117065bf07d377a0be3cfa880ded795831880654c4e5b8b22f468c5"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T01:15:14.251844+00:00",
+      "pid": 46576,
+      "owner_nonce": "fc2552db-fa88-42da-a1ec-5df473fca59d",
+      "request_sha256": "3fe929865cb3045ed1f2fd8e143e5cb6c3e001764ec2d3ebda3e11df3cdd7b70"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T01:15:48.067430+00:00",
+      "pid": 46576,
+      "owner_nonce": "fc2552db-fa88-42da-a1ec-5df473fca59d",
+      "request_sha256": "3fe929865cb3045ed1f2fd8e143e5cb6c3e001764ec2d3ebda3e11df3cdd7b70"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T01:15:48.265159+00:00",
+      "pid": 46576,
+      "owner_nonce": "4906fc6f-6d53-4c3f-9890-def38d501a42",
+      "request_sha256": "8f74157727be4c3905b35839c9edee9fe9c70f17e5551e55ebaa95b70746e24b"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T01:16:38.371584+00:00",
+      "pid": 46576,
+      "owner_nonce": "4906fc6f-6d53-4c3f-9890-def38d501a42",
+      "request_sha256": "8f74157727be4c3905b35839c9edee9fe9c70f17e5551e55ebaa95b70746e24b"
+    }
+  ],
+  "initiated": 24,
+  "terminal": 24,
+  "interrupted": 0
+}

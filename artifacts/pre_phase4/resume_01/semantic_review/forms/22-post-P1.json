@@ -1,0 +1,20 @@
+{
+  "packet_id": "22-post-P1",
+  "packet_sha256": "78ee4edc00f917c42de1f4a676fc3cc577da5feb3c0f753ee26d343c3fd03d06",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

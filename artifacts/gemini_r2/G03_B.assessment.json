@@ -1,0 +1,38 @@
+{
+  "id": "G03",
+  "configuration": "B",
+  "status": "error",
+  "run_id": "b2c21445-3baf-4852-a6e5-5186089a5fdd",
+  "http_attempt": {
+    "attempt": 3,
+    "kind": "generateContent",
+    "request_sha256": "0ed7d8d18d76723d7bbc563ac1d5573ec47f0682e894c3f2ef34f76e45f090ca",
+    "reserved_at": "2026-11-03T02:41:44.028978+00:00"
+  },
+  "http_status": 503,
+  "valid_json": false,
+  "schema_valid": false,
+  "application_accepted": false,
+  "expected_labels": [],
+  "raw_observed_labels": null,
+  "raw_labels_are_unvalidated_claims": true,
+  "exact_labels": false,
+  "false_positives": null,
+  "false_negatives": null,
+  "citations": [],
+  "nonempty_recovery": null,
+  "accepted_citing_recovery": null,
+  "finish_reasons": [],
+  "response_id": null,
+  "model_version": null,
+  "usage": null,
+  "seconds": 6.501429500000086,
+  "errors": [
+    {
+      "code": "gemini_http_server_error",
+      "message": "gemini_http_server_error",
+      "stage": "gemini"
+    }
+  ],
+  "semantic_review": "pending_agent_review_not_independent_human_adjudication"
+}

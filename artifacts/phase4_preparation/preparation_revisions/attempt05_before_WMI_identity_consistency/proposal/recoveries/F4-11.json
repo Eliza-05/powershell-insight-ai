@@ -1,0 +1,39 @@
+{
+  "schema_version": "deobfuscation-v1",
+  "engine_version": "static-subset-v1",
+  "input_sha256": "a57714eebc92b593d2777c8cc079bc535a2bc0485e6b0132947becfe37387703",
+  "source_name": "input",
+  "input_provenance": "original",
+  "status": "complete",
+  "semantic_equivalence": "not_claimed",
+  "limits": {
+    "max_input_bytes": 65536,
+    "max_artifact_bytes": 262144,
+    "max_total_artifact_bytes": 2097152,
+    "max_transformations": 512,
+    "max_depth": 3,
+    "max_expression_depth": 24,
+    "max_concat_terms": 128,
+    "max_tokens": 50000,
+    "max_work_units": 4000000,
+    "max_unresolved": 128
+  },
+  "layers": [
+    {
+      "layer_id": "L0",
+      "source_name": "input",
+      "provenance": "original",
+      "text": "Get-ScheduledTask -TaskPath '\\PSIA\\ReadOnly\\' | Select-Object TaskName,State\nGet-NetFirewallProfile | Select-Object Name,Enabled\n",
+      "depth": 0,
+      "parent_transformation_id": null,
+      "root_source": null
+    }
+  ],
+  "transformations": [],
+  "unresolved": [],
+  "techniques_detected": [],
+  "limits_hit": [],
+  "warnings": [],
+  "work_units": 181,
+  "artifact_bytes": 0
+}

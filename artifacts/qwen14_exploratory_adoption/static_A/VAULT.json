@@ -1,0 +1,224 @@
+{
+  "specimen": "VAULT",
+  "script_sha256": "a42c93bb33e221997d27ab4a577058b580ecdb73d7f20adefea59e58b36005f8",
+  "reference_labels_reused": [
+    "B07"
+  ],
+  "predicted": [
+    "B07"
+  ],
+  "complete": true,
+  "pipeline": {
+    "schema_version": "pipeline-v1",
+    "run_id": "d68201f2-7211-40e6-b888-dafe52f71b83",
+    "configuration": "A",
+    "status": "completed",
+    "input_sha256": "a42c93bb33e221997d27ab4a577058b580ecdb73d7f20adefea59e58b36005f8",
+    "original": "Get-StoredCredential -Target 'v2-synthetic-missing-vault-842'",
+    "started_at": "2026-11-04T02:53:18.842050+00:00",
+    "duration_seconds": 0.00031209999724524096,
+    "engine_versions": {
+      "orchestrator": "pipeline-v1",
+      "deobfuscator": "static-subset-v1",
+      "detector": "static-behaviors-v1"
+    },
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "a42c93bb33e221997d27ab4a577058b580ecdb73d7f20adefea59e58b36005f8",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "complete",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "Get-StoredCredential -Target 'v2-synthetic-missing-vault-842'",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        }
+      ],
+      "transformations": [],
+      "unresolved": [],
+      "techniques_detected": [],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 72,
+      "artifact_bytes": 0
+    },
+    "deterministic": {
+      "schema_version": "behavior-analysis-v1",
+      "ruleset_version": "static-behaviors-v1",
+      "status": "complete",
+      "coverage_partial": true,
+      "deobfuscation": {
+        "schema_version": "deobfuscation-v1",
+        "engine_version": "static-subset-v1",
+        "input_sha256": "a42c93bb33e221997d27ab4a577058b580ecdb73d7f20adefea59e58b36005f8",
+        "source_name": "input",
+        "input_provenance": "original",
+        "status": "complete",
+        "semantic_equivalence": "not_claimed",
+        "limits": {
+          "max_input_bytes": 65536,
+          "max_artifact_bytes": 262144,
+          "max_total_artifact_bytes": 2097152,
+          "max_transformations": 512,
+          "max_depth": 3,
+          "max_expression_depth": 24,
+          "max_concat_terms": 128,
+          "max_tokens": 50000,
+          "max_work_units": 4000000,
+          "max_unresolved": 128
+        },
+        "layers": [
+          {
+            "layer_id": "L0",
+            "source_name": "input",
+            "provenance": "original",
+            "text": "Get-StoredCredential -Target 'v2-synthetic-missing-vault-842'",
+            "depth": 0,
+            "parent_transformation_id": null,
+            "root_source": null
+          }
+        ],
+        "transformations": [],
+        "unresolved": [],
+        "techniques_detected": [],
+        "limits_hit": [],
+        "warnings": [],
+        "work_units": 72,
+        "artifact_bytes": 0
+      },
+      "detection_limits": {
+        "max_operations": 512,
+        "max_findings": 256,
+        "max_indicators": 128,
+        "max_evidence": 1024
+      },
+      "added_operations": [],
+      "behaviors": [
+        "B07"
+      ],
+      "findings": [
+        {
+          "finding_id": "F0001",
+          "behavior_id": "B07",
+          "rule_id": "BD-B07-STORED-CREDENTIAL",
+          "description": "Acceso solicitado a credenciales almacenadas.",
+          "operation_source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 61,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 62
+          },
+          "evidence_ids": [
+            "E0001",
+            "E0002"
+          ],
+          "support": "contextual",
+          "conditions": [
+            "Lectura explícita del almacén de credenciales, con target vinculado."
+          ],
+          "limitations": [
+            "Supone el cmdlet CredentialManager; no prueba presencia del módulo, extracción ni autorización."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E0001",
+          "role": "operation",
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 61,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 62
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 61,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 62
+          },
+          "fragment": "Get-StoredCredential -Target 'v2-synthetic-missing-vault-842'",
+          "provenance": "original",
+          "recovered_value": null,
+          "transformation_ids": []
+        },
+        {
+          "evidence_id": "E0002",
+          "role": "argument",
+          "source": {
+            "layer_id": "L0",
+            "start": 29,
+            "end": 61,
+            "line": 1,
+            "column": 30,
+            "end_line": 1,
+            "end_column": 62
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 29,
+            "end": 61,
+            "line": 1,
+            "column": 30,
+            "end_line": 1,
+            "end_column": 62
+          },
+          "fragment": "'v2-synthetic-missing-vault-842'",
+          "provenance": "original",
+          "recovered_value": null,
+          "transformation_ids": []
+        }
+      ],
+      "indicators": [],
+      "obstructing_techniques": [],
+      "warnings": [
+        "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+        "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+      ],
+      "limits_hit": [],
+      "operations_examined": 1,
+      "work_units": 167,
+      "artifact_bytes": 93
+    },
+    "llm": null,
+    "llm_review_status": "unreviewed_model_claims",
+    "evidence": [],
+    "risk_label": "unknown",
+    "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+    "limitations": [
+      "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "errors": [],
+    "operational": {}
+  }
+}

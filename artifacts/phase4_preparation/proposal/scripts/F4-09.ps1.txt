@@ -1,0 +1,4 @@
+$cred = Get-Secret -Name P4Operator -Vault PSIA_Phase4_NeverCreatedVault57C21
+Set-WmiInstance -ComputerName 'p4-subscription.example.invalid' -Credential $cred -Namespace root/subscription -Class __EventFilter -Arguments @{Name='P4Notice';EventNamespace='root/cimv2';QueryLanguage='WQL';Query='SELECT * FROM Win32_ProcessStartTrace'}
+Set-WmiInstance -ComputerName 'p4-subscription.example.invalid' -Credential $cred -Namespace root/subscription -Class CommandLineEventConsumer -Arguments @{Name='P4Notice';CommandLineTemplate='cmd.exe /c echo phase4-notice'}
+Set-WmiInstance -ComputerName 'p4-subscription.example.invalid' -Credential $cred -Namespace root/subscription -Class __FilterToConsumerBinding -Arguments @{Filter='__EventFilter.Name="P4Notice"';Consumer='CommandLineEventConsumer.Name="P4Notice"'}

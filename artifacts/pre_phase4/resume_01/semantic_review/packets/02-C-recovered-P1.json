@@ -1,0 +1,138 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "02-C-recovered-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/02-C-recovered-P1.json",
+  "raw_sha256": "e6ff0aa6af990a6be74052c4d196180026595eba51909900b39e3ff48d30d8f3",
+  "original": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+  "original_sha256": "2dc9439347a2293cca334a3565524bed4562054e732621a5540235459f7ad05b",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "2dc9439347a2293cca334a3565524bed4562054e732621a5540235459f7ad05b",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      },
+      {
+        "layer_id": "L1",
+        "source_name": "input",
+        "provenance": "deobfuscator_recovered",
+        "text": "Get-Process -Id 7319",
+        "depth": 1,
+        "parent_transformation_id": "T0001",
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-B64-ENCCMD",
+        "source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "script_text",
+        "recovered_text": "Get-Process -Id 7319",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [
+          "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+        ],
+        "added_operation": "LAUNCHER_ENCCMD",
+        "output_layer_id": "L1"
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-B64-ENCCMD"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 298,
+    "artifact_bytes": 96
+  },
+  "reference": {
+    "labels": [
+      "B05"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": null,
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "truncated_response",
+    "message": "Output cap reached; no repair or refill"
+  },
+  "historical_truncated": true,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Truncamiento a 2048 tokens. El prefijo emitía B01-B07 incluso al explicar que varias categorías no estaban presentes; describía la consulta local como recuperación remota y afirmaba que faltaba una recuperación que sí se había enviado. No se repara ni se cuenta el prefijo como informe válido. Revisión asistida por IA."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "truncated_response",
+      "message": "Output cap reached; no repair or refill"
+    }
+  },
+  "profile": "P1",
+  "request_sha256": "21ea1a81e23cb7a8b131a313c80becc792bc3f2429378badedaabb02e7bbe55e"
+}

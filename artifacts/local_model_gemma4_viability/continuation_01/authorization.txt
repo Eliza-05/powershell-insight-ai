@@ -1,0 +1,195 @@
+# PowerShell Insight AI — Reanudar evaluación de Gemma 4 12B tras liberar memoria
+
+Ya liberé memoria manualmente en Windows y actualmente tengo aproximadamente **16 GB de RAM disponibles**.
+
+Quiero que retomes el trabajo documentado en `docs/local_model_gemma4_viability.md`, que anteriormente terminó en estado **BLOQUEADO OPERATIVAMENTE** porque solo había 10,82 GiB de RAM disponibles frente a los 14,10 GiB estimados.
+
+El objetivo es **completar la evaluación de viabilidad de Gemma 4 12B que ya habíamos autorizado**, sin repetir investigaciones, alterar los resultados históricos ni iniciar todavía la Fase 4.
+
+## 1. Verificar el estado anterior
+
+Antes de cualquier descarga o inferencia:
+
+1. Lee `docs/local_model_gemma4_viability.md`.
+2. Inspecciona el plan de ocho casos preparado anteriormente.
+3. Comprueba si existe un ledger, checkpoint o registro de autorización para este experimento.
+4. Verifica que anteriormente se ejecutaron **0/8 inferencias** y que no se descargaron pesos.
+5. Comprueba que los resultados de Qwen3.5, Gemini y los pilotos históricos permanecen intactos.
+6. Confirma que seguimos trabajando en `develop`.
+
+No crees un segundo experimento duplicado si podemos continuar válidamente el original.
+
+## 2. Nuevo preflight de hardware
+
+Vuelve a medir los recursos reales del computador:
+
+- RAM física disponible.
+- Memoria comprometida disponible.
+- Límite total de compromiso.
+- Procesos de Ollama y modelos residentes.
+- Espacio disponible en disco.
+- Estado de los bloqueos y del circuito de seguridad.
+- Versión de Ollama.
+- Compatibilidad con Gemma 4 12B.
+
+Utiliza los criterios de seguridad del proyecto.
+
+La estimación anterior fue de **14,10 GiB** para el modelo, contexto, buffers y margen. Comprueba si sigue siendo válida.
+
+Si el equipo supera los requisitos de memoria física y compromiso, continúa.
+
+Si no los supera, detente sin descargar ni ejecutar nada. No reduzcas los márgenes para forzar el experimento.
+
+No cierres aplicaciones del usuario ni modifiques configuraciones de Windows.
+
+## 3. Descargar Gemma 4 12B
+
+Si el preflight es satisfactorio, autorizo descargar exclusivamente:
+
+`gemma4:12b`
+
+Desde la biblioteca oficial de Ollama.
+
+Antes de descargar:
+
+- Verifica que el identificador existe.
+- Comprueba compatibilidad con el runtime instalado.
+- Identifica cuantización, licencia y requisitos.
+- Confirma espacio suficiente en disco.
+
+Después de descargar:
+
+- Comprueba que el modelo esté íntegro.
+- Registra su digest real.
+- Confirma la configuración disponible.
+- No descargues otros modelos.
+- No actualices Ollama automáticamente.
+- No elimines Qwen ni otros archivos del proyecto.
+
+Si el runtime es incompatible, detente y explica qué actualización necesitaría autorización.
+
+## 4. Completar el diagnóstico autorizado
+
+Una vez instalado y cargado de forma segura, ejecuta como máximo **ocho inferencias locales**, utilizando el plan diagnóstico que ya quedó preparado.
+
+Conserva las condiciones previamente acordadas:
+
+- Casos sintéticos exclusivamente de desarrollo.
+- Configuración y prompt congelados antes de la primera llamada.
+- Respuestas crudas conservadas.
+- Sin repeticiones selectivas.
+- Sin alterar etiquetas esperadas.
+- Sin utilizar datos reservados para selección o evaluación final.
+- Sin ejecutar los scripts analizados.
+
+Comprueba especialmente:
+
+1. Comportamientos benignos sin falsos positivos.
+2. Identificación de IEX funcional como B02.
+3. Código almacenado sin invocación.
+4. Comportamientos multietiqueta.
+5. Credenciales almacenadas frente a autenticación legítima.
+6. Incertidumbre ante comandos irresolubles.
+7. Pipeline C con recuperación determinista no vacía.
+8. Procedencia correcta de las evidencias originales y recuperadas.
+
+Si el plan anterior tiene una distribución diferente, respétala y documenta su cobertura real.
+
+## 5. Supervisión de recursos
+
+Ejecuta las inferencias secuencialmente y vigila:
+
+- RAM y compromiso disponibles.
+- Memoria utilizada por Ollama y sus procesos descendientes.
+- Tiempo de cada inferencia.
+- Tokens de entrada y salida.
+- Truncamientos.
+- Errores del runtime.
+- Estado del circuito y los locks.
+
+Si la memoria cae por debajo de los márgenes de seguridad, detente inmediatamente y conserva todos los resultados completados.
+
+No realices reintentos automáticos.
+
+No supongas que ocho inferencias seguras certifican estabilidad indefinida.
+
+## 6. Evaluación rigurosa de calidad
+
+Para cada resultado, evalúa:
+
+- JSON válido.
+- Etiquetas B01–B07 esperadas y predichas.
+- Exactitud del conjunto de etiquetas.
+- Falsos positivos y falsos negativos.
+- Coherencia de la explicación.
+- Evidencias literales.
+- Soporte semántico.
+- Incertidumbre y riesgo.
+- Reconstrucciones inventadas.
+- Contradicciones.
+- Procedencia original/recuperada.
+- Capacidad real del pipeline C.
+
+Distingue los resultados validados automáticamente de las observaciones asistidas por IA y de la adjudicación humana.
+
+No declares que una respuesta es semánticamente correcta únicamente porque pasa Pydantic.
+
+No modifiques los umbrales científicos originales ni declares aprobado el modelo con estos ocho casos.
+
+## 7. Actualizar el informe
+
+Actualiza:
+
+`docs/local_model_gemma4_viability.md`
+
+Con:
+
+1. Memoria y compromiso medidos.
+2. Resultado del nuevo preflight.
+3. Instalación y digest del modelo.
+4. Configuración experimental.
+5. Número de inferencias realizadas.
+6. Resultados individuales.
+7. Calidad observada.
+8. Funcionamiento real de B y C.
+9. Errores semánticos.
+10. Consumo de memoria y rendimiento.
+11. Pruebas de regresión.
+12. Limitaciones y riesgos.
+13. Recomendación sobre si Gemma 4 12B merece una selección independiente.
+
+Emite una decisión final:
+
+- **CANDIDATO PROMETEDOR:** pasó suficientemente bien los controles diagnósticos y merece selección formal.
+- **NO APTO:** mostró defectos críticos o calidad insuficiente.
+- **BLOQUEADO OPERATIVAMENTE:** no se pudo evaluar por recursos o incompatibilidad.
+
+No confundas candidato prometedor con modelo científicamente aprobado.
+
+## 8. Preservar el proyecto
+
+Mantén intactas las Fases 1, 2 y 3.
+
+No rediseñes el frontend.
+
+No realices solicitudes a Gemini y conserva su ledger en **4/12**.
+
+No ejecutes muestras PowerShell, Base64, C#, URLs ni código generado por el modelo.
+
+No modifiques datasets, prompts, métricas o resultados históricos de Qwen.
+
+No inicies la selección completa de 72 inferencias ni la evaluación científica A/B/C de la Fase 4.
+
+Ejecuta las regresiones pertinentes. La última línea base reportada fue de **990 pruebas backend y 28 frontend aprobadas**.
+
+No ejecutes `git add`, `git commit`, `git push`, `git merge`, `git rebase`, `git reset --hard` ni `git clean`. Conserva todos los cambios locales en `develop`, sin staging.
+
+## 9. Resultado esperado
+
+No quiero otra auditoría general ni volver a la etapa de selección teórica de modelos.
+
+**Quiero que retomes el experimento Gemma 4 12B desde el punto exacto donde quedó bloqueado y lo ejecutes completamente si los recursos actuales lo permiten.**
+
+Al finalizar, informa claramente si Gemma 4 12B es suficientemente prometedor para pasar a la siguiente selección controlada, respaldando la decisión con las ocho inferencias reales y sus evidencias.
+
+Si no resulta viable, conserva todo y explica la alternativa mínima siguiente sin ejecutarla automáticamente.

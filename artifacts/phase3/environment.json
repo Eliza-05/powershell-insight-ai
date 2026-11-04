@@ -1,0 +1,12 @@
+{
+  "python": "3.13.3",
+  "packages": {
+    "fastapi": "0.162.0",
+    "uvicorn": "0.54.0",
+    "starlette": "1.10.0",
+    "pydantic": "2.14.2",
+    "pytest": "9.2.0",
+    "httpx": "0.28.1"
+  },
+  "new_real_inferences": 0
+}

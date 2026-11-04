@@ -1,0 +1,34 @@
+{
+  "1_initial_state": {
+    "ledger": "4/12",
+    "metadata_requests": 2,
+    "prior_38_generation_HTTP": 503,
+    "prior_36_generation_HTTP": 400,
+    "HTTP400_diagnostic": "unchanged_cause_indeterminate"
+  },
+  "2_model_configuration": {
+    "model": "gemini-3.8-flash",
+    "SDK": "google-genai 2.34.0",
+    "prompt": "Responde exclusivamente con la palabra OK.",
+    "generationConfig": {},
+    "tools": false,
+    "new_HTTP_requests": 1,
+    "retries": 0,
+    "fresh_owner_Free_tier_confirmation": true
+  },
+  "3_HTTP_result": 503,
+  "4_response": null,
+  "5_latency_tokens": {
+    "seconds": 1.4727664999991248,
+    "tokens": null,
+    "reason": "No model response or token usage returned"
+  },
+  "6_final_ledger": {
+    "used": 5,
+    "limit": 12,
+    "remaining": 7,
+    "old_prefix_preserved": true
+  },
+  "7_conclusion": "persistent_error_HTTP503_UNAVAILABLE_for_this_request",
+  "8_next_minimum_step": "Do not immediately spend more reservations on the same model. Wait for recovery and fresh quota confirmation before proposing another isolated request; no PowerShell-schema call is authorized by this probe."
+}

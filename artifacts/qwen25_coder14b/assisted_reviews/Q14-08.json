@@ -1,0 +1,16 @@
+{
+  "call_id": "Q14-08",
+  "result_sha256": "1883377c30bf2b233554c7d3daedc8dfe20b2f6ac7f6c00d98ac972f915c1bfd",
+  "at": "2026-11-04T02:17:10.986505+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "insufficient",
+  "notes": [
+    "Falso negativo B07: reconoce que Get-StoredCredential accede a credenciales almacenadas, pero elimina el hallazgo por asumir que el objetivo sint?tico no existe.",
+    "La taxonom?a clasifica la operaci?n est?tica, no exige extracci?n exitosa. El nombre de laboratorio no demuestra el estado efectivo de la m?quina ni la inexistencia del destino.",
+    "Riesgo benign e incertidumbre low se apoyan en esa suposici?n no verificada. No se ejecut? la muestra ni se consult? ninguna b?veda.",
+    "Contraste problem?tico: asign? B07 a Get-Credential en Q14-01 y no al acceso almacenado de Q14-08."
+  ]
+}

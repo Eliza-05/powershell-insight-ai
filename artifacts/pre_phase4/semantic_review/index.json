@@ -1,0 +1,279 @@
+{
+  "packets": [
+    {
+      "id": "development-V2-D01",
+      "packet_sha256": "a8ebc3bf4b3d0016da9545575e29c0b462408d541beee7d76156128cd039cc67",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D01.json"
+    },
+    {
+      "id": "development-V2-D02",
+      "packet_sha256": "27434004d31c625c39f9b681435e512dad544b1507b4d6810aed464611d7434f",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D02.json"
+    },
+    {
+      "id": "development-V2-D03",
+      "packet_sha256": "fedbd1781ea4fcafd1bef6cce5814094cb904285f7669b2567668dd4e0663416",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D03.json"
+    },
+    {
+      "id": "development-V2-D04",
+      "packet_sha256": "3938703e263016561a8cbc17dd33cabecdd2db177cc38b923aea579801a6fde3",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D04.json"
+    },
+    {
+      "id": "development-V2-D05",
+      "packet_sha256": "aa0fb7f2956b128ed0e4ce431b0ba7569cc6f32e4c2be677fd14c416ba7bb149",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D05.json"
+    },
+    {
+      "id": "development-V2-D06",
+      "packet_sha256": "3b78cb1e39519aaab4a9e2be365f648f0f60933ded687d49bbb7ebd4dfca1b55",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D06.json"
+    },
+    {
+      "id": "development-V2-D07",
+      "packet_sha256": "9c96d70a0625e012ab95d5a25ec7d9ce36c24ccbf5b4e77a0b42b25ea6ec018f",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D07.json"
+    },
+    {
+      "id": "development-V2-D08",
+      "packet_sha256": "79d5844721f427c5df87f76b48569877e937432851edc5b1880b7903b3ab8ca9",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D08.json"
+    },
+    {
+      "id": "development-V2-D09",
+      "packet_sha256": "9b202659c0dd6b690a115929a007785f6567d1d4f68155ef6a725b8cfa65aa82",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D09.json"
+    },
+    {
+      "id": "development-V2-D10",
+      "packet_sha256": "c7572e998246063be4c8273bab1bc516225dd414617327e2b8ee6d5cac4dd654",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D10.json"
+    },
+    {
+      "id": "development-V2-D11",
+      "packet_sha256": "3e78c41c43e49358b5719921c5d837af2188250cd1a0024d72580fa0bdc13962",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D11.json"
+    },
+    {
+      "id": "development-V2-D12",
+      "packet_sha256": "86a4641a9f0c605e5a09a938626086bdead571b4e27eb2596ac8261df1fd72cf",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D12.json"
+    },
+    {
+      "id": "development-V2-D13",
+      "packet_sha256": "442f2ef185aac0633d4be811dfb959638f7b296cb5cfa7c01a1b487c31489735",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D13.json"
+    },
+    {
+      "id": "development-V2-D14",
+      "packet_sha256": "c4df4a395d046286051bf43b448fde3feac6b603a7807cc5b3e098c05fff3ab7",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D14.json"
+    },
+    {
+      "id": "development-V2-D15",
+      "packet_sha256": "dd7ef93ebe36ede330740f4e645ab4a6111d3f1acb94e8a4d6925f2887faee14",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D15.json"
+    },
+    {
+      "id": "development-V2-D16",
+      "packet_sha256": "33ae283d7f6c8a3c447dfa3a1733c417365d457605b5a6f7132215099a19c7a5",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D16.json"
+    },
+    {
+      "id": "development-V2-D17",
+      "packet_sha256": "670b22c0af2d382c72378f84c6fb27bfef4eee2e0ca1c5b9ec771c7964190382",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D17.json"
+    },
+    {
+      "id": "development-V2-D18",
+      "packet_sha256": "61a896d2009dfaa1e5ef02e9cc8ba5faa291c5b21bb9d3f97702e1a16e36844c",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D18.json"
+    },
+    {
+      "id": "development-V2-D19",
+      "packet_sha256": "28e36dafd3897d70c4595d6d890a227c1c64d17b788858c4a8da50842e1768d0",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D19.json"
+    },
+    {
+      "id": "development-V2-D20",
+      "packet_sha256": "442bba088b7e8ab1d6cacfdf7f3ceb25de1f9384b4018f9cf7a8b8318b56eab6",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D20.json"
+    },
+    {
+      "id": "development-V2-D21",
+      "packet_sha256": "49be8bca92e9d0bf71da7222336e1599432fa3da1c916c29742c4c0d23ec4f6c",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D21.json"
+    },
+    {
+      "id": "development-V2-D22",
+      "packet_sha256": "5459f644e7b184aaeae04c77ff1a24c03f7ac3a037818568953ece2a4474c8fc",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D22.json"
+    },
+    {
+      "id": "development-V2-D23",
+      "packet_sha256": "b4d16a1beefc2b59950344f76a0499584e0380c00c4e31be6406d3ddf4e04d91",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D23.json"
+    },
+    {
+      "id": "development-V2-D24",
+      "packet_sha256": "e7df614133769767574c34fd1cec5cbf3022baec226ee14fe524e3273e14e2ad",
+      "path": "artifacts/pre_phase4/semantic_review/packets/development-V2-D24.json"
+    },
+    {
+      "id": "revision-V2-D01",
+      "packet_sha256": "01891be47481c10c92e8a1756fe1cf79d29628a2217f2d4ca9cb42b32df90942",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D01.json"
+    },
+    {
+      "id": "revision-V2-D02",
+      "packet_sha256": "28d0cf734ba07124c54ec2acdf556198aa144b04390761eeb065691fba844f89",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D02.json"
+    },
+    {
+      "id": "revision-V2-D03",
+      "packet_sha256": "ccc97d8d18d7da5bef6bac554781b1e3444032ffb046468320cdbb1004df9e37",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D03.json"
+    },
+    {
+      "id": "revision-V2-D04",
+      "packet_sha256": "d81cea7861f0f55c79a367ba79394dffd8f6006dd4b7d2169b5c09bdc59948fb",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D04.json"
+    },
+    {
+      "id": "revision-V2-D05",
+      "packet_sha256": "6cf75b17f326184e3e6f10eee693f797a0f6d194a6c2e674e848d818bae1cded",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D05.json"
+    },
+    {
+      "id": "revision-V2-D06",
+      "packet_sha256": "39f10fa0d4d8787750dc4331aa1b52e606258310d3d94381a8107c6522a5c914",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D06.json"
+    },
+    {
+      "id": "revision-V2-D07",
+      "packet_sha256": "4ecf8a77abd8a3c3e6c44a711f679e33138d0898da8d1e82ed8ee2914bdaa1a6",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D07.json"
+    },
+    {
+      "id": "revision-V2-D08",
+      "packet_sha256": "305af6f41b4b3828c16b8f6888472e0ebc3433d54661dcaeeb3f0e6cdd5b899e",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D08.json"
+    },
+    {
+      "id": "revision-V2-D09",
+      "packet_sha256": "c5f6f11e660b5858edabd3c5bf7a8d1950afa70b830763d44bd23a7d758569f4",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D09.json"
+    },
+    {
+      "id": "revision-V2-D10",
+      "packet_sha256": "6b2c9914878caeb12a7907a00ca10e13e377447b285424987996eea21c380f09",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D10.json"
+    },
+    {
+      "id": "revision-V2-D11",
+      "packet_sha256": "4b67fb624dfc90892e5786f155b2017e35328e43bc3ef8a3da417215118c4e24",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D11.json"
+    },
+    {
+      "id": "revision-V2-D12",
+      "packet_sha256": "59c14bfd697f00f7599cc0c2f91402c7baf9ee79cb7eee330c40ee9b80316fab",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D12.json"
+    },
+    {
+      "id": "revision-V2-D13",
+      "packet_sha256": "b71c8e21c7f7efa668ca8fb736a3c28b368bdbb103f637f75e9dd7a53c802f3d",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D13.json"
+    },
+    {
+      "id": "revision-V2-D14",
+      "packet_sha256": "c0013d170d275eb9462bfbb2b6b97b0fea0ef76d7d968f2d72626d5e8167d1cb",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D14.json"
+    },
+    {
+      "id": "revision-V2-D15",
+      "packet_sha256": "eefb44ee90518c01e68d93a68b4d361c6b3e4f7aa1cf5b82fbf1870e3df67018",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D15.json"
+    },
+    {
+      "id": "revision-V2-D16",
+      "packet_sha256": "9a61cd9856910ecf2f453f4673663604b11acec0fff1d0b94039039217203e59",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D16.json"
+    },
+    {
+      "id": "revision-V2-D17",
+      "packet_sha256": "0134e0128a96c016a32db172083927bbee41c396f9b7cb58cda025d90d76761e",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D17.json"
+    },
+    {
+      "id": "revision-V2-D18",
+      "packet_sha256": "5af91aaba4cbfbdb8079be146b5a56cc791441f3788662abadd1abf2d72c6a54",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D18.json"
+    },
+    {
+      "id": "revision-V2-D19",
+      "packet_sha256": "595698330acfd68176a6dcd64c93f33bbaadc44572563f1745aba964226febaf",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D19.json"
+    },
+    {
+      "id": "revision-V2-D20",
+      "packet_sha256": "5cab16e743bbf73a3e4bf23098cd0e5217a0727427e5796bc2022f43098de8fa",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D20.json"
+    },
+    {
+      "id": "revision-V2-D21",
+      "packet_sha256": "5901d8590ef3f5e0f322fa32f0b0fca9620a38975bbc9d8fdfe9872a3b618169",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D21.json"
+    },
+    {
+      "id": "revision-V2-D22",
+      "packet_sha256": "3a57f89e64cbe7f65a49b927adafc440057067b0f410be11de2b8e83b67a29f3",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D22.json"
+    },
+    {
+      "id": "revision-V2-D23",
+      "packet_sha256": "8bfc20ebe645eb8faca064893bbde905ca5b6318476d729f925a8e3407c7ba7a",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D23.json"
+    },
+    {
+      "id": "revision-V2-D24",
+      "packet_sha256": "c43395bf1ceae2341bb0a29a22ad2e742168676da39529454949abdfc480388d",
+      "path": "artifacts/pre_phase4/semantic_review/packets/revision-V2-D24.json"
+    },
+    {
+      "id": "phase2-01-B",
+      "packet_sha256": "77b5ce47546af9ccc6578017bb27a0d824ec87d7908585e97d268e42c8ef17eb",
+      "path": "artifacts/pre_phase4/semantic_review/packets/phase2-01-B.json"
+    },
+    {
+      "id": "phase2-01-C",
+      "packet_sha256": "133aee1fc5a9438290361c3288e66ece0dc696616c83dc4e0b8da0d1b307fd05",
+      "path": "artifacts/pre_phase4/semantic_review/packets/phase2-01-C.json"
+    },
+    {
+      "id": "phase2-02-B",
+      "packet_sha256": "e3d7ccf51cbbb37107e67f856102393eea4dadc97f11718732cf54e047eb9750",
+      "path": "artifacts/pre_phase4/semantic_review/packets/phase2-02-B.json"
+    },
+    {
+      "id": "phase2-02-C",
+      "packet_sha256": "f4fdc15b582eceace93f3cc4806ff332c663bac0db36767f20738f91b8913a2a",
+      "path": "artifacts/pre_phase4/semantic_review/packets/phase2-02-C.json"
+    },
+    {
+      "id": "phase2-03-B",
+      "packet_sha256": "6d6985d46e05e865289db88ca961443f9f52ea1b9565d2f06debe36726556fa5",
+      "path": "artifacts/pre_phase4/semantic_review/packets/phase2-03-B.json"
+    },
+    {
+      "id": "phase2-03-C",
+      "packet_sha256": "5f151e98b4f26b46b3900ef5a9b2a0dd57a7c66eddd4db77a22facc6031b3d1f",
+      "path": "artifacts/pre_phase4/semantic_review/packets/phase2-03-C.json"
+    }
+  ],
+  "human_decisions": 0,
+  "scope": "48 development/revision + 6 phase2; no selection output used for tuning",
+  "AI_assisted_observations": 54,
+  "semantic_support_rate": null,
+  "critical_fabrication_rate": null
+}

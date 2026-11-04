@@ -1,0 +1,171 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "phase2-03-B",
+  "stage": "phase2",
+  "raw_artifact": "artifacts/phase2/functional_03/B.json",
+  "raw_sha256": "1e1c18a44ac8c6be306f463f7a97000df33b0884f25ba3aece6e7f0fb56793e7",
+  "original": "& $phase2_unresolved",
+  "original_sha256": "5744ac9fd0e72fd0bd902f6ec1162f287b30c46325b90a3eb9426167f4e914ea",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "5744ac9fd0e72fd0bd902f6ec1162f287b30c46325b90a3eb9426167f4e914ea",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "& $phase2_unresolved",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "original_fragment": "$phase2_unresolved",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 2,
+          "end": 20,
+          "line": 1,
+          "column": 3,
+          "end_line": 1,
+          "end_column": 21
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 46,
+    "artifact_bytes": 18
+  },
+  "reference": {
+    "labels": null,
+    "unknown": true,
+    "human_approved": false
+  },
+  "reference_basis": "AI-assisted static diagnostic reference; human decision pending",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "& $phase2_unresolved",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The input contains an uninvoked command (`&`) referencing an unresolved variable (`$phase2_unresolved`). Without the definition of `$phase2_unresolved` or the execution of the command, no functional behavior can be determined. The command is inert in this context."
+      }
+    ],
+    "limitations": [
+      "Insufficient context to resolve variable `$phase2_unresolved`.",
+      "Command `&` is uninvoked; no execution or side effects can be confirmed.",
+      "No evidence of remote retrieval, credential access, or network activity."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions found in the input.",
+      "snippets": []
+    },
+    "recovered_content": [],
+    "risk_label": "unknown",
+    "risk_rationale": "The input is an uninvoked command referencing an undefined variable. Without the variable's definition or command execution, the behavior is unknown. No benign or malicious operations can be confirmed.",
+    "uncertainty": {
+      "level": "high",
+      "notes": "Variable `$phase2_unresolved` is undefined; command execution is not present.",
+      "uninterpretable_fragments": [
+        "$phase2_unresolved"
+      ]
+    }
+  },
+  "predicted_labels": [
+    "B01"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "& $phase2_unresolved",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": true,
+    "accepted": true
+  },
+  "historical_error": [],
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Unknown variable command name does not prove remote retrieval or generated-code evaluation. Prose in recovered_content is unverified, not a recovery."
+  },
+  "human_adjudication": null
+}

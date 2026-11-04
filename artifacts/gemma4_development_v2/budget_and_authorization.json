@@ -1,0 +1,21 @@
+{
+  "version": "gemma4-development-v2.0",
+  "state": "awaiting_explicit_owner_authorization",
+  "execution_authorized": false,
+  "maximum_new_inference_intents_requested": 12,
+  "new_inference_intents_reserved": 0,
+  "live_inferences": 0,
+  "retries": 0,
+  "sequential_only": true,
+  "seconds_per_call_max": 300,
+  "max_inference_deadline_seconds_total": 3600,
+  "ledger_for_future_authorized_v2_only": "inference_ledger.jsonl",
+  "no_ledger_created_and_no_spend_authorized_yet": true,
+  "v1_budget_is_separate_and_stopped": true,
+  "Gemini_budget_unchanged": "5/12",
+  "authorization_must_bind_FREEZE_and_accept_proposed_v2_references": true,
+  "v2_authorization_does_not_adjudicate_v1_personally": true,
+  "intents_must_be_fsynced_under_OS_gate_before_HTTP_including_failures": true,
+  "dispatch_must_match_frozen_request_hash_and_next_scheduled_ID": true,
+  "no_automatic_resume_after_operational_stop": true
+}

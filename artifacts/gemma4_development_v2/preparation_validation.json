@@ -1,0 +1,28 @@
+{
+  "network_or_model_clients_instantiated": false,
+  "static_recovery_only": true,
+  "scripts_executed": false,
+  "live_inferences": 0,
+  "call_count": 12,
+  "unique_script_units": 10,
+  "determinate_calls": 11,
+  "reference_positive_label_occurrences": 9,
+  "B_C_pairs": [
+    [
+      "V2-02",
+      "V2-03"
+    ],
+    [
+      "V2-10",
+      "V2-11"
+    ]
+  ],
+  "pairs_equal_original_and_policy_options_schema_verified": true,
+  "C_verified_nonempty_and_contains_authored_payload": true,
+  "references_and_ground_truth_never_in_request_files": true,
+  "all_context_upper_bounds_fit_8192_with_2048_output_reserve": true,
+  "largest_input_and_output_upper_bound": 6698,
+  "selection_or_final_test_data_read": false,
+  "reused_observed_v1_anchor_declared": "V2-01",
+  "human_references_accepted": false
+}

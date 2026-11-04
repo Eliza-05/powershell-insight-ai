@@ -1,0 +1,20 @@
+{
+  "packet_id": "revision-V2-D01",
+  "packet_sha256": "01891be47481c10c92e8a1756fe1cf79d29628a2217f2d4ca9cb42b32df90942",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

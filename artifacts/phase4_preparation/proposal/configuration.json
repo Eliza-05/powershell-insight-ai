@@ -1,0 +1,63 @@
+{
+  "version": "phase4-paired-proposal-v1",
+  "settings": {
+    "model": "qwen2.5-coder:14b",
+    "expected_digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "port": 11434,
+    "options": {
+      "temperature": 0.0,
+      "seed": 42,
+      "num_ctx": 8192,
+      "num_predict": 2048,
+      "num_gpu": 0,
+      "num_thread": 10,
+      "num_batch": 256,
+      "repeat_penalty": 1.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "top_k": 20,
+      "top_p": 0.95,
+      "min_p": 0.0
+    },
+    "think": false,
+    "keep_alive": "5m",
+    "timeout_seconds": 300.0,
+    "max_input_bytes": 65536,
+    "context_overhead_tokens": 512,
+    "minimum_margin_bytes": 2147483648,
+    "unloaded_reserve_bytes": 12858096384,
+    "loaded_growth_reserve_bytes": 1073741824
+  },
+  "runtime_minimum": "0.5.0",
+  "policy_sha256": "b4202d0ecfb2697b7476804ce757970f0c76aaf55c81e5e99d34ebc4e6bceb1a",
+  "schema_sha256": "cdffda726767477dc05d46455554ffb2b89dad9e7998df87d29aee04b1634ea7",
+  "physical_or_commit_margin_bytes": 2147483648,
+  "cold_required_bytes": 15005580032,
+  "warm_required_bytes": 3221225472,
+  "disk_free_minimum_bytes": 2147483648,
+  "new_model_downloads": 0,
+  "retries": 0,
+  "resume_policy": "No automatic resume. Explicit hash-bound owner resume only after reconciliation; never retry an intent.",
+  "empty_recovery_policy": "Keep C with verified_texts empty plus unresolved/limits; no invented successful recovery. Report the no-recovery stratum separately.",
+  "H1_primary": "delta micro F1 C-B on 14 fixed determinate units; all unusable outputs retained as coverage failures",
+  "H2_primary": "delta personally adjudicated unsupported-claim count C-B, strict cited/recovered policy; all raw outputs including rejected reports",
+  "statistics": {
+    "exact_cluster_swaps": true,
+    "H1_alternative": "C_greater",
+    "H2_alternative": "C_less",
+    "bootstrap_resamples": 2000,
+    "seed": 40716,
+    "multiplicity": "Two primary conditional tests: Holm adjustment reported alongside raw p; no automatic hypothesis acceptance",
+    "limitations": "Purposive small sample, common author, clustered mechanisms; p-values conditional on exchangeability, no population/causal conclusion"
+  },
+  "completion": {
+    "operational": "16 A records + 32 attempted terminal B/C records, intact checkpoints, no critical stop",
+    "scientific": "Operational completion plus personally approved references and complete hash-bound claim adjudication; performance does not gate completion"
+  },
+  "prepared_environment_only": {
+    "python": "3.13.3",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "execution_authorized_now": false,
+  "reference_review_complete": false
+}

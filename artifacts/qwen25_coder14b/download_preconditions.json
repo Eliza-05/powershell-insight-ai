@@ -1,0 +1,140 @@
+{
+  "state": {
+    "at": "2026-11-04T01:43:19.345019+00:00",
+    "version": {
+      "version": "0.40.13"
+    },
+    "tags": {
+      "models": [
+        {
+          "name": "qwen2.5-coder:7b",
+          "model": "qwen2.5-coder:7b",
+          "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+          "size": 4683087561,
+          "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 32768,
+            "embedding_length": 3584,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "insert"
+          ]
+        }
+      ]
+    },
+    "ps": {
+      "models": []
+    },
+    "memory": {
+      "monotonic": 48650.473708,
+      "physical_total_bytes": 33413771264,
+      "available_bytes": 19456569344,
+      "commit_limit_bytes": 52323479552,
+      "commit_used_bytes": 29764878336,
+      "commit_available_bytes": 22558601216,
+      "memory_load_percent": 41,
+      "processes": [
+        {
+          "pid": 19564,
+          "name": "ollama app.exe",
+          "parent": 12984,
+          "is_ollama_runtime": true,
+          "page_faults": 1554171,
+          "peak_working_set": 4235739136,
+          "working_set": 10633216,
+          "peak_paged_pool": 351200,
+          "paged_pool": 331776,
+          "peak_nonpaged_pool": 142656,
+          "nonpaged_pool": 28120,
+          "pagefile": 62443520,
+          "peak_pagefile": 4269977600,
+          "private": 62443520,
+          "cpu_seconds": 22.015625
+        },
+        {
+          "pid": 8,
+          "name": "ollama.exe",
+          "parent": 19564,
+          "is_ollama_runtime": true,
+          "page_faults": 156319,
+          "peak_working_set": 50675712,
+          "working_set": 17391616,
+          "peak_paged_pool": 607808,
+          "paged_pool": 342664,
+          "peak_nonpaged_pool": 117588,
+          "nonpaged_pool": 26760,
+          "pagefile": 67182592,
+          "peak_pagefile": 74739712,
+          "private": 67182592,
+          "cpu_seconds": 136.78125
+        },
+        {
+          "pid": 2684,
+          "name": "conhost.exe",
+          "parent": 8,
+          "is_ollama_runtime": true,
+          "page_faults": 9247,
+          "peak_working_set": 10211328,
+          "working_set": 20480,
+          "peak_paged_pool": 259744,
+          "paged_pool": 172048,
+          "peak_nonpaged_pool": 12224,
+          "nonpaged_pool": 10880,
+          "pagefile": 1679360,
+          "peak_pagefile": 1794048,
+          "private": 1679360,
+          "cpu_seconds": 0.140625
+        },
+        {
+          "pid": 10648,
+          "name": "python.exe",
+          "parent": 15932,
+          "is_ollama_runtime": false,
+          "page_faults": 10847,
+          "peak_working_set": 38215680,
+          "working_set": 37232640,
+          "peak_paged_pool": 179464,
+          "paged_pool": 179016,
+          "peak_nonpaged_pool": 18128,
+          "nonpaged_pool": 16872,
+          "pagefile": 25001984,
+          "peak_pagefile": 25886720,
+          "private": 25001984,
+          "cpu_seconds": 0.40625
+        }
+      ],
+      "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+    },
+    "disk": {
+      "total": 1022358786048,
+      "used": 448249024512,
+      "free": 574109761536
+    },
+    "disk_measurement_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai",
+    "model_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\PowerShellInsightAI-Local\\ollama-models",
+    "circuit_blocked": false
+  },
+  "passed": true,
+  "required_bytes": 15005580032,
+  "weights_upper_bytes": 9100000000,
+  "KV_f16_8192_bytes": 1610612736,
+  "buffers_runtime_bytes": 2147483648,
+  "margin_bytes": 2147483648,
+  "KV_formula": "2 K/V * 48 layers * 8 KV heads * 128 head dimension * 8192 tokens * 2 bytes",
+  "official_tag": "https://ollama.com/library/qwen2.5-coder:14b",
+  "official_architecture": "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct/blob/main/config.json",
+  "runtime_structured_outputs_since": "0.5.0",
+  "quantization_published": "Q4_K_M",
+  "existing_target": false
+}

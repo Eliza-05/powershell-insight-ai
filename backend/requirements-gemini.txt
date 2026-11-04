@@ -1,0 +1,4 @@
+# Optional experiment; does not replace the historical/application requirements.
+-r requirements-app.txt
+google-genai==2.34.0
+python-dotenv==1.2.4

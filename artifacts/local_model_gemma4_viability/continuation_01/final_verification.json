@@ -1,0 +1,126 @@
+{
+  "historical_files_checked": 9545,
+  "changed_or_missing_historical_files": [],
+  "changed_previous_Gemma_evidence": [],
+  "previous_report_snapshot_intact": true,
+  "frozen_sources_verified": 52,
+  "budget": {
+    "spent": 1,
+    "cap": 8,
+    "STOP_exists": true
+  },
+  "index_and_HEAD_unchanged": true,
+  "final_local_metadata": {
+    "version": {
+      "version": "0.40.13"
+    },
+    "tags": {
+      "models": [
+        {
+          "name": "gemma4:12b",
+          "model": "gemma4:12b",
+          "modified_at": "2026-11-03T14:03:19.4495327-05:00",
+          "size": 8021618941,
+          "digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+          "details": {
+            "parent_model": "imatrix-20260927-12b/model-q4_K_M.gguf",
+            "format": "gguf",
+            "family": "gemma4",
+            "families": [
+              "gemma4"
+            ],
+            "parameter_size": "11.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 3840,
+            "runner": "llamacpp"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "audio",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "qwen3.5:4b-q4_K_M",
+          "model": "qwen3.5:4b-q4_K_M",
+          "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+          "size": 3324173934,
+          "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+          "details": {
+            "parent_model": "model.gguf",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "4.2B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2560,
+            "runner": "llamacpp"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "qwen2.5-coder:7b",
+          "model": "qwen2.5-coder:7b",
+          "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+          "size": 4683087561,
+          "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 32768,
+            "embedding_length": 3584,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "insert"
+          ]
+        }
+      ]
+    },
+    "ps": {
+      "models": []
+    }
+  },
+  "circuit_blocked": false,
+  "memory_after": {
+    "available_bytes": 18275823616,
+    "commit_available_bytes": 26839822336,
+    "commit_used_bytes": 24827559936,
+    "physical_total_bytes": 33413771264,
+    "commit_limit_bytes": 51667382272
+  },
+  "report_link_errors": [],
+  "report_sha256": "efd2df517d4d0436faca13fe8185f139057d6f942db245c61c269625624169ee",
+  "new_files": [
+    "backend/app/services/llm/gemma4.py",
+    "experiments/gemma4_viability.py",
+    "backend/tests/pipelines/test_gemma4_viability.py"
+  ],
+  "tests": {
+    "backend_passed": 999,
+    "frontend_passed": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "report_UTF8_verified": true
+}

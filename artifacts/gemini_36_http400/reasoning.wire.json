@@ -1,0 +1,1 @@
+{"contents": [{"parts": [{"text": "{\"original\":\"$data = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('V3JpdGUtT3V0cHV0ICdnZW1pbmkgZGlhZ25vc3RpYyBlbmNvZGVkIGRhdGEgNzMxJw==')); Write-Output $data\"}"}], "role": "user"}], "tools": [], "generationConfig": {"maxOutputTokens": 8192, "thinkingConfig": {"include_thoughts": false, "thinking_level": "MEDIUM"}}}

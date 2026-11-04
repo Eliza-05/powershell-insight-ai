@@ -1,0 +1,265 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D17",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/017_V2-D17_r1.result.json",
+  "raw_sha256": "71a3ca2e50e85d627013beace3be966b8bb894b68a7d96060081deab4c9bd862",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'\n$null = $login\n",
+  "original_sha256": "5a054ad27282a632b8b190dd3662a054a4ce2670f78a4a641521fecb3c796f30",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "5a054ad27282a632b8b190dd3662a054a4ce2670f78a4a641521fecb3c796f30",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'\n$null = $login\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 151,
+          "end": 157,
+          "line": 3,
+          "column": 9,
+          "end_line": 3,
+          "end_column": 15
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 151,
+          "end": 157,
+          "line": 3,
+          "column": 9,
+          "end_line": 3,
+          "end_column": 15
+        },
+        "original_fragment": "$login",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 65,
+          "end": 142,
+          "line": 2,
+          "column": 10,
+          "end_line": 2,
+          "end_column": 87
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 142,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 87
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 151,
+          "end": 157,
+          "line": 3,
+          "column": 9,
+          "end_line": 3,
+          "end_column": 15
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 143,
+          "end": 157,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 15
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 197,
+    "artifact_bytes": 6
+  },
+  "reference": {
+    "case_id": "V2-D17",
+    "family_id": "V2-DEV-F09",
+    "expected_labels": [],
+    "expected_risk": "benign",
+    "risk_explanation": "Solicitud legitima de objeto de autenticacion; no se guarda, extrae ni transmite material.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D17-E01",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D17.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$login = Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+        "start": 56,
+        "end": 142,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 87,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D17-E02",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D17.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$null = $login",
+        "start": 143,
+        "end": 157,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 15,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [],
+    "exclusions": {
+      "B07": "Get-Credential por si solo no basta.",
+      "B02": "& invoca Write-Output fijo.",
+      "B06": "No operacion remota."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B05",
+        "explanation": "The script queries the host for credential input via Get-Credential, which requires user interaction and potentially captures input data.",
+        "evidence": [
+          {
+            "snippet": "Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The operation is an interactive credential prompt for a local sign-in object with no network transmission or persistence.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The script explicitly discards the credential object ($null = $login), limiting its functional impact to the input query itself."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed instructions to suppress findings or alter analysis were found."
+    },
+    "limitations": [
+      "The credential object is immediately discarded, so no stored-credential access (B07) or remote transmission (B01/B06) is confirmed.",
+      "The Get-Credential operation is limited to local interactive input; no remote vault lookup or network retrieval is evidenced."
+    ]
+  },
+  "predicted_labels": [
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Get-Credential -Message 'Academic sign-in object; no storage or transmission'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Get-Credential asks the user; it is not stored-credential access or host discovery. B05 is unsupported."
+  },
+  "human_adjudication": null
+}

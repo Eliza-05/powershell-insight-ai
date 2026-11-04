@@ -1,0 +1,157 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "13-stored-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/13-stored-P1.json",
+  "raw_sha256": "252d67d05caf2963bde3c565fb35d7e34c8f9add6490f08c2f2ba4d87b05c60e",
+  "original": "$stored = { Write-Output 'fixture 7319' }\nWrite-Output 'stored only'",
+  "original_sha256": "220403f5b22fb3f98c494802d9d53ae7e692594e995d3be8bfa2b493ce5c4429",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "220403f5b22fb3f98c494802d9d53ae7e692594e995d3be8bfa2b493ce5c4429",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$stored = { Write-Output 'fixture 7319' }\nWrite-Output 'stored only'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 10,
+          "end": 41,
+          "line": 1,
+          "column": 11,
+          "end_line": 1,
+          "end_column": 42
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 41,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 42
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 94,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [],
+    "limitations": [
+      "Static analysis of a single-line script block cannot confirm runtime execution or the actual output of 'Write-Output' commands without execution context.",
+      "The provided text is a minimal script block containing a variable assignment and a command output, lacking complex logic, network calls, or credential handling.",
+      "No evidence of remote content retrieval, code execution, persistence, defense evasion, discovery, network transmission, or credential access was found in the static text.",
+      "The text 'fixture 7319' appears to be a placeholder or test data rather than real content.",
+      "The string 'stored only' is a literal output string, not a command or instruction.",
+      "The variable assignment `$stored = { ... }` defines a script block but does not invoke it.",
+      "No obfuscation techniques were detected in the provided source.",
+      "The prompt did not request execution, so no runtime effects can be confirmed.",
+      "The content is too minimal to infer malicious intent or specific attack vectors beyond the presence of a script block.",
+      "The text does not contain any indicators of injection attempts or analyst manipulation beyond the instruction to report embedded manipulation (which is absent).",
+      "The source text is untrusted per instructions, but the lack of suspicious patterns suggests low risk.",
+      "The analysis is limited to the provided source inventory and cannot verify external behavior.",
+      "The script block is syntactically valid but functionally inert in a static context.",
+      "No specific behavior labels (B01-B07) are supported by the evidence.",
+      "The risk is low due to the benign nature of the code structure and lack of suspicious indicators.",
+      "The uncertainty is low as the code is simple and lacks hidden logic.",
+      "The prompt injection assessment is negative as no injection patterns were found.",
+      "The recovered content is limited to the literal strings in the source.",
+      "The obfuscation techniques list is empty as none were detected.",
+      "The limitations highlight the inability to verify execution and the minimal nature of the code.",
+      "The risk rationale states that the code is a simple script block with no malicious indicators.",
+      "The uncertainty notes that static analysis cannot confirm runtime behavior.",
+      "The prompt injection assessment notes no detected injection.",
+      "The recovered content includes the literal strings from the source.",
+      "The obfuscation techniques are empty.",
+      "The limitations include the inability to verify execution and the minimal nature of the code.",
+      "The risk rationale states that the code is a simple script block with no malicious indicators.",
+      "The uncertainty notes that static analysis cannot confirm runtime behavior.",
+      "The prompt injection assessment notes no detected injection.",
+      "The recovered content includes the literal strings from the source.",
+      "The obfuscation techniques are empty.",
+      "The limitations include the inability to verify execution and the minimal nature of the code."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No injection patterns detected in the provided source.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "$stored = { Write-Output 'fixture 7319' }",
+      "Write-Output 'stored only'"
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "Static analysis reveals a simple PowerShell script block defining a variable and a command. No evidence of remote retrieval, code execution, persistence, defense evasion, discovery, network transmission, or credential access was found. The content appears benign and lacks malicious indicators.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "Static analysis cannot confirm runtime execution or actual output of 'Write-Output' commands without execution context.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Etiquetas vacías correctas para bloque no invocado; reconoce que definir no es invocar. Respuesta válida pero con 32 limitaciones reiterativas o autorreferenciales, relevantes para coste y calidad explicativa. Acierto de etiquetas no implica revisión semántica independiente."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P1",
+  "request_sha256": "f9a0fe400ec8aa032ea35ef44cc0d3e15ed9453b7ad742e3480b9ec8a9fbaa51"
+}

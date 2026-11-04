@@ -1,0 +1,1 @@
+$name = 'fixture'; $text = ('{0}-{1}' -f $name, '842'); Write-Output $text

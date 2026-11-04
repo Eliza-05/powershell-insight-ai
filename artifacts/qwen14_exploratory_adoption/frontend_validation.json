@@ -1,0 +1,12 @@
+{
+  "unit_tests_passed": 29,
+  "unit_test_files": 3,
+  "build": "tsc -b && vite build",
+  "build_exit_code": 0,
+  "HTTP_React_API_A_integration_tests_passed": 1,
+  "HTTP_provider": "explicitly_simulated_offline",
+  "new_LLM_inferences": 0,
+  "smoke_server_closed": true,
+  "visual_redesign": false,
+  "visual_browser_QA_performed": false
+}

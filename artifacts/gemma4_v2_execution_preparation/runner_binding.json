@@ -1,0 +1,28 @@
+{
+  "schema_version": "gemma4-v2-controller-binding-v1",
+  "prepared_at_utc": "2026-11-03T23:42:20.905063+00:00",
+  "freeze_sha256": "f27f87d077856ac4a03966f7b9ddcfa266aa929cbbd01e327a88eff08e82e745",
+  "clarification_sha256": "a6b96a17ecba0db2d7c2ea105e1cbb05274119b2b1715c8f6fbecb1e90162032",
+  "source_sha256": {
+    "experiments/gemma4_v2/__init__.py": "4f56c385cb1b1e142a2a7ac4e6f3088d7e0baccfc2bac99f2951ed98b456009c",
+    "experiments/gemma4_v2/protocol.py": "dcbb0f01cf03a14b735c6a3bc65d59aaa121f77b8fde432b095670cf96af64d9",
+    "experiments/gemma4_v2/runner.py": "986d32eeac57aa829db269ab8c0ea8f25becbc3378572b2d2d8a90fda38b739c",
+    "experiments/gemma4_v2/evaluation.py": "c0571cfa09aa5e913a889c14c1b18ae17f7c0d5d63cd44332313f883072ee1df",
+    "experiments/gemma4_v2/__main__.py": "8013505af685066ff9dac025913e9ab956605a74f4d9043458d5577fc723d034",
+    "backend/tests/pipelines/test_gemma4_v2.py": "ca3b6dc11d46e6a09df18cd0245002936bb0e6c8c983b72881a09a1304f475a6",
+    "docs/gemma4_v2_execution_readiness.md": "96fcdd74d767e1d286a3be683bd02c72eab58a0e66e8162adec92a9595218acf",
+    "docs/gemma4_v2_reference_approval.md": "7cc37510f4ce824d4552c043a52f606d0133161c59813d3f7269977ebb8b76aa"
+  },
+  "validation": {
+    "backend_passed": 1038,
+    "new_controller_tests_passed": 39,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "junit_sha256": "bce8329c0b9b25d6f07d1f3a69aaa957eb3f79eb1ca260e4925c60eda16dfcc2",
+    "test_mode": "OFFLINE simulations only",
+    "real_v2_inferences": 0
+  },
+  "execution_authorized": false,
+  "binding_does_not_adjudicate_references": true
+}

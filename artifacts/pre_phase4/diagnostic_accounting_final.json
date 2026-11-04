@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-02T23:34:06.839040+00:00",
+  "authorization_sha256": "ad52715633dccb4e49fd94a272637bccd2f938569f1145b682d1bd154a1e30b8",
+  "authorization_ledger": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostic_authorization",
+  "cap": 24,
+  "active_plan": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostics_v3\\plan.json",
+  "active_plan_sha256": "6ee543ebe8f71151dd94660d3c9d50c08a96ff914a5fdc8a1daac7b62a01e4df",
+  "active_version": "readiness-development-v3",
+  "total_global_intents": 0,
+  "legacy_v1_intents": 0,
+  "server_inferences": 0,
+  "production_C_preflight_dispatched": false,
+  "checks": [
+    "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostics\\checks\\2026-11-02T23-22-02.449312+00-00-01-C-recovered-P0.json",
+    "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostics_v2\\checks\\2026-11-02T23-32-16.354572+00-00-01-C-recovered-P0.json",
+    "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostics_v3\\checks\\2026-11-02T23-33-34.526957+00-00-01-C-recovered-P0.json"
+  ],
+  "prior_plan_status": "v1/v2 superseded harness snapshots, preserved with 0 dispatch; prompt profiles unchanged",
+  "selection_calls": 0,
+  "unload": "not applicable: this work loaded no model"
+}

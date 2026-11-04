@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="23" skipped="0" tests="33" time="11.730" timestamp="2026-11-03T18:31:38.366026-05:00" hostname="AsusDeEliza"><testcase classname="tests.pipelines.test_gemma4_v2" name="test_complete_sequential_campaign_and_denominator_with_12_usable" time="0.176"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:170: in test_complete_sequential_campaign_and_denominator_with_12_usable
+    result = execute(rig)
+             ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_ordinary_first_false_positive_continues_and_can_pass_v2" time="0.175"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:188: in test_ordinary_first_false_positive_continues_and_can_pass_v2
+    execute(rig)
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_nine_exact_of_eleven_with_all_twelve_usable" time="0.178"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:202: in test_nine_exact_of_eleven_with_all_twelve_usable
+    execute(rig)
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_indeterminate_never_enters_label_metrics_but_has_own_gate" time="0.190"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:215: in test_indeterminate_never_enters_label_metrics_but_has_own_gate
+    execute(rig)
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_terminal_quality_failure_continues_and_is_not_a_true_negative[invalid_inner_JSON]" time="0.235"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:226: in test_terminal_quality_failure_continues_and_is_not_a_true_negative
+    execute(rig)
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_terminal_quality_failure_continues_and_is_not_a_true_negative[terminal_truncation]" time="0.368"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:226: in test_terminal_quality_failure_continues_and_is_not_a_true_negative
+    execute(rig)
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_critical_failures_stop_without_retry[tool]" time="0.435"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:241: in test_critical_failures_stop_without_retry
+    summary=execute(rig)
+            ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_critical_failures_stop_without_retry[wrong_model]" time="0.421"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:241: in test_critical_failures_stop_without_retry
+    summary=execute(rig)
+            ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_critical_failures_stop_without_retry[timeout]" time="0.388"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:241: in test_critical_failures_stop_without_retry
+    summary=execute(rig)
+            ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_critical_failures_stop_without_retry[no_terminal_ack]" time="0.416"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:241: in test_critical_failures_stop_without_retry
+    summary=execute(rig)
+            ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_insufficient_cold_memory_blocks_before_inference_and_preserves_measurement[available_bytes]" time="0.415"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'insufficient_memory'&#10;  Actual message: 'rebuilt_request_differs_from_freeze'">backend\tests\pipelines\test_gemma4_v2.py:253: in test_insufficient_cold_memory_blocks_before_inference_and_preserves_measurement
+    with pytest.raises(OperationalFailure,match="insufficient_memory"):execute(rig)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'insufficient_memory'
+E     Actual message: 'rebuilt_request_differs_from_freeze'</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_insufficient_cold_memory_blocks_before_inference_and_preserves_measurement[commit_available_bytes]" time="0.373"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'insufficient_memory'&#10;  Actual message: 'rebuilt_request_differs_from_freeze'">backend\tests\pipelines\test_gemma4_v2.py:253: in test_insufficient_cold_memory_blocks_before_inference_and_preserves_measurement
+    with pytest.raises(OperationalFailure,match="insufficient_memory"):execute(rig)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'insufficient_memory'
+E     Actual message: 'rebuilt_request_differs_from_freeze'</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_resource_margin_violation_cancels_and_leaves_closed_circuit" time="0.349"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:263: in test_resource_margin_violation_cancels_and_leaves_closed_circuit
+    summary=execute(rig)
+            ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_plan_integrity_change_prevents_any_client_dispatch" time="0.241" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_integrity_change_during_campaign_stops_before_next_call" time="0.368"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'frozen_source_or_plan_changed'&#10;  Actual message: 'rebuilt_request_differs_from_freeze'">backend\tests\pipelines\test_gemma4_v2.py:280: in test_integrity_change_during_campaign_stops_before_next_call
+    with pytest.raises(OperationalFailure,match="frozen_source_or_plan_changed"):execute(rig)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'frozen_source_or_plan_changed'
+E     Actual message: 'rebuilt_request_differs_from_freeze'</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_crash_after_reservation_is_spent_and_cannot_be_retried_after_restart" time="0.381"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:287: in test_crash_after_reservation_is_spent_and_cannot_be_retried_after_restart
+    with pytest.raises(SystemExit):execute(rig)
+                                   ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_checkpoint_cannot_be_converted_to_retry_even_with_resume_authorization" time="0.391"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:296: in test_missing_checkpoint_cannot_be_converted_to_retry_even_with_resume_authorization
+    with pytest.raises(SystemExit):execute(rig)
+                                   ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_budget_twelve_cannot_be_reused_by_second_run" time="0.407"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:306: in test_budget_twelve_cannot_be_reused_by_second_run
+    runner, server, auth=rig;execute(rig)
+                             ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_v1_result_cannot_be_imported_as_v2" time="0.297" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_literal_original_and_recovered_citations_have_verified_roots" time="0.457"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:323: in test_literal_original_and_recovered_citations_have_verified_roots
+    runner,_,_=rig;execute(rig);records=runner.completed_records()
+                   ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_rejected_provenance_citations_remain_in_literal_denominator" time="0.433"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:332: in test_rejected_provenance_citations_remain_in_literal_denominator
+    execute(rig);score=metrics(runner)
+    ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_no_private_reference_or_previous_answer_leaks_between_B_and_C" time="0.381"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:343: in test_no_private_reference_or_previous_answer_leaks_between_B_and_C
+    execute(rig)
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_personal_output_reviews_cannot_produce_quality_pass" time="0.350"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:357: in test_missing_personal_output_reviews_cannot_produce_quality_pass
+    runner,_,_=rig;execute(rig)
+                   ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_stale_review_hash_is_not_a_human_adjudication" time="0.354"><failure message="app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze">backend\tests\pipelines\test_gemma4_v2.py:364: in test_stale_review_hash_is_not_a_human_adjudication
+    runner,_,_=rig;execute(rig);records=runner.completed_records();reviews,hashes=reviews_for(runner,records)
+                   ^^^^^^^^^^^^
+backend\tests\pipelines\test_gemma4_v2.py:138: in execute
+    return runner.run(auth, exclusive_session_attested=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\runner.py:238: in run
+    script, _, _ = self.protocol.context(call)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+experiments\gemma4_v2\protocol.py:125: in context
+    require(sha(canonical(payload)) == call["request_sha256_canonical"], "rebuilt_request_differs_from_freeze")
+experiments\gemma4_v2\protocol.py:39: in require
+    raise OperationalFailure(code, code, "gemma_v2")
+E   app.services.pipelines.resources.OperationalFailure: rebuilt_request_differs_from_freeze</failure></testcase><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_or_incorrect_authorization_cannot_spend_a_reservation[execution_authorized-False]" time="0.283" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_or_incorrect_authorization_cannot_spend_a_reservation[references_accepted-False]" time="0.272" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_or_incorrect_authorization_cannot_spend_a_reservation[clarification_accepted-False]" time="0.272" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_or_incorrect_authorization_cannot_spend_a_reservation[maximum_inference_intents-13]" time="0.274" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_missing_or_incorrect_authorization_cannot_spend_a_reservation[exclusive_session_attested-False]" time="0.284" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_preflight_runtime_residency_and_disk_fail_closed[runtime]" time="0.336" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_preflight_runtime_residency_and_disk_fail_closed[other_resident]" time="0.338" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_preflight_runtime_residency_and_disk_fail_closed[disk]" time="0.374" /><testcase classname="tests.pipelines.test_gemma4_v2" name="test_campaign_OS_lock_excludes_concurrent_controller" time="0.170"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'v2_campaign_busy'&#10;  Actual message: 'Another v2 controller owns the OS lock'">backend\tests\pipelines\test_gemma4_v2.py:391: in test_campaign_OS_lock_excludes_concurrent_controller
+    with pytest.raises(OperationalFailure,match='v2_campaign_busy'):execute(rig)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'v2_campaign_busy'
+E     Actual message: 'Another v2 controller owns the OS lock'</failure></testcase></testsuite></testsuites>

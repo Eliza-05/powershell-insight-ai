@@ -1,0 +1,18 @@
+{
+  "authorized": true,
+  "source": "explicit_owner_chat_authorization",
+  "recorded_at": "2026-11-03T02:41:34.553988+00:00",
+  "model": "gemini-3.8-flash",
+  "maximum_generations": 10,
+  "quota_file": "artifacts\\gemini_r2\\quota_confirmation.json",
+  "project": "Default Gemini Project",
+  "billing_enabled": false,
+  "quota_verified_by": "owner_ai_studio_current_chat_report",
+  "panel_usage_reported": 0,
+  "panel_usage_scope": "owner_selected_period_not_independently_queried",
+  "binding_sha256": "7cf26caaa3f266107c069a9d95a02a2fc98f853079f9bcfe8549dd97f2887882",
+  "plan_sha256": "27cc113482dd40540b3c2c402e6bf5d571922d7bb037e6eb360061bfe4000877",
+  "no_metadata_queries": true,
+  "no_migration": true,
+  "phase4_started": false
+}

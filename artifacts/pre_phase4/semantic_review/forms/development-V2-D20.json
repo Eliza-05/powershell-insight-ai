@@ -1,0 +1,20 @@
+{
+  "packet_id": "development-V2-D20",
+  "packet_sha256": "442bba088b7e8ab1d6cacfdf7f3ceb25de1f9384b4018f9cf7a8b8318b56eab6",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "state": "closed_ineligible_no_approval",
+  "planned": 72,
+  "attempted": 4,
+  "usable": 3,
+  "not_executed": 68,
+  "maximum_possible_usable": 71,
+  "maximum_possible_rate": 0.9861111111111112,
+  "required_rate": 1.0,
+  "mandatory_gate_unreachable": true,
+  "classification_failure_inferred": false,
+  "valid_approval_by_resuming_original_run": false,
+  "historical_outputs_modified": false,
+  "model_approved": false,
+  "recorded_at": "2026-11-02T23:26:07.133229+00:00",
+  "method": "arithmetic consequence of mandatory all-72 gate; no new predictions or human review",
+  "historical_summary": {
+    "path": "experiments\\results\\pilot_v2\\pilot-v2_20261102T194623Z\\experiment_summary.json",
+    "sha256": "e551ce45a4acdf9fdb35b7d1faa6c096ce73de156c84a8d694c8f2e20a557bd5"
+  },
+  "thresholds": {
+    "path": "experiments\\freezes\\pilot-v2_20261102T194623Z\\thresholds.json",
+    "sha256": "f526703bd41b22325423448eb2440dde925eb2b729ad48d08da73d685d26e929"
+  },
+  "authority": {
+    "path": "experiments/reviews/pilot_v2_owner_global_approval.json",
+    "sha256": "013a442a721e099daa5a143f5c265d0b6b0ff8e09698870331739a6a4e09ecbc"
+  },
+  "failure_kind": "operational cancellation, not an observed classification error",
+  "effect_on_other_gates": "not fully assessable; no fabricated semantic/risk/injection pass",
+  "supersedes_current_status_only": "historical closure remains unchanged as-of-time; this is the terminal status",
+  "next_selection": "separate independent prospective protocol and explicit new budget; not authorized here"
+}

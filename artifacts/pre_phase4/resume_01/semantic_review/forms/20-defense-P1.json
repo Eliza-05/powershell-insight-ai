@@ -1,0 +1,25 @@
+{
+  "packet_id": "20-defense-P1",
+  "packet_sha256": "0e7edf1c0367f26191aaf81d750e12c73198aa45e78415cce3d01592fc76e4f6",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    },
+    {
+      "index": 1,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+[
+  {
+    "call_id": "Q14-01",
+    "gemma_equivalent": "V2-01",
+    "same_script_sha256": true,
+    "expected": [],
+    "qwen_raw": [
+      "B07"
+    ],
+    "qwen_admitted": [
+      "B07"
+    ],
+    "gemma_raw": [
+      "B05"
+    ],
+    "gemma_admitted": [
+      "B05"
+    ],
+    "qwen_seconds": 87.8868231000015,
+    "gemma_seconds": 82.93862950000039,
+    "gemma_RAM_available_min_bytes": 8612147200,
+    "gemma_tree_private_peak_bytes": 10240241664,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-02",
+    "gemma_equivalent": "V2-02",
+    "same_script_sha256": true,
+    "expected": [
+      "B05",
+      "B06"
+    ],
+    "qwen_raw": [
+      "B02"
+    ],
+    "qwen_admitted": [
+      "B02"
+    ],
+    "gemma_raw": [
+      "B02",
+      "B05",
+      "B06"
+    ],
+    "gemma_admitted": null,
+    "qwen_seconds": 274.01995270000043,
+    "gemma_seconds": 124.08467920000112,
+    "gemma_RAM_available_min_bytes": 9426845696,
+    "gemma_tree_private_peak_bytes": 10448416768,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-03",
+    "gemma_equivalent": "V2-03",
+    "same_script_sha256": true,
+    "expected": [
+      "B05",
+      "B06"
+    ],
+    "qwen_raw": [
+      "B05"
+    ],
+    "qwen_admitted": [
+      "B05"
+    ],
+    "gemma_raw": [
+      "B02",
+      "B05",
+      "B06"
+    ],
+    "gemma_admitted": [
+      "B02",
+      "B05",
+      "B06"
+    ],
+    "qwen_seconds": 102.53761369999847,
+    "gemma_seconds": 121.5692515999981,
+    "gemma_RAM_available_min_bytes": 9189580800,
+    "gemma_tree_private_peak_bytes": 11717181440,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-04",
+    "gemma_equivalent": "V2-10",
+    "same_script_sha256": true,
+    "expected": [],
+    "qwen_raw": [
+      "B02"
+    ],
+    "qwen_admitted": null,
+    "gemma_raw": [
+      "B05"
+    ],
+    "gemma_admitted": null,
+    "qwen_seconds": 262.1683191999982,
+    "gemma_seconds": 68.06311200000346,
+    "gemma_RAM_available_min_bytes": 9939062784,
+    "gemma_tree_private_peak_bytes": 11837906944,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-05",
+    "gemma_equivalent": "V2-11",
+    "same_script_sha256": true,
+    "expected": [],
+    "qwen_raw": [
+      "B02"
+    ],
+    "qwen_admitted": null,
+    "gemma_raw": [
+      "B05"
+    ],
+    "gemma_admitted": [
+      "B05"
+    ],
+    "qwen_seconds": 108.36219410000194,
+    "gemma_seconds": 83.25953409999784,
+    "gemma_RAM_available_min_bytes": 9274757120,
+    "gemma_tree_private_peak_bytes": 12126031872,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-06",
+    "gemma_equivalent": "V2-05",
+    "same_script_sha256": true,
+    "expected": [],
+    "qwen_raw": [
+      "B02"
+    ],
+    "qwen_admitted": [
+      "B02"
+    ],
+    "gemma_raw": [
+      "B02"
+    ],
+    "gemma_admitted": [
+      "B02"
+    ],
+    "qwen_seconds": 173.17886039999576,
+    "gemma_seconds": 64.81678159999865,
+    "gemma_RAM_available_min_bytes": 8867041280,
+    "gemma_tree_private_peak_bytes": 11834740736,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-07",
+    "gemma_equivalent": "V2-06",
+    "same_script_sha256": true,
+    "expected": [
+      "B02"
+    ],
+    "qwen_raw": [
+      "B02"
+    ],
+    "qwen_admitted": [
+      "B02"
+    ],
+    "gemma_raw": [
+      "B02"
+    ],
+    "gemma_admitted": [
+      "B02"
+    ],
+    "qwen_seconds": 202.02320019999752,
+    "gemma_seconds": 55.53662150000309,
+    "gemma_RAM_available_min_bytes": 9256730624,
+    "gemma_tree_private_peak_bytes": 11807264768,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  },
+  {
+    "call_id": "Q14-08",
+    "gemma_equivalent": "V2-07",
+    "same_script_sha256": true,
+    "expected": [
+      "B07"
+    ],
+    "qwen_raw": [],
+    "qwen_admitted": [],
+    "gemma_raw": [
+      "B07"
+    ],
+    "gemma_admitted": [
+      "B07"
+    ],
+    "qwen_seconds": 63.335827099996095,
+    "gemma_seconds": 61.399621199998364,
+    "gemma_RAM_available_min_bytes": 8763187200,
+    "gemma_tree_private_peak_bytes": 11821109248,
+    "caveat": "Same development input, single runs, different model and session. No statistical superiority claim."
+  }
+]

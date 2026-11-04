@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="0.7899869">
+    <testsuite name="integration/connected.test.tsx" timestamp="2026-11-02T23:11:31.328Z" hostname="AsusDeEliza" tests="1" failures="0" errors="0" skipped="0" time="0.7899869">
+        <testcase classname="integration/connected.test.tsx" name="renders deterministic findings and verified recovery through the running FastAPI server" time="0.7870391">
+        </testcase>
+    </testsuite>
+</testsuites>

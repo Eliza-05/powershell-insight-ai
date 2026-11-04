@@ -1,0 +1,11 @@
+{
+  "confirmed_at": "2026-11-03T19:22:42.775300+00:00",
+  "source": "explicit_owner_ai_studio_confirmation_in_current_chat",
+  "model": "gemini-3.8-flash",
+  "tier": "Free",
+  "billing_enabled": false,
+  "quota_available_for_one": true,
+  "remaining_rpd": 1,
+  "remaining_rpd_interpretation": "owner-confirmed lower bound of at least one, not independently queried exact quota",
+  "owner_response": "Confirmed Free tier, billing disabled and available quota for at least one generation."
+}

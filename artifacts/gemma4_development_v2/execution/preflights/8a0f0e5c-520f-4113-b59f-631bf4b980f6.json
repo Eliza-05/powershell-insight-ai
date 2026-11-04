@@ -1,0 +1,284 @@
+{
+  "call_id": "V2-04",
+  "attempt_id": "8a0f0e5c-520f-4113-b59f-631bf4b980f6",
+  "at": "2026-11-04T00:45:31.598903+00:00",
+  "initial": false,
+  "passed": true,
+  "version": {
+    "version": "0.40.13"
+  },
+  "tags": {
+    "models": [
+      {
+        "name": "gemma4:12b",
+        "model": "gemma4:12b",
+        "modified_at": "2026-11-03T14:03:19.4495327-05:00",
+        "size": 8021618941,
+        "digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+        "details": {
+          "parent_model": "imatrix-20260927-12b/model-q4_K_M.gguf",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "11.9B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 3840,
+          "runner": "llamacpp"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "audio",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen3.5:4b-q4_K_M",
+        "model": "qwen3.5:4b-q4_K_M",
+        "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+        "size": 3324173934,
+        "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+        "details": {
+          "parent_model": "model.gguf",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560,
+          "runner": "llamacpp"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen2.5-coder:7b",
+        "model": "qwen2.5-coder:7b",
+        "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+        "size": 4683087561,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      }
+    ]
+  },
+  "residents_response": {
+    "models": [
+      {
+        "name": "gemma4:12b",
+        "model": "gemma4:12b",
+        "size": 8744945580,
+        "digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma4",
+          "families": [
+            "gemma4"
+          ],
+          "parameter_size": "11.9B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-03T19:50:31.4033066-05:00",
+        "size_vram": 0,
+        "context_length": 8192,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "memory": {
+    "monotonic": 45182.7882649,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 9603809280,
+    "commit_limit_bytes": 52323479552,
+    "commit_used_bytes": 42931822592,
+    "commit_available_bytes": 9391656960,
+    "memory_load_percent": 71,
+    "processes": [
+      {
+        "pid": 19564,
+        "name": "ollama app.exe",
+        "parent": 12984,
+        "is_ollama_runtime": true,
+        "page_faults": 1525907,
+        "peak_working_set": 4235739136,
+        "working_set": 409600,
+        "peak_paged_pool": 351200,
+        "paged_pool": 331776,
+        "peak_nonpaged_pool": 142656,
+        "nonpaged_pool": 28256,
+        "pagefile": 62570496,
+        "peak_pagefile": 4269977600,
+        "private": 62570496,
+        "cpu_seconds": 21.6875
+      },
+      {
+        "pid": 8,
+        "name": "ollama.exe",
+        "parent": 19564,
+        "is_ollama_runtime": true,
+        "page_faults": 123653,
+        "peak_working_set": 50675712,
+        "working_set": 15826944,
+        "peak_paged_pool": 607808,
+        "paged_pool": 343576,
+        "peak_nonpaged_pool": 117588,
+        "nonpaged_pool": 26840,
+        "pagefile": 67383296,
+        "peak_pagefile": 74739712,
+        "private": 67383296,
+        "cpu_seconds": 131.84375
+      },
+      {
+        "pid": 2684,
+        "name": "conhost.exe",
+        "parent": 8,
+        "is_ollama_runtime": true,
+        "page_faults": 8515,
+        "peak_working_set": 10211328,
+        "working_set": 20480,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 12224,
+        "nonpaged_pool": 10880,
+        "pagefile": 1679360,
+        "peak_pagefile": 1794048,
+        "private": 1679360,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 29412,
+        "name": "python.exe",
+        "parent": 22716,
+        "is_ollama_runtime": false,
+        "page_faults": 414440,
+        "peak_working_set": 40411136,
+        "working_set": 17649664,
+        "peak_paged_pool": 168688,
+        "paged_pool": 168032,
+        "peak_nonpaged_pool": 26708,
+        "nonpaged_pool": 17080,
+        "pagefile": 31920128,
+        "peak_pagefile": 32837632,
+        "private": 31920128,
+        "cpu_seconds": 9.765625
+      },
+      {
+        "pid": 15780,
+        "name": "llama-server.exe",
+        "parent": 8,
+        "is_ollama_runtime": true,
+        "page_faults": 22452819,
+        "peak_working_set": 9768144896,
+        "working_set": 7852634112,
+        "peak_paged_pool": 169152,
+        "paged_pool": 166480,
+        "peak_nonpaged_pool": 89636,
+        "nonpaged_pool": 22584,
+        "pagefile": 11558051840,
+        "peak_pagefile": 11586244608,
+        "private": 11558051840,
+        "cpu_seconds": 3055.265625
+      },
+      {
+        "pid": 48856,
+        "name": "conhost.exe",
+        "parent": 15780,
+        "is_ollama_runtime": true,
+        "page_faults": 2360,
+        "peak_working_set": 7196672,
+        "working_set": 1163264,
+        "peak_paged_pool": 113696,
+        "paged_pool": 113424,
+        "peak_nonpaged_pool": 8704,
+        "nonpaged_pool": 8704,
+        "pagefile": 1331200,
+        "peak_pagefile": 1331200,
+        "private": 1331200,
+        "cpu_seconds": 0.015625
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "required_available_bytes": 3221225472,
+  "warm": true,
+  "disk_free_bytes": 562777104384,
+  "model": {
+    "name": "gemma4:12b",
+    "model": "gemma4:12b",
+    "modified_at": "2026-11-03T14:03:19.4495327-05:00",
+    "size": 8021618941,
+    "digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+    "details": {
+      "parent_model": "imatrix-20260927-12b/model-q4_K_M.gguf",
+      "format": "gguf",
+      "family": "gemma4",
+      "families": [
+        "gemma4"
+      ],
+      "parameter_size": "11.9B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 262144,
+      "embedding_length": 3840,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "audio",
+      "tools",
+      "thinking"
+    ]
+  },
+  "residents": [
+    {
+      "name": "gemma4:12b",
+      "model": "gemma4:12b",
+      "size": 8744945580,
+      "digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "gemma4",
+        "families": [
+          "gemma4"
+        ],
+        "parameter_size": "11.9B",
+        "quantization_level": "Q4_K_M"
+      },
+      "expires_at": "2026-11-03T19:50:31.4033066-05:00",
+      "size_vram": 0,
+      "context_length": 8192,
+      "runner": "llamacpp"
+    }
+  ],
+  "circuit_blocked": false,
+  "exclusive_session": "operator_attestation_and_application_OS_gate_not_universal_external_client_exclusion"
+}

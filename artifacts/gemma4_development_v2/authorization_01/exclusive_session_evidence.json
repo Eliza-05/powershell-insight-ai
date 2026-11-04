@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-04T00:39:34.465416+00:00",
+  "collector_pid": 49992,
+  "own_process_ancestor_ids": [
+    12984,
+    30812,
+    31688,
+    31904,
+    32472,
+    36740,
+    49144,
+    49992
+  ],
+  "relevant_process_inventory": [
+    {
+      "pid": 19564,
+      "parent": 12984,
+      "name": "ollama app.exe"
+    },
+    {
+      "pid": 8,
+      "parent": 19564,
+      "name": "ollama.exe"
+    },
+    {
+      "pid": 49144,
+      "parent": 31688,
+      "name": "python.exe"
+    },
+    {
+      "pid": 49992,
+      "parent": 49144,
+      "name": "python.exe"
+    }
+  ],
+  "foreign_inference_processes_observed": [],
+  "ps": {
+    "models": []
+  },
+  "application_gate_acquired": true,
+  "v2_campaign_lock_acquired": true,
+  "scope": "Point-in-time operator verification plus application OS exclusion; not a universal guarantee against future external clients",
+  "exclusive_session_attested": true,
+  "basis": "No residents, no local inference runners or unrelated Python/LM Studio/vLLM processes observed; both OS locks acquired; preflight passed."
+}

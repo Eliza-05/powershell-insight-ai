@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-04T02:16:25.413228+00:00",
+  "category": "B",
+  "checks": {
+    "operational_complete": true,
+    "usable": false,
+    "json": true,
+    "exact": false,
+    "precision": false,
+    "recall": false,
+    "F1": false,
+    "literal_citations": false,
+    "both_C_usable": false,
+    "stored_executed_distinction": false,
+    "no_systematic_benign_FP": false
+  },
+  "benign_FP_unique_families": [
+    "AUTH",
+    "STORED"
+  ],
+  "semantic_qualification": "Provisional until personal review; critical semantic defects can override this technical screening."
+}

@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-04T03:04:26.408050+00:00",
+  "decision_id": "Q14-EXPLORATORY-2026-11-03",
+  "report_sha256": {
+    "docs/qwen14_exploratory_delivery.md": "73ef599c7a4a05fd5eb0268b8c4596bb1f50f21875a8e7d3229eed6f30c64251",
+    "docs/qwen14_exploratory_abc.md": "0a602f9b1734d2311497a3cb5b96b528b8aa08a76e3e7e8eb6a63b0c8771c0d8",
+    "docs/decisions/qwen14_exploratory_adoption.md": "91ae0cd745fe6b52ed60efcd1fe049e1220f3ed3e081f6ecf9f76131443287f6",
+    "docs/prototype_exploratory.md": "cf70a0fb1eebf49600ace576387025715e60a0852ded3a36a623ce633d9f9844"
+  },
+  "code_sources_sha256": {
+    "backend/app/api/application.py": "08de7d95b251e20c3d97e76e4618db41e52300735a161a45faf14d4b291b429e",
+    "backend/app/services/llm/qwen14_prototype.py": "44e5a11b3244a233f31db59ce1ad55ae2d537942bd2bf20caa0928baadd7003d",
+    "experiments/qwen14_exploratory.py": "8e08604b35f0b0aae12783d189472244ff4017cd7fabef99991b163645688fc1"
+  },
+  "integrity_sha256": "1f3b27be21d191efc6c6766ac184fdd1575f4a9702c9c6c7626f415fa5b11fbe",
+  "backend_tests_passed": 1068,
+  "frontend_tests_passed": 29,
+  "HTTP_A_integration_passed": 1,
+  "build_passed": true,
+  "new_real_inferences": 0,
+  "Gemini_used": 5,
+  "Gemini_limit": 12,
+  "hypotheses_established": false,
+  "human_adjudications_pending": 8,
+  "local_report_links_valid": true
+}

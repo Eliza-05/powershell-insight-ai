@@ -1,0 +1,9 @@
+{
+  "authorized": false,
+  "prior_ledger_sha256": "b8d8fcf47f5727a000c2699c262a28262563c811fb47c8e5d495accbbbd302cf",
+  "confirmed_at": "SET_ONLY_AFTER_EXPLICIT_OWNER_APPROVAL_UTC",
+  "source": "pending_owner_approval",
+  "operation": "models.list",
+  "max_total_metadata_requests": 2,
+  "max_total_requests": 12
+}

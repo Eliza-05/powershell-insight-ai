@@ -1,0 +1,184 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D09",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/009_V2-D09_r1.result.json",
+  "raw_sha256": "221ae4626eefec92bb4e18b0b37d77e96e7f6b397dc81c988a3407eef91d949e",
+  "original": "# Synthetic academic fixture. Text only: never execute.\nGet-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace\n",
+  "original_sha256": "e5d06c36c3355b430001efd46232533d5f9eff54e280601c64660f4fd2a9e5a2",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "e5d06c36c3355b430001efd46232533d5f9eff54e280601c64660f4fd2a9e5a2",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\nGet-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 170,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "case_id": "V2-D09",
+    "family_id": "V2-DEV-F05",
+    "expected_labels": [
+      "B05"
+    ],
+    "expected_risk": "benign",
+    "risk_explanation": "Recopila identificadores y espacio de discos como inventario administrativo.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D09-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D09.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace",
+        "start": 56,
+        "end": 136,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 81,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D09-B05",
+        "behavior_id": "B05",
+        "evidence_ids": [
+          "V2-D09-E01"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "individual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [],
+        "technical_explanation": "Recopila identificadores y espacio de discos como inventario administrativo.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B02": "El launcher de la variante es envoltorio, no B02.",
+      "B04": "No modifica defensa."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B05",
+        "explanation": "The script queries host information by retrieving logical disk details.",
+        "evidence": [
+          {
+            "snippet": "Get-CimInstance -ClassName Win32_LogicalDisk",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "Select-Object DeviceID, FreeSpace",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The operation performs standard system inventory retrieval for display or storage, consistent with legitimate administrative tasks.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "No obfuscation or hidden behaviors detected; all operations are explicit and standard."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed manipulation or injection attempts found in the source text."
+    },
+    "limitations": [
+      "Analysis is limited to static text; dynamic execution effects cannot be verified.",
+      "No external tools or network access was available to validate data retrieval."
+    ]
+  },
+  "predicted_labels": [
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Get-CimInstance -ClassName Win32_LogicalDisk",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Select-Object DeviceID, FreeSpace",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Review operation, related input and strict cited context; matching label sets alone do not establish semantic support."
+  },
+  "human_adjudication": null
+}

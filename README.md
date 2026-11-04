@@ -1,155 +1,194 @@
 # PowerShell Insight AI
 
-LLM-powered static analysis and deobfuscation of PowerShell scripts for cybersecurity research.
+PowerShell Insight AI es una aplicación local para el análisis estático y la desofuscación de scripts PowerShell. Combina técnicas deterministas con modelos de lenguaje para identificar comportamientos relevantes para la seguridad, examinar evidencias y facilitar la interpretación del código.
 
-**Título académico:** Sistema inteligente de análisis estático, desofuscación y caracterización de scripts PowerShell mediante un modelo de lenguaje local.
+## Descripción
 
-Proyecto final de la asignatura **Ciberinteligencia**.
+La codificación, la concatenación de cadenas y otras formas de ofuscación dificultan la lectura de scripts PowerShell. La aplicación recupera contenido mediante transformaciones estáticas y presenta los fragmentos obtenidos junto con su procedencia, sin ejecutar el script.
 
-> **Estado: Fase 2 implementada con Qwen3.5 provisional bajo autorización prospectiva DEV-03.** [Integración A/B/C, uso y límites](docs/phase2_integration.md); [cierre técnico y pruebas reales, incluidos rechazos](docs/phase2_closure.md). El piloto v2 sigue **PENDIENTE / INCONCLUSO**: 58 intentos, 68 llamadas de selección pendientes; hashes, criterios e incidente de memoria conservados. Qwen3.5 no está validado científicamente. [Acta histórica](docs/phase_model_selection_closure.md). FastAPI/React y evaluación final no iniciados.
+El análisis con inteligencia artificial aporta una interpretación complementaria del código. La interfaz permite comparar esa interpretación con los resultados del motor determinista, consultar explicaciones y revisar las evidencias citadas. El proyecto surge de la investigación en ciberseguridad y mantiene un carácter experimental.
 
----
+## Características
 
-## 1. Descripción general
+- Carga de archivos UTF-8 o edición de texto PowerShell en el navegador.
+- Análisis estático sin ejecutar el código proporcionado.
+- Recuperación determinista de formas soportadas de Base64, concatenación y variables.
+- Identificación de comportamientos mediante reglas y análisis complementario con un LLM.
+- Comparación de los enfoques A, B y C en una misma interfaz.
+- Visualización de hallazgos, explicaciones, evidencias, recuperaciones e incertidumbres.
+- Validación de la literalidad y procedencia de las citas del modelo.
+- Exportación explícita de resultados en JSON.
 
-PowerShell Insight AI será una aplicación web para analizar de forma **estática** scripts PowerShell potencialmente maliciosos u ofuscados. El sistema intentará recuperar fragmentos de código ocultos mediante transformaciones controladas, identificar comportamientos con un motor de reglas determinista y apoyarse en un modelo de lenguaje ejecutado localmente (Ollama) para explicar esos comportamientos, validando cada afirmación contra evidencias concretas del script.
+## Cómo funciona
 
-## 2. Problema que aborda
-
-PowerShell es una herramienta legítima de administración presente en Windows, pero también es ampliamente utilizada en ataques (descarga y ejecución de cargas, persistencia, evasión de defensas). Los atacantes suelen ofuscar estos scripts (codificación Base64, concatenación, reordenamiento de cadenas, invocación dinámica) para dificultar su lectura y evadir firmas. El análisis manual es lento y requiere experiencia; los LLM prometen acelerar la interpretación, pero pueden fallar ante la ofuscación o producir afirmaciones sin respaldo.
-
-## 3. Objetivo principal
-
-Desarrollar y evaluar un prototipo que combine desofuscación estática, reglas deterministas y un LLM local para caracterizar scripts PowerShell, y medir experimentalmente si la desofuscación previa mejora la identificación y explicación de comportamientos.
-
-**Pregunta de investigación:** ¿En qué medida la desofuscación estática previa mejora la capacidad de un LLM local para identificar y explicar comportamientos potencialmente maliciosos en scripts PowerShell ofuscados?
-
-**Hipótesis (pendientes de evaluación, no comprobadas):**
-
-- **H1:** la desofuscación estática previa mejora el F1 en la identificación de comportamientos frente al análisis directo del LLM.
-- **H2:** la desofuscación estática previa reduce las afirmaciones no respaldadas por evidencia.
-
-## 4. Capacidades previstas
-
-- Carga y visualización de scripts PowerShell en un editor web.
-- Desofuscación estática (sin ejecutar el script) de técnicas comunes.
-- Identificación determinista de siete comportamientos funcionales (B01–B07) según una [taxonomía propia](docs/behavior_taxonomy.md), separada del registro de técnicas de ofuscación y de la valoración de riesgo.
-- Explicación asistida por un LLM local, con salida estructurada.
-- Validación y trazabilidad de evidencias (cada hallazgo vinculado a fragmentos del script).
-- Mapeo opcional a técnicas de MITRE ATT&CK.
-- Módulo de evaluación experimental para comparar configuraciones.
-
-## 5. Stack tecnológico
-
-| Componente | Tecnología |
+| Enfoque | Descripción |
 |---|---|
-| Piloto v2 del LLM | Dataset 24+24 aprobado globalmente y congelado; 6 tecnicas +24 desarrollo +24 revision +4 seleccion. Parada por compromiso <2 GiB; 68 pendientes, sin validacion. [Acta](docs/phase_model_selection_closure.md) |
-| Frontend | React + TypeScript + Vite |
-| Estilos | Tailwind CSS |
-| Editor de código | Monaco Editor (candidato) |
-| Backend | Python + FastAPI |
-| LLM | Ollama (local) |
-| Modelo del piloto v2 | Qwen3.5 4B Q4_K_M: pendiente/inconcluso, no validado; v1 permanece historico |
-| Validación estructurada | Pydantic |
-| Análisis experimental | Pandas + scikit-learn |
-| Pruebas de backend | Pytest |
-| MITRE ATT&CK | STIX 2.1 (opcional) |
+| **A — Análisis determinista** | Recuperación estática y detección mediante reglas. Funciona sin un LLM. |
+| **B — Análisis con IA** | Interpretación del script original mediante un modelo de lenguaje. |
+| **C — Análisis con IA y desofuscación** | Interpretación del original acompañado de contenido recuperado y verificado por el motor determinista. |
 
-El piloto v2 reutiliza el entorno existente de Ollama, Pydantic y Pytest, con transporte HTTP y contadores Windows de la biblioteca estandar; no instala dependencias nuevas. Los requisitos del piloto historico se conservan en [backend/requirements-pilot.txt](backend/requirements-pilot.txt).
-
-Para preparar el entorno local (`.venv`, Ollama, modelo, pruebas y piloto) en Windows, ver [docs/setup_windows.md](docs/setup_windows.md).
-
-## 6. Arquitectura general
-
-```text
-CLI / futura API ──► AnalysisService ──► A: desofuscador 1A + detector 1B
-                                    ├─► B: original ──► Ollama ──► validación
-                                    └─► C: original + evidencia 1A ──► Ollama ──► validación
+```mermaid
+flowchart LR
+    S["Script PowerShell"] --> A["A: recuperación y reglas"]
+    S --> B["B: IA sobre el original"]
+    S --> C["C: IA sobre original y recuperación"]
+    A --> R["Resultados y evidencias"]
+    B --> R
+    C --> R
 ```
 
-Detalle completo en [docs/architecture.md](docs/architecture.md).
+B y C comparten modelo, política, esquema y parámetros; C añade únicamente la recuperación estática, sin recibir etiquetas del detector ni respuestas de B. El backend procesa el texto y la interfaz React muestra los resultados.
 
-## 7. Estructura del repositorio
+Los comportamientos se organizan en siete categorías, B01–B07: descarga, ejecución dinámica funcional, persistencia, modificación de defensas, reconocimiento, otras comunicaciones de red y acceso a información de credenciales. Sus criterios se describen en la [taxonomía](docs/behavior_taxonomy.md). Detectar un comportamiento no implica que el script sea malicioso.
+
+## Tecnologías
+
+| Componente | Tecnologías |
+|---|---|
+| Backend | Python, FastAPI y Uvicorn |
+| Frontend | React, TypeScript, Vite y CSS propio |
+| IA local | Ollama y Qwen2.5-Coder 14B como modelo experimental configurado |
+| Validación | Pydantic y comprobación literal de evidencias |
+| Pruebas | Pytest, Vitest y Testing Library |
+
+Las dependencias se fijan en [requirements-app.txt](backend/requirements-app.txt), sus requisitos incluidos y [package-lock.json](frontend/package-lock.json).
+
+## Estructura del proyecto
 
 ```text
 powershell-insight-ai/
-├── frontend/src/            # Aplicación React (components, pages, services, hooks, types, utils)
-├── backend/
-│   ├── app/
-│   │   ├── api/             # Endpoints REST
-│   │   ├── core/            # Configuración y utilidades compartidas
-│   │   ├── schemas/         # Contratos Pydantic
-│   │   └── services/
-│   │       ├── deobfuscation/        # Motor de desofuscación estática
-│   │       ├── behavior_detection/   # Motor determinista de comportamientos
-│   │       ├── pipelines/            # Aplicación A/B/C y adaptador Ollama
-│   │       ├── llm/                  # Servicios históricos de los pilotos
-│   │       ├── evidence/             # Validación de evidencias
-│   │       └── threat_intelligence/  # MITRE ATT&CK (opcional)
-│   └── tests/               # Pruebas Pytest
-├── datasets/
-│   ├── safe_samples/        # Muestras benignas o inertes revisadas
-│   └── metadata/            # Inventarios, etiquetas, hashes y procedencia
-├── experiments/
-│   ├── prompts/             # Plantillas de prompts versionadas
-│   ├── evaluation/          # Scripts de métricas
-│   ├── configurations/      # Configuraciones A/B/C
-│   └── results/             # Resultados pequeños y revisados
-├── docs/                    # Documentación técnica y metodológica
-├── .env.example
-└── .gitignore
+├── backend/       # API, motores de análisis, proveedores y pruebas Python
+├── frontend/      # Interfaz React, componentes y pruebas de interfaz
+├── experiments/   # Configuraciones, controladores y evaluación experimental
+├── datasets/      # Textos controlados y metadatos de referencia
+├── docs/          # Documentación técnica y metodológica
+└── artifacts/     # Evidencias e informes de ejecuciones anteriores
 ```
 
-## 8. Metodología experimental (resumen)
+## Requisitos previos
 
-Se compararán tres configuraciones sobre un conjunto de scripts etiquetado:
+El entorno principal documentado es Windows con PowerShell:
 
-- **A — Reglas sin LLM:** desofuscación y detección deterministas.
-- **B — LLM directo:** el modelo analiza el script ofuscado sin preprocesamiento.
-- **C — Desofuscación + LLM:** el modelo recibe el script original y los elementos recuperados por el motor estático.
+- Git.
+- Python **3.13**; las dependencias se fijaron con Python 3.13.3.
+- Node.js **24** y npm.
 
-Se evaluarán la identificación de comportamientos (precision, recall, F1; evaluación principal), la calidad explicativa (validez de evidencias, afirmaciones no respaldadas) y la recuperación de código. El ground truth se construye con 20–30 scripts base propios (administrativos y simulaciones inertes) y variantes generadas de forma controlada, divididos por familias entre desarrollo y prueba. Los resultados de la evaluación controlada y de generalización se reportan por separado y, dado el tamaño del conjunto, se consideran exploratorios. Detalle en [docs/methodology.md](docs/methodology.md) y [docs/dataset_selection_plan.md](docs/dataset_selection_plan.md).
+La aplicación y el análisis A funcionan sin Ollama ni claves de API. Para B y C se necesita además Ollama en `127.0.0.1:11434`, el modelo configurado y memoria suficiente. El perfil CPU exige aproximadamente **14 GiB de RAM y compromiso disponibles para cargar el modelo en frío**; el backend comprueba los recursos antes de inferir.
 
-## 9. Estado actual
+## Instalación
 
-| Elemento | Estado |
-|---|---|
-| Estructura del repositorio | ✅ Creada |
-| Documentación inicial | ✅ Creada |
-| Fase 0A: auditoría documental de fuentes y diseño del dataset y del piloto | 📝 Documentación preparada, pendiente de aprobación |
-| Fase 0B: verificación de fuentes en entorno aislado | ↪️ Trasladada: prerrequisito antes de usar muestras externas (decisión D3, [roadmap](docs/roadmap.md)) |
-| Fase 0B: piloto del modelo en Ollama | ✅ Cerrada formalmente (2026-11-01); D2 aprobada con observaciones para las 20 anotaciones y la v0.2 completa. Qwen2.5-Coder 7B queda histórico, sin nuevas ejecuciones. Se mantienen DEV-02 y DEC-01 ([resultados](docs/pilot_results.md), [cierre](docs/phase0b_closure.md)); DEV-03 permite desarrollo de Fase 2 con Qwen3.5 provisional sin aprobar calidad |
-| Fase 1A: desofuscación estática | Aprobada, cerrada y publicada por el responsable en el [subconjunto documentado](docs/deobfuscator.md); 274 pruebas de referencia preservadas. [Acta y limitación residual de reproducibilidad binaria](docs/phase1a_closure.md) |
-| Fase 1B: detección determinista | Aprobada técnicamente y cerrada formalmente por el responsable: 12 reglas y siete categorías parciales; 488 pruebas aprobadas. FN P3/P7 aceptados. [Cierre formal](docs/phase1b_closure.md); [contrato y resultados](docs/behavior_detector.md). Publicación, dataset final y generador pendientes |
-| Dataset definitivo A/B/C | ⏳ No iniciado (solo plantillas) |
-| Motor de desofuscación | Implementado en el subconjunto de la Fase 1A: Base64, concatenación y variables; `-f` detectado sin resolución. [Contrato y límites](docs/deobfuscator.md) |
-| Motor de reglas | Aprobado en el [subconjunto documentado de B01–B07](docs/behavior_detector.md), sin riesgo ni LLM; no implica evaluación independiente definitiva |
-| Integración LLM | Implementada con Qwen3.5 provisional y servicios A/B/C. [Contratos, seguridad y limitaciones](docs/phase2_integration.md); [pruebas y estado de entrega](docs/phase2_closure.md). No implica aprobación científica |
-| Frontend | ⏳ No iniciado |
-| Experimento definitivo A/B/C | No iniciado; los pilotos de modelos son independientes de esa evaluacion |
+Ejecutar en PowerShell:
 
-## 10. Próximas fases
+```powershell
+git clone --branch develop https://github.com/Eliza-05/powershell-insight-ai.git
+cd powershell-insight-ai
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+.\.venv\Scripts\python.exe -m pip install -r backend/requirements-app.txt
+npm.cmd --prefix frontend ci
+```
 
-Ver [docs/roadmap.md](docs/roadmap.md). La integración permite preparar la Fase 3; la validación pendiente del modelo y la evaluación independiente siguen siendo obligaciones separadas. No se inicia la Fase 3 en esta entrega.
+Si PowerShell bloquea la activación, se puede continuar usando directamente `.\.venv\Scripts\python.exe`, como en los comandos de esta guía. No es necesario modificar la política de ejecución.
 
-## 11. Precauciones de seguridad
+El arranque predeterminado no requiere variables de entorno ni carga `.env` automáticamente. [.env.example](.env.example) describe la configuración disponible; las opciones avanzadas se explican en la [guía del prototipo](docs/prototype_exploratory.md).
 
-- El sistema realiza **exclusivamente análisis estático**: nunca ejecuta ni evalúa scripts.
-- El repositorio **no contiene malware real**. Las muestras externas solo podrán manejarse fuera del repositorio, en un entorno aislado, y los directorios correspondientes están excluidos por `.gitignore`. Ese entorno **aún no existe**; mientras tanto, el proyecto solo usa scripts propios y controlados.
-- El contenido de los scripts (comentarios, cadenas) se trata como entrada no confiable, incluida la prevención de *prompt injection* contra el LLM.
-- No se versionan secretos: usar `.env` local a partir de [.env.example](.env.example).
+Para comprobar las dependencias Python:
 
-Ver [docs/security.md](docs/security.md) y [docs/development.md](docs/development.md).
+```powershell
+.\.venv\Scripts\python.exe -m pip check
+```
 
-## 12. Referencias principales
+## Ejecución
 
-- Bohannon, D. *Invoke-Obfuscation*. https://github.com/danielbohannon/Invoke-Obfuscation
-- Bohannon, D. y Holmes, L. *Revoke-Obfuscation*. https://github.com/danielbohannon/Revoke-Obfuscation
-- Fa2y. *Malicious-PowerShell-Dataset*. https://github.com/Fa2y/Malicious-PowerShell-Dataset
-- Fang, Y., Zhou, X. y Huang, C. *Effective method for detecting malicious PowerShell scripts based on hybrid features*. Neurocomputing, 448, 2021 (MPSD). https://github.com/das-lab/mpsd
-- Microsoft. *Azure PowerShell documentation samples*. https://github.com/Azure-Samples/azure-docs-powershell-samples
-- MITRE. *ATT&CK STIX Data*. https://github.com/mitre-attack/attack-stix-data
-- MITRE ATT&CK — T1059.001 Command and Scripting Interpreter: PowerShell. https://attack.mitre.org/techniques/T1059/001/
-- Ollama. https://ollama.com
+Desde la raíz del repositorio, abrir dos terminales.
 
-Análisis de fuentes de datos en [docs/dataset_sources.md](docs/dataset_sources.md) y [docs/dataset_audit.md](docs/dataset_audit.md); plan del piloto en [docs/pilot_plan.md](docs/pilot_plan.md).
+**1. Iniciar el backend:**
+
+```powershell
+.\.venv\Scripts\python.exe -B -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --no-access-log
+```
+
+**2. Iniciar el frontend:**
+
+```powershell
+npm.cmd --prefix frontend run dev
+```
+
+**3. Abrir [http://127.0.0.1:5173](http://127.0.0.1:5173).** El frontend redirige las solicitudes `/api` al backend en el puerto 8000. Detener cada proceso con Ctrl+C en su terminal.
+
+Para comprobar los servicios sin generar inferencias:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8000/api/health
+Invoke-RestMethod http://127.0.0.1:8000/api/capabilities
+Invoke-RestMethod http://127.0.0.1:8000/api/provider/status
+```
+
+La salud de la API debe indicar `status=ok` y `static_only=true`. El proveedor puede aparecer como no disponible sin impedir el uso de A. El arranque y las consultas de estado no cargan el modelo ni generan respuestas de IA.
+
+A es el modo inicial de la interfaz. Pegar o cargar texto no inicia un análisis; este comienza al pulsar el botón correspondiente. B y C requieren Ollama disponible, y comparar A/B/C solicita ambos análisis con IA.
+
+### Interfaz compilada
+
+También es posible servir la aplicación desde FastAPI sin mantener Vite en ejecución:
+
+```powershell
+npm.cmd --prefix frontend run build
+.\.venv\Scripts\python.exe -B -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --no-access-log
+```
+
+Construir antes de iniciar el backend y abrir [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+## Configuración de modelos
+
+B y C utilizan **`qwen2.5-coder:14b` mediante Ollama**. Instalar Ollama siguiendo su [documentación oficial para Windows](https://docs.ollama.com/windows) e iniciarlo desde el menú Inicio. Si no hay un servidor activo, también se puede ejecutar `ollama serve` en otra terminal.
+
+Consultar modelos instalados y residentes no genera inferencias:
+
+```powershell
+ollama list
+ollama ps
+```
+
+La descarga del modelo es **opcional** y debe iniciarse expresamente si se desea usar B/C:
+
+```powershell
+ollama pull qwen2.5-coder:14b
+```
+
+Los pesos se almacenan en la ubicación configurada por Ollama y no deben añadirse al repositorio. El backend verifica el modelo y su digest esperado; si no coinciden o faltan recursos, informa la indisponibilidad sin cambiar automáticamente de modelo. `/api/capabilities` permite consultar el perfil configurado.
+
+Para opciones avanzadas mediante `PSI_PIPELINE_SETTINGS`, consultar la [guía del prototipo](docs/prototype_exploratory.md). El perfil estándar fija modelo, digest y puerto; cambiar de proveedor requiere una integración explícita. Existe trabajo experimental con Gemini Developer API, separado del proveedor predeterminado, descrito en la [documentación de Gemini](docs/gemini_viability.md).
+
+## Pruebas
+
+Desde la raíz, con las dependencias instaladas:
+
+```powershell
+$psiTestTemp = Join-Path $env:TEMP ('psi-tests-' + [guid]::NewGuid().ToString('N'))
+.\.venv\Scripts\python.exe -B -m pytest -q -p no:cacheprovider backend/tests --basetemp "$psiTestTemp" --tb=short
+npm.cmd --prefix frontend test -- --cache=false --fsModuleCache=false --configLoader=runner
+```
+
+Las pruebas de B/C utilizan respuestas simuladas, sin inferencias reales. Con el backend activo en el puerto 8000, se puede ejecutar la integración de interfaz y API, que usa únicamente A:
+
+```powershell
+npm.cmd --prefix frontend run test:integration -- --cache=false --fsModuleCache=false --configLoader=runner
+```
+
+## Documentación
+
+- [Arquitectura](docs/architecture.md): componentes y flujo de información.
+- [Taxonomía B01–B07](docs/behavior_taxonomy.md): criterios de los comportamientos identificados.
+- [Motor de desofuscación](docs/deobfuscator.md): transformaciones admitidas y límites.
+- [Guía del prototipo](docs/prototype_exploratory.md): ejecución y configuración del perfil de IA.
+- [Metodología](docs/methodology.md): diseño de la evaluación experimental.
+- [Desarrollo](docs/development.md): convenciones de código y contribución.
+
+## Consideraciones de seguridad
+
+- El análisis es exclusivamente estático. No ejecutar los scripts analizados ni el contenido recuperado o generado.
+- El motor cubre un subconjunto de PowerShell; una salida sin hallazgos no demuestra benignidad.
+- Los resultados del LLM pueden contener errores. Una cita literal y una procedencia válidas no garantizan que la interpretación sea correcta; las respuestas que incumplen el contrato o las comprobaciones de evidencia se rechazan.
+- La aplicación es experimental y no sustituye herramientas de seguridad validadas ni revisión humana.
+- Mantener los servicios en loopback y las credenciales fuera del repositorio y del frontend. No enviar muestras confidenciales a servicios externos.

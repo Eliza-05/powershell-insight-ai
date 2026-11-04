@@ -1,0 +1,24 @@
+{
+  "created_files": [
+    "backend/app/services/llm/gemini36.py",
+    "experiments/gemini_36.py",
+    "backend/tests/pipelines/test_gemini36.py",
+    "docs/gemini_36_viability.md"
+  ],
+  "modified_existing_code": [
+    "backend/app/services/llm/gemini.py"
+  ],
+  "authorized_ledger_append": "artifacts/gemini_viability/requests.jsonl",
+  "files_sha256": {
+    "backend/app/services/llm/gemini36.py": "d16bafc6123e6643cfcf3e710f81429193ed4566362b318e1b771908026a496b",
+    "experiments/gemini_36.py": "3de1e97c8a0d1731cadc90de95e54759ecdb335478b489193e883007e6148bf3",
+    "backend/tests/pipelines/test_gemini36.py": "f087bd38715539ede80ef15c03f7067da0115b6cb7eebb24f8eb289623cd34c3",
+    "docs/gemini_36_viability.md": "4ae0f9f7219fee9ca5a8fe740e6c03fea53bd701493d86d8de63b3bab97c4efe",
+    "backend/app/services/llm/gemini.py": "31c0d04a60345e829c66496876aec2dd9304873d5673b43ce97c9739bdb4a818"
+  },
+  "branch": "develop",
+  "git_write_operations": false,
+  "completed_at_utc": "2026-11-03T03:07:45.965580+00:00",
+  "scientific_selection_approved": false,
+  "phase4_started": false
+}

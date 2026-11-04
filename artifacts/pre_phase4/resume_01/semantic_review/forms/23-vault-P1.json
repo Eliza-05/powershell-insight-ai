@@ -1,0 +1,30 @@
+{
+  "packet_id": "23-vault-P1",
+  "packet_sha256": "9fb6ea1f2b354e837bd7e322ac80e6fb23e78fd05cc34c18577036e28701884e",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    },
+    {
+      "index": 1,
+      "strict_support": null,
+      "justification": ""
+    },
+    {
+      "index": 2,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

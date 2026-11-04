@@ -1,0 +1,16 @@
+{
+  "call_id": "Q14-02",
+  "result_sha256": "e143823ce3646d2618431297fb35b205b8029294cac233e22f9dca133b9da178",
+  "at": "2026-11-04T02:14:56.713123+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "insufficient",
+  "notes": [
+    "B02 injustificado por EncodedCommand que envuelve reconocimiento/conectividad; omite B05 y B06.",
+    "Reconstruye Get-Processes, Test-NewConnection y operandos distintos de la recuperaci?n determinista: contenido del modelo err?neo, no fuente verificada.",
+    "Cita el original codificado literalmente, sin soporte directo del comportamiento B02. Incertidumbre low y afirmaci?n de ausencia de ambig?edad contradicen los errores de reconstrucci?n.",
+    "Notas y justificaci?n repetitivas, algunas frases terminan incompletas; JSON completo y done_reason stop, sin atribuirlo a truncamiento t?cnico."
+  ]
+}

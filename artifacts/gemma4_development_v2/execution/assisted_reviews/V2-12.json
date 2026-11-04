@@ -1,0 +1,18 @@
+{
+  "call_id": "V2-12",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "5b747889ebb24aa474d48cd53cfaf8ab512f743ed3dcd6acb63562802432c309",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:56:10.950425+00:00",
+  "findings": [
+    {
+      "behavior_id": "B05",
+      "support": "insufficient",
+      "reason": "Formatting fixture-842 and Write-Output do not query host/user/network/software information. Explanation explicitly says no system-information query."
+    }
+  ],
+  "assessment": "Usable original full-script literal citation but ordinary false positive B05 under frozen benign control. Semantic explanation does not support assigned label.",
+  "risk_notes": "Benign/low appropriate to transparent formatting. Ordinary taxonomy mismatch, no invented substantive operation or reconstruction.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

@@ -1,0 +1,14 @@
+{
+  "packet_id": "18-C-recovered-P3",
+  "packet_sha256": "cfd505dfad1c736bda246d96f3a01de35379fb6c14b1fb2b5617c4e877461e62",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": []
+}

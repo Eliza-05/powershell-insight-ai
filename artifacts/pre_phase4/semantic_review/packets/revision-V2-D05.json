@@ -1,0 +1,389 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D05",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/005_V2-D05_r1.result.json",
+  "raw_sha256": "bdffcec47522bbbe931a237826a238dd120a64d5631a6f9c9aef7861a7787b70",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$action = New-ScheduledTaskAction -Execute 'Q:\\Academic\\missing-archive-job.exe'\n$trigger = New-ScheduledTaskTrigger -AtLogOn\nRegister-ScheduledTask -TaskName 'AcademicArchiveJob' -Action $action -Trigger $trigger\n",
+  "original_sha256": "4b5da42330ec6633420c776075116ff09f5aa224f4e3f5a009a945451b295a91",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "4b5da42330ec6633420c776075116ff09f5aa224f4e3f5a009a945451b295a91",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$action = New-ScheduledTaskAction -Execute 'Q:\\Academic\\missing-archive-job.exe'\n$trigger = New-ScheduledTaskTrigger -AtLogOn\nRegister-ScheduledTask -TaskName 'AcademicArchiveJob' -Action $action -Trigger $trigger\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 244,
+          "end": 251,
+          "line": 4,
+          "column": 63,
+          "end_line": 4,
+          "end_column": 70
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 244,
+          "end": 251,
+          "line": 4,
+          "column": 63,
+          "end_line": 4,
+          "end_column": 70
+        },
+        "original_fragment": "$action",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 261,
+          "end": 269,
+          "line": 4,
+          "column": 80,
+          "end_line": 4,
+          "end_column": 88
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 261,
+          "end": 269,
+          "line": 4,
+          "column": 80,
+          "end_line": 4,
+          "end_column": 88
+        },
+        "original_fragment": "$trigger",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 66,
+          "end": 136,
+          "line": 2,
+          "column": 11,
+          "end_line": 2,
+          "end_column": 81
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 136,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 81
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 148,
+          "end": 181,
+          "line": 3,
+          "column": 12,
+          "end_line": 3,
+          "end_column": 45
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 137,
+          "end": 181,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 45
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 244,
+          "end": 251,
+          "line": 4,
+          "column": 63,
+          "end_line": 4,
+          "end_column": 70
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 261,
+          "end": 269,
+          "line": 4,
+          "column": 80,
+          "end_line": 4,
+          "end_column": 88
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0002"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 351,
+    "artifact_bytes": 15
+  },
+  "reference": {
+    "case_id": "V2-D05",
+    "family_id": "V2-DEV-F03",
+    "expected_labels": [
+      "B03"
+    ],
+    "expected_risk": "suspicious",
+    "risk_explanation": "Registra ejecucion al iniciar sesion hacia un ejecutable ficticio; no se afirma exito.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D05-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D05.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$action = New-ScheduledTaskAction -Execute 'Q:\\Academic\\missing-archive-job.exe'",
+        "start": 56,
+        "end": 136,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 81,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D05-E02",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D05.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$trigger = New-ScheduledTaskTrigger -AtLogOn",
+        "start": 137,
+        "end": 181,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 45,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D05-E03",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D05.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Register-ScheduledTask -TaskName 'AcademicArchiveJob' -Action $action -Trigger $trigger",
+        "start": 182,
+        "end": 269,
+        "start_line": 4,
+        "end_line": 4,
+        "start_column": 1,
+        "end_column": 88,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D05-B03",
+        "behavior_id": "B03",
+        "evidence_ids": [
+          "V2-D05-E01",
+          "V2-D05-E02",
+          "V2-D05-E03"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "contextual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [
+          {
+            "from_evidence_id": "V2-D05-E01",
+            "to_evidence_id": "V2-D05-E03",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          },
+          {
+            "from_evidence_id": "V2-D05-E02",
+            "to_evidence_id": "V2-D05-E03",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          }
+        ],
+        "technical_explanation": "Registra ejecucion al iniciar sesion hacia un ejecutable ficticio; no se afirma exito.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B02": "Ejecutable local fijo no equivale a evaluacion dinamica.",
+      "B05": "Crear objetos no es inventario."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B03",
+        "explanation": "The script registers a scheduled task to execute a local executable upon system logon.",
+        "evidence": [
+          {
+            "snippet": "Register-ScheduledTask -TaskName 'AcademicArchiveJob' -Action $action -Trigger $trigger",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "$trigger = New-ScheduledTaskTrigger -AtLogOn",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "suspicious",
+    "risk_rationale": "Registering a task to run an executable at logon is a persistence mechanism. The target executable path is missing from the source, preventing verification of the payload's legitimacy.",
+    "uncertainty": {
+      "level": "medium",
+      "uninterpretable_fragments": [
+        "Q:\\Academic\\missing-archive-job.exe"
+      ],
+      "notes": "The executable path is a literal string in the source but lacks a file system check or verification step. The script does not download or generate the executable; it assumes its existence."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed instructions to suppress findings or alter analysis were found."
+    },
+    "limitations": [
+      "Static analysis cannot verify the existence or safety of the referenced executable.",
+      "The script does not perform remote retrieval, code generation, or credential access."
+    ]
+  },
+  "predicted_labels": [
+    "B03"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Register-ScheduledTask -TaskName 'AcademicArchiveJob' -Action $action -Trigger $trigger",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "$trigger = New-ScheduledTaskTrigger -AtLogOn",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Review operation, related input and strict cited context; matching label sets alone do not establish semantic support."
+  },
+  "human_adjudication": null
+}

@@ -1,0 +1,3 @@
+$source = 'public static class P4Deferred { ' + 'public static string Marker(){ return "not-called"; } }'
+$later = { Add-Type -TypeDefinition $source }
+$null = $source.Length

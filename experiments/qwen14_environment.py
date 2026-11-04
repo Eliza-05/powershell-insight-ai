@@ -1,0 +1,119 @@
+"""One-candidate environment audit. Metadata only; never executes specimen text."""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import urllib.request
+from datetime import datetime, timezone
+
+from experiments.pilot_v2_runtime.resources import snapshot
+from app.services.pipelines.resources import InferenceGate
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "artifacts/qwen25_coder14b"
+
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def save(name, value):
+    path = OUT / name
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("x", encoding="utf-8") as f:
+        json.dump(value, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+        f.flush()
+        os.fsync(f.fileno())
+
+
+def api(endpoint, payload=None):
+    assert endpoint in {"version", "tags", "ps", "show"}
+    request = urllib.request.Request("http://127.0.0.1:11434/api/" + endpoint,
+        data=None if payload is None else json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"})
+    with urllib.request.build_opener(urllib.request.ProxyHandler({})).open(request, timeout=15) as response:
+        return json.load(response)
+
+
+def remove_discarded_model(name):
+    """Official DELETE API; no command or specimen execution facility."""
+    assert name in {"gemma4:12b", "qwen3.5:4b-q4_K_M"}
+    request = urllib.request.Request("http://127.0.0.1:11434/api/delete",
+        data=json.dumps({"model":name}).encode(), method="DELETE",
+        headers={"Content-Type":"application/json"})
+    with urllib.request.build_opener(urllib.request.ProxyHandler({})).open(request,timeout=120) as response:
+        assert response.status == 200
+        return {"status":response.status,"body":response.read().decode("utf-8")}
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def state():
+    model_path = Path(os.environ.get("OLLAMA_MODELS") or Path.home()/".ollama/models")
+    # GetDiskFreeSpaceEx works on the accessible workspace on the same SSD volume.
+    assert model_path.drive.lower() == ROOT.drive.lower()
+    return {"at": now(), "version": api("version"), "tags": api("tags"), "ps": api("ps"),
+            "memory": snapshot(), "disk": dict(zip(("total", "used", "free"), shutil.disk_usage(ROOT))),
+            "disk_measurement_path": str(ROOT), "model_path": str(model_path),
+            "circuit_blocked": InferenceGate().marker.exists()}
+
+
+def baseline():
+    protected = {}
+    excluded = {"node_modules", ".venv", "__pycache__", ".pytest_cache", "dist", ".npm-cache"}
+    for base in ("artifacts", "experiments", "docs", "backend", "frontend", "datasets"):
+        for folder, dirs, files in os.walk(ROOT/base):
+            dirs[:] = [d for d in dirs if d not in excluded and Path(folder)/d != OUT]
+            for name in files:
+                path = Path(folder)/name
+                protected[path.relative_to(ROOT).as_posix()] = sha(path)
+    for name in (".git/index", ".git/HEAD", ".git/refs/heads/develop", ".gitignore", ".env.example", "README.md"):
+        path = ROOT/name
+        if path.is_file():
+            protected[name] = sha(path)
+    save("protected_before.json", protected)
+    value = state()
+    value["model_show"] = {m["name"]: api("show", {"model":m["name"]}) for m in value["tags"]["models"]}
+    save("inventory_initial.json", value)
+    print(json.dumps({"protected_files": len(protected), "inventory": value["tags"], "memory": value["memory"], "disk": value["disk"]}))
+
+
+def clean():
+    protected = json.loads((OUT/"protected_before.json").read_text(encoding="utf-8"))
+    assert all(sha(ROOT/name) == digest for name,digest in protected.items())
+    candidates = {
+        "gemma4:12b": ("6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b", "docs/gemma4_v2_results.md"),
+        "qwen3.5:4b-q4_K_M": ("d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04", "docs/phase_model_selection_closure.md"),
+    }
+    assert len((ROOT/"artifacts/gemma4_development_v2/execution/ledger.jsonl").read_text().splitlines()) == 12
+    assert len(list((ROOT/"artifacts/gemma4_development_v2/execution/results").glob("*.json"))) == 12
+    for number,(name,(digest,doc)) in enumerate(candidates.items(),1):
+        with InferenceGate():
+            before = state()
+            assert before["ps"]["models"] == []
+            assert not any("llama-server" in p["name"].lower() for p in before["memory"]["processes"])
+            model = next(m for m in before["tags"]["models"] if m["name"] == name)
+            assert model["digest"] == digest
+            save(f"cleanup/{number}_intent.json", {"model":model,"before":before,"closure":doc,
+                "authorization":"Explicit owner instruction: remove exactly documented discarded local weights; Qwen3.5 use ended by current instruction",
+                "history_manifest":"protected_before.json", "retained_7b_reason":"Historical instructions explicitly retain as reference; no subsequent release found"})
+            result = remove_discarded_model(name)
+            after = state()
+            record = {"identifier":name,"digest":digest,"official_delete_response":result,
+                "after":after,"observed_volume_free_delta_bytes":after["disk"]["free"]-before["disk"]["free"],
+                "attribution_limit":"Actual volume free-space delta includes concurrent OS/application writes; not assumed equal to advertised model size"}
+            save(f"cleanup/{number}_result.json", record)
+            assert all(m["name"] != name for m in after["tags"]["models"])
+            print(json.dumps({k:v for k,v in record.items() if k != "after"}))
+    save("inventory_after_cleanup.json", state())
+
+
+if __name__ == "__main__":
+    import sys
+    {"baseline":baseline,"clean":clean}[sys.argv[1]]()

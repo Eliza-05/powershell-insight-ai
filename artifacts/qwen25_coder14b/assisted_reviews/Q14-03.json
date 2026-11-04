@@ -1,0 +1,15 @@
+{
+  "call_id": "Q14-03",
+  "result_sha256": "60554e38453733261f09a98b6ad89ee5e891f9fdba18529a38e3eb548ecc6d79",
+  "at": "2026-11-04T02:14:56.721227+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "partial",
+  "notes": [
+    "B05 apoyado por Get-Process. Omite B06 y lo niega expl?citamente pese a citar Test-NetConnection.",
+    "Las dos citas T0001 son literales con procedencia recuperada correcta. recovered_content coincide con el texto suministrado; no demuestra decodificaci?n independiente del modelo.",
+    "C cambia B02 a B05 y elimina la reconstrucci?n incorrecta de B; mejora clasificaci?n parcialmente y cita operaciones visibles, sin alcanzar conjunto exacto."
+  ]
+}

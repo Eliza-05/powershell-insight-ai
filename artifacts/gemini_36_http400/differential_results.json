@@ -1,0 +1,65 @@
+{
+  "real_network_calls": 0,
+  "real_credentials_loaded": false,
+  "sdk_version": "2.34.0",
+  "api_version": "v1beta",
+  "exact_historical_body_reconstructed": true,
+  "matched_ledger_request_sha256": "b1caa8f279866234dc030a322c28594ddfb123fdbb58d9259421f19bfef1d762",
+  "reconstructed_body_sha256": "b1fd2c21d7adc7f0821ec993b60eec99df9c7a8a64c508fd03dea54369d5aa81",
+  "historical_artifact_sha256": "e3ea60928e6f300bf481c7e14a4c93e257483568a2b2ceb791c7e61aa9996c89",
+  "probes": {
+    "basic_text": {
+      "mock_http_calls": 1,
+      "sdk_returned_with_synthetic_response": true,
+      "local_wire_findings": [],
+      "generation_fields": [
+        "maxOutputTokens"
+      ],
+      "remote_acceptance": "not_tested"
+    },
+    "simple_json": {
+      "mock_http_calls": 1,
+      "sdk_returned_with_synthetic_response": true,
+      "local_wire_findings": [],
+      "generation_fields": [
+        "maxOutputTokens",
+        "responseJsonSchema",
+        "responseMimeType"
+      ],
+      "remote_acceptance": "not_tested"
+    },
+    "full_schema": {
+      "mock_http_calls": 1,
+      "sdk_returned_with_synthetic_response": true,
+      "local_wire_findings": [],
+      "generation_fields": [
+        "maxOutputTokens",
+        "responseJsonSchema",
+        "responseMimeType"
+      ],
+      "remote_acceptance": "not_tested"
+    },
+    "reasoning": {
+      "mock_http_calls": 1,
+      "sdk_returned_with_synthetic_response": true,
+      "local_wire_findings": [],
+      "generation_fields": [
+        "maxOutputTokens",
+        "thinkingConfig"
+      ],
+      "remote_acceptance": "not_tested"
+    },
+    "complete_historical": {
+      "mock_http_calls": 1,
+      "sdk_returned_with_synthetic_response": true,
+      "local_wire_findings": [],
+      "generation_fields": [
+        "maxOutputTokens",
+        "responseJsonSchema",
+        "responseMimeType",
+        "thinkingConfig"
+      ],
+      "remote_acceptance": "not_tested"
+    }
+  }
+}

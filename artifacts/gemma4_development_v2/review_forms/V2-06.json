@@ -1,0 +1,21 @@
+{
+  "call_id": "V2-06",
+  "status": "pending_future_output_and_personal_review",
+  "reference_labels_proposed": [
+    "B02"
+  ],
+  "reviewer": null,
+  "reviewed_at": null,
+  "human_confirmed": null,
+  "independent_reviewer": null,
+  "output_sha256": null,
+  "findings": null,
+  "literal_citation_checks": null,
+  "semantic_support_individual_contextual_insufficient": null,
+  "critical_reconstructions": null,
+  "contradictions": null,
+  "risk_uncertainty_assessment": null,
+  "injection_handling": null,
+  "recovered_provenance": null,
+  "notes": null
+}

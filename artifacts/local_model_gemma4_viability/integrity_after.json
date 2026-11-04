@@ -1,0 +1,80 @@
+{
+  "protected_files": 9545,
+  "changed_preexisting_files": [],
+  "missing_preexisting_files": [],
+  "index_unchanged": true,
+  "HEAD_unchanged": true,
+  "new_report": "docs/local_model_gemma4_viability.md",
+  "inference_attempts": 0,
+  "gemini_budget_unchanged": true,
+  "tests": {
+    "backend_tests.xml": [
+      {
+        "name": "pytest",
+        "errors": "172",
+        "failures": "0",
+        "skipped": "5",
+        "tests": "919",
+        "time": "79.821",
+        "timestamp": "2026-11-03T13:36:57.046980-05:00",
+        "hostname": "AsusDeEliza"
+      }
+    ],
+    "backend_tests_workspace_tmp.xml": [
+      {
+        "name": "pytest",
+        "errors": "12",
+        "failures": "0",
+        "skipped": "5",
+        "tests": "919",
+        "time": "29.443",
+        "timestamp": "2026-11-03T13:38:30.512234-05:00",
+        "hostname": "AsusDeEliza"
+      }
+    ],
+    "backend_tests_venv.xml": [
+      {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "990",
+        "time": "85.131",
+        "timestamp": "2026-11-03T13:40:01.012723-05:00",
+        "hostname": "AsusDeEliza"
+      }
+    ],
+    "frontend_tests.xml": [
+      {
+        "name": "src/test/App.test.tsx",
+        "timestamp": "2026-11-03T18:37:36.767Z",
+        "hostname": "AsusDeEliza",
+        "tests": "22",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "9.9150387"
+      },
+      {
+        "name": "src/test/Editor.test.ts",
+        "timestamp": "2026-11-03T18:37:36.782Z",
+        "hostname": "AsusDeEliza",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.0086213"
+      },
+      {
+        "name": "src/test/api.test.ts",
+        "timestamp": "2026-11-03T18:37:36.783Z",
+        "hostname": "AsusDeEliza",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.0243568"
+      }
+    ]
+  }
+}

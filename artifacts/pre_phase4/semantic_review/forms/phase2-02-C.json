@@ -1,0 +1,20 @@
+{
+  "packet_id": "phase2-02-C",
+  "packet_sha256": "f4fdc15b582eceace93f3cc4806ff332c663bac0db36767f20738f91b8913a2a",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "call_id": "V2-09",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "047eaebb8bbeef3a171ea71a3643317fa98fabbf68887710f0ed42c2f9e9477b",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:52:22.881040+00:00",
+  "findings": [
+    {
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "Unresolved command target is not evidence of interpreting built/retrieved/transformed/loaded code. & variable alone insufficient under frozen policy."
+    }
+  ],
+  "assessment": "Usable literal original citation, but independent abstention control fails: B02 instead of labels[], suspicious instead of unknown. High uncertainty recognized, yet fragments list unknownCommand without the required literal $unknownCommand. Notes contain dollar-prefixed variable but frozen field criterion concerns uninterpretable_fragments.",
+  "metric_treatment": "Reference remains null; excluded from exact sets, TP/FP/FN, P/R/F1 and true negatives. Unsupported B02 here is qualitative overclassification, not an extra quantitative FP.",
+  "risk_notes": "Risk suspicious is generic mechanism speculation despite unresolved target; no concrete payload invented.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

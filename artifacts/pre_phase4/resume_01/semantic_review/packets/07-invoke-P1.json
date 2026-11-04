@@ -1,0 +1,213 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "07-invoke-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/07-invoke-P1.json",
+  "raw_sha256": "12d23ec16d5a20cbdc54ff59e0b4a71da566bd9064c35499745102bf9ac2fc5f",
+  "original": "$code = \"Write-Output 'fixture 7319'\"\nInvoke-Expression $code",
+  "original_sha256": "b3d74094c8ed7138c75398bf8744bbe381d479c11368b33f7cd0951c17efed3b",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "b3d74094c8ed7138c75398bf8744bbe381d479c11368b33f7cd0951c17efed3b",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$code = \"Write-Output 'fixture 7319'\"\nInvoke-Expression $code",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 37,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 38
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 37,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 38
+        },
+        "original_fragment": "$code = \"Write-Output 'fixture 7319'\"",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_definition",
+        "recovered_text": "Write-Output 'fixture 7319'",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 61,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 61,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "original_fragment": "$code",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_use",
+        "recovered_text": "Write-Output 'fixture 7319'",
+        "recovered_bytes_base64": null,
+        "dependencies": [
+          "T0001"
+        ],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 177,
+    "artifact_bytes": 96
+  },
+  "reference": {
+    "labels": [
+      "B02"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [],
+    "limitations": [
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution.",
+      "Static analysis cannot verify the runtime effect of Invoke-Expression on arbitrary strings without execution."
+    ],
+    "obfuscation_techniques": [
+      "OT-CONCAT",
+      "OT-VARSUB"
+    ],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "The string 'fixture 7319' is a literal value, not an instruction. The code structure is a standard PowerShell pattern for executing a string variable, which is a common benign practice but also a vector for injection if the variable content were untrusted. Here, the content is static.",
+      "snippets": [
+        "$code = \"Write-Output 'fixture 7319'\"",
+        "Invoke-Expression $code"
+      ]
+    },
+    "recovered_content": [
+      "$code = \"Write-Output 'fixture 7319'\"",
+      "Invoke-Expression $code"
+    ],
+    "risk_label": "unknown",
+    "risk_rationale": "The code invokes a string variable containing a literal Write-Output command. While the literal itself is benign, the use of Invoke-Expression on a variable is a dynamic evaluation pattern that can be used to execute arbitrary code if the variable were populated with malicious content. Without runtime execution, the actual behavior and potential for injection cannot be confirmed. The static text does not contain malicious payloads, but the mechanism (Invoke-Expression) carries inherent risk if the input source is untrusted.",
+    "uncertainty": {
+      "level": "medium",
+      "notes": "The code structure is standard but dynamic. The specific payload is benign, but the invocation method is a known vector for code execution if the variable content were dynamic or untrusted. Static analysis cannot confirm the variable's origin or content at runtime.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "invalid_response",
+    "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [], 'limita...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+  },
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Omisión de B02 pese a IEX explícito. Confunde identificar una operación estática con confirmar efectos en runtime; repite 32 veces una limitación y viola la coherencia de inyección. Rechazo conservado, sin reparar la predicción."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "invalid_response",
+      "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [], 'limita...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+    }
+  },
+  "profile": "P1",
+  "request_sha256": "2f88b02c2a3e6ce5cff57fa9e8adfa19d1888e9cc47a1812ff17519457a38edb"
+}

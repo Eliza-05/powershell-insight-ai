@@ -1,0 +1,59 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B02",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Get-Process -Name 'v2-synthetic-missing-842'",
+          "source_id": "T0001"
+        }
+      ],
+      "explanation": "The decoded command performs a functional evaluation by attempting to query a specific process name ('v2-synthetic-missing-842') on the local system."
+    },
+    {
+      "behavior_id": "B05",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Get-Process -Name 'v2-synthetic-missing-842'",
+          "source_id": "T0001"
+        }
+      ],
+      "explanation": "The command queries host information by attempting to identify a specific running process."
+    },
+    {
+      "behavior_id": "B06",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Test-NetConnection -ComputerName 'v2-lab.example.invalid'",
+          "source_id": "T0001"
+        }
+      ],
+      "explanation": "The command attempts to establish network connectivity to a specified remote computer name ('v2-lab.example.invalid')."
+    }
+  ],
+  "limitations": [
+    "The decoded text is provided via recovery; syntactic validity and actual reachability of the target host are not verified.",
+    "The intent of the process name 'v2-synthetic-missing-842' is unknown."
+  ],
+  "obfuscation_techniques": [
+    "OT-B64-ENCCMD"
+  ],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No adversarial instructions detected in the provided input.",
+    "snippets": []
+  },
+  "recovered_content": [
+    "Get-Process -Name 'v2-synthetic-missing-842'; Test-NetConnection -ComputerName 'v2-lab.example.invalid'"
+  ],
+  "risk_label": "suspicious",
+  "risk_rationale": "The use of Base64 encoded commands (OT-B64-ENCCMD) to execute process queries and network connectivity tests is a common technique for concealing discovery activities. While the specific target and process name appear synthetic, the combination of process enumeration and network probing is characteristic of reconnaissance.",
+  "uncertainty": {
+    "level": "medium",
+    "notes": "The specific purpose of the 'v2-synthetic-missing-842' process is unknown, and the target host 'v2-lab.example.invalid' is a non-routable/invalid domain.",
+    "uninterpretable_fragments": []
+  }
+}

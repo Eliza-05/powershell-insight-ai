@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-04T04:15:15.885255+00:00",
+  "candidate_sha256": "c7c0dc327291f7647d5093d2d729185d297fc70f55853f727ef511659411da64",
+  "candidate_files": 139,
+  "approved_freeze": false,
+  "execution_authorized": false,
+  "documents_sha256": {
+    "docs/phase4_preparation_delivery.md": "53e0c8f2663997e73d42bd2dac9b0974e281644aecd5a68d12d488fc591a6dff",
+    "docs/phase4_protocol_proposed.md": "0c6165a50348cf99ee8fe8a0b580b90b9a2d12459b68fb5e8bebe18f7aa24af0",
+    "docs/phase4_references_proposed.md": "57d0b14318acd0808998f523a50cec81469cb00d4fdc2788d884e8b788485ffb",
+    "docs/phase4_independence_review.md": "11c77314e866f35dc105f65835f470526e8a7095084a08e60f670c79f3caea55",
+    "docs/phase4_human_review.md": "a85bd5deb939ac27ef912b8d37489826fdb362934e8a01da5b2a334a6f397df7"
+  },
+  "validation_sha256": "fdb4ecd957a220945af0771091d4a802cacd3de446d03b1e1a2ece4f0767207f",
+  "integrity_sha256": "12f72218ea660ea80ca70c89cc4136320c424b804e30ae8f488748f2174bd4d4",
+  "units": 16,
+  "recovery_nonempty_units": 8,
+  "proposed_LLM_intents": 32,
+  "new_real_inferences": 0,
+  "references_personally_approved": false,
+  "hypotheses_automatically_approved": false,
+  "local_links_valid": true,
+  "review_packets": 16,
+  "Git_write_operations": 0
+}

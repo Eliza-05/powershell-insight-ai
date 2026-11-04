@@ -1,0 +1,14 @@
+{
+  "packet_id": "08-invoke-P2",
+  "packet_sha256": "eb118fdb6ddb6b697fd95c7509a4e999ffb0645770c10903dd75ede99319ac4b",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": []
+}

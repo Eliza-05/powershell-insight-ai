@@ -1,0 +1,64 @@
+{
+  "at": "2026-11-04T00:56:45.593000+00:00",
+  "protected_existing_file_count": 177,
+  "changed_protected_files": [],
+  "freeze_verified": true,
+  "runner_binding_verified": true,
+  "gemini_ledger_count": 5,
+  "gemini_ledger_sha256": "dd2a7f346118155de25e68f1ab2ded45bc28dfbffa722b7c25e529d8ef75d60b",
+  "local_dispatch_intents": 12,
+  "unique_attempt_ids": 12,
+  "sequential_order": [
+    "V2-01",
+    "V2-02",
+    "V2-03",
+    "V2-04",
+    "V2-05",
+    "V2-06",
+    "V2-07",
+    "V2-08",
+    "V2-09",
+    "V2-10",
+    "V2-11",
+    "V2-12"
+  ],
+  "completed_results": 12,
+  "mode_counts": {
+    "B": 10,
+    "C": 2
+  },
+  "STOP_exists": false,
+  "human_output_reviews": 0,
+  "assisted_output_reviews": 12,
+  "pairs": [
+    {
+      "B": "V2-02",
+      "C": "V2-03",
+      "same_original": true,
+      "identical_system_policy_schema_model_options": true,
+      "only_extra_C_user_key": true,
+      "verified_text_source_ids": [
+        "T0001"
+      ]
+    },
+    {
+      "B": "V2-10",
+      "C": "V2-11",
+      "same_original": true,
+      "identical_system_policy_schema_model_options": true,
+      "only_extra_C_user_key": true,
+      "verified_text_source_ids": [
+        "T0002",
+        "T0003",
+        "T0004"
+      ]
+    }
+  ],
+  "total_input_tokens": 8453,
+  "total_output_tokens": 5271,
+  "new_Gemini_requests": 0,
+  "analysed_PowerShell_executions": 0,
+  "independent_selection_started": false,
+  "phase_4_started": false,
+  "git_write_operations": 0
+}

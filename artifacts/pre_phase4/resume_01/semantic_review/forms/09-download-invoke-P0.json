@@ -1,0 +1,20 @@
+{
+  "packet_id": "09-download-invoke-P0",
+  "packet_sha256": "b3e4d96ff98d3fe8765f4e594bcbbc26cd97cfe40100141c361e04ddbfcbcd7d",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

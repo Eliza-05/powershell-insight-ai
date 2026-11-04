@@ -1,0 +1,170 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D01",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/001_V2-D01_r1.result.json",
+  "raw_sha256": "d882f54a636f31491fc9ac8e3c8603a4175d689f8e418bf8c70c61972a3ccc65",
+  "original": "# Synthetic academic fixture. Text only: never execute.\nStart-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv' -Destination 'Q:\\Academic\\missing-device-catalog.csv'\n",
+  "original_sha256": "d5edb204af7fdfa5909c51b4e423454789d967ad89ad6fa804528e9987dbe6e8",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "d5edb204af7fdfa5909c51b4e423454789d967ad89ad6fa804528e9987dbe6e8",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\nStart-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv' -Destination 'Q:\\Academic\\missing-device-catalog.csv'\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 209,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "case_id": "V2-D01",
+    "family_id": "V2-DEV-F01",
+    "expected_labels": [
+      "B01"
+    ],
+    "expected_risk": "benign",
+    "risk_explanation": "Transferencia administrativa de catalogo; no hay evaluador ni envio independiente.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D01-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D01.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Start-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv' -Destination 'Q:\\Academic\\missing-device-catalog.csv'",
+        "start": 56,
+        "end": 186,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 131,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D01-B01",
+        "behavior_id": "B01",
+        "evidence_ids": [
+          "V2-D01-E01"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "individual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [],
+        "technical_explanation": "Transferencia administrativa de catalogo; no hay evaluador ni envio independiente.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B02": "No hay evaluacion de codigo.",
+      "B06": "La unica red es descarga."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "explanation": "The script attempts to retrieve content from a remote URL and save it locally.",
+        "evidence": [
+          {
+            "snippet": "Start-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The operation targets an academic context with a generic example domain, lacking indicators of malicious intent.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The source URL is a placeholder example; actual network reachability cannot be verified statically."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed manipulation or injection attempts were found in the source text."
+    },
+    "limitations": [
+      "Static analysis cannot confirm the actual existence or content of the remote URL.",
+      "The script is a synthetic fixture intended for academic demonstration, not a real-world execution."
+    ]
+  },
+  "predicted_labels": [
+    "B01"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Start-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Review operation, related input and strict cited context; matching label sets alone do not establish semantic support."
+  },
+  "human_adjudication": null
+}

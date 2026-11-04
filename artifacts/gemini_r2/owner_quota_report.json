@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-11-03T02:41:34.146755+00:00",
+  "project": "Default Gemini Project",
+  "tier": "Free",
+  "billing_enabled": false,
+  "model": "gemini-3.8-flash",
+  "rpm": 5,
+  "tpm": 250000,
+  "rpd": 20,
+  "panel_usage": 0,
+  "usage_period": "owner_selected_period",
+  "source": "explicit_current_user_report_from_ai_studio",
+  "live_remaining_quota_independently_queried": false,
+  "generation_authorization_maximum": 10
+}

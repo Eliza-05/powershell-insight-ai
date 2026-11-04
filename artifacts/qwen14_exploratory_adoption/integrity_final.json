@@ -1,0 +1,43 @@
+{
+  "at": "2026-11-04T03:03:21.407104+00:00",
+  "preexisting_files_checked": 9285,
+  "preexisting_files_unchanged": 9273,
+  "intentional_live_code_tests_docs_changed": [
+    "backend/app/api/application.py",
+    "backend/tests/pipelines/test_gemma4_v2.py",
+    "frontend/integration/connected.test.tsx",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Help.tsx",
+    "frontend/src/components/PipelineSelector.tsx",
+    "frontend/src/components/Results.tsx",
+    "frontend/src/components/SystemStatus.tsx",
+    "frontend/src/test/App.test.tsx",
+    "frontend/src/types/api.ts",
+    "README.md",
+    ".env.example"
+  ],
+  "historical_artifact_experiment_document_files_verified_unchanged": 9047,
+  "scientific_history_changed": [],
+  "diagnostic_source_archive": {
+    "original_freeze_sha256": "0067a4c33181822ac7353b209a94cbbc4efee95d71440006faee6d9b012c2a0a",
+    "archived_entries_verified": 79,
+    "evolved_live_sources": [
+      "backend/app/api/application.py"
+    ]
+  },
+  "new_real_Qwen_inferences": 0,
+  "historical_Qwen_intents": 8,
+  "Gemini_requests": 5,
+  "Gemini_limit": 12,
+  "Gemini_ledger_sha256": "dd2a7f346118155de25e68f1ab2ded45bc28dfbffa722b7c25e529d8ef75d60b",
+  "new_models_downloaded": 0,
+  "models_deleted": 0,
+  "Git_index_HEAD_develop_ref_unchanged": true,
+  "backend_tests_passed": 1068,
+  "frontend_tests_passed": 29,
+  "React_API_A_HTTP_tests_passed": 1,
+  "build_passed": true,
+  "phase4_started": false,
+  "independent_evaluation_started": false,
+  "human_Qwen_adjudications_pending": 8
+}

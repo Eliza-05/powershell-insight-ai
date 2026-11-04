@@ -1,0 +1,104 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "04-output-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/04-output-P1.json",
+  "raw_sha256": "d503b9af1d413f4af7ce931a99d934535ea346f9a414c86ff221bd3b711486cb",
+  "original": "Write-Output 'readiness fixture 7319'",
+  "original_sha256": "d349b8622ebce45b8a1feda64eb837d4f2ea2b31c8c091e0b6ed4f36a369edc9",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "d349b8622ebce45b8a1feda64eb837d4f2ea2b31c8c091e0b6ed4f36a369edc9",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Write-Output 'readiness fixture 7319'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 44,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [],
+    "limitations": [
+      "Static analysis of a single Write-Output command with a hardcoded string argument reveals no dynamic execution, code construction, or network activity. The command is a standard output operation with no embedded logic or external dependencies."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No evidence of prompt injection or analyst manipulation detected. The text is a standard output string.",
+      "snippets": [
+        "Write-Output 'readiness fixture 7319'"
+      ]
+    },
+    "recovered_content": [
+      "Write-Output 'readiness fixture 7319'"
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The code consists of a single static command to output a literal string. There is no evidence of remote retrieval, code execution, persistence, defense evasion, discovery, network communication, or credential access. The content is a benign readiness marker.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "Analysis is limited to the provided static text. No runtime inputs or complex logic were present to introduce uncertainty.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "invalid_response",
+    "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [], 'limita...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+  },
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Etiquetas vacías coinciden con la referencia de desarrollo, pero detected=false con snippets no vacíos invalida el informe. No se convierte coincidencia de etiquetas en respuesta utilizable. Revisión asistida por IA."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "invalid_response",
+      "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [], 'limita...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+    }
+  },
+  "profile": "P1",
+  "request_sha256": "1dc2f4d9cc3e82c5c7bdd8de954feb364a51b9d0676df66bd1b6ae219acb8ed6"
+}

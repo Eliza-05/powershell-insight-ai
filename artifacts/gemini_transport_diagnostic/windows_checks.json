@@ -1,0 +1,13 @@
+﻿{
+    "no_settings_changed":  true,
+    "firewall":  {
+                     "inspection":  "unavailable_without_additional_access",
+                     "profiles":  [
+
+                                  ]
+                 },
+    "winhttp":  {
+                    "command_succeeded":  true,
+                    "direct_access_reported":  true
+                }
+}

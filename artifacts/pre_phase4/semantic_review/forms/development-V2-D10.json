@@ -1,0 +1,30 @@
+{
+  "packet_id": "development-V2-D10",
+  "packet_sha256": "c7572e998246063be4c8273bab1bc516225dd414617327e2b8ee6d5cac4dd654",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    },
+    {
+      "index": 1,
+      "strict_support": null,
+      "justification": ""
+    },
+    {
+      "index": 2,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

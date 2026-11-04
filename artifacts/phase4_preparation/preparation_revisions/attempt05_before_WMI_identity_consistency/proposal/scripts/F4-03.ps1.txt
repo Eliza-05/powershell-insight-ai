@@ -1,0 +1,2 @@
+$task = '\PSIA\Phase4\' + 'LogonNotice'
+schtasks.exe /Create /SC ONLOGON /TN $task /TR 'cmd.exe /c echo phase4-notice' /S 'p4-tasks.example.invalid' /RU 'PSIA\labuser' /RP 'LAB_ONLY_NOT_A_SECRET'

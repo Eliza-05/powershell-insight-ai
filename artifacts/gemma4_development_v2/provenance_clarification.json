@@ -1,0 +1,32 @@
+{
+  "event_id": "gemma4-case01-provenance-clarification-02",
+  "recorded_at_utc": "2026-11-03T23:03:00.174509+00:00",
+  "case_id": "01-credential-control",
+  "source": "current_explicit_owner_instruction",
+  "semantic_assessment_origin": "ChatGPT_AI_assisted_analysis",
+  "automatic_validation_scope": "JSON_contracts_and_literal_provenance_not_semantic_adjudication",
+  "independent_human_evaluator_documented": false,
+  "previous_explicit_owner_chat_confirmation_exists": true,
+  "previous_record_already_disclaimed_independent_second_review": true,
+  "previous_owner_confirmation_based_on_AI_assisted_material_is_preserved": true,
+  "separately_verifiable_personal_review_evidence_found": false,
+  "effective_personal_adjudication_status": "pending_explicit_personal_reconfirmation_after_provenance_clarification",
+  "status_basis": "Latest owner instruction reopens personal confirmation after clarifying AI origin; prior declaration is not erased or treated as independent review",
+  "prior_event_id": "gemma4-case01-human-01",
+  "prior_event_files_modified": false,
+  "frozen_reference_labels": [],
+  "reference_or_prediction_or_raw_output_or_STOP_modified": false,
+  "v1_experimental_gate_failure_preserved": true,
+  "B05_false_positive_interpretation": "AI_assisted_pending_personal_adjudication",
+  "future_v2_execution_authorization_does_not_adjudicate_v1": true,
+  "bound_sources_sha256": {
+    "docs/gemma4_case01_human_adjudication.md": "f200d8937820700024edaeb8576c18dcce96713417c581964ff3e4461d6ef76d",
+    "docs/gemma4_case01_human_review.md": "e8683d17da0d7dd6522b77a24e64507ceadbf9ac32bf2e84d86060e73ca77fda",
+    "artifacts/gemma4_case01_human_review/adjudication_01/human_adjudication.json": "4fc072e9f5e481d9629bb6e3dd76a5330b7c2960248f3cdb10ac9ffa0b3052e0",
+    "artifacts/gemma4_case01_human_review/adjudication_01/owner_statement.md": "4933511ffc61a3c307385d191be44d8e2ffc25de16681c090628c28da1322740",
+    "artifacts/local_model_gemma4_viability/plan_frozen.json": "5af7149358093d48ae58cfb16ab3ed77c11f69a3d0eb3932888890ba7fb1b25a",
+    "artifacts/local_model_gemma4_viability/STOP.json": "f6e6aa7474ea53eb7e7c8ddc3adf27bf5b7936b699742fa25231192848377933",
+    "artifacts/local_model_gemma4_viability/continuation_01/01-credential-control.result.json": "1dd293d3b6a19ae2a00191899d9e4d6664499f3e03507e763e86bbd05e33bf81",
+    "artifacts/gemma4_development_v2/owner_provenance_instruction.txt": "5e7bf0e7445581cc721d5d3a3efe8d33ce3c3d6821ab72c3aced7ea3157483ee"
+  }
+}

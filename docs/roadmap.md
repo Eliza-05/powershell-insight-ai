@@ -63,11 +63,11 @@ flowchart LR
   - **Fase 1A — Desofuscador estático: aprobado, cerrado y publicado por el responsable dentro del subconjunto documentado.** API Python independiente; cuatro técnicas con recuperación acotada, `OT-FORMAT` detectada sin resolución, trazabilidad por capas, límites, fixtures inertes y 274 pruebas de referencia. [Cierre y situación de reproducibilidad CRLF/LF](phase1a_closure.md); [implementación y criterios](deobfuscator.md); [propuesta histórica](phase1_deobfuscator_proposal.md). Se conserva su implementación y la Fase 0B. La reproducción Linux sigue pendiente.
   - **Fase 1B — Aprobada técnicamente y cerrada formalmente por autorización expresa del responsable dentro del subconjunto de detección documentado.** API Python integrada con 1A, doce reglas B01–B07 parciales, evidencias contextuales verificables, indicios, deduplicación, cotas y demo inerte. 159 pruebas de implementación más 55 de auditoría; 488 aprobadas, también en la validación de cierre. P3/P7 permanecen como FN aceptados. [Cierre formal](phase1b_closure.md); [cobertura y límites](behavior_detector.md). Publicación pendiente por el propietario. Los scripts base/familias para evaluación final, particiones reservadas y el generador siguen pendientes; no se ejecutó el experimento A/B/C ni se inicia la Fase 2.
 
-> **Piloto v2 (estado actual):** infraestructura experimental implementada y modelo descargado; seleccion interrumpida por recursos, sin aprobacion de calidad. La autorizacion del dataset es global, sin votos individuales ficticios. [Cierre operativo](phase_model_selection_closure.md).
+> **Piloto v2 (estado actual, 2026-11-02): CERRADO SIN APROBACIÓN, no elegible bajo el protocolo original.** Una cancelación impide 72/72; máximo posible 71/72. Las 68 llamadas no ejecutadas no se reanudan para aprobar ese run. Autorización global del dataset conservada, sin votos individuales ficticios. [Cierre terminal y preparación del modelo](pre_phase4_model_readiness.md); [acta operativa histórica intacta](phase_model_selection_closure.md).
 
 ## Fase 2 — Integración del LLM
 
-**Estado: integración A/B/C implementada con LLM provisional.** La autorización expresa del responsable del 2026-11-02 establece DEV-03: permite desarrollo antes de concluir validación de calidad, sin aprobar el modelo ni alterar el piloto. [Arquitectura, uso y excepción prospectiva](phase2_integration.md); [pruebas y estado técnico real](phase2_closure.md). El piloto v2 sigue PENDIENTE / INCONCLUSO: 58 intentos, 68 llamadas de selección pendientes e incidencia de compromiso de 1,94 GiB; actas, resultados y hashes conservados. No se ejecuta de nuevo el piloto ni se activa otro candidato.
+**Estado: integración A/B/C implementada con LLM provisional.** La autorización expresa del responsable del 2026-11-02 establece DEV-03: permite desarrollo antes de concluir validación de calidad, sin aprobar el modelo ni alterar el piloto. [Arquitectura, uso y excepción prospectiva](phase2_integration.md); [pruebas y estado técnico real](phase2_closure.md). El piloto v2 queda cerrado sin aprobación: 58 intentos históricos, 68 llamadas sin ejecutar e incidencia de compromiso de 1,94 GiB, con actas/resultados/hashes conservados. Transporte, presupuesto de contexto y circuito persistente corregidos en el [cierre previo a Fase 4](pre_phase4_model_readiness.md), sin corregir artificialmente predicciones ni activar otro candidato.
 
 - **Objetivo:** implementar las configuraciones B y C y la validación de evidencias.
 - **Actividades:** cliente Ollama; plantillas de prompt versionadas; parseo de salida estructurada; validador de evidencias; mitigaciones de prompt injection.
@@ -77,13 +77,31 @@ flowchart LR
 
 ## Fase 3 — Frontend e integración
 
+**Completada técnicamente como MVP local, con límite de QA visual registrado.** FastAPI,
+React/Vite/TypeScript, Analysis Studio, modos A/B/C y comparación, temas claro/oscuro,
+evidencias/procedencias, exportación y ayuda están implementados y probados automáticamente.
+El host del navegador no permitió revisión visual real; no se declaran capturas o certificación
+responsive inexistentes. [Cierre y pruebas](phase3_closure.md), [ejecución local](phase3_local.md),
+[decisiones de diseño](phase3_design.md). Cero inferencias nuevas y Fase 4 sin iniciar.
+
 - **Objetivo:** interfaz web para analizar y visualizar resultados.
-- **Actividades:** proyecto Vite + React + TypeScript + Tailwind; editor de código; vistas de hallazgos y evidencias; endpoints FastAPI; integración extremo a extremo.
+- **Actividades realizadas:** Vite + React + TypeScript + CSS propio; editor de texto con líneas y coordenadas; hallazgos/evidencias/recuperación/detalles; endpoints FastAPI; integración DOM + HTTP real con A y B/C simulados.
 - **Entregables:** aplicación web funcional en local.
 - **Criterios de aceptación:** un script de ejemplo inerte puede analizarse de punta a punta; ninguna lógica de análisis ni credencial reside en el navegador.
 - **Dependencias:** contratos de la Fase 1 (puede avanzar en paralelo una vez definidos); Fase 2 para la integración completa.
 
 ## Fase 4 — Experimentos y métricas
+
+**NO APTO PARA AVANZAR; no iniciada.** El cierre metodológico de piloto v2 está resuelto,
+sin aprobación. Siguen los [pendientes](phase4_pending.md): selección válida, memoria
+estable, adjudicación humana, datos independientes y congelación antes de A/B/C/H1/H2.
+Diagnóstico reanudado tras liberar memoria: 24/24 intentos terminados, 14 aceptados por
+contrato/citas y 10 rechazados, sin indeterminados ni margen de memoria violado. Hay 78
+fichas de revisión, 0 decisiones humanas y presupuesto diagnóstico agotado. C-P3 terminó
+truncado; ningún C fue aceptado. No se recomienda una selección de 72 con estos perfiles.
+Otra intervención/candidato necesita justificación y autorización; una eventual recalificación
+exige reserva independiente y presupuesto separado. No bloquea
+desarrollo bajo DEV-03; Qwen3.5 sigue provisional. [Decisión y procedimiento](pre_phase4_model_readiness.md).
 
 - **Objetivo:** evaluar H1 y H2.
 - **Actividades:** construir y congelar el dataset experimental definitivo y sus particiones (trasladado desde la Fase 0B, D3); congelar prompts y modelo; ejecutar A/B/C; calcular métricas (evidencias: política estricta como principal); revisión semántica manual; repeticiones para estabilidad.

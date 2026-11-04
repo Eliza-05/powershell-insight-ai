@@ -1,0 +1,5 @@
+$remote = 'https://p4-catalog.example.invalid/' + 'batch.pack'
+$client = New-Object System.Net.Http.HttpClient
+$job = $client.GetByteArrayAsync($remote)
+$octets = $job.GetAwaiter().GetResult()
+$null = $octets.Length

@@ -1,0 +1,17 @@
+{
+  "schema_version": "gemma4-v2-execution-authorization-v1",
+  "execution_authorized": false,
+  "references_accepted": false,
+  "clarification_accepted": false,
+  "maximum_inference_intents": 12,
+  "freeze_sha256": "f27f87d077856ac4a03966f7b9ddcfa266aa929cbbd01e327a88eff08e82e745",
+  "runner_binding_sha256": "786da22c1ca8e2e1da9158dbca74792e4b2300d04af446aad9ac6c51da1896f1",
+  "clarification_sha256": "a6b96a17ecba0db2d7c2ea105e1cbb05274119b2b1715c8f6fbecb1e90162032",
+  "source": "pending_owner_execution_authorization",
+  "owner_statement": null,
+  "recorded_at_utc": null,
+  "exclusive_session_attested": false,
+  "resume_explicitly_authorized": false,
+  "resume_ledger_sha256": null,
+  "note": "Disabled template only. A new record requires future explicit owner authorization; do not flip flags on behalf of the owner now."
+}

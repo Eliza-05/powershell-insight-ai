@@ -1,0 +1,2 @@
+param([string]$Endpoint, [string]$Verb, [string]$Body)
+Invoke-RestMethod -Uri $Endpoint -Method $Verb -Body $Body

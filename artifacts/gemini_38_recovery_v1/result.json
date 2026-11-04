@@ -1,0 +1,21 @@
+{
+  "model_requested": "gemini-3.8-flash",
+  "started_at": "2026-11-03T19:23:40.053479+00:00",
+  "error": {
+    "category": "gemini_http_server_error",
+    "http_status": 503,
+    "api_code": 503,
+    "rpc_status": "UNAVAILABLE"
+  },
+  "latency_seconds": 1.4727664999991248,
+  "http_status": 503,
+  "HTTP_dispatches": 1,
+  "ledger_reservation": {
+    "attempt": 5,
+    "kind": "generateContent",
+    "request_sha256": "230613732f829c4da4a736ba079793069b1cfbb0b1dcaa032c669dba4bb3c75e",
+    "reserved_at": "2026-11-03T19:23:40.137509+00:00"
+  },
+  "raw_success_body": null,
+  "error_body_policy": "safe structured error fields only; no arbitrary exception/message/headers persisted"
+}

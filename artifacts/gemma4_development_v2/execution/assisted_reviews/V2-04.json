@@ -1,0 +1,18 @@
+{
+  "call_id": "V2-04",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "3632221baa98d7a4160734dad01a5dee51379dc721797639899bc8b7b83e3d70",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:49:43.461557+00:00",
+  "findings": [
+    {
+      "behavior_id": "B05",
+      "support": "individual",
+      "reason": "Literal Get-CimInstance Win32_OperatingSystem queries OS properties; original also selects Caption,Version."
+    }
+  ],
+  "assessment": "Exact reference match with original literal evidence; benign risk compatible with administrative query.",
+  "risk_notes": "Limitation says no actions, an imprecise phrase for a query; no fabricated side effects.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

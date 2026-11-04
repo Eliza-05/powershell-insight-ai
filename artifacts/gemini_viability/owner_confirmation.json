@@ -1,0 +1,13 @@
+{
+  "source": "user_chat_reply",
+  "project_tier": "Free",
+  "owner_confirmed": true,
+  "model_specific_positive_quota_confirmed": false,
+  "billing_console_independently_inspected": false,
+  "rpm": null,
+  "tpm": null,
+  "rpd": null,
+  "remaining_rpd": null,
+  "inference_authorization_active": false,
+  "reason": "Preflight failed; no validated available-model listing or live quota evidence."
+}

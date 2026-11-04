@@ -1,0 +1,11 @@
+{
+  "root_dotenv_exists": true,
+  "branch": "develop",
+  "root_dotenv_tracked": false,
+  "root_dotenv_ignored": true,
+  "credential_leak_files": [],
+  "files_scanned": 1473,
+  "credential_in_vite_variables": false,
+  "scope": "repository including frontend/dist; excludes dotenv files, git, environments, dependencies, caches, and tmp",
+  "checked_at": "2026-11-03T02:01:34.745303+00:00"
+}

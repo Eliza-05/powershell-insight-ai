@@ -1,0 +1,44 @@
+{
+  "call_id": "V2-02",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "at": "2026-11-04T00:45:07.218378+00:00",
+  "result_sha256": "6f470373bdba4d7d85794344ef2bd8dadd3082673f5331bf596871c664477fbd",
+  "expected_labels": [
+    "B05",
+    "B06"
+  ],
+  "accepted_prediction": null,
+  "raw_unvalidated_labels": [
+    "B02",
+    "B05",
+    "B06"
+  ],
+  "semantic_observations": [
+    {
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "EncodedCommand is an obfuscating wrapper of equivalent inventory/connectivity; the frozen taxonomy does not add B02 automatically."
+    },
+    {
+      "behavior_id": "B05",
+      "support": "insufficient_strict_citation",
+      "reason": "Decoded operation is consistent with the authored payload, but the quoted decoded snippet is not literal in the only original source supplied to B."
+    },
+    {
+      "behavior_id": "B06",
+      "support": "insufficient_strict_citation",
+      "reason": "Connectivity operation is present in the authored payload, but its cited decoded string is not a literal original source."
+    }
+  ],
+  "citation_errors": [
+    "Abbreviated Base64 quote with ellipsis and modified characters is nonexistent",
+    "Decoded Get-Process citation assigned to original and normalized to double quotes",
+    "Decoded Test-NetConnection citation assigned to original and normalized to double quotes"
+  ],
+  "model_recovered_content": "matches_authored_decoded_text_but_is_unverified_model_claim_not_1A_evidence",
+  "critical_invented_payload_observed": false,
+  "risk_uncertainty": "suspicious/medium; risk rationale partly references obfuscation and needs personal assessment",
+  "metric_treatment": "unusable report; prediction null; two FN of system coverage, no accepted-model FP; raw B02 error separately observed",
+  "continuation": "ordinary terminal provenance/quality rejection; no retry"
+}

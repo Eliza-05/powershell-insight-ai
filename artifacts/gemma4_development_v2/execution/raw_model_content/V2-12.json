@@ -1,0 +1,32 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B05",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "$name = 'fixture'; $text = ('{0}-{1}' -f $name, '842'); Write-Output $text",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The script defines a variable and outputs a formatted string. While it does not query system information, it performs basic string manipulation and output."
+    }
+  ],
+  "limitations": [
+    "The script performs a simple string formatting operation and does not interact with the network, file system, or registry."
+  ],
+  "obfuscation_techniques": [],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No prompt injection detected.",
+    "snippets": []
+  },
+  "recovered_content": [],
+  "risk_label": "benign",
+  "risk_rationale": "The script performs a trivial string concatenation and output operation. There are no indicators of malicious intent, unauthorized access, or system modification.",
+  "uncertainty": {
+    "level": "low",
+    "notes": "The operation is fully transparent and non-malicious.",
+    "uninterpretable_fragments": []
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "candidate_sha256": "c7c0dc327291f7647d5093d2d729185d297fc70f55853f727ef511659411da64",
+  "reviewer_type": "human_personal",
+  "reviewer": "",
+  "reviewed_at": "",
+  "references_approved": false,
+  "semantic_independence_approved": false,
+  "safety_approved": false,
+  "case_reviews": [
+    {
+      "id": "F4-01",
+      "script_sha256": "dc0a976a170ec77193be84532818a63641fd48855371f5ecaeb819187ca3f682",
+      "approved": false,
+      "reference_sha256": "968f37fc4209c9e78c0367b4a345b091fe6cf4376e474fb76470cc7db3e58dfa",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-02",
+      "script_sha256": "6ab1afd6ca82c998c3935b92e48af9f1db0bdb906a9f3c7d387e8de4b4b42da1",
+      "approved": false,
+      "reference_sha256": "72a00d8a84683a78f68a6c4764ff0369f516cb5d369fd9616c9496f72e37f61c",
+      "notes": "B01+B02 por descarga y carga dinámica explícita; sin llamada explícita a métodos internos ni efectos del ensamblado confirmados. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-03",
+      "script_sha256": "78140e403ec46f198036013c5625de151525ffe5902e71d7030a669044119689",
+      "approved": false,
+      "reference_sha256": "9f7c8c37fed76befd20f134f116bc2b592b7d7e924128a1cd8879b31fa5faee2",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-04",
+      "script_sha256": "ea11e756158622d4e9716bf799cbab3c42f0a02cfd9eb9999dca511007c78b38",
+      "approved": false,
+      "reference_sha256": "0488a13dfd854cca9dcfcc276652bc2b78a64d9c92965a498794e38c7d765c55",
+      "notes": "Diferencia funcional respecto de demo de salida de texto; conserva bloque audit-control con F4-10. No se afirma éxito del borrado. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-05",
+      "script_sha256": "79f5265247f8abd9349c3bc7047ad0e8eda7b6c7550b1371d33699a5831c3727",
+      "approved": false,
+      "reference_sha256": "0837a3de32f82d75290d9f33252b2f5364bf54f957bd5197801fb08bb7c970c0",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-06",
+      "script_sha256": "92ed270bbaee50365080660de5bc3168e2056dacb0e9037b7fd535048b2657b9",
+      "approved": false,
+      "reference_sha256": "ee2243a69ecf0cf55db5c706377a5ef68015bfcfd02457b45138ee4fb473c3e8",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-07",
+      "script_sha256": "2298fb68ea439d89acd0ef572904a62d26a9c8d9845be3c6667f71f01fbfcf30",
+      "approved": false,
+      "reference_sha256": "e525618d02312b9f425a460bbcdd9caa41120f196066096974e326c81d367c3f",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-08",
+      "script_sha256": "bc8bba665fd8850f51ba04a4c7274a119e15c97c5985410a7583919f277bcee4",
+      "approved": false,
+      "reference_sha256": "f576abca5848b3a2fb6be2727241a2c6b09cd38d5003ccdc781a5f67054e2f2e",
+      "notes": "B02 se basa en el mismo objeto DynamicMethod, emisión IL e Invoke del original; no en el nombre recuperado. Ejecución no comprobada. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-09",
+      "script_sha256": "fda39834c4d4d58cc84923e7c51e1d69313279889039667593db3a0e703ffbe6",
+      "approved": false,
+      "reference_sha256": "be7da4412511999b9e99c04986ec36a89494df3e22b7e7a9ca19426a05e291db",
+      "notes": "B03+B06+B07 para operaciones estáticamente intentadas; tipo del secreto, autenticación, registro y funcionamiento del binding no confirmados. No incompatibilidad invalidante identificada documentalmente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-10",
+      "script_sha256": "212adc420379972d9f068ed520370886c2e091ac624911d2252ee739e065031d",
+      "approved": false,
+      "reference_sha256": "fbb2086ee78bdaf2014df0c6fcc84df89decd8b8b3f6d717519f782e5d736504",
+      "notes": "Conserva bloque audit-control con F4-04 por mecanismos de logging relacionados; no se afirma éxito del cambio. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-11",
+      "script_sha256": "a57714eebc92b593d2777c8cc079bc535a2bc0485e6b0132947becfe37387703",
+      "approved": false,
+      "reference_sha256": "b17f988db62d5d1c41f99e27a887155e6556ad766c6841586e01b94816230cfc",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-12",
+      "script_sha256": "db5583f250d9e97ca178e14b428a5f1d6ef9cfbf14ab20c582df8782f3e32341",
+      "approved": false,
+      "reference_sha256": "3addbaca3f98bfa37e6132d0df95b458cda460c5790c9556594cb524a78abeea",
+      "notes": "Captura interactiva usada en llamada remota explícita; B06, no B07. Distinción respecto de autenticación/proceso local; no independencia absoluta. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-13",
+      "script_sha256": "9470d9ca245098117c795607362a2f6fd23462b4cefc81cf327533cfa145ac35",
+      "approved": false,
+      "reference_sha256": "7294ae3eaa88d3d7334e0801a77f433941fba3b4c6f9962fe6da43ce2ad417be",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-14",
+      "script_sha256": "173ee6797857f01b1f415715e9517c3bc321af61a24718a54142f321e3ddea86",
+      "approved": false,
+      "reference_sha256": "308e8cc60ce6086163e42660cb601ffd488d8c479b8e6180f4aa0944666cabf8",
+      "notes": "Conservar referencia propuesta original, evidencias y exclusiones; aceptación personal pendiente. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-15",
+      "script_sha256": "99233c6833328ef8a8c78f37b8f2090c636fb6b0378c70f38f431817b37186f6",
+      "approved": false,
+      "reference_sha256": "21e1a641f8f84d267925c762850c7cde0765efe612e3fe0890b74fd75e6df244",
+      "notes": "Conjunto total null y ninguna positiva conocida; no negativo benigno. Incertidumbre sobre Endpoint, Verb y Body. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    },
+    {
+      "id": "F4-16",
+      "script_sha256": "911d5ac9e6da7754c0acea6c4d5eed00c44bd65f55768df9f5331f1934f72e89",
+      "approved": false,
+      "reference_sha256": "3a0b81b778c1723dafa0b194779b0a83ed7918525b6e7c707d3724d2c1ac41e8",
+      "notes": "Conjunto total null y B05 mínima conocida; callback indeterminado. No negativo benigno. Informe complementario v1 SHA-256 a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963."
+    }
+  ],
+  "review_support": {
+    "prepared_by": "AI_assistant",
+    "human_adjudication_recorded": false,
+    "report_path": "artifacts/phase4_final_reference_review/review_v1/REPORT.md",
+    "report_sha256": "a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963",
+    "independence_scope": "Operational semantic novelty and current block grouping, with purposive selection, common author and historical exposure limitations"
+  }
+}

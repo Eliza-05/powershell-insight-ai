@@ -1,0 +1,7 @@
+{
+  "files_scanned": 1518,
+  "credential_leak_files": [],
+  "credential_in_vite_variables": false,
+  "includes_frontend_dist": true,
+  "secrets_files_and_runtime_dependencies_excluded": true
+}

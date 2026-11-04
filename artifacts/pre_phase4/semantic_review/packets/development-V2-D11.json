@@ -1,0 +1,250 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "development-V2-D11",
+  "stage": "development",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/development/011_V2-D11_r1.result.json",
+  "raw_sha256": "f7f057ccced46e247360ae07ff3d6c31c7615153ad2cae27ce7e496b0cd351d7",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$interfaces = Get-NetIPConfiguration\nInvoke-RestMethod -Uri 'https://example.invalid/academic/heartbeat' -Method Post -Body 'synthetic-heartbeat'\n",
+  "original_sha256": "97b3305aa1723a253dd120f80cfbb85247fb87b957671ea60408661a2779aeff",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "97b3305aa1723a253dd120f80cfbb85247fb87b957671ea60408661a2779aeff",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$interfaces = Get-NetIPConfiguration\nInvoke-RestMethod -Uri 'https://example.invalid/academic/heartbeat' -Method Post -Body 'synthetic-heartbeat'\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 70,
+          "end": 92,
+          "line": 2,
+          "column": 15,
+          "end_line": 2,
+          "end_column": 37
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 92,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 37
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 243,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "case_id": "V2-D11",
+    "family_id": "V2-DEV-F06",
+    "expected_labels": [
+      "B05",
+      "B06"
+    ],
+    "expected_risk": "benign",
+    "risk_explanation": "Inventario de interfaces y envio de mensaje constante; no se envia el inventario.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D11-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D11.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$interfaces = Get-NetIPConfiguration",
+        "start": 56,
+        "end": 92,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 37,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D11-E02",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D11.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Invoke-RestMethod -Uri 'https://example.invalid/academic/heartbeat' -Method Post -Body 'synthetic-heartbeat'",
+        "start": 93,
+        "end": 201,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 109,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D11-B05",
+        "behavior_id": "B05",
+        "evidence_ids": [
+          "V2-D11-E01"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "individual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [],
+        "technical_explanation": "Inventario de interfaces y envio de mensaje constante; no se envia el inventario.",
+        "semantic_status": "pending_human"
+      },
+      {
+        "group_id": "V2-D11-B06",
+        "behavior_id": "B06",
+        "evidence_ids": [
+          "V2-D11-E02"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "individual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [],
+        "technical_explanation": "Inventario de interfaces y envio de mensaje constante; no se envia el inventario.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B01": "Recibir una respuesta HTTP a POST no anade descarga.",
+      "exfiltration": "El cuerpo es una constante sintetica."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "explanation": "The script performs a remote retrieval operation by invoking `Invoke-RestMethod` with a specific URI.",
+        "evidence": [
+          {
+            "snippet": "Invoke-RestMethod -Uri 'https://example.invalid/academic/heartbeat' -Method Post -Body 'synthetic-heartbeat'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      },
+      {
+        "behavior_id": "B05",
+        "explanation": "The script gathers host configuration information via `Get-NetIPConfiguration`.",
+        "evidence": [
+          {
+            "snippet": "$interfaces = Get-NetIPConfiguration",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "suspicious",
+    "risk_rationale": "The script combines a legitimate administrative operation (retrieving IP configuration) with a remote POST request to a domain ending in '.invalid'. While the domain name suggests a non-production or test context, the combination of network access and data exfiltration patterns (POST with a body) is characteristic of abuse-compatible behavior. The use of a '.invalid' TLD does not confirm benign intent.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The URI 'https://example.invalid/academic/heartbeat' is a literal string in the source. The domain 'example.invalid' is not a known public service, and the path '/academic/heartbeat' is not a standard legitimate endpoint. The behavior is supported by the explicit invocation of the cmdlet."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "The prompt explicitly states 'Synthetic academic fixture. Text only: never execute.' and the code contains no instructions to alter analysis or output. The text is treated as data."
+    },
+    "limitations": [
+      "Static analysis cannot verify the actual reachability of 'https://example.invalid' or the content of the response.",
+      "The purpose of the POST body 'synthetic-heartbeat' is unknown without execution."
+    ]
+  },
+  "predicted_labels": [
+    "B01",
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Invoke-RestMethod -Uri 'https://example.invalid/academic/heartbeat' -Method Post -Body 'synthetic-heartbeat'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "analyzed_script",
+      "snippet": "$interfaces = Get-NetIPConfiguration",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "POST body is a fixed literal, not $interfaces. B01 download and claimed dataflow to POST are unsupported by the cited source; B05/B06 require separate assessment."
+  },
+  "human_adjudication": null
+}

@@ -1,0 +1,160 @@
+{
+  "at": "2026-11-04T00:59:58.707470+00:00",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "supported": 7,
+  "accepted_findings": 13,
+  "fraction": 0.5384615384615384,
+  "used_as_personal_review_in_gate": false,
+  "V2_09_included_in_this_semantic_count_but_excluded_from_label_metrics": true,
+  "findings": [
+    {
+      "call_id": "V2-01",
+      "behavior_id": "B05",
+      "support": "insufficient",
+      "reason": "Interactive credential prompting does not query host/user environment under the frozen B05 taxonomy; literal citation existence does not support discovery."
+    },
+    {
+      "call_id": "V2-03",
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "Get-Process queries processes; functional evaluation in frozen B02 requires interpreting data as code. No such operation is shown by this citation."
+    },
+    {
+      "call_id": "V2-03",
+      "behavior_id": "B05",
+      "support": "individual",
+      "reason": "Get-Process queries a named process in verified T0001."
+    },
+    {
+      "call_id": "V2-03",
+      "behavior_id": "B06",
+      "support": "individual",
+      "reason": "Test-NetConnection probes connectivity in verified T0001."
+    },
+    {
+      "call_id": "V2-04",
+      "behavior_id": "B05",
+      "support": "individual",
+      "reason": "Literal Get-CimInstance Win32_OperatingSystem queries OS properties; original also selects Caption,Version."
+    },
+    {
+      "call_id": "V2-05",
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "Invoke-Expression is inside an uninvoked script block. Definition and storage alone do not establish functional evaluation."
+    },
+    {
+      "call_id": "V2-06",
+      "behavior_id": "B02",
+      "support": "contextual",
+      "reason": "Literal Invoke-Expression $text plus original final & $stored establishes invoking the defined script block and interpreting its string as code. Invocation is described but not quoted."
+    },
+    {
+      "call_id": "V2-07",
+      "behavior_id": "B07",
+      "support": "individual",
+      "reason": "Get-StoredCredential -Target explicitly requests existing stored credential material, unlike Get-Credential interaction."
+    },
+    {
+      "call_id": "V2-08",
+      "behavior_id": "B01",
+      "support": "individual",
+      "reason": "Invoke-WebRequest with explicit remote URL requests content."
+    },
+    {
+      "call_id": "V2-08",
+      "behavior_id": "B02",
+      "support": "contextual",
+      "reason": "Invoke-Expression $text is literal; original binds $text to retrieved .Content, so operation and input relation are supported contextually."
+    },
+    {
+      "call_id": "V2-09",
+      "behavior_id": "B02",
+      "support": "insufficient",
+      "reason": "Unresolved command target is not evidence of interpreting built/retrieved/transformed/loaded code. & variable alone insufficient under frozen policy."
+    },
+    {
+      "call_id": "V2-11",
+      "behavior_id": "B05",
+      "support": "insufficient",
+      "reason": "T0002 literally contains Get-Process but is a recovered string passed only to Write-Output. There is no invocation/evaluation edge; readable code-shaped text alone is not host reconnaissance."
+    },
+    {
+      "call_id": "V2-12",
+      "behavior_id": "B05",
+      "support": "insufficient",
+      "reason": "Formatting fixture-842 and Write-Output do not query host/user/network/software information. Explanation explicitly says no system-information query."
+    }
+  ],
+  "critical_reconstruction_candidates_for_personal_adjudication": [
+    {
+      "call_id": "V2-10",
+      "expected_operand": "v2-display-only-842",
+      "model_operand": "v2-display-only-843",
+      "severity_not_human_confirmed": true
+    }
+  ],
+  "note_bindings": [
+    {
+      "call_id": "V2-01",
+      "note_sha256": "b1c010bcdf038ddeddfbf8d6c2833fddb68b0a8200d1cbceda2f1fbc2ef283c2",
+      "result_sha256": "1a3ea4d452513287d6530c6d8ca07a0eced5671f60e89178e65124ae62bcb93a"
+    },
+    {
+      "call_id": "V2-02",
+      "note_sha256": "61e426da5e0fc9ef5bc650ed35b248bb707f9000b01c45ebe1a6acdf5b63f732",
+      "result_sha256": "6f470373bdba4d7d85794344ef2bd8dadd3082673f5331bf596871c664477fbd"
+    },
+    {
+      "call_id": "V2-03",
+      "note_sha256": "c92cb7ac9130f175003c1ddba31a249955cf31f2136fefb341e580aa2cd6537a",
+      "result_sha256": "64b341f79ce92122225083f52c18c4f3ffb6e796aa0e4e515b7447adac5ababc"
+    },
+    {
+      "call_id": "V2-04",
+      "note_sha256": "72e222ceb77eae87d4b6dee4e0c1c2f4d4d0fa296afe70f650bcd078b5e46952",
+      "result_sha256": "3632221baa98d7a4160734dad01a5dee51379dc721797639899bc8b7b83e3d70"
+    },
+    {
+      "call_id": "V2-05",
+      "note_sha256": "92dc6108e72100f3ae8517fc9b7a8b4fe78e522f039ef7842bafdee38d65fc68",
+      "result_sha256": "f9a112cd4954de1dbc7dd20d9e2b013010d2d0b83ec86753132ac242c4c08d14"
+    },
+    {
+      "call_id": "V2-06",
+      "note_sha256": "9dabeafecc75e8398eb6cf3372a219feb2161fc8baa0435ffac884574b808aff",
+      "result_sha256": "efcd42a499022b8d18c265a1c30466a7c98e07e928b1737fd2dd86d6b0452a24"
+    },
+    {
+      "call_id": "V2-07",
+      "note_sha256": "aad9fcc073c4d7e515aea327dcbe8435315d2e5896026e009ae23320eacbba94",
+      "result_sha256": "24d1cac12907e63d1c315174f2317d2dede73577332bd53cb62afbb56278bd30"
+    },
+    {
+      "call_id": "V2-08",
+      "note_sha256": "08b16eb3cc44da5dd205773f4fec3a858b85787d54f0162c3851d90f35d08baa",
+      "result_sha256": "587bd5e33ae8ca041ee89debcd3cd8c63992c6985a991dda140ab165ebb9f5a7"
+    },
+    {
+      "call_id": "V2-09",
+      "note_sha256": "eba2b388bd1c5516101aafb101e8048557df48ac2d4bd30c57eda74a2a070c14",
+      "result_sha256": "047eaebb8bbeef3a171ea71a3643317fa98fabbf68887710f0ed42c2f9e9477b"
+    },
+    {
+      "call_id": "V2-10",
+      "note_sha256": "ad4e8553a8a720568634ead60560633d00f7bc6234e496fc6b62f29bdc6fe274",
+      "result_sha256": "180c84b907af6f31456ae275f7f0848d8ad89acdf652769a70c6f85053e2ab97"
+    },
+    {
+      "call_id": "V2-11",
+      "note_sha256": "17ac44cfdd2a9fb8a1083ec0a7160c98e9a429ad5f3d18ceb73024ef5db8c010",
+      "result_sha256": "901f41e42be73c79784e841a775a4051fd567d85c69257a4d15d2263dd1e6389"
+    },
+    {
+      "call_id": "V2-12",
+      "note_sha256": "506bd1b29813ebfd14837b5efdafe55f427543166baeeed4df5c0f154623c5da",
+      "result_sha256": "5b747889ebb24aa474d48cd53cfaf8ab512f743ed3dcd6acb63562802432c309"
+    }
+  ]
+}

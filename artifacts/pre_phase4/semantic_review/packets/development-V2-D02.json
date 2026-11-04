@@ -1,0 +1,313 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "development-V2-D02",
+  "stage": "development",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/development/002_V2-D02_r1.result.json",
+  "raw_sha256": "6fc69db2c60d49de035702eab5ddb74b4bbf7dca285bbc46b4ca5eda84da0e54",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$origin = 'https://' + 'example.com/academic/device-catalog.csv'\nStart-BitsTransfer -Source $origin -Destination 'Q:\\Academic\\missing-device-catalog.csv'\n",
+  "original_sha256": "297b0f2a9c2d2f7129b7483c11550f2445395189517960a393619178a187ad00",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "297b0f2a9c2d2f7129b7483c11550f2445395189517960a393619178a187ad00",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$origin = 'https://' + 'example.com/academic/device-catalog.csv'\nStart-BitsTransfer -Source $origin -Destination 'Q:\\Academic\\missing-device-catalog.csv'\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-CONCAT",
+        "source": {
+          "layer_id": "L0",
+          "start": 66,
+          "end": 120,
+          "line": 2,
+          "column": 11,
+          "end_line": 2,
+          "end_column": 65
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 66,
+          "end": 120,
+          "line": 2,
+          "column": 11,
+          "end_line": 2,
+          "end_column": 65
+        },
+        "original_fragment": "'https://' + 'example.com/academic/device-catalog.csv'",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "string",
+        "recovered_text": "https://example.com/academic/device-catalog.csv",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 120,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 65
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 120,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 65
+        },
+        "original_fragment": "$origin = 'https://' + 'example.com/academic/device-catalog.csv'",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_definition",
+        "recovered_text": "https://example.com/academic/device-catalog.csv",
+        "recovered_bytes_base64": null,
+        "dependencies": [
+          "T0001"
+        ],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0003",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 148,
+          "end": 155,
+          "line": 3,
+          "column": 28,
+          "end_line": 3,
+          "end_column": 35
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 148,
+          "end": 155,
+          "line": 3,
+          "column": 28,
+          "end_line": 3,
+          "end_column": 35
+        },
+        "original_fragment": "$origin",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_use",
+        "recovered_text": "https://example.com/academic/device-catalog.csv",
+        "recovered_bytes_base64": null,
+        "dependencies": [
+          "T0002"
+        ],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-CONCAT",
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 569,
+    "artifact_bytes": 266
+  },
+  "reference": {
+    "case_id": "V2-D02",
+    "family_id": "V2-DEV-F01",
+    "expected_labels": [
+      "B01"
+    ],
+    "expected_risk": "benign",
+    "risk_explanation": "Transferencia administrativa de catalogo; no hay evaluador ni envio independiente.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D02-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D02.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$origin = 'https://' + 'example.com/academic/device-catalog.csv'",
+        "start": 56,
+        "end": 120,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 65,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D02-E02",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D02.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Start-BitsTransfer -Source $origin -Destination 'Q:\\Academic\\missing-device-catalog.csv'",
+        "start": 121,
+        "end": 209,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 89,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D02-B01",
+        "behavior_id": "B01",
+        "evidence_ids": [
+          "V2-D02-E01",
+          "V2-D02-E02"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "contextual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [
+          {
+            "from_evidence_id": "V2-D02-E01",
+            "to_evidence_id": "V2-D02-E02",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          }
+        ],
+        "technical_explanation": "Transferencia administrativa de catalogo; no hay evaluador ni envio independiente.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B02": "No hay evaluacion de codigo.",
+      "B06": "La unica red es descarga."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [
+      "Start-BitsTransfer -Source 'https://example.com/academic/device-catalog.csv' -Destination 'Q:\\Academic\\missing-device-catalog.csv'"
+    ],
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "explanation": "The script constructs a URL and passes it to Start-BitsTransfer to retrieve content from a remote origin.",
+        "evidence": [
+          {
+            "snippet": "$origin = 'https://' + 'example.com/academic/device-catalog.csv'",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "Start-BitsTransfer -Source $origin -Destination 'Q:\\Academic\\missing-device-catalog.csv'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "suspicious",
+    "risk_rationale": "The script performs a remote content retrieval (B01) to a specific path ('missing-device-catalog.csv') which implies a potential data exfiltration or collection operation disguised as an academic fixture. The use of Start-BitsTransfer for downloading files is a common technique in data exfiltration scripts.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The script is syntactically clear and does not contain obfuscation. The behavior is fully reconstructable from the source text."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No instructions to alter analysis or output were found within the script."
+    },
+    "limitations": []
+  },
+  "predicted_labels": [
+    "B01"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "$origin = 'https://' + 'example.com/academic/device-catalog.csv'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Start-BitsTransfer -Source $origin -Destination 'Q:\\Academic\\missing-device-catalog.csv'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Review operation, related input and strict cited context; matching label sets alone do not establish semantic support."
+  },
+  "human_adjudication": null
+}

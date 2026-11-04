@@ -1,0 +1,258 @@
+{
+  "r0": {
+    "usable_calls": 23,
+    "truncated_calls": 1,
+    "determinate_exact_calls": 12,
+    "micro": {
+      "tp": 14,
+      "fp": 14,
+      "fn": 10,
+      "precision": 0.5,
+      "recall": 0.5833333333333334,
+      "f1": 0.5384615384615384
+    },
+    "per_label": {
+      "B01": {
+        "tp": 2,
+        "fp": 6,
+        "fn": 0,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4
+      },
+      "B02": {
+        "tp": 4,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "B03": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1": 0.8
+      },
+      "B04": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "B05": {
+        "tp": 5,
+        "fp": 3,
+        "fn": 3,
+        "precision": 0.625,
+        "recall": 0.625,
+        "f1": 0.625
+      },
+      "B06": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "B07": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      }
+    },
+    "multilabel_exact_cases": 0,
+    "multilabel_cases": 6,
+    "clear_negative_exact_calls": 3,
+    "clear_negative_planned_calls": 6,
+    "literal_citations": {
+      "existing": 37,
+      "denominator": 39,
+      "rate": 0.9487179487179487,
+      "output_coverage": 23,
+      "planned_output_denominator": 24
+    },
+    "strict_semantic_support": {
+      "supported": null,
+      "findings": 28,
+      "reviewed_findings": 0,
+      "rate": null
+    },
+    "critical_fabrications": null,
+    "risk_confusion": {
+      "benign": {
+        "benign": 8,
+        "suspicious": 4,
+        "high_risk": 2
+      },
+      "suspicious": {
+        "suspicious": 4,
+        "benign": 2
+      },
+      "unknown": {
+        "high_risk": 1,
+        "suspicious": 2,
+        "unavailable_or_unusable": 1
+      }
+    },
+    "latency": {
+      "sum_seconds": 782.3373995999973,
+      "mean_seconds": 32.597391649999885,
+      "median_seconds": 28.40884720000031,
+      "p95_seconds": 60.705358900002466,
+      "max_seconds": 117.68831609999688
+    },
+    "resources": {
+      "minimum_available_bytes": 5683867648,
+      "margin_violation_calls": 0,
+      "oom_errors": 0,
+      "projection_volume": 126,
+      "projection_hours_with_20pct_margin": 1.3690904492999951,
+      "maximum_single_ollama_working_set_bytes": 45559808,
+      "maximum_single_ollama_private_bytes": 99688448,
+      "maximum_aggregate_ollama_working_set_bytes": 52781056,
+      "maximum_aggregate_ollama_private_bytes": 155590656,
+      "process_counter_scope_complete_calls": 0,
+      "process_counter_scope_partial_calls": 24,
+      "maximum_commit_used_bytes": 43643924480,
+      "counter_failures": 0,
+      "paging_note": "Page-fault counters recorded; hard/soft faults not separated; no invented paging throughput"
+    }
+  },
+  "r1": {
+    "usable_calls": 23,
+    "truncated_calls": 1,
+    "determinate_exact_calls": 11,
+    "micro": {
+      "tp": 17,
+      "fp": 11,
+      "fn": 7,
+      "precision": 0.6071428571428571,
+      "recall": 0.7083333333333334,
+      "f1": 0.6538461538461539
+    },
+    "per_label": {
+      "B01": {
+        "tp": 2,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.4,
+        "recall": 1.0,
+        "f1": 0.5714285714285714
+      },
+      "B02": {
+        "tp": 4,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.8888888888888888
+      },
+      "B03": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1": 0.8
+      },
+      "B04": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "B05": {
+        "tp": 6,
+        "fp": 6,
+        "fn": 2,
+        "precision": 0.5,
+        "recall": 0.75,
+        "f1": 0.6
+      },
+      "B06": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4
+      },
+      "B07": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "multilabel_exact_cases": 0,
+    "multilabel_cases": 6,
+    "clear_negative_exact_calls": 2,
+    "clear_negative_planned_calls": 6,
+    "literal_citations": {
+      "existing": 41,
+      "denominator": 42,
+      "rate": 0.9761904761904762,
+      "output_coverage": 23,
+      "planned_output_denominator": 24
+    },
+    "strict_semantic_support": {
+      "supported": null,
+      "findings": 29,
+      "reviewed_findings": 0,
+      "rate": null
+    },
+    "critical_fabrications": null,
+    "risk_confusion": {
+      "benign": {
+        "benign": 8,
+        "suspicious": 4,
+        "unknown": 2
+      },
+      "suspicious": {
+        "suspicious": 5,
+        "benign": 1
+      },
+      "unknown": {
+        "high_risk": 2,
+        "suspicious": 1,
+        "unavailable_or_unusable": 1
+      }
+    },
+    "latency": {
+      "sum_seconds": 833.9031045000156,
+      "mean_seconds": 34.74596268750065,
+      "median_seconds": 28.240903699999762,
+      "p95_seconds": 59.032961000000796,
+      "max_seconds": 128.63050089999888
+    },
+    "resources": {
+      "minimum_available_bytes": 3541598208,
+      "margin_violation_calls": 0,
+      "oom_errors": 0,
+      "projection_volume": 126,
+      "projection_hours_with_20pct_margin": 1.4593304328750272,
+      "maximum_single_ollama_working_set_bytes": 4215259136,
+      "maximum_single_ollama_private_bytes": 6663401472,
+      "maximum_aggregate_ollama_working_set_bytes": 4275752960,
+      "maximum_aggregate_ollama_private_bytes": 6821003264,
+      "process_counter_scope_complete_calls": 24,
+      "process_counter_scope_partial_calls": 0,
+      "maximum_commit_used_bytes": 44920418304,
+      "counter_failures": 0,
+      "paging_note": "Page-fault counters recorded; hard/soft faults not separated; no invented paging throughput"
+    }
+  }
+}

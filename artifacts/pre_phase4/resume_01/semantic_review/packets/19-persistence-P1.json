@@ -1,0 +1,317 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "19-persistence-P1",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/19-persistence-P1.json",
+  "raw_sha256": "bc93248bc8783e8adac85ea3199ad6ec45ef3c86947814bb12ce24ec05023d72",
+  "original": "$a=New-ScheduledTaskAction -Execute 'Q:\\Readiness\\missing7319.exe'\n$t=New-ScheduledTaskTrigger -AtLogOn\nRegister-ScheduledTask -TaskName 'Readiness7319' -Action $a -Trigger $t",
+  "original_sha256": "125daebf53552a33af86353c3745d9f10d9f44ba0bf22ca84be25644feb7eda1",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "125daebf53552a33af86353c3745d9f10d9f44ba0bf22ca84be25644feb7eda1",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$a=New-ScheduledTaskAction -Execute 'Q:\\Readiness\\missing7319.exe'\n$t=New-ScheduledTaskTrigger -AtLogOn\nRegister-ScheduledTask -TaskName 'Readiness7319' -Action $a -Trigger $t",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 161,
+          "end": 163,
+          "line": 3,
+          "column": 58,
+          "end_line": 3,
+          "end_column": 60
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 161,
+          "end": 163,
+          "line": 3,
+          "column": 58,
+          "end_line": 3,
+          "end_column": 60
+        },
+        "original_fragment": "$a",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 173,
+          "end": 175,
+          "line": 3,
+          "column": 70,
+          "end_line": 3,
+          "end_column": 72
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 173,
+          "end": 175,
+          "line": 3,
+          "column": 70,
+          "end_line": 3,
+          "end_column": 72
+        },
+        "original_fragment": "$t",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 3,
+          "end": 66,
+          "line": 1,
+          "column": 4,
+          "end_line": 1,
+          "end_column": 67
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 66,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 67
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 70,
+          "end": 103,
+          "line": 2,
+          "column": 4,
+          "end_line": 2,
+          "end_column": 37
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 67,
+          "end": 103,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 37
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 161,
+          "end": 163,
+          "line": 3,
+          "column": 58,
+          "end_line": 3,
+          "end_column": 60
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 173,
+          "end": 175,
+          "line": 3,
+          "column": 70,
+          "end_line": 3,
+          "end_column": 72
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0002"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 238,
+    "artifact_bytes": 4
+  },
+  "reference": {
+    "labels": [
+      "B03"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B03",
+        "confidence": "high",
+        "evidence": [
+          {
+            "snippet": "$a=New-ScheduledTaskAction -Execute 'Q:\\\\Readiness\\\\missing7319.exe'",
+            "source_id": "original"
+          },
+          {
+            "snippet": "$t=New-ScheduledTaskTrigger -AtLogOn",
+            "source_id": "original"
+          },
+          {
+            "snippet": "Register-ScheduledTask -TaskName 'Readiness7319' -Action $a -Trigger $t",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The code explicitly constructs a scheduled task action to execute a file located at 'Q:\\\\Readiness\\\\missing7319.exe' and triggers it at 'AtLogOn', then registers this task with the name 'Readiness7319'. This constitutes a configured startup/logon persistence mechanism."
+      }
+    ],
+    "limitations": [
+      "Static analysis cannot verify the existence or content of the target executable 'Q:\\\\Readiness\\\\missing7319.exe'."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No prompt injection patterns detected. The input is a direct PowerShell script block.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "$a=New-ScheduledTaskAction -Execute 'Q:\\\\Readiness\\\\missing7319.exe'",
+      "$t=New-ScheduledTaskTrigger -AtLogOn",
+      "Register-ScheduledTask -TaskName 'Readiness7319' -Action $a -Trigger $t"
+    ],
+    "risk_label": "high_risk",
+    "risk_rationale": "The code establishes a logon persistence mechanism by registering a scheduled task to execute an external binary ('missing7319.exe') upon user logon. This behavior is indicative of backdoor or persistence installation, posing a high risk of unauthorized access and system compromise if the target executable is malicious.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "The analysis is based on the explicit text of the PowerShell commands provided. The risk is high due to the nature of the action (persistence), but the specific behavior of the target executable 'missing7319.exe' is unknown.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B03"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "$a=New-ScheduledTaskAction -Execute 'Q:\\\\Readiness\\\\missing7319.exe'",
+      "declared_source_literal_match": false,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": false,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "$t=New-ScheduledTaskTrigger -AtLogOn",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Register-ScheduledTask -TaskName 'Readiness7319' -Action $a -Trigger $t",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "invalid_response",
+    "message": "1 validation error for ModelReport\n  Value error, high_risk requires a supported combination, never obfuscation alone [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+  },
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "B03 coincide con acción, logon y registro, pero el contrato rechaza high_risk con una sola categoría. La primera cita duplica barras invertidas respecto del texto original, otro defecto literal. La existencia y conducta del binario son desconocidas, no una puerta trasera demostrada."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "invalid_response",
+      "message": "1 validation error for ModelReport\n  Value error, high_risk requires a supported combination, never obfuscation alone [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+    }
+  },
+  "profile": "P1",
+  "request_sha256": "bce8dbaf858e234ecb0cdffa44ce9cb216ef6299f7c867c851bd6e3766420976"
+}

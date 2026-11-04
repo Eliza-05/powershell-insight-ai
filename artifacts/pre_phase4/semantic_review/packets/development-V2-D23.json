@@ -1,0 +1,367 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "development-V2-D23",
+  "stage": "development",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/development/023_V2-D23_r1.result.json",
+  "raw_sha256": "13f383e3cc8f410fc7e9aa6e524961f6fdc0f58c767e7f6fc7f3c448f5110104",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$defenderState = Get-MpComputerStatus\n$reportBody = Read-Host 'Academic report content supplied only at run time'\nInvoke-WebRequest -Uri 'https://example.invalid/academic/report' -Method Post -Body $reportBody\n",
+  "original_sha256": "8d127470dce8d1ee5211d9ec03201180037bca132e753176a488fb43ecebcb33",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "8d127470dce8d1ee5211d9ec03201180037bca132e753176a488fb43ecebcb33",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$defenderState = Get-MpComputerStatus\n$reportBody = Read-Host 'Academic report content supplied only at run time'\nInvoke-WebRequest -Uri 'https://example.invalid/academic/report' -Method Post -Body $reportBody\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 254,
+          "end": 265,
+          "line": 4,
+          "column": 85,
+          "end_line": 4,
+          "end_column": 96
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 254,
+          "end": 265,
+          "line": 4,
+          "column": 85,
+          "end_line": 4,
+          "end_column": 96
+        },
+        "original_fragment": "$reportBody",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 73,
+          "end": 93,
+          "line": 2,
+          "column": 18,
+          "end_line": 2,
+          "end_column": 38
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 93,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 38
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 108,
+          "end": 169,
+          "line": 3,
+          "column": 15,
+          "end_line": 3,
+          "end_column": 76
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 94,
+          "end": 169,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 76
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 254,
+          "end": 265,
+          "line": 4,
+          "column": 85,
+          "end_line": 4,
+          "end_column": 96
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 334,
+    "artifact_bytes": 11
+  },
+  "reference": {
+    "case_id": "V2-D23",
+    "family_id": "V2-DEV-F12",
+    "expected_labels": [
+      "B05",
+      "B06"
+    ],
+    "expected_risk": "unknown",
+    "risk_explanation": "Consulta de defensa y envio explicito son visibles; el cuerpo no se conoce.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D23-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D23.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$defenderState = Get-MpComputerStatus",
+        "start": 56,
+        "end": 93,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 38,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D23-E02",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D23.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$reportBody = Read-Host 'Academic report content supplied only at run time'",
+        "start": 94,
+        "end": 169,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 76,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D23-E03",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D23.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Invoke-WebRequest -Uri 'https://example.invalid/academic/report' -Method Post -Body $reportBody",
+        "start": 170,
+        "end": 265,
+        "start_line": 4,
+        "end_line": 4,
+        "start_column": 1,
+        "end_column": 96,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D23-B05",
+        "behavior_id": "B05",
+        "evidence_ids": [
+          "V2-D23-E01"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "individual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [],
+        "technical_explanation": "Consulta de defensa y envio explicito son visibles; el cuerpo no se conoce.",
+        "semantic_status": "pending_human"
+      },
+      {
+        "group_id": "V2-D23-B06",
+        "behavior_id": "B06",
+        "evidence_ids": [
+          "V2-D23-E02",
+          "V2-D23-E03"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "contextual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [
+          {
+            "from_evidence_id": "V2-D23-E02",
+            "to_evidence_id": "V2-D23-E03",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          }
+        ],
+        "technical_explanation": "Consulta de defensa y envio explicito son visibles; el cuerpo no se conoce.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B04": "Get-MpComputerStatus solo consulta.",
+      "B01": "POST no cuenta automaticamente como descarga.",
+      "payload": "No inventar el contenido enviado."
+    },
+    "uncertainty": {
+      "required": true,
+      "reason": "Read-Host determina el cuerpo; no se sabe si contiene el inventario u otros datos.",
+      "do_not_infer_hidden_behaviors": true
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "explanation": "The script constructs a request to retrieve content from a remote origin using Invoke-WebRequest.",
+        "evidence": [
+          {
+            "snippet": "Invoke-WebRequest -Uri 'https://example.invalid/academic/report' -Method Post -Body $reportBody",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      },
+      {
+        "behavior_id": "B05",
+        "explanation": "The script queries host/software status via Get-MpComputerStatus and gathers user input via Read-Host, which are used as arguments for the subsequent network operation.",
+        "evidence": [
+          {
+            "snippet": "$defenderState = Get-MpComputerStatus",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "$reportBody = Read-Host 'Academic report content supplied only at run time'",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "suspicious",
+    "risk_rationale": "The script performs a POST request to a domain with a suspicious TLD (.invalid) using data gathered from local status checks and user input. While the operations themselves are standard administrative or interactive commands, the combination of querying security status, collecting arbitrary user input, and sending it to an unverified remote endpoint constitutes an abuse-compatible pattern.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The script is syntactically complete and all operations are identifiable. The remote origin is a literal string in the source."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No instructions to alter analysis or output were found within the script text."
+    },
+    "limitations": [
+      "The analysis is based solely on static text; the actual execution of Get-MpComputerStatus, Read-Host, and Invoke-WebRequest was not performed."
+    ]
+  },
+  "predicted_labels": [
+    "B01",
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Invoke-WebRequest -Uri 'https://example.invalid/academic/report' -Method Post -Body $reportBody",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "analyzed_script",
+      "snippet": "$defenderState = Get-MpComputerStatus",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "analyzed_script",
+      "snippet": "$reportBody = Read-Host 'Academic report content supplied only at run time'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Defender status query is B05, not defense modification. POST body unknown: do not invent download, exfiltration or C2."
+  },
+  "human_adjudication": null
+}

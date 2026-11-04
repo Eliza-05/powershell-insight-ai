@@ -1,0 +1,12 @@
+{
+  "execution_authorized": false,
+  "maximum_real_LLM_intents": 32,
+  "freeze_sha256": null,
+  "reference_review_sha256": null,
+  "source": "explicit_future_owner_execution_authorization",
+  "owner_statement": "",
+  "authorized_at": "",
+  "exclusive_session_attested": false,
+  "resume_explicitly_authorized": false,
+  "resume_ledger_sha256": null
+}

@@ -11,7 +11,8 @@ from app.services.behavior_detection.engine import analyze_behaviors
 from app.services.deobfuscation.engine import deobfuscate
 from app.services.pipelines.config import PipelineSettings
 from app.services.pipelines.context import build_context, sha
-from app.services.pipelines.ollama import InferenceAdapter, OllamaAdapter
+from app.services.pipelines.ollama import OllamaAdapter
+from app.services.pipelines.provider import InferenceAdapter
 from app.services.pipelines.resources import OperationalFailure
 from app.services.pipelines.validation import validate_report
 
@@ -71,7 +72,7 @@ class AnalysisService:
                 stage = "context"
                 context = build_context(script, deob)
                 data["engine_versions"]["llm_contract"] = "application-report-v1"
-                stage = "ollama"
+                stage = getattr(self.adapter, "provider", "ollama")
                 response = self.adapter.infer(context, data["operational"])
                 stage = "response"
                 content = response.get("message", {}).get("content")

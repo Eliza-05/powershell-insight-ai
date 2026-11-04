@@ -1,0 +1,3 @@
+$file = 'C:\PSIA_Phase4_NeverCreated_57C21\' + 'service-auth.clixml'
+$saved = Import-Clixml -LiteralPath $file
+$null = $saved.GetNetworkCredential().Password.Length

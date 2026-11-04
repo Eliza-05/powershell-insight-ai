@@ -1,0 +1,4 @@
+{
+  "reason": "Static review: all permanent WMI subscription writes now use the same bound credential, avoiding mismatched creator identities. Target remains invalid laboratory host. Labels, policy, model and parameters unchanged; before personal approval and any model output.",
+  "new_inferences": 0
+}

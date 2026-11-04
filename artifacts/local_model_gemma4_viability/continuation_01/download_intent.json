@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-03T18:56:17.515840+00:00",
+  "command": [
+    "ollama",
+    "pull",
+    "gemma4:12b"
+  ],
+  "memory": {
+    "available_bytes": 16990494720,
+    "commit_available_bytes": 26479128576,
+    "commit_used_bytes": 25188253696,
+    "physical_total_bytes": 33413771264,
+    "commit_limit_bytes": 51667382272
+  },
+  "ps": {
+    "models": []
+  },
+  "inference": false
+}

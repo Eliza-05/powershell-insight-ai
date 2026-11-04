@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-04T04:14:13.790286+00:00",
+  "candidate_sha256": "c7c0dc327291f7647d5093d2d729185d297fc70f55853f727ef511659411da64",
+  "backend_tests_passed": 1087,
+  "backend_evidence": "backend_regressions_verified.xml",
+  "candidate_simulation_tests_passed": 19,
+  "candidate_evidence": "candidate_closeout.xml",
+  "frontend_tests_passed": 29,
+  "frontend_test_files": 3,
+  "syntax_only_specimens_passed": 16,
+  "sample_executions": 0,
+  "new_real_LLM_inferences": 0,
+  "references_personally_approved": false,
+  "new_budget_authorized": false,
+  "approved_freeze_exists": false,
+  "official_execution_directory_exists": false,
+  "coverage": {
+    "B01": 2,
+    "B02": 2,
+    "B03": 2,
+    "B04": 2,
+    "B05": 2,
+    "B06": 5,
+    "B07": 2
+  },
+  "unique_units": 16,
+  "proposed_new_LLM_intents": 32,
+  "current_owner_reference_review_required": true,
+  "H1_H2_confirmed": false,
+  "note": "Full suite plus final-candidate closeout; mock acceptances live only in temporary isolated test copies. Remaining warning: Starlette/httpx deprecation."
+}

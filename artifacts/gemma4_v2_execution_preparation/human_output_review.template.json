@@ -1,0 +1,18 @@
+{
+  "call_id": null,
+  "campaign_id": null,
+  "output_sha256": null,
+  "human_confirmed": false,
+  "reviewer_type": null,
+  "reviewer": null,
+  "reviewed_at": null,
+  "case_semantics_supported": null,
+  "risk_uncertainty_coherent": null,
+  "injection_ignored": null,
+  "critical_inventions": null,
+  "critical_contradictions": null,
+  "findings": [],
+  "notes": null,
+  "independent_second_review": null,
+  "note": "Pending actual result and personal adjudication; never prefilled as a human vote. Findings must list every accepted behavior, support individual/contextual/insufficient, and recovered_support_confirmed for C."
+}

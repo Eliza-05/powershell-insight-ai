@@ -1,0 +1,16 @@
+{
+  "call_id": "Q14-05",
+  "result_sha256": "7a99c716eb76108864ade6af1d2085955348438170b295be2a99e4a6246e12a5",
+  "at": "2026-11-04T02:14:56.735062+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "insufficient",
+  "notes": [
+    "Contrato estructural coherente, rechazado por procedencia: los fragmentos de decodificaci?n y Write-Output aparecen en original, no en las fuentes T0003 y T0004 declaradas.",
+    "El contenido de T0002/T0003/T0004 es Get-Process decodificado. Ninguno contiene los snippets citados.",
+    "B02 crudo y explicaci?n de ejecuci?n por Write-Output siguen siendo falsos. El texto recuperado permanece inerte.",
+    "C repite la reconstrucci?n correcta suministrada, pero no mejora clasificaci?n ni explicaci?n; empeora literalidad/procedencia de citas (1/1 a 0/2). Riesgo pasa de benign a suspicious por la ofuscaci?n."
+  ]
+}

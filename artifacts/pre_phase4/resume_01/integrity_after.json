@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-03T01:25:24.121967+00:00",
+  "prior_files_checked": 559,
+  "prior_files_unchanged": 556,
+  "changed_existing_files": [
+    "docs/phase4_pending.md",
+    "docs/pre_phase4_model_readiness.md",
+    "docs/roadmap.md"
+  ],
+  "missing_files": [],
+  "unexpected_changes": [],
+  "historical_experiments_datasets_artifacts_preserved": true,
+  "frozen_source_locks_checked": 44,
+  "frozen_source_lock_mismatches": [],
+  "controller_hash_matches": true,
+  "all_24_registered_requests_and_raw_responses_verified": true,
+  "active_attempts": 0,
+  "unknown_attempts": 0,
+  "budget_consumed": 24,
+  "remaining": 0,
+  "branch": "develop",
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "head": "e399a1f4021495d02ac0bb81a7344beb80752d93",
+  "index_sha256": "d669b0388a872f2d213ef3e2225a42660efe3fa92e38b10ec1af779d3d078bc7",
+  "broken_document_links": []
+}

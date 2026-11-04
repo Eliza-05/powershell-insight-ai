@@ -1,0 +1,20 @@
+{
+  "packet_id": "19-persistence-P1",
+  "packet_sha256": "bb819b38f6ee6134d1c4b9e96e459ae5cfa8b5be4e5f306cc1d2f8e4f73c952b",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

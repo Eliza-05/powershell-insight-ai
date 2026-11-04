@@ -1,0 +1,19 @@
+{
+  "verified_at_utc": "2026-11-03T21:00:17.518485+00:00",
+  "protected_preexisting_files": 74,
+  "changed_or_missing": [],
+  "bound_sources_verified": 11,
+  "new_human_adjudications": 1,
+  "case_scope": "01-credential-control only",
+  "previous_pending_snapshot_unchanged": true,
+  "raw_response_reference_STOP_prompts_unchanged": true,
+  "Gemma_attempts_before_and_after": 1,
+  "Gemini_ledger_before_and_after": "5/12",
+  "Git_index_and_HEAD_unchanged": true,
+  "new_inferences": 0,
+  "phase4_started": false,
+  "missing_document_links": [],
+  "new_record_sha256": "4fc072e9f5e481d9629bb6e3dd76a5330b7c2960248f3cdb10ac9ffa0b3052e0",
+  "new_report_sha256": "f200d8937820700024edaeb8576c18dcce96713417c581964ff3e4461d6ef76d",
+  "statement_sha256": "4933511ffc61a3c307385d191be44d8e2ffc25de16681c090628c28da1322740"
+}

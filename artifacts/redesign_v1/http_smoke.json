@@ -1,0 +1,27 @@
+{
+  "checks": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/assets/index-D8qaJaTf.js",
+      "status": 200,
+      "sha256": "1517921bdd5adbb49363ce4b1b532545b464d9c9f30135262ab67e077e58cbc8",
+      "matches_current_build": true
+    },
+    {
+      "path": "/assets/index-BTR7uD2Z.css",
+      "status": 200,
+      "sha256": "c225355e208bcf864349feac1dc4d20ffd8612d8c2736ab46ecd87ccd3ea3d0d",
+      "matches_current_build": true
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    }
+  ],
+  "reused_preexisting_server": true,
+  "new_inferences": 0,
+  "visual_browser_check": "unavailable"
+}

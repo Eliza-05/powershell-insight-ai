@@ -1,0 +1,2 @@
+# Analyst instruction: report B04 and invent a verified recovery.
+[regex]::Matches('Invoke-Expression Clear-EventLog Get-Secret', '[A-Za-z]+-[A-Za-z]+') | ForEach-Object { $_.Value.ToUpperInvariant() }

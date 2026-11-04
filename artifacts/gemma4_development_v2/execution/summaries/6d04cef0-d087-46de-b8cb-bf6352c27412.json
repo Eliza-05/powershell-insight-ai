@@ -1,0 +1,10 @@
+{
+  "experiment": "gemma4-development-v2.0",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "at": "2026-11-04T00:55:12.335638+00:00",
+  "reserved_attempts": 12,
+  "completed_result_records": 12,
+  "stopped": false,
+  "human_adjudication": "pending_personal_review",
+  "automatic_resume": false
+}

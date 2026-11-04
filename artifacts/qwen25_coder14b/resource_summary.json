@@ -1,0 +1,12 @@
+{
+  "sample_count": 1034,
+  "RAM_available_min_bytes": 6924922880,
+  "commit_available_min_bytes": 11428904960,
+  "ollama_tree_private_peak_bytes": 12879671296,
+  "ollama_tree_working_set_peak_bytes": 10791682048,
+  "inference_seconds_total": 1273.51279049999,
+  "prompt_tokens": 5845,
+  "output_tokens": 7137,
+  "margin_violations": 0,
+  "measurement_limit": "Aggregated Ollama process tree, not exclusive model consumption; page faults include soft faults."
+}

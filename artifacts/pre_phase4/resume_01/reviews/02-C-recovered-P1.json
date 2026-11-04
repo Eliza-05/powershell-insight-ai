@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-03T00:06:05.818994+00:00",
+  "kind": "AI_assisted_diagnostic_not_human_adjudication",
+  "findings": [
+    "Output exhausted 2048 tokens and remained incomplete; no repair",
+    "Emits all B01-B07 even when explanations deny support",
+    "Calls local process query remote content retrieval",
+    "Claims decoded source absent despite supplied T0001",
+    "Repetitive limitations, no usable C report"
+  ],
+  "continuation": "next never-dispatched fixed-plan ID; keep all failures; no prompt/parameter changes; compare predeclared profiles",
+  "raw_output_not_certified": true
+}

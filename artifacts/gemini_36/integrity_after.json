@@ -1,0 +1,16 @@
+{
+  "protected_files_checked": 189,
+  "changed_files": [
+    "artifacts/gemini_viability/requests.jsonl"
+  ],
+  "only_authorized_fourth_ledger_append_changed": true,
+  "first_three_entries_byte_identical": true,
+  "plan_r2_and_historical_artifacts_unchanged": true,
+  "runtime_frozen_after_prepare": true,
+  "ledger_sha256_after": "8a5da2ec374bf951e1963b7d4ced836c307092d33929a5b4b0a8bc7d6adcda16",
+  "git_index_unchanged": true,
+  "git_head_unchanged": true,
+  "requests_total": 4,
+  "new_model_generations": 1,
+  "remaining_local_reservations": 8
+}

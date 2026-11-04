@@ -1,0 +1,10 @@
+{
+  "experiment": "gemma4-development-v2.0",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "freeze_sha256": "f27f87d077856ac4a03966f7b9ddcfa266aa929cbbd01e327a88eff08e82e745",
+  "runner_binding_sha256": "786da22c1ca8e2e1da9158dbca74792e4b2300d04af446aad9ac6c51da1896f1",
+  "authorization_sha256": "379a1a3b871470152f288d1bd3a038e177f526dc301f87216e252f7c68e98d3f",
+  "created_at": "2026-11-04T00:40:01.677467+00:00",
+  "references_accepted": true,
+  "maximum_attempts": 12
+}

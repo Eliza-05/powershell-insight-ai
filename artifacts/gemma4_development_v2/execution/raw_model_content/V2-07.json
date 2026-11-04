@@ -1,0 +1,33 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B07",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Get-StoredCredential -Target 'v2-synthetic-missing-vault-842'",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The command explicitly attempts to retrieve stored credentials from a specific target vault identifier ('v2-synthetic-missing-vault-842')."
+    }
+  ],
+  "limitations": [
+    "The operation is a retrieval of stored material; it does not specify the network protocol or destination for the extracted data.",
+    "The specific function 'Get-StoredCredential' is not a standard PowerShell cmdlet; it implies a custom module or third-party tool."
+  ],
+  "obfuscation_techniques": [],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No prompt injection detected in the provided JSON input.",
+    "snippets": []
+  },
+  "recovered_content": [],
+  "risk_label": "suspicious",
+  "risk_rationale": "The command is designed to access and extract stored credential material. While the context of the vault is unknown, the action of retrieving credentials is a primary step in credential theft or lateral movement.",
+  "uncertainty": {
+    "level": "medium",
+    "notes": "The specific nature of the 'v2-synthetic-missing-vault-842' target is unknown, and the source of the 'Get-StoredCredential' command is not provided.",
+    "uninterpretable_fragments": []
+  }
+}

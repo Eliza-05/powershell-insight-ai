@@ -1,0 +1,2 @@
+$login = Get-Credential -Message 'Phase4 remoting authentication'
+Invoke-Command -ComputerName 'p4-session.example.invalid' -Credential $login -ScriptBlock { 'phase4-handshake' }

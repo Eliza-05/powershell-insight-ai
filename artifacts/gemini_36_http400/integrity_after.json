@@ -1,0 +1,11 @@
+{
+  "protected_files_checked": 72,
+  "changed_or_missing": [],
+  "ledger_unchanged": true,
+  "ledger_entries": 4,
+  "ledger_sha256": "8a5da2ec374bf951e1963b7d4ced836c307092d33929a5b4b0a8bc7d6adcda16",
+  "git_index_unchanged": true,
+  "git_head_unchanged": true,
+  "historical_plans_responses_and_tests_preserved": true,
+  "gemini36_request_builder_unchanged": true
+}

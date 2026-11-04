@@ -1,0 +1,126 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "16-stored-P3",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/16-stored-P3.json",
+  "raw_sha256": "64458497a3309e7bd7f411b03d0714fbbb77256df5583c624ee259b8f93109f7",
+  "original": "$stored = { Write-Output 'fixture 7319' }\nWrite-Output 'stored only'",
+  "original_sha256": "220403f5b22fb3f98c494802d9d53ae7e692594e995d3be8bfa2b493ce5c4429",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "220403f5b22fb3f98c494802d9d53ae7e692594e995d3be8bfa2b493ce5c4429",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$stored = { Write-Output 'fixture 7319' }\nWrite-Output 'stored only'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 10,
+          "end": 41,
+          "line": 1,
+          "column": 11,
+          "end_line": 1,
+          "end_column": 42
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 41,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 42
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 94,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [],
+    "limitations": [
+      "Limited evidence available - code is minimal and appears to be test/fixture content"
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No prompt injection patterns detected. Code is straightforward PowerShell without injection attempts.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "$stored = { Write-Output 'fixture 7319' }",
+      "Write-Output 'stored only'"
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "Analysis indicates this is benign test/fixture code. The text 'fixture 7319' strongly suggests this is placeholder/sample content from a testing environment. The script block creation is a standard PowerShell pattern and not inherently malicious. No evidence of remote retrieval, credential access, network transmission, or persistence mechanisms.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "Code is simple and self-contained with no unknown runtime inputs. The 'fixture' naming convention is a strong indicator of benign test content.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Respuesta final válida y etiquetas vacías correctas para el bloque no invocado: 657 tokens reportados, 51.60 segundos. El razonamiento está presente, sin desglose separado de tokens. Acierto aislado, no superioridad demostrada sobre otras configuraciones."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P3",
+  "request_sha256": "d733a9ba8f90be7e5f3b1070d8616cb7010dcb4f50acb6fe6cec4dd7c291949e"
+}

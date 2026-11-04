@@ -1,0 +1,39 @@
+{
+  "version": "gemma4-v2.0-execution-clarification-a1",
+  "base_FREEZE_sha256": "f27f87d077856ac4a03966f7b9ddcfa266aa929cbbd01e327a88eff08e82e745",
+  "prospective_before_any_v2_model_response": true,
+  "owner_approval_pending": true,
+  "frozen_gate_or_references_modified": false,
+  "exact_sets": {
+    "fixed_minimum": 9,
+    "fixed_denominator": 11,
+    "excluded_indeterminate_call": "V2-09",
+    "when_all_12_usable": "Still at least nine exact sets among the same eleven determinate calls; never 9/12 or 10/12",
+    "when_one_output_unusable": "Denominator remains eleven; unusable determinate call is non-exact, not removed; indeterminate call remains excluded",
+    "maximum_exact_if_all_correct": "11/11; V2-09 must independently pass uncertainty/abstention gate",
+    "usability_is_separate": "At least eleven usable outputs among twelve, including both C"
+  },
+  "failure_types": {
+    "ordinary_terminal_quality_failure": "Continue safely for FP/FN, invalid inner JSON/schema/provenance or terminal output-limit truncation; no retries",
+    "critical_security_integrity_or_operation": "Stop immediately before another request; leave persistent STOP and interrupted application circuit when applicable",
+    "critical_semantic_claim_in_inert_text": "Recorded for zero-critical quality gate and human adjudication; does not itself execute code or imply a real security event; no automatic repair or selective retry"
+  },
+  "terminal_truncation_continuation_requires": [
+    "done=true and done_reason=length",
+    "expected model, no tools or nonempty thinking",
+    "valid token counts within requested limits",
+    "confirmed expected resident context/CPU and resource margins",
+    "no interrupted circuit"
+  ],
+  "cold_available_bytes_authoritative": 15135148032,
+  "cold_GiB_display_rounded": 14.10,
+  "warm_available_bytes": 3221225472,
+  "runtime_safety_floor_bytes": 2147483648,
+  "review_and_authorization": {
+    "all_12_v2_references_currently_AI_assisted_proposals": true,
+    "no_v2_reference_is_personally_adjudicated_by_protocol_acceptance": true,
+    "requires_separate_explicit_reference_acceptance_and_execution_authorization": true,
+    "future_human_output_reviews_must_bind_campaign_call_and_result_hash": true,
+    "v1_personal_review_status_is_not_resolved_by_v2_authorization": true
+  }
+}

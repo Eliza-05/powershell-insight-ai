@@ -1,0 +1,20 @@
+{
+  "packet_id": "03-output-P0",
+  "packet_sha256": "233b1f33dadb125be3022ca9dd1d2976e8ada2e312d20d2ad65b572268c84319",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

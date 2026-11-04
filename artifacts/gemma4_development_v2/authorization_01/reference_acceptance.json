@@ -1,0 +1,56 @@
+{
+  "at": "2026-11-04T00:39:34.467821+00:00",
+  "event": "explicit_owner_personal_acceptance_of_12_v2_references_and_a1",
+  "source_statement_sha256": "fb9ffc686118255f6bca530a9158683a352471aeff00e02503dfe8e45a36e099",
+  "freeze_sha256": "f27f87d077856ac4a03966f7b9ddcfa266aa929cbbd01e327a88eff08e82e745",
+  "runner_binding_sha256": "786da22c1ca8e2e1da9158dbca74792e4b2300d04af446aad9ac6c51da1896f1",
+  "reference_table_sha256": "7cc37510f4ce824d4552c043a52f606d0133161c59813d3f7269977ebb8b76aa",
+  "clarification_sha256": "a6b96a17ecba0db2d7c2ea105e1cbb05274119b2b1715c8f6fbecb1e90162032",
+  "accepted_call_ids": [
+    "V2-01",
+    "V2-02",
+    "V2-03",
+    "V2-04",
+    "V2-05",
+    "V2-06",
+    "V2-07",
+    "V2-08",
+    "V2-09",
+    "V2-10",
+    "V2-11",
+    "V2-12"
+  ],
+  "accepted_reference_labels": {
+    "V2-01": [],
+    "V2-02": [
+      "B05",
+      "B06"
+    ],
+    "V2-03": [
+      "B05",
+      "B06"
+    ],
+    "V2-04": [
+      "B05"
+    ],
+    "V2-05": [],
+    "V2-06": [
+      "B02"
+    ],
+    "V2-07": [
+      "B07"
+    ],
+    "V2-08": [
+      "B01",
+      "B02"
+    ],
+    "V2-09": null,
+    "V2-10": [],
+    "V2-11": [],
+    "V2-12": []
+  },
+  "V2_09_indeterminate_excluded_from_label_metrics": true,
+  "does_not_adjudicate_future_model_outputs": true,
+  "independent_model_selection": false,
+  "v1_personal_review_not_implicitly_changed": true
+}

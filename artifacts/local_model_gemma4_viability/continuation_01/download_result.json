@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "finished_at": "2026-11-03T19:03:19.466855+00:00",
+  "memory_after": {
+    "available_bytes": 16935632896,
+    "commit_available_bytes": 26401599488,
+    "commit_used_bytes": 25265782784,
+    "physical_total_bytes": 33413771264,
+    "commit_limit_bytes": 51667382272
+  }
+}

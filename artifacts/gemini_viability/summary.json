@@ -1,0 +1,132 @@
+{
+  "status": "blocked_preflight_no_inference",
+  "candidate_model": "gemini-3.8-flash",
+  "model_actually_tested": null,
+  "model_version": null,
+  "authentication": "unverified",
+  "available_models": null,
+  "project_tier": "owner_confirmed_Free",
+  "quota_limits": "unknown",
+  "api_requests_reserved": 1,
+  "api_request_limit": 12,
+  "inferences_dispatched": 0,
+  "inferences_planned": 11,
+  "inference_token_consumption": 0,
+  "quota_remaining": "unverified",
+  "preflight_error": "gemini_transport_error",
+  "preflight_http_status": null,
+  "preflight_error_subtype": "not_recorded_in_first_attempt",
+  "automatic_retries": 0,
+  "raw_model_responses": 0,
+  "results": [
+    {
+      "id": "G01",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B05"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G03",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G03",
+      "configuration": "C",
+      "status": "not_executed",
+      "expected_labels": [],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G06",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G06",
+      "configuration": "C",
+      "status": "not_executed",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G02",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B02"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G04",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G05",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B01"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G07",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B04"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G08",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B07"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    },
+    {
+      "id": "G09",
+      "configuration": "B",
+      "status": "not_executed",
+      "expected_labels": [
+        "B02"
+      ],
+      "observed_labels": null,
+      "quality_metrics": null
+    }
+  ],
+  "scientific_selection_approved": false,
+  "phase4_started": false,
+  "recommendation": "Integration passes offline controls; live feasibility and quality remain undetermined."
+}

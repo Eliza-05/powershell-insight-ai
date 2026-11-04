@@ -1,0 +1,134 @@
+{
+  "at_utc": "2026-11-02T22:49:03.922496+00:00",
+  "branch": "develop",
+  "tests": {
+    "frontend_tests": {
+      "tests": 28,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "backend_tests": {
+      "tests": 876,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "connected_tests": {
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    }
+  },
+  "typecheck_and_build_passed": true,
+  "contrast_token_pairs_passed": 46,
+  "visual_browser_verification": {
+    "completed": false,
+    "reason": "The browser access host is unavailable; native pipe unavailable",
+    "screenshots_claimed": false,
+    "both_themes_and_resolutions_visually_verified": false
+  },
+  "http_local_current_build_verified": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/assets/index-D8qaJaTf.js",
+      "status": 200,
+      "sha256": "1517921bdd5adbb49363ce4b1b532545b464d9c9f30135262ab67e077e58cbc8",
+      "matches_current_build": true
+    },
+    {
+      "path": "/assets/index-BTR7uD2Z.css",
+      "status": 200,
+      "sha256": "c225355e208bcf864349feac1dc4d20ffd8612d8c2736ab46ecd87ccd3ea3d0d",
+      "matches_current_build": true
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    }
+  ],
+  "preexisting_server_reused_not_started_or_stopped": true,
+  "new_model_inferences": 0,
+  "prior_files_checked": 388,
+  "prior_files_unchanged": 383,
+  "modified_in_this_redesign": {
+    "frontend/src/App.tsx": {
+      "before_sha256": "f40e9b85156cfaa5df36eb43cd45f02a1286158823da02b352fbd47fe392ba07",
+      "after_sha256": "68d1f94122a0706a79da7385626035cee16079ba4502d4d24844310bd3d1d357"
+    },
+    "frontend/src/components/Editor.tsx": {
+      "before_sha256": "85f1174c50750c1efbe4b524418dc60467f602165b8e85aac563932a6e8a4ad4",
+      "after_sha256": "80566b7a5bc9e67dec2cc0204e409b2674c8781cca3d921148fe3e72de6faba2"
+    },
+    "frontend/src/components/Results.tsx": {
+      "before_sha256": "6af76b35c766be270c89a8d2869c29abb50b14af5f31bd586d562cf503a227a4",
+      "after_sha256": "b8ee3b6e90f89da8ec6641917c497c5f4362a48e6137350629e0f600d54f05e6"
+    },
+    "frontend/src/styles.css": {
+      "before_sha256": "a37163af3c7c35a833206ae565b43c091c6fb92ae271b2e668c65d678bc1b2f9",
+      "after_sha256": "ea0efccdbd78a6adfb2e02d0fd3f493abd9aaa51afd09577f4744ee3847c80a3"
+    },
+    "frontend/src/test/App.test.tsx": {
+      "before_sha256": "e57c3155c54b4210cc05942f8cd7c8498e1620b3458ac7079e650f4c073f131c",
+      "after_sha256": "edb419eaad5361c72d6e9554c2eb103bd0cb3b58bc7bf29a7dcd2d0bae5ddd65"
+    }
+  },
+  "created_in_this_redesign": {
+    "artifacts/redesign_v1/backend_tests.xml": {
+      "sha256": "d92bc43e884a97c2527e917133c0c5b12af621fa3d1e90fbca3559202a5b3109",
+      "bytes": 128799
+    },
+    "artifacts/redesign_v1/before.json": {
+      "sha256": "8edaea62413955a03597f6f48d09004f5911b14b093d543ee5e28cead508cebd",
+      "bytes": 46980
+    },
+    "artifacts/redesign_v1/connected_tests.xml": {
+      "sha256": "6e6cec792e6b2f6c2ecf831c89af925433991b8bf37700bf61bbad8e5af1940e",
+      "bytes": 526
+    },
+    "artifacts/redesign_v1/contrast_checks.json": {
+      "sha256": "5ff75a62c25bbae4fa202281c692fb410a3039829c8b396da658aac112f7f702",
+      "bytes": 7092
+    },
+    "artifacts/redesign_v1/frontend_tests.xml": {
+      "sha256": "62c2dd6f6409e6105f33dd680fe646892ec6a9b84644e182b0fdda7de6f71f1e",
+      "bytes": 5880
+    },
+    "artifacts/redesign_v1/http_smoke.json": {
+      "sha256": "42444074a0032efb480887a7c277e2666eb077c18adac64001ecc4af57849ba6",
+      "bytes": 658
+    },
+    "artifacts/redesign_v1/styles_before.css": {
+      "sha256": "a37163af3c7c35a833206ae565b43c091c6fb92ae271b2e668c65d678bc1b2f9",
+      "bytes": 1004306
+    },
+    "docs/frontend_redesign.md": {
+      "sha256": "8b85c307132e33fd70a76a75a8f817424c304601f8de9f0230aeca18a030b591",
+      "bytes": 8988
+    },
+    "frontend/src/components/PipelineSelector.tsx": {
+      "sha256": "fcde70ea1fa03cc1d19d202a9be166aec0fd93cb8d49708ac773b150d298fbb6",
+      "bytes": 2388
+    },
+    "frontend/src/styles/studio.css": {
+      "sha256": "23ea8abbde92237a51f4b6c38d69cb1f3de1739856c1c743a597f37b4f3854f0",
+      "bytes": 40063
+    },
+    "frontend/src/styles/tokens.css": {
+      "sha256": "6c2d74e22f4a73fcbc57447975b8fe1714e650622c50b8124c3514784337d221",
+      "bytes": 1631
+    }
+  },
+  "backend_http_client_hooks_dependencies_and_historical_artifacts_unchanged": true,
+  "head_before": "e399a1f4021495d02ac0bb81a7344beb80752d93",
+  "head_after": "e399a1f4021495d02ac0bb81a7344beb80752d93",
+  "index_sha256_before": "d669b0388a872f2d213ef3e2225a42660efe3fa92e38b10ec1af779d3d078bc7",
+  "index_sha256_after": "d669b0388a872f2d213ef3e2225a42660efe3fa92e38b10ec1af779d3d078bc7",
+  "staging_empty": true,
+  "git_diff_check_passed": true,
+  "preexisting_phase3_untracked_work_preserved_and_not_claimed_as_new": true
+}

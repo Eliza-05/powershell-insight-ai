@@ -1,0 +1,242 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D15",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/015_V2-D15_r1.result.json",
+  "raw_sha256": "ab81fda59d2bad7a6a05108ec6dca8dcc0ef4e10a335fbae5e4db6c5459e7b50",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')\n[string]::Join(' | ', $manualEntries)\n",
+  "original_sha256": "c418f20b0ba29e9b495f2a4712563f466dd23fba479c2f865b0d3962fa5485a2",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "c418f20b0ba29e9b495f2a4712563f466dd23fba479c2f865b0d3962fa5485a2",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')\n[string]::Join(' | ', $manualEntries)\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 73,
+          "end": 168,
+          "line": 2,
+          "column": 18,
+          "end_line": 2,
+          "end_column": 113
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 168,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 113
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 74,
+          "end": 113,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 58
+        },
+        "technique_hint": null,
+        "reason": "Expression outside the supported grammar.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 169,
+          "end": 206,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 38
+        },
+        "technique_hint": null,
+        "reason": "Static method outside the allowlist; no call performed.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 269,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "case_id": "V2-D15",
+    "family_id": "V2-DEV-F08",
+    "expected_labels": [],
+    "expected_risk": "benign",
+    "risk_explanation": "Solo muestra cadenas; ninguna operacion consume URL o clave como destino.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D15-E01",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D15.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')",
+        "start": 56,
+        "end": 168,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 113,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D15-E02",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D15.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "[string]::Join(' | ', $manualEntries)",
+        "start": 169,
+        "end": 206,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 38,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [],
+    "exclusions": {
+      "B01": "URL impresa sin descarga.",
+      "B03": "Clave Run mencionada sin escritura.",
+      "B06": "No comunicacion."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B05",
+        "explanation": "The script constructs a string by joining two elements: a URL and a registry path, which are then concatenated with a separator.",
+        "evidence": [
+          {
+            "snippet": "$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "[string]::Join(' | ', $manualEntries)",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The operation is a static string construction for display or logging purposes. No remote retrieval, execution, or credential access occurs.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The script is a synthetic academic fixture. No encoded commands, remote origins, or state-changing operations are present."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed instructions to alter analysis or suppress findings were found."
+    },
+    "limitations": [
+      "The script does not execute any code; it only constructs a string.",
+      "No remote content is retrieved, and no code is dynamically evaluated.",
+      "The registry path is mentioned as data but not accessed or modified."
+    ]
+  },
+  "predicted_labels": [
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "[string]::Join(' | ', $manualEntries)",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "String construction is not discovery. r0 empty set matches reference; r1 introduces B05 false positive."
+  },
+  "human_adjudication": null
+}

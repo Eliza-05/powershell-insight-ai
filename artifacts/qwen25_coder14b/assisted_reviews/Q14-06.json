@@ -1,0 +1,15 @@
+{
+  "call_id": "Q14-06",
+  "result_sha256": "fd82ad139aa9b39588629ed5aecbf497d36eb5168f40111022ca5f522b04b1d1",
+  "at": "2026-11-04T02:14:56.744488+00:00",
+  "reviewer_type": "AI_assistant",
+  "human_confirmed": false,
+  "personal_adjudication": "pending",
+  "independent_review": false,
+  "semantic_support": "insufficient",
+  "notes": [
+    "B02 falso positivo en bloque almacenado. La propia limitaci?n reconoce que no est? invocado, pero el hallazgo y riesgo se basan en la posibilidad de ejecuci?n.",
+    "Dos citas originales literales; muestran definici?n e IEX interno, no una invocaci?n del bloque.",
+    "OT-CONCAT no se sustenta en el texto. Incertidumbre low no expresa la contradicci?n entre activaci?n y definici?n."
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "schema_version": "deobfuscation-v1",
+  "engine_version": "static-subset-v1",
+  "input_sha256": "79f5265247f8abd9349c3bc7047ad0e8eda7b6c7550b1371d33699a5831c3727",
+  "source_name": "input",
+  "input_provenance": "original",
+  "status": "partial",
+  "semantic_equivalence": "not_claimed",
+  "limits": {
+    "max_input_bytes": 65536,
+    "max_artifact_bytes": 262144,
+    "max_total_artifact_bytes": 2097152,
+    "max_transformations": 512,
+    "max_depth": 3,
+    "max_expression_depth": 24,
+    "max_concat_terms": 128,
+    "max_tokens": 50000,
+    "max_work_units": 4000000,
+    "max_unresolved": 128
+  },
+  "layers": [
+    {
+      "layer_id": "L0",
+      "source_name": "input",
+      "provenance": "original",
+      "text": "$entry = Get-WinEvent -LogName Application -MaxEvents 1 | ConvertTo-Json -Compress\n$endpoint = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('aHR0cHM6Ly9wNC1ldmVudHMuZXhhbXBsZS5pbnZhbGlkL2luY2lkZW50'))\n$sender = New-Object System.Net.WebClient\n$null = $sender.UploadString($endpoint, 'PUT', $entry)\n",
+      "depth": 0,
+      "parent_transformation_id": null,
+      "root_source": null
+    }
+  ],
+  "transformations": [
+    {
+      "transformation_id": "T0001",
+      "technique": "OT-B64-INLINE",
+      "source": {
+        "layer_id": "L0",
+        "start": 127,
+        "end": 214,
+        "line": 2,
+        "column": 45,
+        "end_line": 2,
+        "end_column": 132
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 127,
+        "end": 214,
+        "line": 2,
+        "column": 45,
+        "end_line": 2,
+        "end_column": 132
+      },
+      "original_fragment": "[Convert]::FromBase64String('aHR0cHM6Ly9wNC1ldmVudHMuZXhhbXBsZS5pbnZhbGlkL2luY2lkZW50')",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "bytes",
+      "recovered_text": null,
+      "recovered_bytes_base64": "aHR0cHM6Ly9wNC1ldmVudHMuZXhhbXBsZS5pbnZhbGlkL2luY2lkZW50",
+      "dependencies": [],
+      "status": "partial",
+      "deterministic_verified": true,
+      "warnings": [],
+      "added_operation": null,
+      "output_layer_id": null
+    },
+    {
+      "transformation_id": "T0002",
+      "technique": "OT-B64-INLINE",
+      "source": {
+        "layer_id": "L0",
+        "start": 95,
+        "end": 215,
+        "line": 2,
+        "column": 13,
+        "end_line": 2,
+        "end_column": 133
+      },
+      "root_source": {
+        "layer_id": "L0",
+        "start": 95,
+        "end": 215,
+        "line": 2,
+        "column": 13,
+        "end_line": 2,
+        "end_column": 133
+      },
+      "original_fragment": "[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('aHR0cHM6Ly9wNC1ldmVudHMuZXhhbXBsZS5pbnZhbGlkL2luY2lkZW50'))",
+      "provenance": "deobfuscator_recovered",
+      "recovery_kind": "string",
+      "recovered_text": "https://p4-events.example.invalid/incident",
+      "recovered_bytes_base64": null,
+      "dependencies": [
+        "T0001"
+      ],
+      "status": "success",
+      "deterministic_verified": true,
+      "warnings": [],
+      "added_operation": null,
+      "output_layer_id": null
+    }
+  ],
+  "unresolved": [
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 9,
+        "end": 82,
+        "line": 1,
+        "column": 10,
+        "end_line": 1,
+        "end_column": 83
+      },
+      "technique_hint": null,
+      "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 0,
+        "end": 82,
+        "line": 1,
+        "column": 1,
+        "end_line": 1,
+        "end_column": 83
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 83,
+        "end": 215,
+        "line": 2,
+        "column": 1,
+        "end_line": 2,
+        "end_column": 133
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 226,
+        "end": 257,
+        "line": 3,
+        "column": 11,
+        "end_line": 3,
+        "end_column": 42
+      },
+      "technique_hint": null,
+      "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 216,
+        "end": 257,
+        "line": 3,
+        "column": 1,
+        "end_line": 3,
+        "end_column": 42
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 266,
+        "end": 312,
+        "line": 4,
+        "column": 9,
+        "end_line": 4,
+        "end_column": 55
+      },
+      "technique_hint": null,
+      "reason": "Trailing syntax outside the expression subset.",
+      "transformation_id": null
+    },
+    {
+      "source": {
+        "layer_id": "L0",
+        "start": 258,
+        "end": 312,
+        "line": 4,
+        "column": 1,
+        "end_line": 4,
+        "end_column": 55
+      },
+      "technique_hint": "OT-VARSUB",
+      "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+      "transformation_id": null
+    }
+  ],
+  "techniques_detected": [
+    "OT-B64-INLINE"
+  ],
+  "limits_hit": [],
+  "warnings": [],
+  "work_units": 883,
+  "artifact_bytes": 305
+}

@@ -1,0 +1,5 @@
+{
+  "stage": "before_any_LLM_or_1B",
+  "reason": "First recovery expression not recognized in nested method argument. Moved URI construction into explicit binding; WMI syntax also compacted before freeze to fit existing context limits. Reference categories unchanged; no model outputs observed.",
+  "frozen": false
+}

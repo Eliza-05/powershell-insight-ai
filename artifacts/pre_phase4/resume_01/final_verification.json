@@ -1,0 +1,103 @@
+{
+  "at": "2026-11-03T01:26:10.004040+00:00",
+  "backend_tests": {
+    "tests": 908,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "prior_delivery_files_checked": 146,
+  "prior_delivery_unexpected_mismatches": [],
+  "residents": {
+    "models": []
+  },
+  "circuit_marker_exists": false,
+  "resources": {
+    "monotonic": 37543.0217804,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 14711377920,
+    "commit_limit_bytes": 51667382272,
+    "commit_used_bytes": 30421131264,
+    "commit_available_bytes": 21246251008,
+    "memory_load_percent": 55,
+    "processes": [
+      {
+        "pid": 4512,
+        "name": "ollama app.exe",
+        "parent": 12652,
+        "is_ollama_runtime": true,
+        "page_faults": 71732,
+        "peak_working_set": 29343744,
+        "working_set": 8081408,
+        "peak_paged_pool": 332472,
+        "paged_pool": 314024,
+        "peak_nonpaged_pool": 94912,
+        "nonpaged_pool": 21320,
+        "pagefile": 56602624,
+        "peak_pagefile": 56971264,
+        "private": 56602624,
+        "cpu_seconds": 2.171875
+      },
+      {
+        "pid": 6200,
+        "name": "ollama.exe",
+        "parent": 4512,
+        "is_ollama_runtime": true,
+        "page_faults": 276285,
+        "peak_working_set": 100249600,
+        "working_set": 40001536,
+        "peak_paged_pool": 619288,
+        "paged_pool": 342936,
+        "peak_nonpaged_pool": 8069776,
+        "nonpaged_pool": 31064,
+        "pagefile": 90333184,
+        "peak_pagefile": 141012992,
+        "private": 90333184,
+        "cpu_seconds": 67.421875
+      },
+      {
+        "pid": 16280,
+        "name": "conhost.exe",
+        "parent": 6200,
+        "is_ollama_runtime": true,
+        "page_faults": 10716,
+        "peak_working_set": 10158080,
+        "working_set": 1343488,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 11800,
+        "nonpaged_pool": 10880,
+        "pagefile": 1785856,
+        "peak_pagefile": 1912832,
+        "private": 1785856,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 40244,
+        "name": "python.exe",
+        "parent": 44468,
+        "is_ollama_runtime": false,
+        "page_faults": 11146,
+        "peak_working_set": 37404672,
+        "working_set": 36577280,
+        "peak_paged_pool": 172992,
+        "paged_pool": 172592,
+        "peak_nonpaged_pool": 18408,
+        "nonpaged_pool": 17080,
+        "pagefile": 25907200,
+        "peak_pagefile": 26660864,
+        "private": 25907200,
+        "cpu_seconds": 0.203125
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "git_branch": "develop",
+  "git_status": " M .env.example\n M README.md\n M backend/app/services/pipelines/config.py\n M backend/app/services/pipelines/ollama.py\n M backend/app/services/pipelines/resources.py\n M docs/architecture.md\n M docs/roadmap.md\n?? artifacts/phase3/\n?? artifacts/pre_phase4/\n?? artifacts/redesign_v1/\n?? backend/app/api/__init__.py\n?? backend/app/api/application.py\n?? backend/app/api/contracts.py\n?? backend/app/api/transport.py\n?? backend/app/main.py\n?? backend/requirements-app.txt\n?? backend/tests/api/\n?? backend/tests/pipelines/test_diagnostic_plan.py\n?? backend/tests/pipelines/test_readiness_regressions.py\n?? backend/tests/pipelines/test_readiness_resume.py\n?? backend/tests/pipelines/test_readiness_review.py\n?? docs/frontend_redesign.md\n?? docs/phase3_closure.md\n?? docs/phase3_design.md\n?? docs/phase3_local.md\n?? docs/phase4_pending.md\n?? docs/pre_phase4_model_readiness.md\n?? experiments/model_readiness/\n?? experiments/readiness_resume.py\n?? frontend/.gitignore\n?? frontend/index.html\n?? frontend/integration/\n?? frontend/package-lock.json\n?? frontend/package.json\n?? frontend/public/\n?? frontend/src/App.tsx\n?? frontend/src/components/Editor.tsx\n?? frontend/src/components/Help.tsx\n?? frontend/src/components/PipelineSelector.tsx\n?? frontend/src/components/Primitives.tsx\n?? frontend/src/components/Results.tsx\n?? frontend/src/components/SystemStatus.tsx\n?? frontend/src/hooks/useTheme.ts\n?? frontend/src/main.tsx\n?? frontend/src/services/api.ts\n?? frontend/src/styles.css\n?? frontend/src/styles/\n?? frontend/src/test/\n?? frontend/src/types/api.ts\n?? frontend/tsconfig.json\n?? frontend/vite.config.ts\n?? frontend/vite.integration.config.ts\n",
+  "git_write_operations": false,
+  "diagnostic_budget_consumed": 24,
+  "remaining": 0,
+  "new_selection_or_phase4_executed": false,
+  "samples_executed": false,
+  "new_models_downloaded": false
+}

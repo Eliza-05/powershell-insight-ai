@@ -1,0 +1,2 @@
+Get-ScheduledTask -TaskPath '\PSIA\ReadOnly\' | Select-Object TaskName,State
+Get-NetFirewallProfile | Select-Object Name,Enabled

@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-04T02:20:53.938873+00:00",
+  "report": "docs/qwen25_coder14b_final_viability.md",
+  "report_sha256": "6320cfca265399125514d9038621e8fa62667790afbd48068cfb6b4f3369e35f",
+  "freeze_sha256": "0067a4c33181822ac7353b209a94cbbc4efee95d71440006faee6d9b012c2a0a",
+  "decision": "B",
+  "eight_inferences_completed": true,
+  "retries": 0,
+  "personal_adjudications": 0,
+  "backend_tests_passed": 1049,
+  "closeout_tests_passed": 22,
+  "frontend_tests_passed": 28,
+  "local_report_links_valid": true,
+  "Gemini_requests": 5,
+  "Gemini_limit": 12,
+  "git_write_operations": false
+}

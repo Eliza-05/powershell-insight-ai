@@ -1,0 +1,74 @@
+﻿[
+    {
+        "Id":  5724,
+        "ProcessName":  "Memory Compression",
+        "WorkingSet64":  2670514176,
+        "CPU":  null
+    },
+    {
+        "Id":  38916,
+        "ProcessName":  "opera",
+        "WorkingSet64":  560562176,
+        "CPU":  null
+    },
+    {
+        "Id":  7444,
+        "ProcessName":  "Code",
+        "WorkingSet64":  320786432,
+        "CPU":  null
+    },
+    {
+        "Id":  23288,
+        "ProcessName":  "opera",
+        "WorkingSet64":  279560192,
+        "CPU":  null
+    },
+    {
+        "Id":  7248,
+        "ProcessName":  "MsMpEng",
+        "WorkingSet64":  251924480,
+        "CPU":  null
+    },
+    {
+        "Id":  18668,
+        "ProcessName":  "Code",
+        "WorkingSet64":  207249408,
+        "CPU":  null
+    },
+    {
+        "Id":  9032,
+        "ProcessName":  "NodeManager",
+        "WorkingSet64":  184385536,
+        "CPU":  null
+    },
+    {
+        "Id":  23488,
+        "ProcessName":  "opera",
+        "WorkingSet64":  144654336,
+        "CPU":  1688.9375
+    },
+    {
+        "Id":  46260,
+        "ProcessName":  "Taskmgr",
+        "WorkingSet64":  142163968,
+        "CPU":  3796.140625
+    },
+    {
+        "Id":  41724,
+        "ProcessName":  "audiodg",
+        "WorkingSet64":  118173696,
+        "CPU":  317.765625
+    },
+    {
+        "Id":  288,
+        "ProcessName":  "Secure System",
+        "WorkingSet64":  117280768,
+        "CPU":  null
+    },
+    {
+        "Id":  2968,
+        "ProcessName":  "OneDrive.Sync.Service",
+        "WorkingSet64":  108650496,
+        "CPU":  11321.09375
+    }
+]

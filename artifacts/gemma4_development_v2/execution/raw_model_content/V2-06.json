@@ -1,0 +1,34 @@
+{
+  "behaviors": [
+    {
+      "behavior_id": "B02",
+      "confidence": "high",
+      "evidence": [
+        {
+          "snippet": "Invoke-Expression $text",
+          "source_id": "original"
+        }
+      ],
+      "explanation": "The script defines a script block containing 'Invoke-Expression' (IEX) and then executes that script block using the call operator (&). This constitutes the functional evaluation of a string-based command."
+    }
+  ],
+  "limitations": [
+    "The script only outputs a static integer (842) and does not perform network, file, or system modifications."
+  ],
+  "obfuscation_techniques": [
+    "OT-VARSUB"
+  ],
+  "prompt_injection": {
+    "detected": false,
+    "notes": "No adversarial instructions detected in the input.",
+    "snippets": []
+  },
+  "recovered_content": [],
+  "risk_label": "suspicious",
+  "risk_rationale": "The use of Invoke-Expression (IEX) is a common technique for executing dynamically constructed strings, which is a primary method for bypassing static analysis and executing arbitrary code. While the current payload is benign (printing a number), the mechanism is highly abuse-compatible.",
+  "uncertainty": {
+    "level": "low",
+    "notes": "The operation is clearly identified as dynamic execution.",
+    "uninterpretable_fragments": []
+  }
+}

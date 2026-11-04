@@ -1,0 +1,28 @@
+{
+  "backend": {
+    "command": "python -B -m pytest -q -p no:cacheprovider backend/tests --basetemp UNIQUE_WRITABLE_PATH --tb=short --junitxml=artifacts/gemini_viability/backend_tests.xml",
+    "tests": 932,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "status": "passed"
+  },
+  "frontend": {
+    "command": "npm.cmd --prefix frontend run test -- --reporter=dot",
+    "tests": 28,
+    "passed": 28,
+    "status": "passed"
+  },
+  "frontend_build": {
+    "command": "npm.cmd --prefix frontend run build",
+    "status": "passed"
+  },
+  "dependency_check": {
+    "command": "python -m pip check",
+    "status": "passed"
+  },
+  "git_diff_check": "passed",
+  "historical_tracked_paths_diff": "empty",
+  "warning": "Known Starlette/httpx deprecation warning; not a failure",
+  "real_model_calls_in_tests": 0
+}

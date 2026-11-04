@@ -1,0 +1,5 @@
+{
+  "reason": "Structural audit found 0.939 similarity of F4-08 outer wrapper to V2-S04. Replaced ScriptBlock.Create wrapper with Reflection.Emit instruction generation and invocation, before any human approval or model output. B02 reference unchanged.",
+  "LLM_inferences": 0,
+  "owner_references_approved": false
+}

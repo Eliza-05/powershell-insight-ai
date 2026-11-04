@@ -1,0 +1,20 @@
+{
+  "packet_id": "01-C-recovered-P0",
+  "packet_sha256": "d7e5beeba2658a5d6137441445120ead6a378ff9e04e3cc993ca8d3085cca69b",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

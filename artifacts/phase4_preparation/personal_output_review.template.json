@@ -1,0 +1,24 @@
+{
+  "unit": "F4-XX",
+  "mode": "B",
+  "result_sha256": null,
+  "reviewer_type": "human_personal",
+  "reviewer": "",
+  "reviewed_at": "",
+  "human_confirmed": false,
+  "inventory_complete": false,
+  "invented_reconstructions": 0,
+  "altered_reconstructions": 0,
+  "risk_uncertainty_notes": "",
+  "claims": [
+    {
+      "claim_id": "CL01",
+      "proposition": "",
+      "quote": "",
+      "strict_support": "unassessable",
+      "permissive_context_support": false,
+      "source_ids": [],
+      "rationale": ""
+    }
+  ]
+}

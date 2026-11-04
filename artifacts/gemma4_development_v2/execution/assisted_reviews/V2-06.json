@@ -1,0 +1,18 @@
+{
+  "call_id": "V2-06",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "efcd42a499022b8d18c265a1c30466a7c98e07e928b1737fd2dd86d6b0452a24",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:49:43.477993+00:00",
+  "findings": [
+    {
+      "behavior_id": "B02",
+      "support": "contextual",
+      "reason": "Literal Invoke-Expression $text plus original final & $stored establishes invoking the defined script block and interpreting its string as code. Invocation is described but not quoted."
+    }
+  ],
+  "assessment": "Exact reference match. Evidence is literal original; functional execution supported in whole provided original, citation alone omits invocation.",
+  "risk_notes": "Suspicious rationale based on generic IEX abuse despite explicitly benign constant; review risk calibration personally. No invented executed payload or actual runtime claim.",
+  "critical_reconstruction_inventions_observed_by_assistant": 0
+}

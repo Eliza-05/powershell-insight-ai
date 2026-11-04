@@ -1,0 +1,237 @@
+# PowerShell Insight AI — Iniciar Fase 4: preparación de evaluación independiente A/B/C
+
+Ya completamos la adopción experimental de Qwen2.5-Coder 14B y la comparación exploratoria de desarrollo.
+
+He revisado los informes:
+
+- `docs/qwen14_exploratory_delivery.md`
+- `docs/qwen14_exploratory_abc.md`
+- `docs/qwen25_coder14b_final_viability.md`
+
+**Autorizo iniciar la preparación técnica y metodológica de la Fase 4, pero NO autorizo todavía nuevas inferencias reales.**
+
+La búsqueda de modelos queda cerrada. Utilizaremos `qwen2.5-coder:14b` únicamente para investigar el comportamiento de los enfoques A, B y C, reconociendo sus limitaciones.
+
+## 1. Objetivo de la Fase 4
+
+Queremos contrastar las hipótesis H1 y H2 establecidas originalmente en el proyecto.
+
+Localiza sus formulaciones exactas y conserva su significado original. No las reformules para garantizar un resultado favorable.
+
+El experimento debe permitir determinar:
+
+- Cómo se comporta A en análisis determinista.
+- Cómo se comporta B cuando recibe el PowerShell original.
+- Cómo se comporta C cuando recibe el mismo original y la recuperación estática verificada de 1A.
+- Si la desofuscación modifica la calidad de la clasificación.
+- Si modifica la calidad de las explicaciones y evidencias.
+- Qué errores introduce o mantiene cada enfoque.
+- Qué diferencias son observables y cuáles no pueden generalizarse.
+
+No presupongas que C será superior.
+
+## 2. Preparar un dataset realmente independiente
+
+Propón inicialmente un conjunto de **16 scripts sintéticos nuevos**, no utilizados en las pruebas de selección, desarrollo o diagnóstico anteriores.
+
+Debe cubrir de manera equilibrada, en la medida permitida por el tamaño:
+
+- B01–B07, incluyendo positivos de B03 y B04 ausentes en algunas campañas anteriores.
+- Casos benignos y negativos difíciles.
+- Scripts con uno y varios comportamientos.
+- Código ofuscado con recuperación determinista verificada.
+- Código sin ofuscación, como control.
+- Código almacenado pero no invocado.
+- Código efectivamente invocado.
+- Descarga frente a ejecución.
+- Credenciales legítimas frente a acceso a credenciales almacenadas.
+- Casos de incertidumbre o información insuficiente.
+- Comentarios adversarios tratados exclusivamente como datos.
+
+Propón una distribución de aproximadamente ocho scripts con recuperación 1A no vacía y ocho sin recuperación relevante, ajustable solamente antes de congelar el diseño.
+
+Verifica la independencia no solo mediante hashes exactos, sino también evitando reutilizar la misma lógica con cambios superficiales de nombres o literales.
+
+No reutilices como muestras independientes los seis scripts del diagnóstico Qwen14 ni otros casos de selección previamente expuestos.
+
+No uses malware real ni scripts peligrosos ejecutables. Todos los archivos deben ser muestras sintéticas inertes para análisis estático.
+
+## 3. Referencias y adjudicación
+
+Para cada script prepara:
+
+- Identificador único.
+- Texto exacto.
+- SHA-256.
+- Etiquetas esperadas.
+- Justificación de inclusiones.
+- Justificación de exclusiones.
+- Comportamientos ausentes.
+- Estado completo, parcial o indeterminado, cuando corresponda.
+- Recuperación esperada de 1A.
+- Evidencias y fragmentos que sustentan las referencias.
+- Observaciones sobre invocación real frente a código meramente almacenado.
+
+No utilices las predicciones de B/C ni las etiquetas de 1B para establecer las referencias.
+
+Presenta las referencias como propuestas pendientes de mi revisión personal. No las atribuyas automáticamente a un evaluador humano independiente.
+
+Las referencias deberán revisarse y congelarse ANTES de observar las nuevas respuestas del LLM.
+
+Las ocho adjudicaciones personales históricas de Qwen14 siguen pendientes y deben conservarse como trabajo de desarrollo separado; no conviertas su ausencia en una aprobación implícita.
+
+## 4. Diseño de ejecución
+
+Diseña una ejecución pareada:
+
+- 16 análisis A, sin IA.
+- 16 análisis B, con Qwen14 y el texto original.
+- 16 análisis C, con Qwen14 y el original más recuperación 1A verificada.
+
+Total inicialmente propuesto: 16 unidades experimentales y 32 inferencias reales del LLM.
+
+B y C deben usar exactamente:
+
+- El mismo modelo y digest.
+- La misma política de análisis.
+- El mismo esquema JSON.
+- Los mismos parámetros de inferencia.
+- El mismo conjunto de scripts originales.
+
+La única diferencia metodológica prevista entre B y C debe ser la información adicional de recuperación determinista.
+
+No se transmiten etiquetas de referencia, resultados de 1B ni respuestas previas de B.
+
+Define cómo manejarás los casos en los que 1A no consiga recuperar contenido: deben conservarse como controles o casos de cobertura, sin fingir que hubo una desofuscación exitosa.
+
+## 5. Métricas y análisis científico
+
+Prepara el cálculo de:
+
+- Precisión micro y macro cuando corresponda.
+- Recall micro y macro.
+- F1 micro y macro.
+- Exactitud de conjuntos de etiquetas.
+- Falsos positivos y falsos negativos por comportamiento.
+- Respuestas utilizables y rechazadas.
+- Casos indeterminados y abstenciones.
+- Cobertura completa/parcial de A.
+- Citas literales correctas.
+- Procedencia original/recuperada.
+- Soporte semántico de las evidencias.
+- Reconstrucciones inventadas o alteradas.
+- Riesgo e incertidumbre.
+- Diferencias pareadas B frente a C.
+
+No mezcles respuestas rechazadas con predicciones de conjunto vacío.
+
+No conviertas resultados parciales de A en certificaciones de benignidad.
+
+No uses coincidencia literal como sustituto de soporte semántico.
+
+Para H1/H2, prepara el método de contraste que corresponda a sus definiciones originales. Considera el tamaño muestral, la dependencia de los casos y la incertidumbre estadística. No afirmes significación ni causalidad si los datos no lo permiten.
+
+Prioriza la interpretación de las diferencias pareadas y los límites de validez.
+
+## 6. Congelación y reproducibilidad
+
+Prepara un protocolo prospectivo que incluya:
+
+- Dataset y referencias.
+- Modelo y digest.
+- Prompts y configuración.
+- Versiones de código.
+- Contratos y evaluador.
+- Orden de ejecución.
+- Presupuesto de inferencias.
+- Control de recursos.
+- Manejo de errores y rechazos.
+- Ausencia de reintentos automáticos.
+- Política de conservación de resultados.
+- Método de revisión personal posterior.
+- Criterios para declarar evaluación completa o incompleta.
+
+No cambies las hipótesis ni los criterios después de observar resultados.
+
+El estudio no debe convertirse nuevamente en una prueba de aprobación del modelo. El rendimiento bajo es un resultado legítimo que debemos medir.
+
+## 7. Implementación del controlador
+
+Reutiliza los componentes existentes del proyecto.
+
+Implementa únicamente lo necesario para:
+
+- Ejecutar los tres enfoques de forma pareada.
+- Conservar un resultado por unidad y modo.
+- Evitar duplicaciones y reanudaciones silenciosas.
+- Verificar hashes antes de despachar.
+- Registrar las respuestas crudas.
+- Mantener la separación B/C.
+- Evaluar respuestas rechazadas correctamente.
+- Calcular métricas.
+- Generar los reportes reproducibles.
+
+Primero prueba el controlador mediante simulaciones.
+
+No realices todavía inferencias reales con Qwen14.
+
+## 8. Recursos y seguridad
+
+El experimento debe funcionar con los límites reales del portátil, sin forzar la memoria.
+
+Antes de cualquier ejecución futura será obligatorio un preflight actualizado de:
+
+- RAM física disponible.
+- Compromiso disponible.
+- Modelos residentes.
+- Compatibilidad y digest de Qwen14.
+- Espacio disponible.
+- Bloqueos de inferencia y condiciones de seguridad.
+
+No reutilices una medición antigua como garantía de disponibilidad actual.
+
+Nunca ejecutes los scripts PowerShell, sus recuperaciones ni el código generado por el LLM.
+
+No realices solicitudes Gemini. Conserva su ledger en 5/12.
+
+No descargues nuevos modelos.
+
+## 9. Preservación
+
+Conserva intactos los resultados anteriores:
+
+- Qwen3.5.
+- Gemma v1/v2.
+- Diagnóstico Qwen14 de ocho inferencias.
+- Comparación exploratoria actual.
+- Pruebas Gemini.
+
+No modifiques métricas, respuestas, referencias ni artefactos congelados.
+
+No rediseñes el frontend todavía: eso corresponde a la Fase 5.
+
+No realices operaciones Git de escritura, incluyendo add, commit, push, merge, rebase, reset o clean.
+
+Mantén los cambios locales en `develop`, sin staging.
+
+## 10. Entregables de esta preparación
+
+Quiero recibir:
+
+1. Protocolo de Fase 4 propuesto.
+2. Tabla de los 16 scripts con referencias y justificaciones.
+3. Evidencia de independencia frente a los datasets anteriores.
+4. Cobertura de B01–B07 y controles.
+5. Configuración experimental de A/B/C.
+6. Controlador preparado y pruebas simuladas aprobadas.
+7. Presupuesto exacto de llamadas.
+8. Procedimiento de revisión humana.
+9. Método de evaluación de H1/H2.
+10. Limitaciones científicas previstas.
+11. Condiciones para iniciar la ejecución real.
+
+**No ejecutes ninguna nueva inferencia local ni apruebes automáticamente las referencias.**
+
+Al finalizar, presenta el material necesario para que pueda revisar y autorizar una sola campaña independiente, sin volver a abrir la búsqueda de modelos.
+
+El objetivo es finalizar la Fase 4 de manera rigurosa y después pasar a la Fase 5: pulido de interfaz, pruebas finales, documentación y presentación académica.

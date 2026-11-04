@@ -1,0 +1,4 @@
+param([hashtable]$DispatchTable, [string]$EventName)
+Get-DnsClientCache | Group-Object Type | Select-Object Name,Count
+$callback = $DispatchTable[$EventName]
+& $callback -Event $EventName

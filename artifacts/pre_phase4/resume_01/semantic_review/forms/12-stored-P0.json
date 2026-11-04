@@ -1,0 +1,20 @@
+{
+  "packet_id": "12-stored-P0",
+  "packet_sha256": "4409cf22518fac7d7c1c2110eee6cc5432c1024bba85b0420a02851968467c3e",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

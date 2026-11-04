@@ -1,0 +1,203 @@
+{
+  "$defs": {
+    "BehaviorId": {
+      "enum": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "type": "string"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "type": "string"
+        },
+        "snippet": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "snippet"
+      ],
+      "type": "object"
+    },
+    "InjectionAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "detected": {
+          "type": "boolean"
+        },
+        "snippets": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "notes": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "detected",
+        "snippets",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "Level": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "ModelFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior_id": {
+          "$ref": "#/$defs/BehaviorId"
+        },
+        "explanation": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "type": "array"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Level"
+        }
+      },
+      "required": [
+        "behavior_id",
+        "explanation",
+        "evidence",
+        "confidence"
+      ],
+      "type": "object"
+    },
+    "ModelUncertainty": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/Level"
+        },
+        "uninterpretable_fragments": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 32,
+          "type": "array"
+        },
+        "notes": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "level",
+        "uninterpretable_fragments",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "ObfuscationTechnique": {
+      "enum": [
+        "OT-B64-ENCCMD",
+        "OT-B64-INLINE",
+        "OT-CONCAT",
+        "OT-VARSUB",
+        "OT-FORMAT",
+        "OT-OTHER"
+      ],
+      "type": "string"
+    },
+    "RiskLabel": {
+      "enum": [
+        "benign",
+        "suspicious",
+        "high_risk",
+        "unknown"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "obfuscation_techniques": {
+      "items": {
+        "$ref": "#/$defs/ObfuscationTechnique"
+      },
+      "maxItems": 6,
+      "type": "array"
+    },
+    "recovered_content": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 16,
+      "type": "array"
+    },
+    "behaviors": {
+      "items": {
+        "$ref": "#/$defs/ModelFinding"
+      },
+      "maxItems": 7,
+      "type": "array"
+    },
+    "risk_label": {
+      "$ref": "#/$defs/RiskLabel"
+    },
+    "risk_rationale": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "uncertainty": {
+      "$ref": "#/$defs/ModelUncertainty"
+    },
+    "prompt_injection": {
+      "$ref": "#/$defs/InjectionAssessment"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 32,
+      "type": "array"
+    }
+  },
+  "required": [
+    "obfuscation_techniques",
+    "recovered_content",
+    "behaviors",
+    "risk_label",
+    "risk_rationale",
+    "uncertainty",
+    "prompt_injection",
+    "limitations"
+  ],
+  "type": "object"
+}

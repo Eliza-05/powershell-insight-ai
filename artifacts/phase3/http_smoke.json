@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "port": 8000,
+      "path": "/",
+      "status": 200,
+      "bytes": 696,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "port": 8000,
+      "path": "/assets/index-D4qDcSOI.js",
+      "status": 200,
+      "bytes": 274350
+    },
+    {
+      "port": 8000,
+      "path": "/assets/index-BKsnqN04.css",
+      "status": 200,
+      "bytes": 45091
+    },
+    {
+      "port": 8000,
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 108,
+      "content_type": "application/json"
+    },
+    {
+      "port": 5173,
+      "path": "/",
+      "status": 200,
+      "bytes": 853,
+      "content_type": "text/html"
+    },
+    {
+      "port": 5173,
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 108,
+      "content_type": "application/json"
+    }
+  ],
+  "new_model_inferences": 0,
+  "browser_visual_qa": "unavailable: browser access host is unavailable; not substituted by a screenshot claim"
+}

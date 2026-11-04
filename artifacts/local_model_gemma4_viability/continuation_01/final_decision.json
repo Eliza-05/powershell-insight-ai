@@ -1,0 +1,122 @@
+{
+  "at": "2026-11-03T19:07:21.828138+00:00",
+  "experiment": "local_model_gemma4_viability",
+  "decision": "no_apto",
+  "decision_scope": "Frozen development profile failed essential benign-control gate; not a general scientific rejection of all Gemma configurations",
+  "attempts": 1,
+  "cap": 8,
+  "remaining_unspent": 7,
+  "stopped_at": "01-credential-control",
+  "stop_reason": "B05_false_positive_on_legitimate_Get-Credential_control",
+  "model": "gemma4:12b",
+  "digest": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+  "B_attempts": 1,
+  "C_attempts": 0,
+  "C_semantic_success": null,
+  "JSON_schema_provenance_accepted": 1,
+  "exact_label_sets": 0,
+  "FP": 1,
+  "FN": 0,
+  "truncations": 0,
+  "operational_errors": 0,
+  "literal_citations_checked": 1,
+  "literal_citations_wrong": 0,
+  "AI_assisted_semantically_unsupported_findings": 1,
+  "critical_invented_reconstructions_observed": 0,
+  "human_adjudications": 0,
+  "resources": {
+    "observed_min_RAM_GiB": 7.084117889404297,
+    "observed_min_commit_available_GiB": 15.107860565185547,
+    "peak_tree_private_bytes": 10235760640,
+    "peak_tree_working_set_bytes": 9570799616,
+    "samples": 94,
+    "monitor_errors": [],
+    "margin_violated": false,
+    "inference_seconds": 95.22969709999961,
+    "model_metrics": {
+      "total_duration": 95129961700,
+      "load_duration": 9925520300,
+      "prompt_eval_count": 601,
+      "prompt_eval_duration": 14364595000,
+      "eval_count": 415,
+      "eval_duration": 70797437000
+    },
+    "generation_tokens_per_second": 5.861794121162889,
+    "processes_in_scope": [
+      "conhost.exe",
+      "llama-server.exe",
+      "ollama app.exe",
+      "ollama.exe"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "01-credential-control",
+      "mode": "B",
+      "expected_labels": [],
+      "status": "completed_but_essential_label_failure",
+      "predicted_labels": [
+        "B05"
+      ]
+    },
+    {
+      "case_id": "02-functional-iex",
+      "mode": "B",
+      "expected_labels": [
+        "B02"
+      ],
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    },
+    {
+      "case_id": "03-stored-block",
+      "mode": "B",
+      "expected_labels": [],
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    },
+    {
+      "case_id": "04-download-invoke",
+      "mode": "B",
+      "expected_labels": [
+        "B01",
+        "B02"
+      ],
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    },
+    {
+      "case_id": "05-stored-credential",
+      "mode": "B",
+      "expected_labels": [
+        "B07"
+      ],
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    },
+    {
+      "case_id": "06-unknown-command",
+      "mode": "B",
+      "expected_labels": null,
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    },
+    {
+      "case_id": "07-recovered-display",
+      "mode": "C",
+      "expected_labels": [],
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    },
+    {
+      "case_id": "08-recovered-connectivity",
+      "mode": "C",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "status": "not_attempted_due_to_frozen_stopping_rule",
+      "predicted_labels": null
+    }
+  ]
+}

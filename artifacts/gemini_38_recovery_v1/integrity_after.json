@@ -1,0 +1,14 @@
+{
+  "initial_ledger_entries": 4,
+  "final_ledger_entries": 5,
+  "remaining_local_reservations": 7,
+  "previous_four_entries_byte_identical": true,
+  "metadata_requests_unchanged": true,
+  "changed_protected_files": [
+    "artifacts/gemini_viability/requests.jsonl"
+  ],
+  "Gemma_experiment_unchanged": true,
+  "HTTP400_diagnostic_unchanged": true,
+  "Git_index_HEAD_unchanged": true,
+  "ledger_after_sha256": "dd2a7f346118155de25e68f1ab2ded45bc28dfbffa722b7c25e529d8ef75d60b"
+}

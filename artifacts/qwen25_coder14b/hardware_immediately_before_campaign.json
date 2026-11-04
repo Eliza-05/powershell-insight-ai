@@ -1,0 +1,151 @@
+{
+  "at": "2026-11-04T01:53:41.171331+00:00",
+  "version": {
+    "version": "0.40.13"
+  },
+  "tags": {
+    "models": [
+      {
+        "name": "qwen2.5-coder:14b",
+        "model": "qwen2.5-coder:14b",
+        "modified_at": "2026-11-03T20:52:05.7329881-05:00",
+        "size": 8988124298,
+        "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "14.8B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      },
+      {
+        "name": "qwen2.5-coder:7b",
+        "model": "qwen2.5-coder:7b",
+        "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+        "size": 4683087561,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      }
+    ]
+  },
+  "ps": {
+    "models": []
+  },
+  "memory": {
+    "monotonic": 49272.3045012,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 17810747392,
+    "commit_limit_bytes": 52323479552,
+    "commit_used_bytes": 29986435072,
+    "commit_available_bytes": 22337044480,
+    "memory_load_percent": 46,
+    "processes": [
+      {
+        "pid": 19564,
+        "name": "ollama app.exe",
+        "parent": 12984,
+        "is_ollama_runtime": true,
+        "page_faults": 1563696,
+        "peak_working_set": 4235739136,
+        "working_set": 10608640,
+        "peak_paged_pool": 351200,
+        "paged_pool": 325392,
+        "peak_nonpaged_pool": 142656,
+        "nonpaged_pool": 28256,
+        "pagefile": 62361600,
+        "peak_pagefile": 4269977600,
+        "private": 62361600,
+        "cpu_seconds": 22.078125
+      },
+      {
+        "pid": 8,
+        "name": "ollama.exe",
+        "parent": 19564,
+        "is_ollama_runtime": true,
+        "page_faults": 177952,
+        "peak_working_set": 50675712,
+        "working_set": 20955136,
+        "peak_paged_pool": 607808,
+        "paged_pool": 349240,
+        "peak_nonpaged_pool": 129152,
+        "nonpaged_pool": 27664,
+        "pagefile": 70569984,
+        "peak_pagefile": 74739712,
+        "private": 70569984,
+        "cpu_seconds": 258.15625
+      },
+      {
+        "pid": 2684,
+        "name": "conhost.exe",
+        "parent": 8,
+        "is_ollama_runtime": true,
+        "page_faults": 10201,
+        "peak_working_set": 10211328,
+        "working_set": 704512,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 12224,
+        "nonpaged_pool": 10880,
+        "pagefile": 1679360,
+        "peak_pagefile": 1794048,
+        "private": 1679360,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 25612,
+        "name": "python.exe",
+        "parent": 9232,
+        "is_ollama_runtime": false,
+        "page_faults": 10346,
+        "peak_working_set": 37765120,
+        "working_set": 36728832,
+        "peak_paged_pool": 179480,
+        "paged_pool": 179016,
+        "peak_nonpaged_pool": 17992,
+        "nonpaged_pool": 16736,
+        "pagefile": 23826432,
+        "peak_pagefile": 24739840,
+        "private": 23826432,
+        "cpu_seconds": 0.3125
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "disk": {
+    "total": 1022358786048,
+    "used": 457406898176,
+    "free": 564951887872
+  },
+  "disk_measurement_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai",
+  "model_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\PowerShellInsightAI-Local\\ollama-models",
+  "circuit_blocked": false
+}

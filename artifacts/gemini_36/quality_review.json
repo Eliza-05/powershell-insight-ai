@@ -1,0 +1,70 @@
+{
+  "reviewed_at_utc": "2026-11-03T03:06:22.454664+00:00",
+  "reviewer_kind": "agent_not_independent_human_adjudication",
+  "usable_model_outputs": 0,
+  "semantic_quality": null,
+  "provider_effective_configuration": "unconfirmed_http_400",
+  "http_error_body_retained": false,
+  "precise_rejected_argument": "unknown_not_recorded",
+  "rows": [
+    {
+      "case": "G03_B",
+      "expected_labels": [],
+      "execution": "http_400_no_model_output",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "uncertainty": null,
+      "reconstructed_code_hallucinations": null,
+      "semantic_support": null,
+      "recovery_citation_success": null
+    },
+    {
+      "case": "G03_C",
+      "expected_labels": [],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "uncertainty": null,
+      "reconstructed_code_hallucinations": null,
+      "semantic_support": null,
+      "recovery_citation_success": null
+    },
+    {
+      "case": "G06_B",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "uncertainty": null,
+      "reconstructed_code_hallucinations": null,
+      "semantic_support": null,
+      "recovery_citation_success": null
+    },
+    {
+      "case": "G06_C",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "uncertainty": null,
+      "reconstructed_code_hallucinations": null,
+      "semantic_support": null,
+      "recovery_citation_success": null
+    }
+  ],
+  "interpretation": "Generic false structural flags mean missing accepted output; classification metrics are undefined.",
+  "local_reservations_unused": 8,
+  "provider_remaining_quota": null,
+  "phase4_started": false,
+  "scientific_selection_approved": false
+}

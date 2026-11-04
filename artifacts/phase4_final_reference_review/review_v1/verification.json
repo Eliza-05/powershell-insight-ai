@@ -1,0 +1,40 @@
+{
+  "review_version": 1,
+  "scope": "Documentary and static review only; no sample execution or project module execution",
+  "candidate_sha256": "c7c0dc327291f7647d5093d2d729185d297fc70f55853f727ef511659411da64",
+  "report_sha256": "a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963",
+  "candidate_files_verified": 139,
+  "case_script_and_reference_hashes_verified": 16,
+  "pending_approvals_false": true,
+  "blocks": 15,
+  "determinate_blocks": 13,
+  "determinate_cases": 14,
+  "nonempty_recovery_cases": 8,
+  "zip_unchanged": true,
+  "freeze_absent": true,
+  "preexisting_files_checked": 10403,
+  "preexisting_files_changed": [],
+  "git_index_HEAD_develop_unchanged": true,
+  "historical_files_and_local_changes_unchanged": true,
+  "new_inferences": 0,
+  "new_Gemini_calls": 0,
+  "new_sample_executions": 0,
+  "reference_approval_recorded": false,
+  "execution_authorized": false,
+  "new_candidate_required": false,
+  "reason": "No dataset, reference, protocol, code, request or block modification; separate hash-bound interpretive report only",
+  "new_artifacts": {
+    "artifacts/phase4_final_reference_review/review_v1/REPORT.md": {
+      "sha256": "a57372fdef596dd3f4f6dc6918160718b92526c679f042f15f91e4d5f8051963",
+      "bytes": 9426
+    },
+    "artifacts/phase4_final_reference_review/review_v1/reference_review.pending.json": {
+      "sha256": "4345630c0254af59ea11d00b66365935b0b44779ec4b21eb104e091422260eb7",
+      "bytes": 8370
+    },
+    "artifacts/phase4_final_reference_review/review_v1/ACCEPTANCE_PERSONAL.txt": {
+      "sha256": "61828701bc79afd11b014cec5fc8345855da1e4206b44ad66f612171bdff357a",
+      "bytes": 1987
+    }
+  }
+}

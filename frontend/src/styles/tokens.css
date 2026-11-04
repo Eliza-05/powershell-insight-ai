@@ -1,0 +1,70 @@
+/* Security Studio — semantic colors and scale. No text color relies on transparency. */
+:root {
+  color-scheme: dark;
+  --bg: #0b1320;
+  --surface: #121e2e;
+  --surface-raised: #19293e;
+  --surface-subtle: #0f1928;
+  --text: #eff5ff;
+  --muted: #b6c5d8;
+  --faint: #98acc5;
+  --line: #304158;
+  --control-border: #6b809b;
+  --accent: #75e9c8;
+  --accent-soft: #153b34;
+  --primary: #75e9c8;
+  --primary-ink: #092b23;
+  --blue: #a3bcff;
+  --blue-soft: #202f4e;
+  --purple: #d0b7ff;
+  --purple-soft: #32264a;
+  --warning: #f5cd86;
+  --warning-soft: #382d1f;
+  --danger: #ffb7c0;
+  --danger-soft: #3d2530;
+  --code-bg: #0b1524;
+  --code-text: #e1edfc;
+  --code-muted: #a0b4ce;
+  --code-line: #293e57;
+  --shadow-overlay: 0 18px 60px #0004;
+  --radius-panel: 12px;
+  --radius-control: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --sidebar-width: 216px;
+  --font-body: 1rem;
+  --font-small: .875rem;
+  --font-caption: .8125rem;
+  --font-code: 1rem;
+  --font-label: .875rem;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #e9eef5;
+  --surface: #ffffff;
+  --surface-raised: #eff4fa;
+  --surface-subtle: #f7f9fc;
+  --text: #18283e;
+  --muted: #425a74;
+  --faint: #526a84;
+  --line: #c8d4e3;
+  --control-border: #687f99;
+  --accent: #00674f;
+  --accent-soft: #e0f3eb;
+  --primary: #087859;
+  --primary-ink: #ffffff;
+  --blue: #294fa9;
+  --blue-soft: #eaf0ff;
+  --purple: #6941a5;
+  --purple-soft: #f0eafb;
+  --warning: #805200;
+  --warning-soft: #fff3dc;
+  --danger: #a42b40;
+  --danger-soft: #fcebf0;
+  --shadow-overlay: 0 18px 60px #14283d22;
+}

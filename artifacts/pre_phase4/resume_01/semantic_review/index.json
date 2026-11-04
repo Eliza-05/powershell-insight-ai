@@ -1,0 +1,128 @@
+{
+  "packets": [
+    {
+      "id": "01-C-recovered-P0",
+      "packet_sha256": "d7e5beeba2658a5d6137441445120ead6a378ff9e04e3cc993ca8d3085cca69b",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/01-C-recovered-P0.json"
+    },
+    {
+      "id": "02-C-recovered-P1",
+      "packet_sha256": "f74cc4dc46b73b02891b7041eef02244531cadf1092b74a26165db819d0ec1df",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/02-C-recovered-P1.json"
+    },
+    {
+      "id": "03-output-P0",
+      "packet_sha256": "233b1f33dadb125be3022ca9dd1d2976e8ada2e312d20d2ad65b572268c84319",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/03-output-P0.json"
+    },
+    {
+      "id": "04-output-P1",
+      "packet_sha256": "a64cc49738619375b9cd8885a5e2e001672c1d26bcc9c3829988512ff95b7a6e",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/04-output-P1.json"
+    },
+    {
+      "id": "05-output-P2",
+      "packet_sha256": "b33d0dd44996980613d5bbbda62d78814fc325c7d7f419284f5b3819ad718c59",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/05-output-P2.json"
+    },
+    {
+      "id": "06-invoke-P0",
+      "packet_sha256": "35aeb4d9fb3395ef1b0e2dcd18d355cf979fc1a48a640c49cc134b9885ad8ef2",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/06-invoke-P0.json"
+    },
+    {
+      "id": "07-invoke-P1",
+      "packet_sha256": "0a80b8eb183c057ebd04169468e1610946734b4312041e89bc8d004616f682cf",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/07-invoke-P1.json"
+    },
+    {
+      "id": "08-invoke-P2",
+      "packet_sha256": "eb118fdb6ddb6b697fd95c7509a4e999ffb0645770c10903dd75ede99319ac4b",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/08-invoke-P2.json"
+    },
+    {
+      "id": "09-download-invoke-P0",
+      "packet_sha256": "b3e4d96ff98d3fe8765f4e594bcbbc26cd97cfe40100141c361e04ddbfcbcd7d",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/09-download-invoke-P0.json"
+    },
+    {
+      "id": "10-download-invoke-P1",
+      "packet_sha256": "f16d20b2b28c863d3599c9fb3d022f5aa5ed2b3966b1fccb51e1b5fe035e4d43",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/10-download-invoke-P1.json"
+    },
+    {
+      "id": "11-download-invoke-P2",
+      "packet_sha256": "70de3534f1f87d1c462751a210a8de99f7a67d8e88d45eb915045903693abc80",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/11-download-invoke-P2.json"
+    },
+    {
+      "id": "12-stored-P0",
+      "packet_sha256": "4409cf22518fac7d7c1c2110eee6cc5432c1024bba85b0420a02851968467c3e",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/12-stored-P0.json"
+    },
+    {
+      "id": "13-stored-P1",
+      "packet_sha256": "71e1adec6ab84473f93515c7e47b2af6f00fa29f38ed910355e7e9dffbbaf5f6",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/13-stored-P1.json"
+    },
+    {
+      "id": "14-stored-P2",
+      "packet_sha256": "488c9b6a2d4854ea76fc0a51e4d2553140f8969bdffce6c0d067a4f8bbeeed27",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/14-stored-P2.json"
+    },
+    {
+      "id": "15-invoke-P3",
+      "packet_sha256": "9a6f8e6523744cd9a94d4bd853aa1e1a990d12d0b07649292889a79441bce1c7",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/15-invoke-P3.json"
+    },
+    {
+      "id": "16-stored-P3",
+      "packet_sha256": "a65d4bf2af4386aefd112cef7233d309ad5fc3512d9a58dd1711b12e05bd9b7c",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/16-stored-P3.json"
+    },
+    {
+      "id": "17-long-input-P1",
+      "packet_sha256": "0db584c54808a963e7032549443be1bc304a1a502e722ce7e4304df466e8276a",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/17-long-input-P1.json"
+    },
+    {
+      "id": "18-C-recovered-P3",
+      "packet_sha256": "cfd505dfad1c736bda246d96f3a01de35379fb6c14b1fb2b5617c4e877461e62",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/18-C-recovered-P3.json"
+    },
+    {
+      "id": "19-persistence-P1",
+      "packet_sha256": "bb819b38f6ee6134d1c4b9e96e459ae5cfa8b5be4e5f306cc1d2f8e4f73c952b",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/19-persistence-P1.json"
+    },
+    {
+      "id": "20-defense-P1",
+      "packet_sha256": "0e7edf1c0367f26191aaf81d750e12c73198aa45e78415cce3d01592fc76e4f6",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/20-defense-P1.json"
+    },
+    {
+      "id": "21-recon-P1",
+      "packet_sha256": "68d233c529ea9650f1c8d80c30561b49cf7c7b2de847c3351f5b489bc895ec51",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/21-recon-P1.json"
+    },
+    {
+      "id": "22-post-P1",
+      "packet_sha256": "78ee4edc00f917c42de1f4a676fc3cc577da5feb3c0f753ee26d343c3fd03d06",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/22-post-P1.json"
+    },
+    {
+      "id": "23-vault-P1",
+      "packet_sha256": "9fb6ea1f2b354e837bd7e322ac80e6fb23e78fd05cc34c18577036e28701884e",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/23-vault-P1.json"
+    },
+    {
+      "id": "24-credential-control-P1",
+      "packet_sha256": "6461c3e273fce9c75c9584d066880927beaf8731360510ed702e39b5258856d2",
+      "path": "artifacts/pre_phase4/resume_01/semantic_review/packets/24-credential-control-P1.json"
+    }
+  ],
+  "human_decisions": 0,
+  "strict_semantic_support_rate": null,
+  "scope": "new predeclared synthetic diagnostics only",
+  "reference_and_review_status": "AI_assisted_not_independently_human_adjudicated"
+}

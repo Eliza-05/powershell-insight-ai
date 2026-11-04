@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-11-03T02:28:25.499021+00:00",
+  "code_hashes_match": true,
+  "code_files_checked": [
+    "backend/app/services/llm/gemini.py",
+    "backend/app/services/llm/gemini_budget.py",
+    "backend/app/services/llm/gemini_errors.py",
+    "backend/tests/pipelines/test_gemini.py",
+    "backend/tests/pipelines/test_gemini_transport.py",
+    "experiments/gemini_network_diagnostic.py",
+    "experiments/gemini_metadata_retry.py",
+    "docs/gemini_viability.md",
+    "docs/gemini_transport_diagnostic.md"
+  ],
+  "protected_files_match": 168,
+  "prior_ledger_sha256": "b8d8fcf47f5727a000c2699c262a28262563c811fb47c8e5d495accbbbd302cf",
+  "prior_ledger_bytes": 175,
+  "requests_before": 1,
+  "next_reservation": 2,
+  "request_fingerprint_matches": true,
+  "plan_r2_matches": true,
+  "dependency_versions_match": true,
+  "credential_available": true,
+  "authorization_sha256": "5158c51bebfd216d6469cf0a352955dd8d4850df869da81473ae32fcc450b91a",
+  "authorization_scope": "one_second_models_list_only_no_inference",
+  "automatic_retry_attempts": 1,
+  "maximum_total_requests": 12,
+  "maximum_future_generations": 10,
+  "original_entry": {
+    "attempt": 1,
+    "kind": "models.list",
+    "request_sha256": "2dad2bc2e3d9f2ae5de6b5e12aa40595dd36424663d8758154598e55cf663422",
+    "reserved_at": "2026-11-03T01:50:51.011677+00:00"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "real_HTTP_requests": 0,
+  "existing_global_ledger_modified": false,
+  "scenarios": [
+    {
+      "mock_status": 200,
+      "physical_mock_HTTP_requests": 1,
+      "reserves_in_fake_budget": 1,
+      "second_dispatch_blocked": true,
+      "gzip_decoded_once": true
+    },
+    {
+      "mock_status": 400,
+      "physical_mock_HTTP_requests": 1,
+      "reserves_in_fake_budget": 1,
+      "second_dispatch_blocked": true,
+      "gzip_decoded_once": true
+    },
+    {
+      "mock_status": 503,
+      "physical_mock_HTTP_requests": 1,
+      "reserves_in_fake_budget": 1,
+      "second_dispatch_blocked": true,
+      "gzip_decoded_once": true
+    }
+  ]
+}

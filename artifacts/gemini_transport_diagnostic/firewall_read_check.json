@@ -1,0 +1,21 @@
+{
+  "inspection": "available",
+  "profiles": [
+    {
+      "Name": "Domain",
+      "Enabled": 1,
+      "DefaultOutboundAction": 0
+    },
+    {
+      "Name": "Private",
+      "Enabled": 1,
+      "DefaultOutboundAction": 0
+    },
+    {
+      "Name": "Public",
+      "Enabled": 1,
+      "DefaultOutboundAction": 0
+    }
+  ],
+  "settings_changed": false
+}

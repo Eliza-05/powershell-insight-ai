@@ -1,0 +1,3 @@
+$source = 'function Select-P4Total { param([int[]]$Values) ' + '$Values | Where-Object { $_ -gt 2 } | Measure-Object -Sum }; Select-P4Total -Values 2,5,8'
+$program = [ScriptBlock]::Create($source)
+$null = $program.Invoke()

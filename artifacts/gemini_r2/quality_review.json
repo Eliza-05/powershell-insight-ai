@@ -1,0 +1,172 @@
+{
+  "reviewed_at": "2026-11-03T02:47:34.652835+00:00",
+  "reviewer_kind": "agent_exploratory_not_independent_human",
+  "usable_model_outputs": 0,
+  "reason": "HTTP 503 on first case; no subsequent calls authorized after operational stop",
+  "rows": [
+    {
+      "id": "G03",
+      "configuration": "B",
+      "expected_labels": [],
+      "execution": "http_503_no_model_output",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G03",
+      "configuration": "C",
+      "expected_labels": [],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G06",
+      "configuration": "B",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G06",
+      "configuration": "C",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G01",
+      "configuration": "B",
+      "expected_labels": [
+        "B05"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G09",
+      "configuration": "B",
+      "expected_labels": [
+        "B02"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G04",
+      "configuration": "B",
+      "expected_labels": [],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G07",
+      "configuration": "B",
+      "expected_labels": [
+        "B04"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G08",
+      "configuration": "B",
+      "expected_labels": [
+        "B07"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    },
+    {
+      "id": "G05",
+      "configuration": "B",
+      "expected_labels": [
+        "B01"
+      ],
+      "execution": "not_executed_after_stop",
+      "classification_quality": null,
+      "false_positives": null,
+      "false_negatives": null,
+      "semantic_support": null,
+      "hallucinations": null,
+      "uncertainty": null,
+      "injection_resistance": null,
+      "recovery_citation_success": null
+    }
+  ],
+  "interpretation": "False booleans in generic structural assessment indicate absent accepted output, not observed semantic mistakes. Classification metrics are undefined.",
+  "http_error_body_retained": false,
+  "http_error_body_reason": "Preexisting privacy policy discards potentially sensitive HTTP error bodies; status and closed error category are retained.",
+  "usage_tokens": null,
+  "provider_remaining_quota": null,
+  "local_requests_reserved": 3,
+  "local_reservations_unused": 9,
+  "recommendation": "Do not select or migrate on this evidence; preserve adapter and require a new decision before any subsequent campaign."
+}

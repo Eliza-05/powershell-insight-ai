@@ -1,0 +1,209 @@
+{
+  "at": "2026-11-04T02:11:51.165169+00:00",
+  "version": {
+    "version": "0.40.13"
+  },
+  "tags": {
+    "models": [
+      {
+        "name": "qwen2.5-coder:14b",
+        "model": "qwen2.5-coder:14b",
+        "modified_at": "2026-11-03T20:52:05.7329881-05:00",
+        "size": 8988124298,
+        "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "14.8B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      },
+      {
+        "name": "qwen2.5-coder:7b",
+        "model": "qwen2.5-coder:7b",
+        "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+        "size": 4683087561,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      }
+    ]
+  },
+  "ps": {
+    "models": [
+      {
+        "name": "qwen2.5-coder:14b",
+        "model": "qwen2.5-coder:14b",
+        "size": 10666251386,
+        "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "14.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-03T21:16:50.7523789-05:00",
+        "size_vram": 0,
+        "context_length": 8192,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "memory": {
+    "monotonic": 50362.2899266,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 10770771968,
+    "commit_limit_bytes": 52323479552,
+    "commit_used_bytes": 39507329024,
+    "commit_available_bytes": 12816150528,
+    "memory_load_percent": 67,
+    "processes": [
+      {
+        "pid": 19564,
+        "name": "ollama app.exe",
+        "parent": 12984,
+        "is_ollama_runtime": true,
+        "page_faults": 1579710,
+        "peak_working_set": 4235739136,
+        "working_set": 10526720,
+        "peak_paged_pool": 351200,
+        "paged_pool": 325392,
+        "peak_nonpaged_pool": 142656,
+        "nonpaged_pool": 28256,
+        "pagefile": 62349312,
+        "peak_pagefile": 4269977600,
+        "private": 62349312,
+        "cpu_seconds": 22.25
+      },
+      {
+        "pid": 8,
+        "name": "ollama.exe",
+        "parent": 19564,
+        "is_ollama_runtime": true,
+        "page_faults": 248228,
+        "peak_working_set": 50675712,
+        "working_set": 16265216,
+        "peak_paged_pool": 607808,
+        "paged_pool": 349960,
+        "peak_nonpaged_pool": 129152,
+        "nonpaged_pool": 27112,
+        "pagefile": 70000640,
+        "peak_pagefile": 74739712,
+        "private": 70000640,
+        "cpu_seconds": 304.0
+      },
+      {
+        "pid": 2684,
+        "name": "conhost.exe",
+        "parent": 8,
+        "is_ollama_runtime": true,
+        "page_faults": 10823,
+        "peak_working_set": 10211328,
+        "working_set": 20480,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 12224,
+        "nonpaged_pool": 11152,
+        "pagefile": 1716224,
+        "peak_pagefile": 1794048,
+        "private": 1716224,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 34148,
+        "name": "python.exe",
+        "parent": 6052,
+        "is_ollama_runtime": false,
+        "page_faults": 1336432,
+        "peak_working_set": 56668160,
+        "working_set": 27533312,
+        "peak_paged_pool": 176104,
+        "paged_pool": 175256,
+        "peak_nonpaged_pool": 27724,
+        "nonpaged_pool": 17552,
+        "pagefile": 46559232,
+        "peak_pagefile": 47415296,
+        "private": 46559232,
+        "cpu_seconds": 136.703125
+      },
+      {
+        "pid": 43904,
+        "name": "llama-server.exe",
+        "parent": 8,
+        "is_ollama_runtime": true,
+        "page_faults": 38659641,
+        "peak_working_set": 10752163840,
+        "working_set": 8887099392,
+        "peak_paged_pool": 171264,
+        "paged_pool": 166480,
+        "peak_nonpaged_pool": 23088,
+        "nonpaged_pool": 19184,
+        "pagefile": 12068278272,
+        "peak_pagefile": 12082966528,
+        "private": 12068278272,
+        "cpu_seconds": 9663.375
+      },
+      {
+        "pid": 36284,
+        "name": "conhost.exe",
+        "parent": 43904,
+        "is_ollama_runtime": true,
+        "page_faults": 2858,
+        "peak_working_set": 7172096,
+        "working_set": 0,
+        "peak_paged_pool": 113696,
+        "paged_pool": 113424,
+        "peak_nonpaged_pool": 8704,
+        "nonpaged_pool": 8432,
+        "pagefile": 1261568,
+        "peak_pagefile": 1302528,
+        "private": 1261568,
+        "cpu_seconds": 0.015625
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "disk": {
+    "total": 1022358786048,
+    "used": 455345332224,
+    "free": 567013453824
+  },
+  "disk_measurement_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai",
+  "model_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\PowerShellInsightAI-Local\\ollama-models",
+  "circuit_blocked": false,
+  "passed": true,
+  "warm": true,
+  "required_available_bytes": 3221225472
+}

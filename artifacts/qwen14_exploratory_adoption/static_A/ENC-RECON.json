@@ -1,0 +1,394 @@
+{
+  "specimen": "ENC-RECON",
+  "script_sha256": "94ab3082c5ac23a0fc06a5fb57bdf1bbbe75dd11088a96b4c750d92ff426073a",
+  "reference_labels_reused": [
+    "B05",
+    "B06"
+  ],
+  "predicted": [
+    "B05",
+    "B06"
+  ],
+  "complete": true,
+  "pipeline": {
+    "schema_version": "pipeline-v1",
+    "run_id": "5ea46e91-9513-4bb7-86e4-8f156552edac",
+    "configuration": "A",
+    "status": "completed",
+    "input_sha256": "94ab3082c5ac23a0fc06a5fb57bdf1bbbe75dd11088a96b4c750d92ff426073a",
+    "original": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwB2ADIALQBzAHkAbgB0AGgAZQB0AGkAYwAtAG0AaQBzAHMAaQBuAGcALQA4ADQAMgAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAHYAMgAtAGwAYQBiAC4AZQB4AGEAbQBwAGwAZQAuAGkAbgB2AGEAbABpAGQAJwA=",
+    "started_at": "2026-11-04T02:53:18.802898+00:00",
+    "duration_seconds": 0.0018448000046191737,
+    "engine_versions": {
+      "orchestrator": "pipeline-v1",
+      "deobfuscator": "static-subset-v1",
+      "detector": "static-behaviors-v1"
+    },
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "94ab3082c5ac23a0fc06a5fb57bdf1bbbe75dd11088a96b4c750d92ff426073a",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "complete",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwB2ADIALQBzAHkAbgB0AGgAZQB0AGkAYwAtAG0AaQBzAHMAaQBuAGcALQA4ADQAMgAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAHYAMgAtAGwAYQBiAC4AZQB4AGEAbQBwAGwAZQAuAGkAbgB2AGEAbABpAGQAJwA=",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        },
+        {
+          "layer_id": "L1",
+          "source_name": "input",
+          "provenance": "deobfuscator_recovered",
+          "text": "Get-Process -Name 'v2-synthetic-missing-842'; Test-NetConnection -ComputerName 'v2-lab.example.invalid'",
+          "depth": 1,
+          "parent_transformation_id": "T0001",
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 303,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 304
+          }
+        }
+      ],
+      "transformations": [
+        {
+          "transformation_id": "T0001",
+          "technique": "OT-B64-ENCCMD",
+          "source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 303,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 304
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 303,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 304
+          },
+          "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwB2ADIALQBzAHkAbgB0AGgAZQB0AGkAYwAtAG0AaQBzAHMAaQBuAGcALQA4ADQAMgAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAHYAMgAtAGwAYQBiAC4AZQB4AGEAbQBwAGwAZQAuAGkAbgB2AGEAbABpAGQAJwA=",
+          "provenance": "deobfuscator_recovered",
+          "recovery_kind": "script_text",
+          "recovered_text": "Get-Process -Name 'v2-synthetic-missing-842'; Test-NetConnection -ComputerName 'v2-lab.example.invalid'",
+          "recovered_bytes_base64": null,
+          "dependencies": [],
+          "status": "success",
+          "deterministic_verified": true,
+          "warnings": [
+            "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+          ],
+          "added_operation": "LAUNCHER_ENCCMD",
+          "output_layer_id": "L1"
+        }
+      ],
+      "unresolved": [],
+      "techniques_detected": [
+        "OT-B64-ENCCMD"
+      ],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 1301,
+      "artifact_bytes": 482
+    },
+    "deterministic": {
+      "schema_version": "behavior-analysis-v1",
+      "ruleset_version": "static-behaviors-v1",
+      "status": "complete",
+      "coverage_partial": true,
+      "deobfuscation": {
+        "schema_version": "deobfuscation-v1",
+        "engine_version": "static-subset-v1",
+        "input_sha256": "94ab3082c5ac23a0fc06a5fb57bdf1bbbe75dd11088a96b4c750d92ff426073a",
+        "source_name": "input",
+        "input_provenance": "original",
+        "status": "complete",
+        "semantic_equivalence": "not_claimed",
+        "limits": {
+          "max_input_bytes": 65536,
+          "max_artifact_bytes": 262144,
+          "max_total_artifact_bytes": 2097152,
+          "max_transformations": 512,
+          "max_depth": 3,
+          "max_expression_depth": 24,
+          "max_concat_terms": 128,
+          "max_tokens": 50000,
+          "max_work_units": 4000000,
+          "max_unresolved": 128
+        },
+        "layers": [
+          {
+            "layer_id": "L0",
+            "source_name": "input",
+            "provenance": "original",
+            "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwB2ADIALQBzAHkAbgB0AGgAZQB0AGkAYwAtAG0AaQBzAHMAaQBuAGcALQA4ADQAMgAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAHYAMgAtAGwAYQBiAC4AZQB4AGEAbQBwAGwAZQAuAGkAbgB2AGEAbABpAGQAJwA=",
+            "depth": 0,
+            "parent_transformation_id": null,
+            "root_source": null
+          },
+          {
+            "layer_id": "L1",
+            "source_name": "input",
+            "provenance": "deobfuscator_recovered",
+            "text": "Get-Process -Name 'v2-synthetic-missing-842'; Test-NetConnection -ComputerName 'v2-lab.example.invalid'",
+            "depth": 1,
+            "parent_transformation_id": "T0001",
+            "root_source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 303,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 304
+            }
+          }
+        ],
+        "transformations": [
+          {
+            "transformation_id": "T0001",
+            "technique": "OT-B64-ENCCMD",
+            "source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 303,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 304
+            },
+            "root_source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 303,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 304
+            },
+            "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBOAGEAbQBlACAAJwB2ADIALQBzAHkAbgB0AGgAZQB0AGkAYwAtAG0AaQBzAHMAaQBuAGcALQA4ADQAMgAnADsAIABUAGUAcwB0AC0ATgBlAHQAQwBvAG4AbgBlAGMAdABpAG8AbgAgAC0AQwBvAG0AcAB1AHQAZQByAE4AYQBtAGUAIAAnAHYAMgAtAGwAYQBiAC4AZQB4AGEAbQBwAGwAZQAuAGkAbgB2AGEAbABpAGQAJwA=",
+            "provenance": "deobfuscator_recovered",
+            "recovery_kind": "script_text",
+            "recovered_text": "Get-Process -Name 'v2-synthetic-missing-842'; Test-NetConnection -ComputerName 'v2-lab.example.invalid'",
+            "recovered_bytes_base64": null,
+            "dependencies": [],
+            "status": "success",
+            "deterministic_verified": true,
+            "warnings": [
+              "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+            ],
+            "added_operation": "LAUNCHER_ENCCMD",
+            "output_layer_id": "L1"
+          }
+        ],
+        "unresolved": [],
+        "techniques_detected": [
+          "OT-B64-ENCCMD"
+        ],
+        "limits_hit": [],
+        "warnings": [],
+        "work_units": 1301,
+        "artifact_bytes": 482
+      },
+      "detection_limits": {
+        "max_operations": 512,
+        "max_findings": 256,
+        "max_indicators": 128,
+        "max_evidence": 1024
+      },
+      "added_operations": [],
+      "behaviors": [
+        "B05",
+        "B06"
+      ],
+      "findings": [
+        {
+          "finding_id": "F0001",
+          "behavior_id": "B05",
+          "rule_id": "BD-B05-HOSTQUERY",
+          "description": "Consulta explícita de información del host.",
+          "operation_source": {
+            "layer_id": "L1",
+            "start": 0,
+            "end": 44,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 45
+          },
+          "evidence_ids": [
+            "E0001"
+          ],
+          "support": "individual",
+          "conditions": [
+            "Consulta explícita en posición de comando."
+          ],
+          "limitations": [
+            "No infiere intención; no resuelve funciones/alias que oculten cmdlets."
+          ]
+        },
+        {
+          "finding_id": "F0002",
+          "behavior_id": "B06",
+          "rule_id": "BD-B06-CONNECTIVITY",
+          "description": "Prueba explícita de conectividad.",
+          "operation_source": {
+            "layer_id": "L1",
+            "start": 46,
+            "end": 103,
+            "line": 1,
+            "column": 47,
+            "end_line": 1,
+            "end_column": 104
+          },
+          "evidence_ids": [
+            "E0002",
+            "E0003"
+          ],
+          "support": "contextual",
+          "conditions": [
+            "Prueba de conectividad con destino explícito."
+          ],
+          "limitations": [
+            "No sockets, sesiones remotas, DNS como canal ni APIs cloud."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E0001",
+          "role": "operation",
+          "source": {
+            "layer_id": "L1",
+            "start": 0,
+            "end": 44,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 45
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 303,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 304
+          },
+          "fragment": "Get-Process -Name 'v2-synthetic-missing-842'",
+          "provenance": "deobfuscator_recovered",
+          "recovered_value": null,
+          "transformation_ids": [
+            "T0001"
+          ]
+        },
+        {
+          "evidence_id": "E0002",
+          "role": "operation",
+          "source": {
+            "layer_id": "L1",
+            "start": 46,
+            "end": 103,
+            "line": 1,
+            "column": 47,
+            "end_line": 1,
+            "end_column": 104
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 303,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 304
+          },
+          "fragment": "Test-NetConnection -ComputerName 'v2-lab.example.invalid'",
+          "provenance": "deobfuscator_recovered",
+          "recovered_value": null,
+          "transformation_ids": [
+            "T0001"
+          ]
+        },
+        {
+          "evidence_id": "E0003",
+          "role": "argument",
+          "source": {
+            "layer_id": "L1",
+            "start": 79,
+            "end": 103,
+            "line": 1,
+            "column": 80,
+            "end_line": 1,
+            "end_column": 104
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 303,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 304
+          },
+          "fragment": "'v2-lab.example.invalid'",
+          "provenance": "deobfuscator_recovered",
+          "recovered_value": null,
+          "transformation_ids": [
+            "T0001"
+          ]
+        }
+      ],
+      "indicators": [],
+      "obstructing_techniques": [],
+      "warnings": [
+        "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+        "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+      ],
+      "limits_hit": [],
+      "operations_examined": 3,
+      "work_units": 579,
+      "artifact_bytes": 125
+    },
+    "llm": null,
+    "llm_review_status": "unreviewed_model_claims",
+    "evidence": [],
+    "risk_label": "unknown",
+    "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+    "limitations": [
+      "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "errors": [],
+    "operational": {}
+  }
+}

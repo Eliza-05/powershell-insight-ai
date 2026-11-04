@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-11-02T23:26:07.170645+00:00",
+  "authorization_sha256": "ad52715633dccb4e49fd94a272637bccd2f938569f1145b682d1bd154a1e30b8",
+  "cap": 24,
+  "plan_path": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostics\\plan.json",
+  "plan_sha256": "fbaa76d04c0c3a0866884fa870cf8c43097d36e9494d17ff6a5562e9501689f7",
+  "intent_count": 0,
+  "server_inferences": 0,
+  "production_C_preflight_inference_dispatched": false,
+  "checks": [
+    "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\powershell-insight-ai\\artifacts\\pre_phase4\\diagnostics\\checks\\2026-11-02T23-22-02.449312+00-00-01-C-recovered-P0.json"
+  ],
+  "no_auto_retry": true,
+  "selection_calls": 0,
+  "owned_model_unload": "not applicable: no model loaded by this work",
+  "profile_prompt_hashes": {
+    "P0": "b4202d0ecfb2697b7476804ce757970f0c76aaf55c81e5e99d34ebc4e6bceb1a",
+    "P1": "552c442d2b106fea7acad28a916e798614d8a261b88114fac40f6808a20b3687",
+    "P2": "552c442d2b106fea7acad28a916e798614d8a261b88114fac40f6808a20b3687",
+    "P3": "552c442d2b106fea7acad28a916e798614d8a261b88114fac40f6808a20b3687",
+    "P4": "552c442d2b106fea7acad28a916e798614d8a261b88114fac40f6808a20b3687"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "phase2-02-B",
+  "stage": "phase2",
+  "raw_artifact": "artifacts/phase2/functional_02/B.json",
+  "raw_sha256": "097ed9b74bd0205433049eddca0981ffb6ccb3e141d1c0f5a923cae8e4959f9b",
+  "original": "Write-Output ('phase2-'+'functional')",
+  "original_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "175d911d47d35523369ab929a65b5045d6a160f7b26e4060974e52dea252f7a7",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Write-Output ('phase2-'+'functional')",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-CONCAT",
+        "source": {
+          "layer_id": "L0",
+          "start": 14,
+          "end": 36,
+          "line": 1,
+          "column": 15,
+          "end_line": 1,
+          "end_column": 37
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 14,
+          "end": 36,
+          "line": 1,
+          "column": 15,
+          "end_line": 1,
+          "end_column": 37
+        },
+        "original_fragment": "'phase2-'+'functional'",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "string",
+        "recovered_text": "phase2-functional",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-CONCAT"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 120,
+    "artifact_bytes": 39
+  },
+  "reference": {
+    "labels": [],
+    "unknown": false,
+    "human_approved": false
+  },
+  "reference_basis": "AI-assisted static diagnostic reference; human decision pending",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "Write-Output ('phase2-'+'functional')",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The script constructs a string 'phase2-functional' and outputs it. While the command `Write-Output` is a standard PowerShell cmdlet, the specific string content 'phase2-' suggests a staged or obfuscated payload. The behavior is classified as low confidence for B02 because the script does not demonstrate functional invocation of external code, nor does it show the input data being processed in a way that confirms a malicious transformation. The string concatenation is a common obfuscation technique (OT-CONCAT equivalent), but without evidence of the resulting string being used for further malicious action (like B06 or B07), the risk remains low. The content itself is benign text, but the context implies a potential multi-stage attack vector."
+      }
+    ],
+    "limitations": [
+      "The script does not demonstrate functional invocation of built/retrieved/transformed/loaded code (B02) with confirmed input processing.",
+      "The string 'phase2-' indicates a potential multi-stage operation, but the current script is a static output without evidence of subsequent execution or data exfiltration (B06)."
+    ],
+    "obfuscation_techniques": [
+      "OT-CONCAT"
+    ],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions detected in the provided JSON.",
+      "snippets": []
+    },
+    "recovered_content": [],
+    "risk_label": "suspicious",
+    "risk_rationale": "The script performs a string concatenation and output, which is a common obfuscation technique (OT-CONCAT). The content 'phase2-' suggests a multi-stage attack, but without evidence of functional invocation or data exfiltration, the risk is classified as suspicious rather than high. The behavior is limited to static string manipulation.",
+    "uncertainty": {
+      "level": "medium",
+      "notes": "The script is a simple output command, but the 'phase2-' indicator suggests potential hidden functionality not visible in this static analysis.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Write-Output ('phase2-'+'functional')",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": true,
+    "accepted": true
+  },
+  "historical_error": [],
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Concatenation passed to Write-Output is not B02. C has a risk/uncertainty and literal-origin rejection; retain all raw claims."
+  },
+  "human_adjudication": null
+}

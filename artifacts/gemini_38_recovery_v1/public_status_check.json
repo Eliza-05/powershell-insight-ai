@@ -1,0 +1,12 @@
+{
+  "url": "https://aistudio.google.com/status",
+  "HTTP_status": 200,
+  "bytes": 34428,
+  "literal_text_matches": {
+    "All systems operational": false,
+    "Service disruption": false,
+    "Service outage": false,
+    "Gemini API": false
+  },
+  "interpretation": "Public page retrieved without API key; literal markers alone do not establish model-specific availability."
+}

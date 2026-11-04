@@ -1,0 +1,138 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "18-C-recovered-P3",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/18-C-recovered-P3.json",
+  "raw_sha256": "fcf9d65cc57d54344976a46ebe98545b0b2cbbd1e1ac01828122cf69f8752757",
+  "original": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+  "original_sha256": "2dc9439347a2293cca334a3565524bed4562054e732621a5540235459f7ad05b",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "2dc9439347a2293cca334a3565524bed4562054e732621a5540235459f7ad05b",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      },
+      {
+        "layer_id": "L1",
+        "source_name": "input",
+        "provenance": "deobfuscator_recovered",
+        "text": "Get-Process -Id 7319",
+        "depth": 1,
+        "parent_transformation_id": "T0001",
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-B64-ENCCMD",
+        "source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 27,
+          "end": 83,
+          "line": 1,
+          "column": 28,
+          "end_line": 1,
+          "end_column": 84
+        },
+        "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMAMQA5AA==",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "script_text",
+        "recovered_text": "Get-Process -Id 7319",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [
+          "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+        ],
+        "added_operation": "LAUNCHER_ENCCMD",
+        "output_layer_id": "L1"
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-B64-ENCCMD"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 298,
+    "artifact_bytes": 96
+  },
+  "reference": {
+    "labels": [
+      "B05"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": null,
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "truncated_response",
+    "message": "Output cap reached; no repair or refill"
+  },
+  "historical_truncated": true,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "La llamada sí se inició y terminó, con acuse terminal y descarga propia verificada. Agotó 3072 tokens en 193.34 segundos sin contenido final. No quedó indeterminada y no se repite. No hubo C aceptado ni cita T utilizable en este perfil; razonamiento no equivale a evidencia certificada."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "truncated_response",
+      "message": "Output cap reached; no repair or refill"
+    }
+  },
+  "profile": "P3",
+  "request_sha256": "f3463ab298cf01acaad082b5ae582d4d780f51d26ad48ed482db6a142a7ce872"
+}

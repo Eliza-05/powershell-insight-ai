@@ -1,0 +1,241 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D16",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/016_V2-D16_r1.result.json",
+  "raw_sha256": "cb2f7c7d42918209deb231675b9df5c1229e353f75fe46dacda77bd1d2b41046",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')\n$manualEntries | Sort-Object | Out-String\n",
+  "original_sha256": "1639fe4dec4e494ef9137389c116fd81d7e311bfe65d5262c3128e70e4d20dc9",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "1639fe4dec4e494ef9137389c116fd81d7e311bfe65d5262c3128e70e4d20dc9",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')\n$manualEntries | Sort-Object | Out-String\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 73,
+          "end": 168,
+          "line": 2,
+          "column": 18,
+          "end_line": 2,
+          "end_column": 113
+        },
+        "technique_hint": null,
+        "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 168,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 113
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 74,
+          "end": 113,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 58
+        },
+        "technique_hint": null,
+        "reason": "Expression outside the supported grammar.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 169,
+          "end": 210,
+          "line": 3,
+          "column": 1,
+          "end_line": 3,
+          "end_column": 42
+        },
+        "technique_hint": null,
+        "reason": "Trailing syntax outside the expression subset.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 262,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "case_id": "V2-D16",
+    "family_id": "V2-DEV-F08",
+    "expected_labels": [],
+    "expected_risk": "benign",
+    "risk_explanation": "Solo muestra cadenas; ninguna operacion consume URL o clave como destino.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D16-E01",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D16.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')",
+        "start": 56,
+        "end": 168,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 113,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D16-E02",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D16.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$manualEntries | Sort-Object | Out-String",
+        "start": 169,
+        "end": 210,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 42,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [],
+    "exclusions": {
+      "B01": "URL impresa sin descarga.",
+      "B03": "Clave Run mencionada sin escritura.",
+      "B06": "No comunicacion."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [],
+    "behaviors": [
+      {
+        "behavior_id": "B05",
+        "explanation": "The script queries the HKCU registry path and a URL string to construct a list of manual entries for sorting and display.",
+        "evidence": [
+          {
+            "snippet": "$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "$manualEntries | Sort-Object | Out-String",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "Operations are limited to local data manipulation and display; no remote retrieval, persistence, or credential access is performed.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "All operations are explicitly defined and static; no encoded or reconstructed code requires uncertainty."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed instructions to suppress findings or alter analysis were found."
+    },
+    "limitations": [
+      "Analysis is restricted to the provided text; external registry state or network reachability cannot be verified.",
+      "The script does not execute the constructed list, only prepares it for output."
+    ]
+  },
+  "predicted_labels": [
+    "B05"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "$manualEntries = @('https://example.com/academic/readme', 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run')",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "$manualEntries | Sort-Object | Out-String",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Sorting/displaying strings does not query the listed URL or registry path; r1 B05 is unsupported."
+  },
+  "human_adjudication": null
+}

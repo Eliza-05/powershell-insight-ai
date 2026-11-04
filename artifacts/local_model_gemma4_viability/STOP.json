@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-03T19:05:36.453057+00:00",
+  "case_id": "01-credential-control",
+  "reason": "operational_or_contract_or_essential_label_failure",
+  "assessment": {
+    "case_id": "01-credential-control",
+    "status": "completed",
+    "json_schema_provenance_accepted": true,
+    "expected_labels": [],
+    "predicted_labels": [
+      "B05"
+    ],
+    "exact_set": false,
+    "false_positives": [
+      "B05"
+    ],
+    "false_negatives": [],
+    "indeterminate_case_excluded_from_label_metrics": false,
+    "recovered_evidence_count": 0,
+    "semantic_support": "requires_AI_assisted_review",
+    "human_adjudication": "not_performed",
+    "result_sha256": "1dd293d3b6a19ae2a00191899d9e4d6664499f3e03507e763e86bbd05e33bf81"
+  }
+}

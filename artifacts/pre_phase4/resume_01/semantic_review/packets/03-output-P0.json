@@ -1,0 +1,120 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "03-output-P0",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v3/results/03-output-P0.json",
+  "raw_sha256": "f9bdedf5d93191f446377a51c4f2007da03dddb5c6e8d05d4f79ce19422b1c6a",
+  "original": "Write-Output 'readiness fixture 7319'",
+  "original_sha256": "d349b8622ebce45b8a1feda64eb837d4f2ea2b31c8c091e0b6ed4f36a369edc9",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "d349b8622ebce45b8a1feda64eb837d4f2ea2b31c8c091e0b6ed4f36a369edc9",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "Write-Output 'readiness fixture 7319'",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [],
+    "unresolved": [],
+    "techniques_detected": [],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 44,
+    "artifact_bytes": 0
+  },
+  "reference": {
+    "labels": [],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": {
+    "behaviors": [
+      {
+        "behavior_id": "B01",
+        "confidence": "low",
+        "evidence": [
+          {
+            "snippet": "Write-Output 'readiness fixture 7319'",
+            "source_id": "original"
+          }
+        ],
+        "explanation": "The command `Write-Output` is a standard PowerShell cmdlet used to send data to the output stream. While it involves sending data, the content ('readiness fixture 7319') is a static string literal, not a dynamic payload or connection to a remote service. Without a URL, socket binding, or evidence of network transmission to a specific destination, this does not meet the threshold for B01 (remote retrieval AND remote origin) or B06 (sending/sockets beyond B01). It is a local output operation."
+      }
+    ],
+    "limitations": [
+      "Cannot confirm network transmission without observing socket activity or a target URL.",
+      "The string content is benign and appears to be a test identifier."
+    ],
+    "obfuscation_techniques": [],
+    "prompt_injection": {
+      "detected": false,
+      "notes": "No adversarial instructions found in the provided JSON.",
+      "snippets": []
+    },
+    "recovered_content": [],
+    "risk_label": "benign",
+    "risk_rationale": "The operation is a local PowerShell command outputting a static string. There is no evidence of remote access, credential theft, persistence, or malicious intent. The content is non-sensitive and the command is standard.",
+    "uncertainty": {
+      "level": "low",
+      "notes": "The behavior is fully supported by the provided text; no unknown fragments exist.",
+      "uninterpretable_fragments": []
+    }
+  },
+  "predicted_labels": [
+    "B01"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "original",
+      "snippet": "Write-Output 'readiness fixture 7319'",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Pasa estructura y literalidad, pero B01 es falso: Write-Output de un literal no recupera contenido remoto. La propia explicación niega el requisito que exigiría esa etiqueta. Revisión asistida por IA, sin aprobación semántica humana."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": true,
+    "error": null
+  },
+  "profile": "P0",
+  "request_sha256": "6548b47eff712a498bc1ea92d56c43ee5086ad802f6c01ac19b44ccf8656a686"
+}

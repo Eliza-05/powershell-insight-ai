@@ -1,0 +1,15 @@
+{
+  "protected_files_checked": 172,
+  "only_authorized_ledger_append_changed": true,
+  "changed_files": [
+    "artifacts/gemini_viability/requests.jsonl"
+  ],
+  "first_two_entries_byte_identical": true,
+  "frozen_runtime_unchanged": true,
+  "plan_policy_schema_cases_parameters_unchanged": true,
+  "ledger_sha256_after": "f9efd56cbff276e94d2a7e875a0ab24ad515d222da316419895957f93141064f",
+  "git_index_unchanged": true,
+  "git_head_unchanged": true,
+  "requests_total": 3,
+  "generations_dispatched": 1
+}

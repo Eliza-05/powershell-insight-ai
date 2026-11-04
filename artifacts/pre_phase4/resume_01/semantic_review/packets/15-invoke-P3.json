@@ -1,0 +1,154 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "15-invoke-P3",
+  "stage": "diagnostic_development",
+  "raw_artifact": "artifacts/pre_phase4/diagnostics_v4/results/15-invoke-P3.json",
+  "raw_sha256": "f97edc5feebdc42d830a54971b160b36d0cfee3dbbb7663502dde526d2c441f0",
+  "original": "$code = \"Write-Output 'fixture 7319'\"\nInvoke-Expression $code",
+  "original_sha256": "b3d74094c8ed7138c75398bf8744bbe381d479c11368b33f7cd0951c17efed3b",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "b3d74094c8ed7138c75398bf8744bbe381d479c11368b33f7cd0951c17efed3b",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "$code = \"Write-Output 'fixture 7319'\"\nInvoke-Expression $code",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 37,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 38
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 0,
+          "end": 37,
+          "line": 1,
+          "column": 1,
+          "end_line": 1,
+          "end_column": 38
+        },
+        "original_fragment": "$code = \"Write-Output 'fixture 7319'\"",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_definition",
+        "recovered_text": "Write-Output 'fixture 7319'",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      },
+      {
+        "transformation_id": "T0002",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 61,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 61,
+          "line": 2,
+          "column": 19,
+          "end_line": 2,
+          "end_column": 24
+        },
+        "original_fragment": "$code",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "variable_use",
+        "recovered_text": "Write-Output 'fixture 7319'",
+        "recovered_bytes_base64": null,
+        "dependencies": [
+          "T0001"
+        ],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 177,
+    "artifact_bytes": 96
+  },
+  "reference": {
+    "labels": [
+      "B02"
+    ],
+    "human_approved": false
+  },
+  "reference_basis": "predeclared AI-assisted synthetic development reference, not independent ground truth",
+  "model_parsed_claims": null,
+  "predicted_labels": [],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": {
+    "code": "truncated_response",
+    "message": "Output cap reached; no repair or refill"
+  },
+  "historical_truncated": true,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Respuesta terminal con done_reason=length: 3072 tokens y 215.83 segundos, contenido final vacío. No se extraen etiquetas o una respuesta desde el razonamiento. No utilizable, sin fallo de memoria ni timeout observado; no demuestra incapacidad general de think=true."
+  },
+  "human_adjudication": null,
+  "diagnostic_structural_validation": {
+    "accepted": false,
+    "error": {
+      "code": "truncated_response",
+      "message": "Output cap reached; no repair or refill"
+    }
+  },
+  "profile": "P3",
+  "request_sha256": "59a547eb94497a57ee0af4a7ecbfa58cea2ffd8edc47936954add4049ca6ee8a"
+}

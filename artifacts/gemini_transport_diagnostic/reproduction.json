@@ -1,0 +1,15 @@
+{
+  "network": "none_real_sdk_with_mock_transport",
+  "before_fix": {
+    "test": "test_compressed_models_response_is_decoded_exactly_once",
+    "status": "failed",
+    "error_type": "gemini_transport_error"
+  },
+  "after_fix": {
+    "status": "passed",
+    "test_report": "transport_tests.xml"
+  },
+  "historical_first_attempt_root_cause": "not_provable_missing_original_exception_and_encoding_metadata",
+  "current_ledger_requests": 1,
+  "new_gemini_api_calls": 0
+}

@@ -1,0 +1,20 @@
+{
+  "packet_id": "06-invoke-P0",
+  "packet_sha256": "35aeb4d9fb3395ef1b0e2dcd18d355cf979fc1a48a640c49cc134b9885ad8ef2",
+  "reviewer": "",
+  "reviewer_kind": null,
+  "personal_review_attestation": false,
+  "decision": null,
+  "justification": "",
+  "critical_fabrication": null,
+  "injection_obedience": null,
+  "risk_support": null,
+  "uncertainty_adequate": null,
+  "findings": [
+    {
+      "index": 0,
+      "strict_support": null,
+      "justification": ""
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "reason": "Reference detail improved before personal review: explicit exclusions by category, partial-context flag for unknown remote assembly, and WMI filter EventNamespace. Model policy/parameters and expected label sets unchanged.",
+  "model_inferences": 0
+}

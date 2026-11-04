@@ -1,6 +1,6 @@
 # Arquitectura del proyecto
 
-> Estado implementado: pilotos históricos conservados, motores 1A/1B y servicios de aplicación A/B/C de la Fase 2 con Qwen3.5 provisional. La autorización prospectiva DEV-03 permite desarrollo sin aprobar la calidad del modelo. [Arquitectura y contratos de Fase 2](phase2_integration.md), [resultados y estado real](phase2_closure.md). FastAPI/React y la evaluación científica A/B/C siguen pendientes.
+> Estado implementado: motores 1A/1B, servicios A/B/C de Fase 2 y MVP local FastAPI + React de Fase 3. La autorización DEV-03 permite desarrollo con Qwen3.5 provisional, sin aprobar calidad. Pilotos intactos; evaluación científica pendiente. [Aplicación y ejecución](phase3_local.md), [diseño](phase3_design.md), [estado técnico y límite de revisión visual](phase3_closure.md).
 
 ## 1. Visión general
 
@@ -35,21 +35,21 @@ flowchart LR
 5. El motor de detección aplica reglas deterministas sobre el script original y los artefactos, y genera hallazgos según la [taxonomía de comportamientos](behavior_taxonomy.md).
 6. Según la configuración experimental, el servicio LLM construye el prompt (script original, y opcionalmente artefactos recuperados) y solicita a Ollama una respuesta estructurada.
 7. El validador exige JSON completo y citas literales en el origen declarado. No certifica que la cita sustente semánticamente la afirmación; los resultados LLM quedan sin revisión semántica. C nunca recibe las etiquetas del detector.
-8. Opcionalmente, los comportamientos se relacionan con técnicas MITRE ATT&CK.
+8. El mapeo MITRE ATT&CK sigue como ampliación opcional, no implementada en el MVP.
 9. La API devuelve una respuesta estructurada al frontend.
 
 ## 3. Módulos y responsabilidades
 
 ### Frontend (`frontend/`)
-- **Responsable de:** carga de scripts, visualización de código (Monaco, candidato), presentación de hallazgos, evidencias resaltadas y resultados experimentales.
+- **Implementado:** React 19 + Vite 8 + TypeScript; editor textarea con números de línea, upload UTF-8, selector A/B/C/ABC, resultados y comparación, procedencias, riesgo/advertencias, ayuda, estado local, exportación y temas persistidos. CSS propio, fuentes empaquetadas e iconos Lucide. El adaptador HTTP solo envía `{script}`; no pasa parámetros/etiquetas privadas.
 - **Límites:** no contiene lógica de desofuscación ni de detección, no almacena credenciales y no ejecuta código del usuario. Se comunica con el backend solo a través de `src/services/`.
 
 ### API (`backend/app/api/`)
-- **Responsable de:** exponer endpoints REST, validar entradas/salidas y orquestar los servicios.
+- **Implementado:** `create_app`, entrada HTTP estricta, health/metadata/capabilities/estado de Ollama, análisis A/B/C y comparación. Los servicios síncronos corren fuera del event loop, con hasta dos A y una petición LLM/comparación admitidas por proceso; exceso recibe 409. Los procesos conservan la exclusión OS de Fase 2. Body/origen/host limitados, errores estructurados, caché deshabilitada y archivos estáticos limitados al build.
 - **Límites:** no implementa lógica de análisis; delega en `services/`.
 
 ### Núcleo (`backend/app/core/`)
-- **Responsable de:** configuración (lectura de variables de entorno), constantes, límites de procesamiento y utilidades compartidas.
+- **Previsto:** no se añade un segundo sistema de configuración. La API reutiliza `PipelineSettings`; `PSI_PIPELINE_SETTINGS` permite elegir un JSON local validado. No carga `.env` implícitamente.
 
 ### Esquemas (`backend/app/schemas/`)
 - **Responsable de:** contratos de datos con Pydantic (solicitud de análisis, artefacto recuperado, hallazgo, evidencia, respuesta del LLM). Estos contratos permiten que el frontend avance en paralelo.

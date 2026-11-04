@@ -1,0 +1,2184 @@
+{
+  "version": "phase4-paired-proposal-v1",
+  "reference_status": "pending_personal_review",
+  "cases": [
+    {
+      "id": "F4-01",
+      "title": "Descarga binaria HttpClient sin evaluación",
+      "expected_labels": [
+        "B01"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-01",
+      "novel_logic": "HttpClient asíncrono → awaiter → bytes → longitud; sin cargador ni llamada de ejecución.",
+      "inclusion_rationale": {
+        "B01": "GetByteArrayAsync obtiene bytes de un origen HTTPS remoto recuperable. La descarga no añade B06 por sí sola."
+      },
+      "reference_evidence_proposals": {
+        "B01": [
+          "GetByteArrayAsync",
+          "GetAwaiter().GetResult()",
+          "https://p4-catalog.example.invalid/"
+        ]
+      },
+      "expected_recovered_strings": [
+        "https://p4-catalog.example.invalid/batch.pack"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-01.ps1.txt",
+      "script_sha256": "dc0a976a170ec77193be84532818a63641fd48855371f5ecaeb819187ca3f682",
+      "excluded_labels": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B06": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B01",
+          "source": "original",
+          "snippet": "GetByteArrayAsync",
+          "start": 126,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B01",
+          "source": "original",
+          "snippet": "GetAwaiter().GetResult()",
+          "start": 168,
+          "line": 4,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B01",
+          "source": "original",
+          "snippet": "https://p4-catalog.example.invalid/",
+          "start": 11,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-01-B.json",
+      "B_request_sha256": "5edb04de186143c4a6fd98e27dbf32b32838145528fe09c1545139639a389871",
+      "C_request": "requests/F4-01-C.json",
+      "C_request_sha256": "f8d4d50c6c1abafee61920b150676f0b26512296014e1f5d420e13b20dc7f44a",
+      "verified_1A_sources": {
+        "T0001": "https://p4-catalog.example.invalid/batch.pack"
+      },
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 62,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 63
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 73,
+            "end": 110,
+            "line": 2,
+            "column": 11,
+            "end_line": 2,
+            "end_column": 48
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 63,
+            "end": 110,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 48
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 118,
+            "end": 152,
+            "line": 3,
+            "column": 8,
+            "end_line": 3,
+            "end_column": 42
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 111,
+            "end": 152,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 42
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 163,
+            "end": 192,
+            "line": 4,
+            "column": 11,
+            "end_line": 4,
+            "end_column": 40
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 153,
+            "end": 192,
+            "line": 4,
+            "column": 1,
+            "end_line": 4,
+            "end_column": 40
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 201,
+            "end": 215,
+            "line": 5,
+            "column": 9,
+            "end_line": 5,
+            "end_column": 23
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 193,
+            "end": 215,
+            "line": 5,
+            "column": 1,
+            "end_line": 5,
+            "end_column": 23
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-02",
+      "title": "Bytes descargados y carga reflectiva funcional",
+      "expected_labels": [
+        "B01",
+        "B02"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-02",
+      "novel_logic": "DownloadData → mismo array de bytes → Assembly.Load; metadatos de ensamblado, no IEX sobre texto.",
+      "inclusion_rationale": {
+        "B01": "Origen remoto decodificado y DownloadData ligado a él.",
+        "B02": "La lógica funcional carga los bytes recuperados mediante Assembly.Load; no es solo un wrapper ofuscador."
+      },
+      "reference_evidence_proposals": {
+        "B01": [
+          "DownloadData($remote)",
+          "FromBase64String"
+        ],
+        "B02": [
+          "$octets =",
+          "[Reflection.Assembly]::Load($octets)"
+        ]
+      },
+      "expected_recovered_strings": [
+        "https://p4-modules.example.invalid/empty-assembly.bin"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-02.ps1.txt",
+      "script_sha256": "6ab1afd6ca82c998c3935b92e48af9f1db0bdb906a9f3c7d387e8de4b4b42da1",
+      "excluded_labels": [
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B06": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B01",
+          "source": "original",
+          "snippet": "DownloadData($remote)",
+          "start": 207,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B01",
+          "source": "original",
+          "snippet": "FromBase64String",
+          "start": 95,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "$octets =",
+          "start": 189,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "[Reflection.Assembly]::Load($octets)",
+          "start": 241,
+          "line": 4,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-02-B.json",
+      "B_request_sha256": "4745f54dbb9b42f5b854c4e1785d083079192d8e2eaff07992dd4aaa9af3d5ed",
+      "C_request": "requests/F4-02-C.json",
+      "C_request_sha256": "7e19ece81383d263f285c5081a94f204c5b6722d3ed842582708472a76c65178",
+      "verified_1A_sources": {
+        "T0002": "https://p4-modules.example.invalid/empty-assembly.bin"
+      },
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 10,
+            "end": 41,
+            "line": 1,
+            "column": 11,
+            "end_line": 1,
+            "end_column": 42
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 41,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 42
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 42,
+            "end": 188,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 147
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 199,
+            "end": 228,
+            "line": 3,
+            "column": 11,
+            "end_line": 3,
+            "end_column": 40
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 189,
+            "end": 228,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 40
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 241,
+            "end": 277,
+            "line": 4,
+            "column": 13,
+            "end_line": 4,
+            "end_column": 49
+          },
+          "technique_hint": null,
+          "reason": "Static method outside the allowlist; no call performed.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 229,
+            "end": 277,
+            "line": 4,
+            "column": 1,
+            "end_line": 4,
+            "end_column": 49
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 286,
+            "end": 304,
+            "line": 5,
+            "column": 9,
+            "end_line": 5,
+            "end_column": 27
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 278,
+            "end": 304,
+            "line": 5,
+            "column": 1,
+            "end_line": 5,
+            "end_column": 27
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-03",
+      "title": "Registro remoto de tarea de inicio de sesión",
+      "expected_labels": [
+        "B03",
+        "B06"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-03",
+      "novel_logic": "Herramienta nativa de tareas con trigger logon y destino remoto explícito; credencial literal ficticia, no extracción.",
+      "inclusion_rationale": {
+        "B03": "/Create y /SC ONLOGON configuran ejecución futura de una acción constante inocua.",
+        "B06": "/S identifica una operación remota adicional al registro, sin descarga."
+      },
+      "reference_evidence_proposals": {
+        "B03": [
+          "/Create /SC ONLOGON",
+          "/TR 'cmd.exe /c echo phase4-notice'"
+        ],
+        "B06": [
+          "/S 'p4-tasks.example.invalid'"
+        ]
+      },
+      "expected_recovered_strings": [
+        "\\PSIA\\Phase4\\LogonNotice"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-03.ps1.txt",
+      "script_sha256": "78140e403ec46f198036013c5625de151525ffe5902e71d7030a669044119689",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B04",
+        "B05",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B03",
+          "source": "original",
+          "snippet": "/Create /SC ONLOGON",
+          "start": 53,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B03",
+          "source": "original",
+          "snippet": "/TR 'cmd.exe /c echo phase4-notice'",
+          "start": 83,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B06",
+          "source": "original",
+          "snippet": "/S 'p4-tasks.example.invalid'",
+          "start": 119,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-03-B.json",
+      "B_request_sha256": "a488b5e6a30a6cb22c751b7a0bcad8c3f693fce7dbbe6c0edaadf450bc08519e",
+      "C_request": "requests/F4-03-C.json",
+      "C_request_sha256": "2bfebe42f0178707c8bb16af027646b6cb77a50ec7891b19265ae60712669f3b",
+      "verified_1A_sources": {
+        "T0001": "\\PSIA\\Phase4\\LogonNotice",
+        "T0002": "\\PSIA\\Phase4\\LogonNotice",
+        "T0003": "\\PSIA\\Phase4\\LogonNotice"
+      },
+      "recovery_status": "complete",
+      "unresolved_1A": []
+    },
+    {
+      "id": "F4-04",
+      "title": "Borrado de canal de laboratorio remoto inexistente",
+      "expected_labels": [
+        "B04",
+        "B06"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "audit-control",
+      "novel_logic": "Borrado de historial de logging por canal y host, no exclusión Defender ni cambio de firewall.",
+      "inclusion_rationale": {
+        "B04": "Clear-EventLog solicita eliminar registros; la referencia clasifica la operación solicitada, no éxito efectivo.",
+        "B06": "ComputerName liga la operación a un host remoto explícito inexistente."
+      },
+      "reference_evidence_proposals": {
+        "B04": [
+          "Clear-EventLog -LogName $channel"
+        ],
+        "B06": [
+          "-ComputerName 'p4-logs.example.invalid'"
+        ]
+      },
+      "expected_recovered_strings": [
+        "PSIA.Phase4.NeverCreated.Audit57C21"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-04.ps1.txt",
+      "script_sha256": "ea11e756158622d4e9716bf799cbab3c42f0a02cfd9eb9999dca511007c78b38",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B05",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B04",
+          "source": "original",
+          "snippet": "Clear-EventLog -LogName $channel",
+          "start": 54,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B06",
+          "source": "original",
+          "snippet": "-ComputerName 'p4-logs.example.invalid'",
+          "start": 87,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-04-B.json",
+      "B_request_sha256": "8c47d4149d789b34105b22614ee42c963543a56a3389d87d1a1faa2f8e7203f0",
+      "C_request": "requests/F4-04-C.json",
+      "C_request_sha256": "a33999715b32bd189bcfcfa54bd206ec889d34dd393b7103dfd6f8b46c442d96",
+      "verified_1A_sources": {
+        "T0001": "PSIA.Phase4.NeverCreated.Audit57C21",
+        "T0002": "PSIA.Phase4.NeverCreated.Audit57C21",
+        "T0003": "PSIA.Phase4.NeverCreated.Audit57C21"
+      },
+      "recovery_status": "complete",
+      "unresolved_1A": []
+    },
+    {
+      "id": "F4-05",
+      "title": "Evento local convertido y enviado mediante PUT",
+      "expected_labels": [
+        "B05",
+        "B06"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-05",
+      "novel_logic": "Consulta de eventos → serialización → cuerpo exacto de PUT vía UploadString; no inventario IP+POST.",
+      "inclusion_rationale": {
+        "B05": "Get-WinEvent consulta información del entorno local.",
+        "B06": "UploadString transmite el resultado ligado a entry con PUT."
+      },
+      "reference_evidence_proposals": {
+        "B05": [
+          "Get-WinEvent -LogName Application -MaxEvents 1"
+        ],
+        "B06": [
+          "UploadString($endpoint, 'PUT', $entry)"
+        ]
+      },
+      "expected_recovered_strings": [
+        "https://p4-events.example.invalid/incident"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-05.ps1.txt",
+      "script_sha256": "79f5265247f8abd9349c3bc7047ad0e8eda7b6c7550b1371d33699a5831c3727",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B05",
+          "source": "original",
+          "snippet": "Get-WinEvent -LogName Application -MaxEvents 1",
+          "start": 9,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B06",
+          "source": "original",
+          "snippet": "UploadString($endpoint, 'PUT', $entry)",
+          "start": 274,
+          "line": 4,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-05-B.json",
+      "B_request_sha256": "cef810c5bbcaca470d4caf58c2b61fee196616401433c1ace11d277deab692e6",
+      "C_request": "requests/F4-05-C.json",
+      "C_request_sha256": "19f3fa69470cee5864b4188316242e05abcc4f5eac1880286f55babf11cf8d6e",
+      "verified_1A_sources": {
+        "T0002": "https://p4-events.example.invalid/incident"
+      },
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 9,
+            "end": 82,
+            "line": 1,
+            "column": 10,
+            "end_line": 1,
+            "end_column": 83
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 82,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 83
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 83,
+            "end": 215,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 133
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 226,
+            "end": 257,
+            "line": 3,
+            "column": 11,
+            "end_line": 3,
+            "end_column": 42
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 216,
+            "end": 257,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 42
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 266,
+            "end": 312,
+            "line": 4,
+            "column": 9,
+            "end_line": 4,
+            "end_column": 55
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 258,
+            "end": 312,
+            "line": 4,
+            "column": 1,
+            "end_line": 4,
+            "end_column": 55
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-06",
+      "title": "Credencial CLIXML leída y material de contraseña accedido",
+      "expected_labels": [
+        "B07"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-06",
+      "novel_logic": "Import-Clixml de almacén local ficticio → GetNetworkCredential.Password; no despacho de handler desconocido.",
+      "inclusion_rationale": {
+        "B07": "Lee una credencial almacenada y accede al material Password; no es Get-Credential interactivo."
+      },
+      "reference_evidence_proposals": {
+        "B07": [
+          "Import-Clixml -LiteralPath $file",
+          "GetNetworkCredential().Password"
+        ]
+      },
+      "expected_recovered_strings": [
+        "C:\\PSIA_Phase4_NeverCreated_57C21\\service-auth.clixml"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-06.ps1.txt",
+      "script_sha256": "92ed270bbaee50365080660de5bc3168e2056dacb0e9037b7fd535048b2657b9",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B06": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B07",
+          "source": "original",
+          "snippet": "Import-Clixml -LiteralPath $file",
+          "start": 78,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B07",
+          "source": "original",
+          "snippet": "GetNetworkCredential().Password",
+          "start": 126,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-06-B.json",
+      "B_request_sha256": "b814ab8808336c3d4d9602991901ceae0f23e056afba43b027e1165c9cdf673a",
+      "C_request": "requests/F4-06-C.json",
+      "C_request_sha256": "c99994a9a063cc20beedbb52908a6108b0452b01345e8423441396037f27912e",
+      "verified_1A_sources": {
+        "T0001": "C:\\PSIA_Phase4_NeverCreated_57C21\\service-auth.clixml"
+      },
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 68,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 69
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 78,
+            "end": 110,
+            "line": 2,
+            "column": 10,
+            "end_line": 2,
+            "end_column": 42
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 69,
+            "end": 110,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 42
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 105,
+            "end": 110,
+            "line": 2,
+            "column": 37,
+            "end_line": 2,
+            "end_column": 42
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0002"
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 119,
+            "end": 164,
+            "line": 3,
+            "column": 9,
+            "end_line": 3,
+            "end_column": 54
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 111,
+            "end": 164,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 54
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-07",
+      "title": "Compilación diferida almacenada sin invocación",
+      "expected_labels": [],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-07",
+      "novel_logic": "Código C# armado fuera del bloque, compilador dentro de ScriptBlock no llamado; solo se consulta longitud del texto.",
+      "inclusion_rationale": {},
+      "reference_evidence_proposals": {},
+      "expected_recovered_strings": [
+        "public static class P4Deferred { public static string Marker(){ return \"not-called\"; } }"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-07.ps1.txt",
+      "script_sha256": "2298fb68ea439d89acd0ef572904a62d26a9c8d9845be3c6667f71f01fbfcf30",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+        "B02": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+        "B03": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+        "B04": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+        "B05": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+        "B06": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado.",
+        "B07": "B02 ausente: later no se invoca; Add-Type está almacenado. Consultar longitud de texto local no es B05. No hay concatenación de comando ejecutada, descarga, persistencia, defensa, red ni acceso almacenado."
+      },
+      "reference_evidence_located": [],
+      "B_request": "requests/F4-07-B.json",
+      "B_request_sha256": "bf22e60dee453c3f5d43f271bb00c50c7b8deb84092ff1e7d7ece79f7d3c0780",
+      "C_request": "requests/F4-07-C.json",
+      "C_request_sha256": "20b5a3f67f79bf182e9a5c5ffb7aab10cf64439b39bd901be033f46c779eecda",
+      "verified_1A_sources": {
+        "T0001": "public static class P4Deferred { public static string Marker(){ return \"not-called\"; } }"
+      },
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 105,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 106
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 115,
+            "end": 151,
+            "line": 2,
+            "column": 10,
+            "end_line": 2,
+            "end_column": 46
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 106,
+            "end": 151,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 46
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 160,
+            "end": 174,
+            "line": 3,
+            "column": 9,
+            "end_line": 3,
+            "end_column": 23
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 152,
+            "end": 174,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 23
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-08",
+      "title": "Generación IL local e invocación de suma inocua",
+      "expected_labels": [
+        "B02"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-08",
+      "novel_logic": "DynamicMethod → generador IL → carga de dos argumentos/suma/retorno → Invoke; no ScriptBlock.Create ni IEX ni texto Write-Output.",
+      "inclusion_rationale": {
+        "B02": "La lógica funcional genera instrucciones IL y llama al método construido; el nombre recuperado identifica el método, sin probar por sí solo su invocación."
+      },
+      "reference_evidence_proposals": {
+        "B02": [
+          "Reflection.Emit.DynamicMethod",
+          "GetILGenerator()",
+          "::Ldarg_0",
+          "::Add",
+          "$method.Invoke($null, @(6,9))"
+        ]
+      },
+      "expected_recovered_strings": [
+        "P4LocalSum"
+      ],
+      "recovery_stratum": "verified_nonempty",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-08.ps1.txt",
+      "script_sha256": "bc8bba665fd8850f51ba04a4c7274a119e15c97c5985410a7583919f277bcee4",
+      "excluded_labels": [
+        "B01",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B06": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "Reflection.Emit.DynamicMethod",
+          "start": 53,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "GetILGenerator()",
+          "start": 289,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "::Ldarg_0",
+          "start": 152,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "::Add",
+          "start": 224,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B02",
+          "source": "original",
+          "snippet": "$method.Invoke($null, @(6,9))",
+          "start": 325,
+          "line": 4,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-08-B.json",
+      "B_request_sha256": "648626f112655d1e516eee59b41c4ac54c8aabc9a482c951e86766de01400873",
+      "C_request": "requests/F4-08-C.json",
+      "C_request_sha256": "bbe6dd54df40d38352d7cf3d3dbf4d24431d2a5cdc7f62fbb6c7bb196e0f4282",
+      "verified_1A_sources": {
+        "T0001": "P4LocalSum"
+      },
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 31,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 32
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 42,
+            "end": 126,
+            "line": 2,
+            "column": 11,
+            "end_line": 2,
+            "end_column": 95
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 32,
+            "end": 126,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 95
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 82,
+            "end": 95,
+            "line": 2,
+            "column": 51,
+            "end_line": 2,
+            "end_column": 64
+          },
+          "technique_hint": null,
+          "reason": "Expression outside the supported grammar.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 83,
+            "end": 94,
+            "line": 2,
+            "column": 52,
+            "end_line": 2,
+            "end_column": 63
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 112,
+            "end": 119,
+            "line": 2,
+            "column": 81,
+            "end_line": 2,
+            "end_column": 88
+          },
+          "technique_hint": null,
+          "reason": "Expression outside the supported grammar.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 127,
+            "end": 316,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 190
+          },
+          "technique_hint": null,
+          "reason": "Static method outside the allowlist; no call performed.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 325,
+            "end": 354,
+            "line": 4,
+            "column": 9,
+            "end_line": 4,
+            "end_column": 38
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 317,
+            "end": 354,
+            "line": 4,
+            "column": 1,
+            "end_line": 4,
+            "end_column": 38
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-09",
+      "title": "Persistencia WMI con autenticación desde bóveda ficticia",
+      "expected_labels": [
+        "B03",
+        "B06",
+        "B07"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-09",
+      "novel_logic": "Bóveda → Credential de WMI → filtro/consumidor/binding permanente con referencias de objetos explícitas; distinta de tarea programada.",
+      "inclusion_rationale": {
+        "B03": "Registro de filtro, consumidor y binding en root/subscription configura activación futura.",
+        "B06": "Las tres llamadas Set-WmiInstance identifican un ComputerName remoto explícito.",
+        "B07": "Get-Secret accede a material almacenado, aunque el uso posterior sea autenticar una sesión."
+      },
+      "reference_evidence_proposals": {
+        "B03": [
+          "root/subscription",
+          "__FilterToConsumerBinding",
+          "CommandLineTemplate="
+        ],
+        "B06": [
+          "Set-WmiInstance -ComputerName"
+        ],
+        "B07": [
+          "Get-Secret -Name P4Operator -Vault"
+        ]
+      },
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-09.ps1.txt",
+      "script_sha256": "775a7024994c193a9b91d8d0c0c853a3b105ba7c669ae9abb91987b69e468448",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B04",
+        "B05"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B03",
+          "source": "original",
+          "snippet": "root/subscription",
+          "start": 75,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B03",
+          "source": "original",
+          "snippet": "__FilterToConsumerBinding",
+          "start": 601,
+          "line": 3,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B03",
+          "source": "original",
+          "snippet": "CommandLineTemplate=",
+          "start": 448,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B06",
+          "source": "original",
+          "snippet": "Set-WmiInstance -ComputerName",
+          "start": 0,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B07",
+          "source": "original",
+          "snippet": "Get-Secret -Name P4Operator -Vault",
+          "start": 223,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-09-B.json",
+      "B_request_sha256": "3e5017bbab3d30d66c4d0d3cb8ece95f6eb2518d5f201af35e4d848373bda368",
+      "C_request": "requests/F4-09-C.json",
+      "C_request_sha256": "5dbf66949b3ee9d4bd64112077919793b24ef4c5cc6a681ec6e7504cdff889de",
+      "verified_1A_sources": {},
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 222,
+            "end": 233,
+            "line": 1,
+            "column": 223,
+            "end_line": 1,
+            "end_column": 234
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-10",
+      "title": "Deshabilitación de canal de laboratorio inexistente",
+      "expected_labels": [
+        "B04"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "audit-control",
+      "novel_logic": "Deshabilita logging futuro de un canal ficticio; contraste con borrado histórico remoto, sin red.",
+      "inclusion_rationale": {
+        "B04": "sl con /e:false solicita deshabilitar registro; no es una consulta de configuración."
+      },
+      "reference_evidence_proposals": {
+        "B04": [
+          "wevtutil.exe sl",
+          "/e:false"
+        ]
+      },
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-10.ps1.txt",
+      "script_sha256": "212adc420379972d9f068ed520370886c2e091ac624911d2252ee739e065031d",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B05": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B06": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B04",
+          "source": "original",
+          "snippet": "wevtutil.exe sl",
+          "start": 0,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B04",
+          "source": "original",
+          "snippet": "/e:false",
+          "start": 58,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-10-B.json",
+      "B_request_sha256": "65f8d82fcdf6a10d571291246a8700cc7a74767aec131542f5f8efe33e5f5c81",
+      "C_request": "requests/F4-10-C.json",
+      "C_request_sha256": "ac6e53a2c8f410e0e70248031558c603ae1880f0aec78208c2ef161df5125695",
+      "verified_1A_sources": {},
+      "recovery_status": "complete",
+      "unresolved_1A": []
+    },
+    {
+      "id": "F4-11",
+      "title": "Consultas de tareas y firewall sin modificación",
+      "expected_labels": [
+        "B05"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-11",
+      "novel_logic": "Inventario de dos mecanismos de configuración sin registro ni cambio; negativo difícil B03/B04.",
+      "inclusion_rationale": {
+        "B05": "Consulta tareas y estado de perfiles; no establece persistencia ni debilita el firewall."
+      },
+      "reference_evidence_proposals": {
+        "B05": [
+          "Get-ScheduledTask",
+          "Get-NetFirewallProfile"
+        ]
+      },
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-11.ps1.txt",
+      "script_sha256": "a57714eebc92b593d2777c8cc079bc535a2bc0485e6b0132947becfe37387703",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B02": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B03": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B04": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B06": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados.",
+        "B07": "No hay otras operaciones activas de descarga/evaluación/persistencia/defensa/inventario/red/credenciales más allá de las inclusiones descritas. No inferir etiquetas de comentarios, nombres o efectos no demostrados."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B05",
+          "source": "original",
+          "snippet": "Get-ScheduledTask",
+          "start": 0,
+          "line": 1,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B05",
+          "source": "original",
+          "snippet": "Get-NetFirewallProfile",
+          "start": 77,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-11-B.json",
+      "B_request_sha256": "bc938c072019e1d828ebf18d00d80d3aa4e8a46d9c51184689b08c7c499f5f7d",
+      "C_request": "requests/F4-11-C.json",
+      "C_request_sha256": "1755509ac74060104a40808b349f4535c4fb63ce4715860ce71ec99a44aac14a",
+      "verified_1A_sources": {},
+      "recovery_status": "complete",
+      "unresolved_1A": []
+    },
+    {
+      "id": "F4-12",
+      "title": "Credencial interactiva ligada a autenticación remota",
+      "expected_labels": [
+        "B06"
+      ],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-12",
+      "novel_logic": "Captura interactiva → Credential de remoting fijo → bloque literal; no lectura de almacén ni evaluación de texto construido.",
+      "inclusion_rationale": {
+        "B06": "Invoke-Command solicita sesión/comunicación remota explícita."
+      },
+      "reference_evidence_proposals": {
+        "B06": [
+          "Invoke-Command -ComputerName",
+          "-Credential $login"
+        ]
+      },
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-12.ps1.txt",
+      "script_sha256": "db5583f250d9e97ca178e14b428a5f1d6ef9cfbf14ab20c582df8782f3e32341",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05.",
+        "B02": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05.",
+        "B03": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05.",
+        "B04": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05.",
+        "B05": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05.",
+        "B07": "B07 ausente: autenticación legítima con entrada interactiva, sin almacenar ni extraer material de terceros. B02 ausente: bloque literal fijo, no código construido; sin B01/B03/B04/B05."
+      },
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B06",
+          "source": "original",
+          "snippet": "Invoke-Command -ComputerName",
+          "start": 66,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        },
+        {
+          "behavior_id": "B06",
+          "source": "original",
+          "snippet": "-Credential $login",
+          "start": 124,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-12-B.json",
+      "B_request_sha256": "b21dd32e8268499b6068f868b93a7e7e4f7c3aec7be7a38d691483cdabfb4746",
+      "C_request": "requests/F4-12-C.json",
+      "C_request_sha256": "a5d2ca90d3b896b38ad0a32cb21aec04a54b73777916d2b938323b31b5d1669b",
+      "verified_1A_sources": {},
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 9,
+            "end": 65,
+            "line": 1,
+            "column": 10,
+            "end_line": 1,
+            "end_column": 66
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 65,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 66
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 136,
+            "end": 142,
+            "line": 2,
+            "column": 71,
+            "end_line": 2,
+            "end_column": 77
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0001"
+        }
+      ]
+    },
+    {
+      "id": "F4-13",
+      "title": "Inspector de palabras de comando y comentario adversario",
+      "expected_labels": [],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-13",
+      "novel_logic": "Extrae y transforma nombres desde documentación literal; no ejecuta los comandos que reconoce.",
+      "inclusion_rationale": {},
+      "reference_evidence_proposals": {},
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-13.ps1.txt",
+      "script_sha256": "9470d9ca245098117c795607362a2f6fd23462b4cefc81cf327533cfa145ac35",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+        "B02": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+        "B03": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+        "B04": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+        "B05": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+        "B06": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno.",
+        "B07": "Las palabras de comandos son entrada de Regex y el comentario es dato adversario. No se ejecutan, no consultan almacenes ni modifican logs. Procesar texto local no es reconocimiento del entorno."
+      },
+      "reference_evidence_located": [],
+      "B_request": "requests/F4-13-B.json",
+      "B_request_sha256": "64424d8e1a7f5908e982a051e27f9258738fc78126fc3ec96f5cde124525240e",
+      "C_request": "requests/F4-13-C.json",
+      "C_request_sha256": "39d23b0b723c3e765e57673a18db6e3d350a9dcd4c4c26970a4bca2294e9290d",
+      "verified_1A_sources": {},
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 66,
+            "end": 201,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 136
+          },
+          "technique_hint": null,
+          "reason": "Static method outside the allowlist; no call performed.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-14",
+      "title": "Compresión en memoria y codificación de bytes inocuos",
+      "expected_labels": [],
+      "known_present": [],
+      "required_unknown_fragments": [],
+      "reference_state": "complete_reference",
+      "cluster": "family-14",
+      "novel_logic": "Bytes constantes → GZip en memoria → Base64 de salida; no decodificación ni evaluación de comandos.",
+      "inclusion_rationale": {},
+      "reference_evidence_proposals": {},
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-14.ps1.txt",
+      "script_sha256": "173ee6797857f01b1f415715e9517c3bc321af61a24718a54142f321e3ddea86",
+      "excluded_labels": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "exclusion_rationales_by_label": {
+        "B01": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+        "B02": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+        "B03": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+        "B04": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+        "B05": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+        "B06": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales.",
+        "B07": "Codificar/comprimir bytes no es B02 ni recuperación de código. No hay red, archivos, inventario del host, persistencia, defensas o almacenes de credenciales."
+      },
+      "reference_evidence_located": [],
+      "B_request": "requests/F4-14-B.json",
+      "B_request_sha256": "e4290805612f317de183ba302c1ac9c51d875bf537e5c0cfc344bbe07d2b71d7",
+      "C_request": "requests/F4-14-C.json",
+      "C_request_sha256": "e232381403154d4c8834397c5b0fe5b6d04163b2b9ad7a6c772e335b91f1b526",
+      "verified_1A_sources": {},
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 10,
+            "end": 36,
+            "line": 1,
+            "column": 11,
+            "end_line": 1,
+            "end_column": 37
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 0,
+            "end": 36,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 37
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 44,
+            "end": 140,
+            "line": 2,
+            "column": 8,
+            "end_line": 2,
+            "end_column": 104
+          },
+          "technique_hint": null,
+          "reason": "Only literal strings and explicitly supported expressions can be recovered.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 37,
+            "end": 140,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 104
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 80,
+            "end": 89,
+            "line": 2,
+            "column": 44,
+            "end_line": 2,
+            "end_column": 53
+          },
+          "technique_hint": null,
+          "reason": "Expression outside the supported grammar.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 81,
+            "end": 88,
+            "line": 2,
+            "column": 45,
+            "end_line": 2,
+            "end_column": 52
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 134,
+            "end": 139,
+            "line": 2,
+            "column": 98,
+            "end_line": 2,
+            "end_column": 103
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 141,
+            "end": 175,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 35
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 176,
+            "end": 190,
+            "line": 4,
+            "column": 1,
+            "end_line": 4,
+            "end_column": 15
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 191,
+            "end": 235,
+            "line": 5,
+            "column": 1,
+            "end_line": 5,
+            "end_column": 45
+          },
+          "technique_hint": null,
+          "reason": "Static method outside the allowlist; no call performed.",
+          "transformation_id": null
+        }
+      ]
+    },
+    {
+      "id": "F4-15",
+      "title": "Petición parametrizada con origen y método desconocidos",
+      "expected_labels": null,
+      "known_present": [],
+      "required_unknown_fragments": [
+        "$Endpoint",
+        "$Verb",
+        "$Body"
+      ],
+      "reference_state": "indeterminate",
+      "cluster": "family-15",
+      "novel_logic": "Operación web parametrizada: no se conoce destino/método/cuerpo para distinguir descarga de envío.",
+      "inclusion_rationale": {},
+      "reference_evidence_proposals": {},
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "No hay conjunto exacto determinable. No asignar B01 o B06 sin resolver la relación método/origen; no hay soporte visible para B02/B03/B04/B05/B07. Se propone abstención de etiquetas con incertidumbre alta.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-15.ps1.txt",
+      "script_sha256": "99233c6833328ef8a8c78f37b8f2090c636fb6b0378c70f38f431817b37186f6",
+      "excluded_labels": null,
+      "exclusion_rationales_by_label": {},
+      "reference_evidence_located": [],
+      "B_request": "requests/F4-15-B.json",
+      "B_request_sha256": "e82b249d97bbf482d94838e6f1f10df3e60e7ae057e7205d73c0e8192183deae",
+      "C_request": "requests/F4-15-C.json",
+      "C_request_sha256": "f10cfc60a749552cde23211d86da419f4ec9ca932e0ddb97ea854d3d417284b2",
+      "verified_1A_sources": {},
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 5,
+            "end": 23,
+            "line": 1,
+            "column": 6,
+            "end_line": 1,
+            "end_column": 24
+          },
+          "technique_hint": null,
+          "reason": "Expression outside the supported grammar.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 14,
+            "end": 23,
+            "line": 1,
+            "column": 15,
+            "end_line": 1,
+            "end_column": 24
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 33,
+            "end": 38,
+            "line": 1,
+            "column": 34,
+            "end_line": 1,
+            "end_column": 39
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 48,
+            "end": 53,
+            "line": 1,
+            "column": 49,
+            "end_line": 1,
+            "end_column": 54
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 78,
+            "end": 87,
+            "line": 2,
+            "column": 24,
+            "end_line": 2,
+            "end_column": 33
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0001"
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 96,
+            "end": 101,
+            "line": 2,
+            "column": 42,
+            "end_line": 2,
+            "end_column": 47
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0002"
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 108,
+            "end": 113,
+            "line": 2,
+            "column": 54,
+            "end_line": 2,
+            "end_column": 59
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0003"
+        }
+      ]
+    },
+    {
+      "id": "F4-16",
+      "title": "Inventario DNS local y callback de tabla desconocida",
+      "expected_labels": null,
+      "known_present": [
+        "B05"
+      ],
+      "required_unknown_fragments": [
+        "$DispatchTable",
+        "$callback"
+      ],
+      "reference_state": "partial_indeterminate_set",
+      "cluster": "family-16",
+      "novel_logic": "Inventario de caché DNS local conocido y selección de callback por tabla externa; conjunto interno no determinable.",
+      "inclusion_rationale": {
+        "B05": "Get-DnsClientCache consulta estado local y agrupa sus entradas; no genera por sí solo comunicación remota."
+      },
+      "reference_evidence_proposals": {
+        "B05": [
+          "Get-DnsClientCache | Group-Object Type"
+        ]
+      },
+      "expected_recovered_strings": [],
+      "recovery_stratum": "no_relevant_verified_text",
+      "absent_rationale": "No fijar conjunto completo. B05 es soporte mínimo conocido; & sobre callback no resuelto no basta para B02. Las acciones del callback podrían añadir categorías y se mantienen desconocidas.",
+      "reference_status": "AI_authored_proposal_pending_owner_personal_review",
+      "independence_status": "new_authored_composition_pending_semantic_novelty_review",
+      "safety": "UTF-8 .ps1.txt only; never execute; synthetic targets; no real malware or real credentials",
+      "script_file": "scripts/F4-16.ps1.txt",
+      "script_sha256": "911d5ac9e6da7754c0acea6c4d5eed00c44bd65f55768df9f5331f1934f72e89",
+      "excluded_labels": null,
+      "exclusion_rationales_by_label": {},
+      "reference_evidence_located": [
+        {
+          "behavior_id": "B05",
+          "source": "original",
+          "snippet": "Get-DnsClientCache | Group-Object Type",
+          "start": 53,
+          "line": 2,
+          "support_proposal": "contextual_reference_only_pending_review"
+        }
+      ],
+      "B_request": "requests/F4-16-B.json",
+      "B_request_sha256": "4aefd16c5c13d5c70d850ff9dbbf3e8aeb158eb44a5d0fd7cdc5b2f4a11b8afd",
+      "C_request": "requests/F4-16-C.json",
+      "C_request_sha256": "f1a15e5064d60b9258a455b252681f7bf74302a55ac54f617d9b6fb6a2440d24",
+      "verified_1A_sources": {},
+      "recovery_status": "partial",
+      "unresolved_1A": [
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 5,
+            "end": 31,
+            "line": 1,
+            "column": 6,
+            "end_line": 1,
+            "end_column": 32
+          },
+          "technique_hint": null,
+          "reason": "Expression outside the supported grammar.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 17,
+            "end": 31,
+            "line": 1,
+            "column": 18,
+            "end_line": 1,
+            "end_column": 32
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 41,
+            "end": 51,
+            "line": 1,
+            "column": 42,
+            "end_line": 1,
+            "end_column": 52
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Variable in a compound argument is not substituted.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 131,
+            "end": 157,
+            "line": 3,
+            "column": 13,
+            "end_line": 3,
+            "end_column": 39
+          },
+          "technique_hint": null,
+          "reason": "Trailing syntax outside the expression subset.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 119,
+            "end": 157,
+            "line": 3,
+            "column": 1,
+            "end_line": 3,
+            "end_column": 39
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+          "transformation_id": null
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 160,
+            "end": 169,
+            "line": 4,
+            "column": 3,
+            "end_line": 4,
+            "end_column": 12
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0001"
+        },
+        {
+          "source": {
+            "layer_id": "L0",
+            "start": 177,
+            "end": 187,
+            "line": 4,
+            "column": 20,
+            "end_line": 4,
+            "end_column": 30
+          },
+          "technique_hint": "OT-VARSUB",
+          "reason": "No unambiguous prior literal binding in the supported scope.",
+          "transformation_id": "T0002"
+        }
+      ]
+    }
+  ]
+}

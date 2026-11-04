@@ -1,0 +1,139 @@
+{
+  "observed_at_utc": "2026-11-03T18:55:32.441365+00:00",
+  "model": "gemma4:12b",
+  "manifest_sha256": "6114515d63c17436a7c0417d82820ac65ad643e2806c5a3c89cb62846436ed0b",
+  "registry_config": {
+    "model_format": "gguf",
+    "model_family": "gemma4",
+    "model_families": [
+      "gemma4"
+    ],
+    "model_type": "11.9B",
+    "file_type": "Q4_K_M",
+    "renderer": "gemma4",
+    "parser": "gemma4",
+    "requires": "0.30.9",
+    "draft": {
+      "model_format": "gguf",
+      "architecture": "gemma4-assistant"
+    }
+  },
+  "local": {
+    "version": {
+      "version": "0.40.13"
+    },
+    "tags": {
+      "models": [
+        {
+          "name": "qwen3.5:4b-q4_K_M",
+          "model": "qwen3.5:4b-q4_K_M",
+          "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+          "size": 3324173934,
+          "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+          "details": {
+            "parent_model": "model.gguf",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "4.2B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2560,
+            "runner": "llamacpp"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "qwen2.5-coder:7b",
+          "model": "qwen2.5-coder:7b",
+          "modified_at": "2026-10-31T19:15:37.5391282-05:00",
+          "size": 4683087561,
+          "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 32768,
+            "embedding_length": 3584,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "insert"
+          ]
+        }
+      ]
+    },
+    "ps": {
+      "models": []
+    }
+  },
+  "memory": {
+    "available_bytes": 17157574656,
+    "commit_available_bytes": 26472194048,
+    "commit_used_bytes": 25195188224,
+    "physical_total_bytes": 33413771264,
+    "commit_limit_bytes": 51667382272
+  },
+  "model_directory": "C:\\Users\\eliza\\OneDrive\\Documentos\\ECI\\9_SEMESTRE\\CIBR_M\\PROYECTO FINAL\\PowerShellInsightAI-Local\\ollama-models",
+  "disk": {
+    "total": 1022358786048,
+    "used": 464201506816,
+    "free": 558157279232
+  },
+  "process_inventory": [
+    {
+      "pid": 19564,
+      "parent_pid": 12984,
+      "name": "ollama app.exe"
+    },
+    {
+      "pid": 8,
+      "parent_pid": 19564,
+      "name": "ollama.exe"
+    },
+    {
+      "pid": 37844,
+      "parent_pid": 34080,
+      "name": "python.exe"
+    },
+    {
+      "pid": 45388,
+      "parent_pid": 37844,
+      "name": "python.exe"
+    }
+  ],
+  "collector_pid": 45388,
+  "circuit_marker": "C:\\Users\\eliza\\AppData\\Local\\Temp\\powershell-insight-phase2-inference.blocked",
+  "circuit_blocked": false,
+  "estimate": {
+    "method": "FP16 KV, conservative full allocation; not a measured peak",
+    "num_ctx": 8192,
+    "tensor_layers_bytes": 8021608448,
+    "kv_bytes": 2818572288,
+    "optimized_swa_kv_bytes_for_comparison": 469762048,
+    "buffers_reserve_bytes": 2147483648,
+    "safety_margin_bytes": 2147483648,
+    "required_available_bytes": 15135148032,
+    "required_available_gib": 14.095705032348633,
+    "ram_deficit_bytes": 0,
+    "ram_and_commit_sufficient": true
+  },
+  "inference_attempts": 0,
+  "weights_downloaded": false,
+  "external_client_exclusion": "Point-in-time inventory only; cannot exclude future/external clients",
+  "scope": "Read-only preflight; this program cannot authorize or dispatch inference"
+}

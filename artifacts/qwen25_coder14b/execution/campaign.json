@@ -1,0 +1,14 @@
+{
+  "version": "qwen25-coder14b-development-v1",
+  "at": "2026-11-04T01:54:59.248220+00:00",
+  "freeze_sha256": "0067a4c33181822ac7353b209a94cbbc4efee95d71440006faee6d9b012c2a0a",
+  "authorization": {
+    "source": "Explicit owner request in attached text",
+    "maximum_real_local_inferences": 8,
+    "only_model": "qwen2.5-coder:14b",
+    "no_gemini": true,
+    "no_phase4": true,
+    "no_independent_selection": true
+  },
+  "exclusion_scope": "Application OS gate and observed Ollama state; cannot exclude arbitrary external clients"
+}

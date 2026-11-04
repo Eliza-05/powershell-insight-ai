@@ -1,0 +1,136 @@
+{
+  "at": "2026-11-02T23:35:45.295840+00:00",
+  "tests": {
+    "baseline_backend": {
+      "tests": 876,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "baseline_frontend": {
+      "tests": 28,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "baseline_connected": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "delivery_backend": {
+      "tests": 906,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "final_frontend": {
+      "tests": 28,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "final_connected": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "frontend_build": {
+    "command": "npm run build",
+    "exit_code": 0,
+    "typescript": "passed",
+    "vite": "passed",
+    "evidence": "tool output: tsc -b && vite build, Vite 8.3.5, 2056 modules"
+  },
+  "resources_after": {
+    "monotonic": 30918.2974854,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 5859065856,
+    "commit_limit_bytes": 51667382272,
+    "commit_used_bytes": 47204646912,
+    "commit_available_bytes": 4462735360,
+    "memory_load_percent": 82,
+    "processes": [
+      {
+        "pid": 4512,
+        "name": "ollama app.exe",
+        "parent": 12652,
+        "is_ollama_runtime": true,
+        "page_faults": 54447,
+        "peak_working_set": 29343744,
+        "working_set": 7499776,
+        "peak_paged_pool": 332472,
+        "paged_pool": 314024,
+        "peak_nonpaged_pool": 94776,
+        "nonpaged_pool": 21048,
+        "pagefile": 56246272,
+        "peak_pagefile": 56971264,
+        "private": 56246272,
+        "cpu_seconds": 1.84375
+      },
+      {
+        "pid": 6200,
+        "name": "ollama.exe",
+        "parent": 4512,
+        "is_ollama_runtime": true,
+        "page_faults": 187196,
+        "peak_working_set": 100249600,
+        "working_set": 30986240,
+        "peak_paged_pool": 619288,
+        "paged_pool": 342744,
+        "peak_nonpaged_pool": 8069776,
+        "nonpaged_pool": 29888,
+        "pagefile": 89075712,
+        "peak_pagefile": 141012992,
+        "private": 89075712,
+        "cpu_seconds": 53.484375
+      },
+      {
+        "pid": 16280,
+        "name": "conhost.exe",
+        "parent": 6200,
+        "is_ollama_runtime": true,
+        "page_faults": 8442,
+        "peak_working_set": 10158080,
+        "working_set": 1216512,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 11800,
+        "nonpaged_pool": 10880,
+        "pagefile": 1785856,
+        "peak_pagefile": 1912832,
+        "private": 1785856,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 38472,
+        "name": "python.exe",
+        "parent": 42252,
+        "is_ollama_runtime": false,
+        "page_faults": 10961,
+        "peak_working_set": 36626432,
+        "working_set": 35258368,
+        "peak_paged_pool": 172232,
+        "paged_pool": 171688,
+        "peak_nonpaged_pool": 16648,
+        "nonpaged_pool": 16176,
+        "pagefile": 24338432,
+        "peak_pagefile": 25448448,
+        "private": 24338432,
+        "cpu_seconds": 0.34375
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  },
+  "residents_after": {
+    "models": []
+  },
+  "circuit_marker_exists": false,
+  "diagnostic_intents": 0,
+  "active_plan_sha256": "6ee543ebe8f71151dd94660d3c9d50c08a96ff914a5fdc8a1daac7b62a01e4df",
+  "samples_executed": false,
+  "selection_or_final_evaluation_executed": false
+}

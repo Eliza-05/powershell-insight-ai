@@ -1,0 +1,667 @@
+{
+  "at": "2026-11-03T01:10:15.278669+00:00",
+  "intents": [
+    {
+      "id": "01-C-recovered-P0",
+      "intent_at": "2026-11-03T00:02:08.192174+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\01-C-recovered-P0.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": false,
+      "error": {
+        "code": "invalid_response",
+        "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [{'behavior...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+      },
+      "seconds": 43.58519050000177,
+      "tokens": 465,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "02-C-recovered-P1",
+      "intent_at": "2026-11-03T00:03:23.379834+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\02-C-recovered-P1.json"
+      ],
+      "server_done": true,
+      "done_reason": "length",
+      "accepted": false,
+      "error": {
+        "code": "truncated_response",
+        "message": "Output cap reached; no repair or refill"
+      },
+      "seconds": 134.64455379999708,
+      "tokens": 2048,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "03-output-P0",
+      "intent_at": "2026-11-03T00:06:06.482249+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\03-output-P0.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 32.996755599997414,
+      "tokens": 411,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "04-output-P1",
+      "intent_at": "2026-11-03T00:06:58.167038+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\04-output-P1.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": false,
+      "error": {
+        "code": "invalid_response",
+        "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [], 'limita...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+      },
+      "seconds": 23.71252629999799,
+      "tokens": 220,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "05-output-P2",
+      "intent_at": "2026-11-03T00:07:37.002274+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\05-output-P2.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 23.275546799995936,
+      "tokens": 210,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "06-invoke-P0",
+      "intent_at": "2026-11-03T00:08:21.785895+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\06-invoke-P0.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 37.70834819999436,
+      "tokens": 493,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "07-invoke-P1",
+      "intent_at": "2026-11-03T00:09:29.285259+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\07-invoke-P1.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": false,
+      "error": {
+        "code": "invalid_response",
+        "message": "1 validation error for ModelReport\n  Value error, Injection assessment must provide literal snippets when detected [type=value_error, input_value={'behaviors': [], 'limita...retable_fragments': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+      },
+      "seconds": 62.02215520000027,
+      "tokens": 864,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "08-invoke-P2",
+      "intent_at": "2026-11-03T00:10:39.803507+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\08-invoke-P2.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 22.771298500003468,
+      "tokens": 189,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "09-download-invoke-P0",
+      "intent_at": "2026-11-03T00:11:24.166453+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\09-download-invoke-P0.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": false,
+      "error": {
+        "code": "invalid_response",
+        "message": "Nonexistent evidence in source original"
+      },
+      "seconds": 36.266721699998016,
+      "tokens": 444,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "10-download-invoke-P1",
+      "intent_at": "2026-11-03T00:12:32.945518+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\10-download-invoke-P1.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 32.70993300000555,
+      "tokens": 365,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "11-download-invoke-P2",
+      "intent_at": "2026-11-03T00:13:51.004859+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v3\\results\\11-download-invoke-P2.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": false,
+      "error": {
+        "code": "invalid_response",
+        "message": "1 validation error for ModelReport\n  Value error, high_risk requires a supported combination, never obfuscation alone [type=value_error, input_value={'behaviors': [], 'limita...alid/readiness/7319'\"]}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+      },
+      "seconds": 33.97094490000018,
+      "tokens": 336,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "12-stored-P0",
+      "intent_at": "2026-11-03T00:15:01.084379+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\12-stored-P0.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 32.35756720000063,
+      "tokens": 369,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "13-stored-P1",
+      "intent_at": "2026-11-03T00:15:40.876476+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\13-stored-P1.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 98.84632710000005,
+      "tokens": 688,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "14-stored-P2",
+      "intent_at": "2026-11-03T00:17:32.205242+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\14-stored-P2.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 41.099233599998115,
+      "tokens": 457,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "15-invoke-P3",
+      "intent_at": "2026-11-03T00:18:36.839425+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\15-invoke-P3.json"
+      ],
+      "server_done": true,
+      "done_reason": "length",
+      "accepted": false,
+      "error": {
+        "code": "truncated_response",
+        "message": "Output cap reached; no repair or refill"
+      },
+      "seconds": 215.83125370000198,
+      "tokens": 3072,
+      "thinking_utf8_bytes": 12306
+    },
+    {
+      "id": "16-stored-P3",
+      "intent_at": "2026-11-03T00:22:45.977019+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\16-stored-P3.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 51.59987569999794,
+      "tokens": 657,
+      "thinking_utf8_bytes": 1965
+    },
+    {
+      "id": "17-long-input-P1",
+      "intent_at": "2026-11-03T00:23:37.799265+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\17-long-input-P1.json"
+      ],
+      "server_done": true,
+      "done_reason": "stop",
+      "accepted": true,
+      "error": null,
+      "seconds": 19.730924100003904,
+      "tokens": 237,
+      "thinking_utf8_bytes": 0
+    },
+    {
+      "id": "18-C-recovered-P3",
+      "intent_at": "2026-11-03T00:23:57.736959+00:00",
+      "result_paths": [
+        "artifacts\\pre_phase4\\diagnostics_v4\\results\\18-C-recovered-P3.json"
+      ],
+      "server_done": true,
+      "done_reason": "length",
+      "accepted": false,
+      "error": {
+        "code": "truncated_response",
+        "message": "Output cap reached; no repair or refill"
+      },
+      "seconds": 193.33645980000438,
+      "tokens": 3072,
+      "thinking_utf8_bytes": 10439
+    }
+  ],
+  "spent": 18,
+  "remaining": 6,
+  "circuit_marker": null,
+  "gate_history_tail": [
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:02:08.231054+00:00",
+      "pid": 10832,
+      "owner_nonce": "61fd48ed-af52-463e-85b5-b01c95186d0a",
+      "request_sha256": "95a70903a3d494651c6494625a4c9b69791399ff9afb2d18588319d426c27366"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:02:51.756164+00:00",
+      "pid": 10832,
+      "owner_nonce": "61fd48ed-af52-463e-85b5-b01c95186d0a",
+      "request_sha256": "95a70903a3d494651c6494625a4c9b69791399ff9afb2d18588319d426c27366"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:03:23.386437+00:00",
+      "pid": 45848,
+      "owner_nonce": "56fbcfac-a653-4fd6-add3-1d2dea1acf10",
+      "request_sha256": "21ea1a81e23cb7a8b131a313c80becc792bc3f2429378badedaabb02e7bbe55e"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:05:37.973983+00:00",
+      "pid": 45848,
+      "owner_nonce": "56fbcfac-a653-4fd6-add3-1d2dea1acf10",
+      "request_sha256": "21ea1a81e23cb7a8b131a313c80becc792bc3f2429378badedaabb02e7bbe55e"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:06:06.524406+00:00",
+      "pid": 44012,
+      "owner_nonce": "d7e161f6-447a-431b-a3f5-04cd0f483deb",
+      "request_sha256": "6548b47eff712a498bc1ea92d56c43ee5086ad802f6c01ac19b44ccf8656a686"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:06:39.451305+00:00",
+      "pid": 44012,
+      "owner_nonce": "d7e161f6-447a-431b-a3f5-04cd0f483deb",
+      "request_sha256": "6548b47eff712a498bc1ea92d56c43ee5086ad802f6c01ac19b44ccf8656a686"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:06:58.205438+00:00",
+      "pid": 5368,
+      "owner_nonce": "8de9c025-20c7-41a9-ad44-ca12fd1a3d4f",
+      "request_sha256": "1dc2f4d9cc3e82c5c7bdd8de954feb364a51b9d0676df66bd1b6ae219acb8ed6"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:07:21.828770+00:00",
+      "pid": 5368,
+      "owner_nonce": "8de9c025-20c7-41a9-ad44-ca12fd1a3d4f",
+      "request_sha256": "1dc2f4d9cc3e82c5c7bdd8de954feb364a51b9d0676df66bd1b6ae219acb8ed6"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:07:37.042474+00:00",
+      "pid": 32664,
+      "owner_nonce": "b52a44c1-5a77-4f9f-9c20-e24a34bb89e0",
+      "request_sha256": "dfeada5625a90ba489f4a3fda4df20d433768a2058617fd1e2b4d3404152450a"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:08:00.257896+00:00",
+      "pid": 32664,
+      "owner_nonce": "b52a44c1-5a77-4f9f-9c20-e24a34bb89e0",
+      "request_sha256": "dfeada5625a90ba489f4a3fda4df20d433768a2058617fd1e2b4d3404152450a"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:08:21.825514+00:00",
+      "pid": 17648,
+      "owner_nonce": "dd92c871-cee5-4f13-8e0e-4b7e9a3a6bcd",
+      "request_sha256": "a5f56003598ac08e9854ec43025f971adc6aa756c6dda4c7962cb30d13cab827"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:08:59.473122+00:00",
+      "pid": 17648,
+      "owner_nonce": "dd92c871-cee5-4f13-8e0e-4b7e9a3a6bcd",
+      "request_sha256": "a5f56003598ac08e9854ec43025f971adc6aa756c6dda4c7962cb30d13cab827"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:09:29.324023+00:00",
+      "pid": 14148,
+      "owner_nonce": "67580db1-97cc-44fa-a370-62cf15aa273a",
+      "request_sha256": "2f88b02c2a3e6ce5cff57fa9e8adfa19d1888e9cc47a1812ff17519457a38edb"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:10:31.284644+00:00",
+      "pid": 14148,
+      "owner_nonce": "67580db1-97cc-44fa-a370-62cf15aa273a",
+      "request_sha256": "2f88b02c2a3e6ce5cff57fa9e8adfa19d1888e9cc47a1812ff17519457a38edb"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:10:39.809758+00:00",
+      "pid": 32460,
+      "owner_nonce": "0b064606-3b9b-484e-8993-2bb7da4e5c8d",
+      "request_sha256": "c2565c5994078fb6d4f3d5bca434e6794afcaa81fbc962b588f4e9aa48f22751"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:11:02.554523+00:00",
+      "pid": 32460,
+      "owner_nonce": "0b064606-3b9b-484e-8993-2bb7da4e5c8d",
+      "request_sha256": "c2565c5994078fb6d4f3d5bca434e6794afcaa81fbc962b588f4e9aa48f22751"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:11:24.185429+00:00",
+      "pid": 34800,
+      "owner_nonce": "9ae784bf-8f03-4c63-a8f1-81fd829f0e34",
+      "request_sha256": "637e00f04b84c885b48f56a943dc263388c41bfc0a39b52725d6b68d52deee36"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:12:00.380654+00:00",
+      "pid": 34800,
+      "owner_nonce": "9ae784bf-8f03-4c63-a8f1-81fd829f0e34",
+      "request_sha256": "637e00f04b84c885b48f56a943dc263388c41bfc0a39b52725d6b68d52deee36"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:12:32.985186+00:00",
+      "pid": 3692,
+      "owner_nonce": "2ccf408b-18e9-4be4-b587-d92ff85a5f8a",
+      "request_sha256": "a64c4f7a7f10098e739d458d498e116f5b7896916e98aeb51eefd9c257476cac"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:13:05.614758+00:00",
+      "pid": 3692,
+      "owner_nonce": "2ccf408b-18e9-4be4-b587-d92ff85a5f8a",
+      "request_sha256": "a64c4f7a7f10098e739d458d498e116f5b7896916e98aeb51eefd9c257476cac"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:13:51.045536+00:00",
+      "pid": 37228,
+      "owner_nonce": "424c6dd8-2a2a-4e66-b65a-7a156d650e79",
+      "request_sha256": "7e9412a2c65811855151e72f6ed0466fa7912f067fbd17200f4c4ba4c2ee380d"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:14:24.920407+00:00",
+      "pid": 37228,
+      "owner_nonce": "424c6dd8-2a2a-4e66-b65a-7a156d650e79",
+      "request_sha256": "7e9412a2c65811855151e72f6ed0466fa7912f067fbd17200f4c4ba4c2ee380d"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:15:01.122126+00:00",
+      "pid": 33520,
+      "owner_nonce": "efa90085-fd6c-4bc9-ad76-27b894681cc2",
+      "request_sha256": "94d4b505aaa766b2b5556e1974d41dbba05b98f4346fc73e244140f631c1e0c0"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:15:33.390753+00:00",
+      "pid": 33520,
+      "owner_nonce": "efa90085-fd6c-4bc9-ad76-27b894681cc2",
+      "request_sha256": "94d4b505aaa766b2b5556e1974d41dbba05b98f4346fc73e244140f631c1e0c0"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:15:40.917660+00:00",
+      "pid": 39612,
+      "owner_nonce": "676e0531-a367-410c-a3b6-6febc1a52da1",
+      "request_sha256": "f9a0fe400ec8aa032ea35ef44cc0d3e15ed9453b7ad742e3480b9ec8a9fbaa51"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:17:19.668692+00:00",
+      "pid": 39612,
+      "owner_nonce": "676e0531-a367-410c-a3b6-6febc1a52da1",
+      "request_sha256": "f9a0fe400ec8aa032ea35ef44cc0d3e15ed9453b7ad742e3480b9ec8a9fbaa51"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:17:32.245228+00:00",
+      "pid": 38724,
+      "owner_nonce": "b259c47a-741c-4f64-843d-0b778c3bfbfa",
+      "request_sha256": "e1ae0a0de6a248d9f0b6855573ac1933f764b48e2477a2e739b0c313967ca50e"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:18:13.282591+00:00",
+      "pid": 38724,
+      "owner_nonce": "b259c47a-741c-4f64-843d-0b778c3bfbfa",
+      "request_sha256": "e1ae0a0de6a248d9f0b6855573ac1933f764b48e2477a2e739b0c313967ca50e"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:18:36.879481+00:00",
+      "pid": 38032,
+      "owner_nonce": "04642f15-4e2e-49d3-8a89-05bc6a752979",
+      "request_sha256": "59a547eb94497a57ee0af4a7ecbfa58cea2ffd8edc47936954add4049ca6ee8a"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:22:12.616058+00:00",
+      "pid": 38032,
+      "owner_nonce": "04642f15-4e2e-49d3-8a89-05bc6a752979",
+      "request_sha256": "59a547eb94497a57ee0af4a7ecbfa58cea2ffd8edc47936954add4049ca6ee8a"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:22:46.008850+00:00",
+      "pid": 46396,
+      "owner_nonce": "08700d1d-86ad-401d-a6e0-6dbf31499674",
+      "request_sha256": "d733a9ba8f90be7e5f3b1070d8616cb7010dcb4f50acb6fe6cec4dd7c291949e"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:23:37.557056+00:00",
+      "pid": 46396,
+      "owner_nonce": "08700d1d-86ad-401d-a6e0-6dbf31499674",
+      "request_sha256": "d733a9ba8f90be7e5f3b1070d8616cb7010dcb4f50acb6fe6cec4dd7c291949e"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:23:37.839394+00:00",
+      "pid": 46396,
+      "owner_nonce": "28f0f478-a564-44bc-b35e-718db3d645fb",
+      "request_sha256": "69b1ee6e60432639f0c450f296294ee13edf186becb2b9185a2a4900ef7b8d16"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:23:57.484154+00:00",
+      "pid": 46396,
+      "owner_nonce": "28f0f478-a564-44bc-b35e-718db3d645fb",
+      "request_sha256": "69b1ee6e60432639f0c450f296294ee13edf186becb2b9185a2a4900ef7b8d16"
+    },
+    {
+      "event": "dispatch_intent",
+      "at": "2026-11-03T00:23:57.776091+00:00",
+      "pid": 46396,
+      "owner_nonce": "f3869f41-3600-4e71-a51b-d60ed481b08e",
+      "request_sha256": "f3463ab298cf01acaad082b5ae582d4d780f51d26ad48ed482db6a142a7ce872"
+    },
+    {
+      "event": "server_finished",
+      "at": "2026-11-03T00:27:11.052627+00:00",
+      "pid": 46396,
+      "owner_nonce": "f3869f41-3600-4e71-a51b-d60ed481b08e",
+      "request_sha256": "f3463ab298cf01acaad082b5ae582d4d780f51d26ad48ed482db6a142a7ce872"
+    }
+  ],
+  "residents": {
+    "models": []
+  },
+  "status": {
+    "version": {
+      "version": "0.40.13"
+    },
+    "state": {
+      "model": {
+        "name": "qwen3.5:4b-q4_K_M",
+        "model": "qwen3.5:4b-q4_K_M",
+        "modified_at": "2026-11-02T14:44:25.1362855-05:00",
+        "size": 3324173934,
+        "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+        "details": {
+          "parent_model": "model.gguf",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "4.2B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560,
+          "runner": "llamacpp"
+        },
+        "capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ]
+      },
+      "residents": []
+    },
+    "memory": {
+      "available_bytes": 15599165440,
+      "commit_available_bytes": 20913143808,
+      "commit_used_bytes": 30754238464,
+      "physical_total_bytes": 33413771264,
+      "commit_limit_bytes": 51667382272
+    },
+    "available": true,
+    "required_available_bytes": 10737418240,
+    "resource_ready": true,
+    "circuit_blocked": false,
+    "ready_for_inference": true
+  },
+  "resources": {
+    "monotonic": 36588.2694148,
+    "physical_total_bytes": 33413771264,
+    "available_bytes": 15599128576,
+    "commit_limit_bytes": 51667382272,
+    "commit_used_bytes": 30754238464,
+    "commit_available_bytes": 20913143808,
+    "memory_load_percent": 53,
+    "processes": [
+      {
+        "pid": 4512,
+        "name": "ollama app.exe",
+        "parent": 12652,
+        "is_ollama_runtime": true,
+        "page_faults": 69730,
+        "peak_working_set": 29343744,
+        "working_set": 20480,
+        "peak_paged_pool": 332472,
+        "paged_pool": 314024,
+        "peak_nonpaged_pool": 94912,
+        "nonpaged_pool": 21184,
+        "pagefile": 56479744,
+        "peak_pagefile": 56971264,
+        "private": 56479744,
+        "cpu_seconds": 2.171875
+      },
+      {
+        "pid": 6200,
+        "name": "ollama.exe",
+        "parent": 4512,
+        "is_ollama_runtime": true,
+        "page_faults": 265120,
+        "peak_working_set": 100249600,
+        "working_set": 26431488,
+        "peak_paged_pool": 619288,
+        "paged_pool": 343128,
+        "peak_nonpaged_pool": 8069776,
+        "nonpaged_pool": 31832,
+        "pagefile": 90255360,
+        "peak_pagefile": 141012992,
+        "private": 90255360,
+        "cpu_seconds": 64.859375
+      },
+      {
+        "pid": 16280,
+        "name": "conhost.exe",
+        "parent": 6200,
+        "is_ollama_runtime": true,
+        "page_faults": 10371,
+        "peak_working_set": 10158080,
+        "working_set": 20480,
+        "peak_paged_pool": 259744,
+        "paged_pool": 172048,
+        "peak_nonpaged_pool": 11800,
+        "nonpaged_pool": 10880,
+        "pagefile": 1785856,
+        "peak_pagefile": 1912832,
+        "private": 1785856,
+        "cpu_seconds": 0.140625
+      },
+      {
+        "pid": 14220,
+        "name": "python.exe",
+        "parent": 39776,
+        "is_ollama_runtime": false,
+        "page_faults": 14124,
+        "peak_working_set": 41259008,
+        "working_set": 39362560,
+        "peak_paged_pool": 172288,
+        "paged_pool": 171872,
+        "peak_nonpaged_pool": 18112,
+        "nonpaged_pool": 16808,
+        "pagefile": 28622848,
+        "peak_pagefile": 31498240,
+        "private": 28622848,
+        "cpu_seconds": 0.25
+      }
+    ],
+    "paging_measure": "process page-fault counters include soft and hard faults; not disk paging bytes"
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "prior_unique_exact_texts": 567,
+  "prior_unique_normalized_views": 371,
+  "scope": "Local synthetic datasets, prior campaign inputs embedded in JSON, and development/test literals. No raw/external/private/quarantine samples read.",
+  "algorithm": "Comments ignored; variable names, string literals and numeric values normalized; full programs and deterministic decoded views compared. Top token similarities plus authored semantic rationales require personal review.",
+  "cases": [
+    {
+      "id": "F4-01",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.5,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S04.ps1.txt"
+        },
+        {
+          "token_similarity": 0.4358974358974359,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S12.ps1.txt"
+        },
+        {
+          "token_similarity": 0.42857142857142855,
+          "origin": "datasets/safe_samples/pilot_v2/references/V2-S24_decoded.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "HttpClient asíncrono → awaiter → bytes → longitud; sin cargador ni llamada de ejecución.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-02",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.5777777777777777,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D22.ps1.txt"
+        },
+        {
+          "token_similarity": 0.5301204819277109,
+          "origin": "experiments/results/tmp/gemini400-regression-8fe5d1734a32443d9b1525884c7b5620/test_exact_four_calls_use_supp0/r2.json:script"
+        },
+        {
+          "token_similarity": 0.5121951219512195,
+          "origin": "backend/tests/deobfuscation/fixtures/inline_text.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 2,
+      "novel_logic_author_rationale": "DownloadData → mismo array de bytes → Assembly.Load; metadatos de ensamblado, no IEX sobre texto.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-03",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.5,
+          "origin": "experiments/demo_deobfuscation.py:literal"
+        },
+        {
+          "token_similarity": 0.5,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D02.ps1.txt"
+        },
+        {
+          "token_similarity": 0.5,
+          "origin": "backend/tests/deobfuscation/fixtures/linear_strings.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Herramienta nativa de tareas con trigger logon y destino remoto explícito; credencial literal ficticia, no extracción.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-04",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.7619047619047619,
+          "origin": "experiments/demo_deobfuscation.py:literal"
+        },
+        {
+          "token_similarity": 0.72,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D02.ps1.txt"
+        },
+        {
+          "token_similarity": 0.6363636363636364,
+          "origin": "backend/tests/pilot/test_literal_check.py:literal"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Borrado de historial de logging por canal y host, no exclusión Defender ni cambio de firewall.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-05",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.6046511627906976,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D22.ps1.txt"
+        },
+        {
+          "token_similarity": 0.5569620253164557,
+          "origin": "experiments/results/tmp/gemini400-regression-8fe5d1734a32443d9b1525884c7b5620/test_exact_four_calls_use_supp0/r2.json:script"
+        },
+        {
+          "token_similarity": 0.5384615384615384,
+          "origin": "backend/tests/deobfuscation/fixtures/inline_text.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Consulta de eventos → serialización → cuerpo exacto de PUT vía UploadString; no inventario IP+POST.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-06",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.625,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S04.ps1.txt"
+        },
+        {
+          "token_similarity": 0.52,
+          "origin": "datasets/safe_samples/pilot_v2/references/V2-S24_decoded.ps1.txt"
+        },
+        {
+          "token_similarity": 0.5,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S22.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 2,
+      "novel_logic_author_rationale": "Import-Clixml de almacén local ficticio → GetNetworkCredential.Password; no despacho de handler desconocido.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-07",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.5909090909090909,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S04.ps1.txt"
+        },
+        {
+          "token_similarity": 0.5517241379310345,
+          "origin": "experiments/demo_deobfuscation.py:literal"
+        },
+        {
+          "token_similarity": 0.5405405405405406,
+          "origin": "backend/tests/deobfuscation/fixtures/linear_strings.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 2,
+      "novel_logic_author_rationale": "Código C# armado fuera del bloque, compilador dentro de ScriptBlock no llamado; solo se consulta longitud del texto.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-08",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.9387755102040817,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S04.ps1.txt"
+        },
+        {
+          "token_similarity": 0.8235294117647058,
+          "origin": "datasets/safe_samples/pilot_v2/references/V2-S24_decoded.ps1.txt"
+        },
+        {
+          "token_similarity": 0.8076923076923077,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S23.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 2,
+      "novel_logic_author_rationale": "Programa generado con función, filtrado y agregación → ScriptBlock.Create → Invoke; no constante Write-Output ni IEX.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-09",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.20454545454545456,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S21.ps1.txt"
+        },
+        {
+          "token_similarity": 0.20224719101123595,
+          "origin": "experiments/results/tmp/gemini400-regression-8fe5d1734a32443d9b1525884c7b5620/test_changed_selection_source_0/datasets/safe_samples/pilot_v2/selection/V2-S21.ps1.txt"
+        },
+        {
+          "token_similarity": 0.17582417582417584,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S20.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Bóveda → Credential de WMI → filtro/consumidor/binding permanente con referencias de objetos explícitas; distinta de tarea programada.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-10",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.3,
+          "origin": "datasets/safe_samples/pilot/PILOT-P6.ps1.txt"
+        },
+        {
+          "token_similarity": 0.2857142857142857,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S16.ps1.txt"
+        },
+        {
+          "token_similarity": 0.2857142857142857,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S10.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Deshabilita logging futuro de un canal ficticio; contraste con borrado histórico remoto, sin red.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-11",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.42424242424242425,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S13.ps1.txt"
+        },
+        {
+          "token_similarity": 0.4117647058823529,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S14.ps1.txt"
+        },
+        {
+          "token_similarity": 0.37037037037037035,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S19.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Inventario de dos mecanismos de configuración sin registro ni cambio; negativo difícil B03/B04.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-12",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.6666666666666666,
+          "origin": "datasets/safe_samples/pilot_v2/references/V2-S16_decoded.ps1.txt"
+        },
+        {
+          "token_similarity": 0.6666666666666666,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D18.ps1.txt"
+        },
+        {
+          "token_similarity": 0.6451612903225806,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S15.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Captura interactiva → Credential de remoting fijo → bloque literal; no lectura de almacén ni evaluación de texto construido.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-13",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.5853658536585366,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S03.ps1.txt"
+        },
+        {
+          "token_similarity": 0.46808510638297873,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S04.ps1.txt"
+        },
+        {
+          "token_similarity": 0.4642857142857143,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S11.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Extrae y transforma nombres desde documentación literal; no ejecuta los comandos que reconoce.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-14",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.3619047619047619,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S12.ps1.txt"
+        },
+        {
+          "token_similarity": 0.34615384615384615,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S11.ps1.txt"
+        },
+        {
+          "token_similarity": 0.3333333333333333,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D22.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Bytes constantes → GZip en memoria → Base64 de salida; no decodificación ni evaluación de comandos.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-15",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.37209302325581395,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D24.ps1.txt"
+        },
+        {
+          "token_similarity": 0.36363636363636365,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D23.ps1.txt"
+        },
+        {
+          "token_similarity": 0.358974358974359,
+          "origin": "datasets/safe_samples/pilot_v2/development/V2-D11.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Operación web parametrizada: no se conoce destino/método/cuerpo para distinguir descarga de envío.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    },
+    {
+      "id": "F4-16",
+      "exact_duplicate": false,
+      "normalized_program_equivalents": [],
+      "nearest_prior_programs": [
+        {
+          "token_similarity": 0.33766233766233766,
+          "origin": "datasets/safe_samples/pilot/PILOT-P7.ps1.txt"
+        },
+        {
+          "token_similarity": 0.2978723404255319,
+          "origin": "datasets/safe_samples/pilot_v2/selection/V2-S22.ps1.txt"
+        },
+        {
+          "token_similarity": 0.29333333333333333,
+          "origin": "datasets/safe_samples/pilot/PILOT-P3.ps1.txt"
+        }
+      ],
+      "decoded_view_count": 1,
+      "novel_logic_author_rationale": "Inventario de caché DNS local conocido y selección de callback por tabla externa; conjunto interno no determinable.",
+      "human_semantic_independence_review": "pending_required_before_freeze"
+    }
+  ],
+  "internal_similarity_flags": [
+    {
+      "a": "F4-01",
+      "b": "F4-06",
+      "token_similarity": 0.5588235294117647,
+      "same_cluster": false,
+      "review": "Check dataflow/invocation, not just identifier differences"
+    },
+    {
+      "a": "F4-01",
+      "b": "F4-08",
+      "token_similarity": 0.5507246376811594,
+      "same_cluster": false,
+      "review": "Check dataflow/invocation, not just identifier differences"
+    },
+    {
+      "a": "F4-02",
+      "b": "F4-05",
+      "token_similarity": 0.6140350877192983,
+      "same_cluster": false,
+      "review": "Check dataflow/invocation, not just identifier differences"
+    },
+    {
+      "a": "F4-06",
+      "b": "F4-07",
+      "token_similarity": 0.7272727272727273,
+      "same_cluster": false,
+      "review": "Check dataflow/invocation, not just identifier differences"
+    },
+    {
+      "a": "F4-06",
+      "b": "F4-08",
+      "token_similarity": 0.6938775510204082,
+      "same_cluster": false,
+      "review": "Check dataflow/invocation, not just identifier differences"
+    },
+    {
+      "a": "F4-07",
+      "b": "F4-08",
+      "token_similarity": 0.6666666666666666,
+      "same_cluster": false,
+      "review": "Check dataflow/invocation, not just identifier differences"
+    }
+  ],
+  "automatic_exact_or_program_duplicate_found": false,
+  "limitations": [
+    "Structural similarity is a screening aid, not semantic equivalence proof.",
+    "Shared taxonomy primitives are unavoidable; different command names alone do not establish new logic.",
+    "Generated by the same assistant with historical exposure; independence from model pretraining cannot be proven.",
+    "Owner must adjudicate semantic novelty and cluster grouping before freezing."
+  ]
+}

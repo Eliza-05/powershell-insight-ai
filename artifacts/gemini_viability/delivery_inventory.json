@@ -1,0 +1,147 @@
+{
+  "created_source_files": [
+    "backend/requirements-gemini.txt",
+    "backend/app/services/pipelines/provider.py",
+    "backend/app/services/llm/gemini.py",
+    "backend/app/services/llm/gemini_credentials.py",
+    "backend/app/services/llm/gemini_budget.py",
+    "backend/tests/pipelines/test_gemini.py",
+    "experiments/gemini_cases.py",
+    "experiments/gemini_viability.py",
+    "experiments/gemini_application.py",
+    "experiments/gemini_audit.py",
+    "experiments/gemini_closeout.py",
+    "docs/gemini_viability.md"
+  ],
+  "modified_existing_files": [
+    ".env.example",
+    "README.md",
+    "backend/app/services/pipelines/ollama.py",
+    "backend/app/services/pipelines/service.py",
+    "backend/app/api/application.py"
+  ],
+  "previous_user_changes_preserved": true,
+  "artifacts_directory": "artifacts/gemini_viability",
+  "files": [
+    {
+      "path": "backend/requirements-gemini.txt",
+      "sha256": "6065fe264143aa6f1ac72ffb0d27874d082058c15cd64fe0bb7202babb3f646d"
+    },
+    {
+      "path": "backend/app/services/pipelines/provider.py",
+      "sha256": "ba78828eb997378278d85e36a1d5ab6e6ce97dd1563f3ced75cbda742c07cef7"
+    },
+    {
+      "path": "backend/app/services/llm/gemini.py",
+      "sha256": "6449e0c6f823d4ac0a954a17d3375ffaddc2deaccabc7a869ac6320da77d3126"
+    },
+    {
+      "path": "backend/app/services/llm/gemini_credentials.py",
+      "sha256": "d3f7eb87e279f58df974b816b6130021dd6b89637892d59f42b0cf658eccfe95"
+    },
+    {
+      "path": "backend/app/services/llm/gemini_budget.py",
+      "sha256": "0b81b7dc3f5d4bd2c18557872ae7de92d84024cef9ba2f2afcdcd2587f5b8d89"
+    },
+    {
+      "path": "backend/tests/pipelines/test_gemini.py",
+      "sha256": "dd30963252ba6d8d042fa3a2f71c9da0070e3d49564290f1af629717fff5e897"
+    },
+    {
+      "path": "experiments/gemini_cases.py",
+      "sha256": "f6a8a8dec73b213805e91bd7ec6d3306b00458c0496789358e996dc1e39bc1ae"
+    },
+    {
+      "path": "experiments/gemini_viability.py",
+      "sha256": "b0f685dc91dff5494e298358e06193d3bd7256fea8bf185e32143a3bbc0701f7"
+    },
+    {
+      "path": "experiments/gemini_application.py",
+      "sha256": "869b9f1584ca5413240e0a55b367fea6837a8fa0a65786cb23f69d0b89d5f0a1"
+    },
+    {
+      "path": "experiments/gemini_audit.py",
+      "sha256": "68df6ff9b564141862f694fc07f86fdb38f15b95438823815b219edbbabfb303"
+    },
+    {
+      "path": "experiments/gemini_closeout.py",
+      "sha256": "96c6d3175f018ef2e9640744af73c4d72ffe4fddfcce6cd5f0eb919b84caadec"
+    },
+    {
+      "path": "docs/gemini_viability.md",
+      "sha256": "48ff63ae6e932cdd1aa395423dfad41eb03390f820639dcae522552075f9b8ac"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "f2ac39c8f2f0bd60ebb5fe679a712ec4981c8f85e5bca96c4780ba493213a26d"
+    },
+    {
+      "path": "README.md",
+      "sha256": "69ec0367639e947c1fa14506a8446f930f59d5c71b71afe56c28e4ca698aa668"
+    },
+    {
+      "path": "backend/app/services/pipelines/ollama.py",
+      "sha256": "152cd137c38a74e0edb62bf12dffe234cb4cf550be8b0c854af94c7653d89f32"
+    },
+    {
+      "path": "backend/app/services/pipelines/service.py",
+      "sha256": "83500bdcacda26cfd074afbb788794a7ea8dabbf0b0a44ee249fd45dc3e3683d"
+    },
+    {
+      "path": "backend/app/api/application.py",
+      "sha256": "ab59b15bfc35d645edfd0e586405667c9c086c9d30961fca8d1971f43acee786"
+    },
+    {
+      "path": "artifacts/gemini_viability/backend_tests.xml",
+      "sha256": "5686e344db899ab637034e5bdcf973442c05c9b7c7f7c40fcccc63604839fe98"
+    },
+    {
+      "path": "artifacts/gemini_viability/environment.json",
+      "sha256": "1800d3b09e0414f697f2729fe152134c9ad551e75044b2bf992875b03f53b5ec"
+    },
+    {
+      "path": "artifacts/gemini_viability/git_checks.json",
+      "sha256": "426f54101f6c498adf56f366d43498f854e7cd0ce1147664d229e4f96522fc0f"
+    },
+    {
+      "path": "artifacts/gemini_viability/local_preparation.json",
+      "sha256": "d41e0f4b80d9ffa0d81f6166f81425029c607334feccdb0ba1bc97fbff9c1923"
+    },
+    {
+      "path": "artifacts/gemini_viability/owner_confirmation.json",
+      "sha256": "97fb3a0cc6995c467362c3ac17c1c02d51a4a07884d3fc53a5d37bf1e5e47a6f"
+    },
+    {
+      "path": "artifacts/gemini_viability/plan.json",
+      "sha256": "812603a262eddfb0157cf4190ca17808877fdd2cb4bc0639632446ff5deb93ef"
+    },
+    {
+      "path": "artifacts/gemini_viability/plan_amendment.json",
+      "sha256": "57306cb1f521a4cbbd98656f532465fdb16512a0bada8776710242e303cad89e"
+    },
+    {
+      "path": "artifacts/gemini_viability/plan_r1.json",
+      "sha256": "c66219612773d1068887fe86dced50af429e91f50cf82a06718f868a651fbd4e"
+    },
+    {
+      "path": "artifacts/gemini_viability/preflight_error.json",
+      "sha256": "1c8fa013fd2a6a92fe956b014ef18bf4638bd829a69ac8dfe26b0f78ccfebcf5"
+    },
+    {
+      "path": "artifacts/gemini_viability/requests.jsonl",
+      "sha256": "b8d8fcf47f5727a000c2699c262a28262563c811fb47c8e5d495accbbbd302cf"
+    },
+    {
+      "path": "artifacts/gemini_viability/security_audit.json",
+      "sha256": "36b636bf04d59c5a2d230938057055df879c247bcb5e26877e81b9357a87b20f"
+    },
+    {
+      "path": "artifacts/gemini_viability/summary.json",
+      "sha256": "ec6b6255777f1ba1e459bf74b367774c75a61531314ef70e98fa1683472ba8b4"
+    },
+    {
+      "path": "artifacts/gemini_viability/validation.json",
+      "sha256": "fd4d594bae3e0438fda7af4a5e24c011406b1748ce6761565a8823368c9c4f97"
+    }
+  ]
+}

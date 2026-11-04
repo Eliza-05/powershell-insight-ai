@@ -1,0 +1,306 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "revision-V2-D03",
+  "stage": "revision",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/revision/003_V2-D03_r1.result.json",
+  "raw_sha256": "76a7ef595b05586b2ebcfa59aa8d799ff617194d79aa12a1537e219596566297",
+  "original": "# Synthetic academic fixture. Text only: never execute.\n$source = 'public static class AcademicBanner { public static string Text() { return \"lab only\"; } }'\nAdd-Type -TypeDefinition $source\n[AcademicBanner]::Text()\n",
+  "original_sha256": "add145b67edf0c95458dd396faacba0cc5f5bcbbf0336e45e6d74c17d6597561",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "add145b67edf0c95458dd396faacba0cc5f5bcbbf0336e45e6d74c17d6597561",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "partial",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\n$source = 'public static class AcademicBanner { public static string Text() { return \"lab only\"; } }'\nAdd-Type -TypeDefinition $source\n[AcademicBanner]::Text()\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-VARSUB",
+        "source": {
+          "layer_id": "L0",
+          "start": 183,
+          "end": 190,
+          "line": 3,
+          "column": 26,
+          "end_line": 3,
+          "end_column": 33
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 183,
+          "end": 190,
+          "line": 3,
+          "column": 26,
+          "end_line": 3,
+          "end_column": 33
+        },
+        "original_fragment": "$source",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "unresolved",
+        "recovered_text": null,
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "failed",
+        "deterministic_verified": false,
+        "warnings": [
+          "No unambiguous prior literal binding in the supported scope."
+        ],
+        "added_operation": null,
+        "output_layer_id": null
+      }
+    ],
+    "unresolved": [
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 56,
+          "end": 157,
+          "line": 2,
+          "column": 1,
+          "end_line": 2,
+          "end_column": 102
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "Assignment is not a unique literal binding in the supported linear scope.",
+        "transformation_id": null
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 183,
+          "end": 190,
+          "line": 3,
+          "column": 26,
+          "end_line": 3,
+          "end_column": 33
+        },
+        "technique_hint": "OT-VARSUB",
+        "reason": "No unambiguous prior literal binding in the supported scope.",
+        "transformation_id": "T0001"
+      },
+      {
+        "source": {
+          "layer_id": "L0",
+          "start": 191,
+          "end": 215,
+          "line": 4,
+          "column": 1,
+          "end_line": 4,
+          "end_column": 25
+        },
+        "technique_hint": null,
+        "reason": "Static method outside the allowlist; no call performed.",
+        "transformation_id": null
+      }
+    ],
+    "techniques_detected": [
+      "OT-VARSUB"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 271,
+    "artifact_bytes": 7
+  },
+  "reference": {
+    "case_id": "V2-D03",
+    "family_id": "V2-DEV-F02",
+    "expected_labels": [
+      "B02"
+    ],
+    "expected_risk": "benign",
+    "risk_explanation": "Add-Type compila la clase C# dinamica y [AcademicBanner]::Text() invoca explicitamente su metodo; marcador constante sin efectos externos previstos, sin exito observado.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D03-E01",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D03.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "$source = 'public static class AcademicBanner { public static string Text() { return \"lab only\"; } }'",
+        "start": 56,
+        "end": 157,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 102,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D03-E02",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D03.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "Add-Type -TypeDefinition $source",
+        "start": 158,
+        "end": 190,
+        "start_line": 3,
+        "end_line": 3,
+        "start_column": 1,
+        "end_column": 33,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D03-E03",
+        "role": "operation_or_required_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D03.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "[AcademicBanner]::Text()",
+        "start": 191,
+        "end": 215,
+        "start_line": 4,
+        "end_line": 4,
+        "start_column": 1,
+        "end_column": 25,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [
+      {
+        "group_id": "V2-D03-B02",
+        "behavior_id": "B02",
+        "evidence_ids": [
+          "V2-D03-E01",
+          "V2-D03-E02",
+          "V2-D03-E03"
+        ],
+        "support_rule": "all_of",
+        "support_kind_proposed": "contextual",
+        "relationship": "operation_arguments_and_local_binding_context",
+        "relationships": [
+          {
+            "from_evidence_id": "V2-D03-E01",
+            "to_evidence_id": "V2-D03-E02",
+            "relation": "declared_local_binding_used_by_operation",
+            "semantic_status": "pending_human"
+          }
+        ],
+        "technical_explanation": "Add-Type compila la clase C# dinamica y [AcademicBanner]::Text() invoca explicitamente su metodo; marcador constante sin efectos externos previstos, sin exito observado.",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "exclusions": {
+      "B01": "No descarga.",
+      "B05": "No consulta el entorno."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": null,
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [],
+    "recovered_content": [
+      "public static class AcademicBanner { public static string Text() { return \"lab only\"; } }"
+    ],
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "explanation": "The script constructs a .NET class definition and dynamically loads it, then invokes a static method.",
+        "evidence": [
+          {
+            "snippet": "Add-Type -TypeDefinition $source",
+            "origin": "analyzed_script"
+          },
+          {
+            "snippet": "[AcademicBanner]::Text()",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "benign",
+    "risk_rationale": "The operation is a synthetic academic fixture for testing .NET interop; no remote access, persistence, or evasion is present.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "All operations are statically verifiable and contextually benign."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "No analyst-directed manipulation found."
+    },
+    "limitations": [
+      "Analysis is limited to static inspection; dynamic runtime behavior cannot be verified.",
+      "The .NET class content is reconstructed from the TypeDefinition string but not executed."
+    ]
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "Add-Type -TypeDefinition $source",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    },
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "[AcademicBanner]::Text()",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "Review operation, related input and strict cited context; matching label sets alone do not establish semantic support."
+  },
+  "human_adjudication": null
+}

@@ -1,0 +1,2 @@
+$stored = { $text = 'Write-Output 842'; Invoke-Expression $text }
+& $stored

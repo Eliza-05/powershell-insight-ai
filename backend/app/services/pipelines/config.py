@@ -36,7 +36,7 @@ class PipelineSettings(StrictModel):
     keep_alive: Literal["5m"] = "5m"
     timeout_seconds: float = Field(default=300, ge=1, le=300, allow_inf_nan=False)
     max_input_bytes: int = Field(default=65536, ge=1, le=1048576, strict=True)
-    # Includes policy, schema, messages and output reserve, conservatively one token/UTF-8 byte.
+    # Message bytes plus chat-template reserve; format grammar is not a chat message.
     context_overhead_tokens: int = Field(default=512, ge=512, le=1024, strict=True)
     minimum_margin_bytes: int = Field(default=2 * GIB, ge=2 * GIB, strict=True)
     unloaded_reserve_bytes: int = Field(default=8 * GIB, ge=8 * GIB, strict=True)

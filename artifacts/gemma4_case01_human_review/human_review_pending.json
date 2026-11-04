@@ -1,0 +1,15 @@
+{
+  "case_id": "01-credential-control",
+  "status": "pending_human_review",
+  "reviewer": null,
+  "reviewed_at": null,
+  "proposed_reference_labels": [],
+  "confirmed_reference_labels": null,
+  "B05_semantic_support_confirmed": null,
+  "B05_false_positive_confirmed": null,
+  "ordinary_local_binding_is_not_B07_capture_confirmed": null,
+  "frozen_stopping_rule_application_confirmed": null,
+  "human_rationale": null,
+  "historical_reference_or_gate_modified": false,
+  "new_inferences_authorized": false
+}

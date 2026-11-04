@@ -1,0 +1,9 @@
+{
+  "source": "docs/methodology.md",
+  "source_sha256": "342bac9b587ea3c1abf8db8c4f340d77179333b0f1bcb52ef0a05c9fe1ff0873",
+  "exact_formulations": {
+    "H1": "la desofuscación estática previa mejora el F1 en la identificación de comportamientos frente al análisis directo del LLM (C > B).",
+    "H2": "la desofuscación estática previa reduce las afirmaciones no respaldadas por evidencia (C < B)."
+  },
+  "status": "preparation_only_no_results"
+}

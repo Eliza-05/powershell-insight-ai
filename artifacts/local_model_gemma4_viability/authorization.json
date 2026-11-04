@@ -1,0 +1,8 @@
+{
+  "authorization_sha256": "98fe1c9c791448259c4bb613573453defdaa82a25a05cd7cbf7959de4e6706c8",
+  "budget": 8,
+  "plan_sha256": "749739e9c939285fc5d7b24128b25eac91677aa451941acdde786a3a8f1c5300",
+  "authorized_at_recorded": "2026-11-03T19:03:59.168833+00:00",
+  "source": "explicit_owner_resume",
+  "ledger": "inference_ledger.jsonl"
+}

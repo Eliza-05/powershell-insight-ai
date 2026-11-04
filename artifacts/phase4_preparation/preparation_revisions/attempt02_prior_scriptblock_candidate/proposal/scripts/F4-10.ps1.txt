@@ -1,0 +1,1 @@
+wevtutil.exe sl PSIA.Phase4.NeverCreated.Operational57C21 /e:false

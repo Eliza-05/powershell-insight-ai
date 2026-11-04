@@ -1,0 +1,29 @@
+{
+  "call_id": "V2-10",
+  "campaign_id": "c21b8fbe-64c2-498c-b925-3d3b0271fda8",
+  "result_sha256": "180c84b907af6f31456ae275f7f0848d8ad89acdf652769a70c6f85053e2ab97",
+  "reviewer_type": "AI_assisted_not_human",
+  "human_adjudication_pending": true,
+  "recorded_at": "2026-11-04T00:53:45.716853+00:00",
+  "accepted_prediction": null,
+  "raw_unvalidated_labels": [
+    "B05"
+  ],
+  "assessment": "Unusable: original source contains only encoded text and Write-Output, not the quoted Get-Process. Raw B05 is also semantically unsupported because decoded string is displayed, never invoked. Correct decoded suffix is 842; raw recovered_content and evidence claim 843.",
+  "source_comparison": {
+    "verified_frozen_recovery": "Get-Process -Name 'v2-display-only-842'",
+    "raw_unverified_model_reconstruction": "Get-Process -Name 'v2-display-only-843'",
+    "verified_by": "Frozen V2-11 deterministic recovery T0002/T0003/T0004 over exactly same original input; not sent in V2-10."
+  },
+  "critical_invention_candidate": {
+    "count": 1,
+    "reason": "Model claims decoded code-shaped content with an invented process operand (843 instead of 842); requires personal severity adjudication under zero-critical-reconstruction rubric. This is not merely a quotation-source mismatch. No generated content was executed."
+  },
+  "ordinary_errors": [
+    "Source citation nonexistent",
+    "Activation error: inert displayed text treated as query",
+    "Technique wrongly named OT-B64-ENCCMD instead of inline UTF8 Base64"
+  ],
+  "risk_notes": "Explanation asserts decode to execute while limitations correctly says only display; suspicious and low-uncertainty rationale falsely infers intent to query. Review taxonomy/activation errors separately from reconstruction invention.",
+  "metric_treatment": "Null accepted prediction; nonexact fixed denominator. Empty reference has zero coverage FN and zero accepted FP. Raw B05 kept separate; no silent true-negative credit."
+}

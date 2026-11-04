@@ -1,0 +1,248 @@
+{
+  "packet_version": "semantic-readiness-v1",
+  "id": "development-V2-D20",
+  "stage": "development",
+  "raw_artifact": "experiments/results/raw/pilot_v2/pilot-v2_20261102T194623Z/development/020_V2-D20_r1.result.json",
+  "raw_sha256": "2bbc783a582aed9d0cd8baceb0fa39841c0a3e780c174c9f5f5dee0f48ec6f11",
+  "original": "# Synthetic academic fixture. Text only: never execute.\npowershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAFMAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIAAtAEQAaQBzAGEAYgBsAGUAUgBlAGEAbAB0AGkAbQBlAE0AbwBuAGkAdABvAHIAaQBuAGcAIAAkAHQAcgB1AGUAJwAKACMAIABUAGgAZQAgAHEAdQBvAHQAZQBkACAAYwBvAG0AbQBhAG4AZAAgAGEAYgBvAHYAZQAgAGkAcwAgAGQAaQBzAHAAbABhAHkAZQBkACwAIABuAGUAdgBlAHIAIABpAG4AdgBvAGsAZQBkAC4ACgA=\n",
+  "original_sha256": "73014a4865ae05dcab04a6e42cf5ebf70a98dcfdf96b594f32efffc6d1ce0712",
+  "deterministic_recovery_posthoc_not_sent_to_historical_B": {
+    "schema_version": "deobfuscation-v1",
+    "engine_version": "static-subset-v1",
+    "input_sha256": "73014a4865ae05dcab04a6e42cf5ebf70a98dcfdf96b594f32efffc6d1ce0712",
+    "source_name": "input",
+    "input_provenance": "original",
+    "status": "complete",
+    "semantic_equivalence": "not_claimed",
+    "limits": {
+      "max_input_bytes": 1048576,
+      "max_artifact_bytes": 262144,
+      "max_total_artifact_bytes": 2097152,
+      "max_transformations": 512,
+      "max_depth": 3,
+      "max_expression_depth": 24,
+      "max_concat_terms": 128,
+      "max_tokens": 50000,
+      "max_work_units": 4000000,
+      "max_unresolved": 128
+    },
+    "layers": [
+      {
+        "layer_id": "L0",
+        "source_name": "input",
+        "provenance": "original",
+        "text": "# Synthetic academic fixture. Text only: never execute.\npowershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAFMAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIAAtAEQAaQBzAGEAYgBsAGUAUgBlAGEAbAB0AGkAbQBlAE0AbwBuAGkAdABvAHIAaQBuAGcAIAAkAHQAcgB1AGUAJwAKACMAIABUAGgAZQAgAHEAdQBvAHQAZQBkACAAYwBvAG0AbQBhAG4AZAAgAGEAYgBvAHYAZQAgAGkAcwAgAGQAaQBzAHAAbABhAHkAZQBkACwAIABuAGUAdgBlAHIAIABpAG4AdgBvAGsAZQBkAC4ACgA=\n",
+        "depth": 0,
+        "parent_transformation_id": null,
+        "root_source": null
+      },
+      {
+        "layer_id": "L1",
+        "source_name": "input",
+        "provenance": "deobfuscator_recovered",
+        "text": "Write-Output 'Set-MpPreference -DisableRealtimeMonitoring $true'\n# The quoted command above is displayed, never invoked.\n",
+        "depth": 1,
+        "parent_transformation_id": "T0001",
+        "root_source": {
+          "layer_id": "L0",
+          "start": 98,
+          "end": 422,
+          "line": 2,
+          "column": 43,
+          "end_line": 2,
+          "end_column": 367
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "transformation_id": "T0001",
+        "technique": "OT-B64-ENCCMD",
+        "source": {
+          "layer_id": "L0",
+          "start": 98,
+          "end": 422,
+          "line": 2,
+          "column": 43,
+          "end_line": 2,
+          "end_column": 367
+        },
+        "root_source": {
+          "layer_id": "L0",
+          "start": 98,
+          "end": 422,
+          "line": 2,
+          "column": 43,
+          "end_line": 2,
+          "end_column": 367
+        },
+        "original_fragment": "VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAFMAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIAAtAEQAaQBzAGEAYgBsAGUAUgBlAGEAbAB0AGkAbQBlAE0AbwBuAGkAdABvAHIAaQBuAGcAIAAkAHQAcgB1AGUAJwAKACMAIABUAGgAZQAgAHEAdQBvAHQAZQBkACAAYwBvAG0AbQBhAG4AZAAgAGEAYgBvAHYAZQAgAGkAcwAgAGQAaQBzAHAAbABhAHkAZQBkACwAIABuAGUAdgBlAHIAIABpAG4AdgBvAGsAZQBkAC4ACgA=",
+        "provenance": "deobfuscator_recovered",
+        "recovery_kind": "script_text",
+        "recovered_text": "Write-Output 'Set-MpPreference -DisableRealtimeMonitoring $true'\n# The quoted command above is displayed, never invoked.\n",
+        "recovered_bytes_base64": null,
+        "dependencies": [],
+        "status": "success",
+        "deterministic_verified": true,
+        "warnings": [
+          "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+        ],
+        "added_operation": "LAUNCHER_ENCCMD",
+        "output_layer_id": "L1"
+      }
+    ],
+    "unresolved": [],
+    "techniques_detected": [
+      "OT-B64-ENCCMD"
+    ],
+    "limits_hit": [],
+    "warnings": [],
+    "work_units": 1585,
+    "artifact_bytes": 566
+  },
+  "reference": {
+    "case_id": "V2-D20",
+    "family_id": "V2-DEV-F10",
+    "expected_labels": [],
+    "expected_risk": "benign",
+    "risk_explanation": "El cmdlet de defensa esta dentro de una cadena no evaluada.",
+    "evidence": [
+      {
+        "evidence_id": "V2-D20-E01",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/references/V2-D20_decoded.ps1.txt",
+        "source_kind": "team_reference_decoded",
+        "snippet": "Write-Output 'Set-MpPreference -DisableRealtimeMonitoring $true'",
+        "start": 0,
+        "end": 64,
+        "start_line": 1,
+        "end_line": 1,
+        "start_column": 1,
+        "end_column": 65,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D20-E02",
+        "role": "exclusion_context",
+        "file_ref": "datasets/safe_samples/pilot_v2/references/V2-D20_decoded.ps1.txt",
+        "source_kind": "team_reference_decoded",
+        "snippet": "# The quoted command above is displayed, never invoked.",
+        "start": 65,
+        "end": 120,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 56,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      },
+      {
+        "evidence_id": "V2-D20-E03",
+        "role": "encoding_derivation_anchor",
+        "file_ref": "datasets/safe_samples/pilot_v2/development/V2-D20.ps1.txt",
+        "source_kind": "analyzed_script",
+        "snippet": "powershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAFMAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIAAtAEQAaQBzAGEAYgBsAGUAUgBlAGEAbAB0AGkAbQBlAE0AbwBuAGkAdABvAHIAaQBuAGcAIAAkAHQAcgB1AGUAJwAKACMAIABUAGgAZQAgAHEAdQBvAHQAZQBkACAAYwBvAG0AbQBhAG4AZAAgAGEAYgBvAHYAZQAgAGkAcwAgAGQAaQBzAHAAbABhAHkAZQBkACwAIABuAGUAdgBlAHIAIABpAG4AdgBvAGsAZQBkAC4ACgA=",
+        "start": 56,
+        "end": 422,
+        "start_line": 2,
+        "end_line": 2,
+        "start_column": 1,
+        "end_column": 367,
+        "literal_status": "machine_checked",
+        "semantic_status": "pending_human"
+      }
+    ],
+    "support_groups": [],
+    "exclusions": {
+      "B04": "Mostrar una orden no cambia estado.",
+      "B02": "EncodedCommand solo envuelve Write-Output."
+    },
+    "uncertainty": {
+      "required": false,
+      "reason": "",
+      "do_not_infer_hidden_behaviors": false
+    },
+    "injection_evidence_ids": [],
+    "reference_derivation": {
+      "method": "base64_utf16le",
+      "anchor_evidence_id": "V2-D20-E03",
+      "decoded_file_ref": "datasets/safe_samples/pilot_v2/references/V2-D20_decoded.ps1.txt",
+      "decoded_sha256": "71626a31db7279e42c930b2a72cd389bfbee83fb88776a27798b3961361634b3",
+      "provenance": "team_prepared_reference_not_model_recovery"
+    },
+    "human_review": {
+      "status": "pending_human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "decision": null,
+      "notes": ""
+    },
+    "authorship": "AI_assist_synthetic_design_not_independent_human_annotation"
+  },
+  "reference_basis": "frozen owner global batch acceptance; not individual votes or output review",
+  "model_parsed_claims": {
+    "obfuscation_techniques": [
+      "OT-B64-ENCCMD"
+    ],
+    "recovered_content": [
+      "powershell.exe -NoProfile -EncodedCommand IWR-UseBypassNdrive"
+    ],
+    "behaviors": [
+      {
+        "behavior_id": "B02",
+        "explanation": "The script invokes PowerShell with an EncodedCommand parameter. The decoded content 'IWR-UseBypassNdrive' indicates the execution of the 'Invoke-RestfulRequest' cmdlet with the '-UseBypassNdrive' parameter. This constitutes a dynamic operation where code is loaded and invoked.",
+        "evidence": [
+          {
+            "snippet": "powershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAFMAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIAAtAEQAaQBzAGEAYgBsAGUAUgBlAGEAbAB0AGkAbQBlAE0AbwBuAGkAdABvAHIAaQBuAGcAIAAkAHQAcgB1AGUAJwAKACMAIABUAGgAZQAgAHEAdQBvAHQAZQBkACAAYwBvAG0AbQBhAG4AZAAgAGEAYgBvAHYAZQAgAGkAcwAgAGQAaQBzAHAAbABhAHkAZQBkACwAIABuAGUAdgBlAHIAIABpAG4AdgBvAGsAZQBkAC4ACgA=",
+            "origin": "analyzed_script"
+          }
+        ],
+        "confidence": "high"
+      }
+    ],
+    "risk_label": "suspicious",
+    "risk_rationale": "The decoded command 'Invoke-RestfulRequest -UseBypassNdrive' is an administrative operation that bypasses network drive restrictions, often used to evade detection or access restricted resources. While the behavior itself is not inherently malicious without further context, the specific combination of bypassing drive restrictions via a web request is characteristic of abuse patterns.",
+    "uncertainty": {
+      "level": "low",
+      "uninterpretable_fragments": [],
+      "notes": "The encoded command was successfully reconstructed. The payload is a known cmdlet invocation with a specific parameter. No additional behaviors (B01, B03, B04, B05, B06, B07) are supported by the decoded text alone, as the cmdlet invocation itself is the primary functional behavior."
+    },
+    "prompt_injection": {
+      "detected": false,
+      "snippets": [],
+      "notes": "The text 'Synthetic academic fixture' is a comment and does not constitute an instruction to alter analysis or output."
+    },
+    "limitations": [
+      "Analysis is based solely on static reconstruction of the Base64 payload. Dynamic execution, network connectivity, or credential usage cannot be verified."
+    ]
+  },
+  "predicted_labels": [
+    "B02"
+  ],
+  "model_recovered_content_status": "unverified_model_claims_never_certified",
+  "objective_literal_checks": [
+    {
+      "finding_index": 0,
+      "claimed_source": "analyzed_script",
+      "snippet": "powershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAFMAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIAAtAEQAaQBzAGEAYgBsAGUAUgBlAGEAbAB0AGkAbQBlAE0AbwBuAGkAdABvAHIAaQBuAGcAIAAkAHQAcgB1AGUAJwAKACMAIABUAGgAZQAgAHEAdQBvAHQAZQBkACAAYwBvAG0AbQBhAG4AZAAgAGEAYgBvAHYAZQAgAGkAcwAgAGQAaQBzAHAAbABhAHkAZQBkACwAIABuAGUAdgBlAHIAIABpAG4AdgBvAGsAZQBkAC4ACgA=",
+      "declared_source_literal_match": true,
+      "occurrences_in_declared_source": 1,
+      "literal_in_original": true,
+      "deterministic_source_matches_posthoc": [],
+      "semantic_support": "not_adjudicated"
+    }
+  ],
+  "current_application_structural_validation": {
+    "applicable": false,
+    "accepted": null
+  },
+  "historical_error": null,
+  "historical_truncated": false,
+  "AI_assistance": {
+    "kind": "AI_assisted_diagnostic_observation",
+    "not_human_adjudication": true,
+    "text": "r0 wrongly adds B02 to encoded display-only source; r1 abstains, with no deterministic decoding demonstrated by the model."
+  },
+  "human_adjudication": null
+}

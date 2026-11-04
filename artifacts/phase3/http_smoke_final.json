@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "port": 8000,
+      "path": "/",
+      "status": 200,
+      "bytes": 696,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "port": 8000,
+      "path": "/assets/index-BNr-FqrU.js",
+      "status": 200,
+      "bytes": 274903
+    },
+    {
+      "port": 8000,
+      "path": "/assets/index-DaOwDvMZ.css",
+      "status": 200,
+      "bytes": 45088
+    },
+    {
+      "port": 8000,
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 108,
+      "content_type": "application/json"
+    },
+    {
+      "port": 8000,
+      "path": "/api/metadata",
+      "status": 200,
+      "bytes": 606,
+      "content_type": "application/json"
+    },
+    {
+      "port": 8000,
+      "path": "/api/capabilities",
+      "status": 200,
+      "bytes": 912,
+      "content_type": "application/json"
+    },
+    {
+      "port": 8000,
+      "path": "/openapi.json",
+      "status": 200,
+      "bytes": 21611,
+      "content_type": "application/json"
+    },
+    {
+      "port": 5173,
+      "path": "/",
+      "status": 200,
+      "bytes": 869,
+      "content_type": "text/html"
+    },
+    {
+      "port": 5173,
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 108,
+      "content_type": "application/json"
+    },
+    {
+      "port": 5173,
+      "path": "/api/analyze/A",
+      "method": "POST",
+      "status": 200,
+      "behaviors": [
+        "B05"
+      ],
+      "model_calls": 0
+    }
+  ],
+  "new_model_inferences": 0,
+  "browser_visual_qa": "unavailable: browser access host is unavailable"
+}
