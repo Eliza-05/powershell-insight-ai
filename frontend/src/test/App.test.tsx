@@ -52,7 +52,7 @@ describe('Workspace', () => {
     expect(await screen.findByRole('heading', { name: 'Reconocimiento' })).toBeVisible()
     expect(screen.getByText('REGLA')).toBeVisible()
     expect(screen.getByText('Desofuscador 1A + detector 1B')).toBeVisible()
-    expect(screen.getByText(/El motor identifica operaciones/)).toBeVisible()
+    expect(screen.getByText('Riesgo: no aplica (A no clasifica riesgo)')).toBeVisible()
   })
   it('shows a real loading state, blocks duplicates and isolates selection', async () => {
     let finish!: (value: AnalysisResponse) => void
@@ -181,8 +181,8 @@ describe('Resultados y procedencia', () => {
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('radio', { name: 'C · LLM asistido' }))
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))
-    expect(await screen.findByText('OT-CONCAT · 1A')).toBeVisible()
-    expect(screen.getByText('OT-CONCAT · LLM')).toBeVisible()
+    expect(await screen.findByText('Concatenación · OT-CONCAT · 1A')).toBeVisible()
+    expect(screen.getByText('Concatenación · OT-CONCAT · LLM')).toBeVisible()
   })
   it('marks differences without reporting a comparative quality score', async () => {
     const value = structuredClone(comparison)
@@ -221,6 +221,21 @@ describe('Resultados y procedencia', () => {
     expect(screen.getByText('Alta')).toBeVisible()
     await user.click(screen.getByRole('tab', { name: 'Recuperación' }))
     expect(screen.getByText('Fragmentos aún desconocidos')).toBeVisible()
+  })
+  it('groups a failed 1A step with its unresolved fragment and shows Spanish labels and numbers', async () => {
+    vi.mocked(api.analyze).mockResolvedValue(partial)
+    const user = await renderApp(); await loadExample(user)
+    await user.click(screen.getByRole('radio', { name: 'C · LLM asistido' }))
+    await user.click(screen.getByRole('button', { name: /Analizar script/ }))
+    expect(await screen.findByText('0,00 s')).toBeVisible() // decimal comma
+    await user.click(screen.getByRole('tab', { name: 'Traza 1A' }))
+    const entries = document.querySelectorAll('.trace-entry')
+    expect(entries).toHaveLength(1) // step and unresolved fragment share L0 position: one grouped entry
+    const entry = entries[0] as HTMLElement
+    expect(within(entry).getByText('Sustitución de variable · OT-VARSUB')).toBeVisible()
+    expect(entry).toHaveTextContent('fallida · sin resolver')
+    expect(entry).toHaveTextContent('Motivo técnico: No unambiguous prior literal binding in the supported scope.')
+    expect(within(entry).getByRole('button', { name: /Ver origen de T/ })).toBeVisible()
   })
   it('rejected model output is never shown as accepted findings or HTML', async () => {
     vi.mocked(api.analyze).mockResolvedValue(rejected)

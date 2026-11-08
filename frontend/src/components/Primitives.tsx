@@ -13,6 +13,10 @@ export function RiskBadge({ risk }: { risk: Risk }) {
 export function Code({ children, className = '' }: { children: string; className?: string }) {
   return <pre className={`code-block ${className}`}><code>{children}</code></pre>
 }
+/** Untranslated backend message shown as secondary technical detail, never as UI copy. */
+export function TechnicalDetail({ children }: { children: string }) {
+  return <p className="technical-detail"><span>Motivo técnico:</span> {children}</p>
+}
 export function Notice({ children, tone = 'muted' }: { children: ReactNode; tone?: 'muted' | 'warning' | 'error' }) {
   return <div className={`notice notice-${tone}`}><AlertCircle size={16} aria-hidden="true" /><div>{children}</div></div>
 }

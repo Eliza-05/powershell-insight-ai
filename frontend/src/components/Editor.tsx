@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type RefObject } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react'
 
 /** Lines located with "Ver origen" (1-based, inclusive). `key` restarts the flash for each new location. */
 export type MarkedLines = { line: number; endLine: number; key: number }
@@ -26,7 +26,21 @@ export function Editor({ script, onChange, busy, maxBytes, filename, onFile, onE
   function placeMark(scrollTop: number) {
     if (markRef.current && marked) markRef.current.style.transform = `translateY(${PADDING_TOP + (marked.line - 1) * LINE_HEIGHT - scrollTop}px)`
   }
-  useLayoutEffect(() => { placeMark(editorRef.current?.scrollTop ?? 0) })
+  const bodyRef = useRef<HTMLDivElement>(null)
+  // Long lines scroll horizontally inside the terminal; a soft right-edge fade signals hidden content.
+  function updateOverflowHint() {
+    const area = editorRef.current, body = bodyRef.current
+    if (!area || !body) return
+    const hidden = area.scrollWidth - area.clientWidth - area.scrollLeft > 1
+    body.toggleAttribute('data-more-right', hidden)
+    body.style.setProperty('--scrollbar-right', `${area.offsetWidth - area.clientWidth}px`)
+    body.style.setProperty('--scrollbar-bottom', `${area.offsetHeight - area.clientHeight}px`)
+  }
+  useLayoutEffect(() => { placeMark(editorRef.current?.scrollTop ?? 0); updateOverflowHint() })
+  useEffect(() => {
+    window.addEventListener('resize', updateOverflowHint)
+    return () => window.removeEventListener('resize', updateOverflowHint)
+  }, []) // the handler only reads refs, so subscribing once is enough
   const dragDepth = useRef(0)
   const [dragging, setDragging] = useState(false)
   const size = utf8Bytes(script)
@@ -62,14 +76,14 @@ export function Editor({ script, onChange, busy, maxBytes, filename, onFile, onE
       <span className="terminal-title" title={filename}><span aria-hidden="true">insight@local: ~/</span><span className="filename">{filename}</span></span>
       <span className="terminal-controls" aria-hidden="true"><i /><i /><i /></span>
     </div>
-    <div className="editor-body">
+    <div className="editor-body" ref={bodyRef}>
       <div className="line-numbers" aria-hidden="true" ref={gutterRef}>{script ? script.split('\n').map((_, i) => <div key={i} className={marked && i + 1 >= marked.line && i + 1 <= marked.endLine ? 'is-marked' : undefined}>{i + 1}</div>) : null}</div>
       {marked && <div key={marked.key} ref={markRef} className="line-mark" aria-hidden="true" style={{ height: (marked.endLine - marked.line + 1) * LINE_HEIGHT }} />}
       <textarea ref={editorRef} aria-label="Script PowerShell" value={script} disabled={busy}
         aria-describedby="source-help source-meta"
         placeholder="Pega aquí un script PowerShell o carga un archivo .ps1 o .txt (UTF-8)."
         spellCheck={false} autoCapitalize="off" autoCorrect="off" wrap="off"
-        onScroll={e => { if (gutterRef.current) gutterRef.current.scrollTop = e.currentTarget.scrollTop; placeMark(e.currentTarget.scrollTop) }}
+        onScroll={e => { if (gutterRef.current) gutterRef.current.scrollTop = e.currentTarget.scrollTop; placeMark(e.currentTarget.scrollTop); updateOverflowHint() }}
         onChange={e => onChange(e.target.value)}
         onKeyDown={e => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); onRun() } }} />
     </div>
