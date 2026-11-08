@@ -19,7 +19,7 @@ export function PipelineSelector({ mode, onChange, busy, canRun, onRun, warning 
   mode: Mode; onChange: (mode: Mode) => void; busy: boolean; canRun: boolean; onRun: () => void; warning?: string;
 }) {
   return <section className="analysis-command" aria-label="Selección del pipeline">
-    <div className="command-main">
+    <div className="command-row">
       <fieldset disabled={busy} className="pipeline-fieldset">
         <legend>Enfoque</legend>
         <div className="pipeline-options">
@@ -31,15 +31,13 @@ export function PipelineSelector({ mode, onChange, busy, canRun, onRun, warning 
           </label>)}
         </div>
       </fieldset>
-      <p className="pipeline-description" id="pipeline-description"><span className="description-mark">{mode === 'ABC' ? 'A/B/C' : mode}</span>{descriptions[mode]}</p>
-    </div>
-    <div className="command-run">
       <button className="button primary analyze-button" disabled={busy || !canRun} onClick={onRun} aria-describedby={warning ? 'run-warning' : undefined}>
         {busy ? <LoaderCircle className="spin" size={17} /> : <Play size={15} fill="currentColor" />}
         {busy ? 'Analizando…' : mode === 'ABC' ? 'Comparar A/B/C' : 'Analizar script'}
         {!busy && <kbd aria-hidden="true">Ctrl+Enter</kbd>}
       </button>
-      {warning && <p className="run-warning" id="run-warning"><TriangleAlert size={15} aria-hidden="true" />{warning}</p>}
     </div>
+    <p className="pipeline-description" id="pipeline-description"><span className={`description-mark mode-${mode}`}>{mode === 'ABC' ? 'A/B/C' : mode}</span>{descriptions[mode]}</p>
+    {warning && <p className="run-warning" id="run-warning"><TriangleAlert size={15} aria-hidden="true" />{warning}</p>}
   </section>
 }

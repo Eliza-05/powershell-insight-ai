@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ListTree } from 'lucide-react'
 import type { PipelineResult, Span, Transformation } from '../types/api'
 
 const stepStatus: Record<string, string> = { success: 'recuperada', partial: 'bytes parciales', failed: 'fallida', unsupported: 'no soportada' }
@@ -34,7 +34,7 @@ export function RecoveryTrace({ result, onLocate, embedded = false }: { result: 
 
   if (embedded) return <div className="detail-content trace-embedded"><p className="trace-count">{summary}</p>{list}</div>
   return <aside className="trace-panel panel" aria-labelledby="trace-title">
-    <div className="panel-heading"><h2 id="trace-title">Traza de recuperación 1A</h2><span className="trace-count">{summary}</span></div>
+    <div className="panel-heading"><h2 id="trace-title"><span className="heading-icon" aria-hidden="true"><ListTree size={16} /></span>Traza de recuperación 1A</h2><span className="trace-count">{summary}</span></div>
     {list}
   </aside>
 }

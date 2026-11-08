@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowDownToLine, ArrowUpRight, ChevronRight, GitCompareArrows } from 'lucide-react'
+import { ArrowDownToLine, ArrowUpRight, ChevronRight, GitCompareArrows, ScanSearch } from 'lucide-react'
 import type { AnalysisResponse, PipelineResult, Span } from '../types/api'
 import { behaviorNames, labelsOf, levelNames, resultsOf } from '../types/api'
 import { Code, Loading, Notice, RiskBadge, StatusBadge } from './Primitives'
@@ -12,16 +12,15 @@ const tabs: { id: Detail; name: string }[] = [
   { id: 'recovery', name: 'Recuperación' }, { id: 'timeline', name: 'Traza 1A' }, { id: 'trace', name: 'Detalles' },
 ]
 
-function EmptyResults({ onExample }: { onExample: () => void }) {
+function EmptyResults() {
   return <div className="empty-results">
     <h3>Sin análisis todavía</h3>
     <p>Pega o carga un script en el editor, elige un enfoque y pulsa «Analizar script».</p>
     <ul className="mode-list">
-      <li><span className="mode-letter">A</span><span><strong>Determinista.</strong> Desofuscación y reglas; funciona sin Ollama.</span></li>
-      <li><span className="mode-letter">B</span><span><strong>LLM directo.</strong> El modelo interpreta solo el original; experimental.</span></li>
-      <li><span className="mode-letter">C</span><span><strong>LLM asistido.</strong> El modelo recibe además la recuperación verificada de 1A; experimental.</span></li>
+      <li className="mode-A"><span className="mode-letter">A</span><span><strong>Determinista.</strong> Desofuscación y reglas; funciona sin Ollama.</span></li>
+      <li className="mode-B"><span className="mode-letter">B</span><span><strong>LLM directo.</strong> El modelo interpreta solo el original; experimental.</span></li>
+      <li className="mode-C"><span className="mode-letter">C</span><span><strong>LLM asistido.</strong> El modelo recibe además la recuperación verificada de 1A; experimental.</span></li>
     </ul>
-    <button className="button secondary" aria-label="Usar ejemplo en el editor" onClick={onExample}>Usar ejemplo</button>
   </div>
 }
 
@@ -109,7 +108,7 @@ function Trace({ result }: { result: PipelineResult }) {
   </div>
 }
 
-export function Results({ response, busy, mode, stale, onLocate, onExample }: { response: AnalysisResponse | null; busy: boolean; mode: string; stale: boolean; onLocate: (span: Span) => void; onExample: () => void }) {
+export function Results({ response, busy, mode, stale, onLocate }: { response: AnalysisResponse | null; busy: boolean; mode: string; stale: boolean; onLocate: (span: Span) => void }) {
   const [selected, setSelected] = useState(0)
   const [detailChoice, setDetail] = useState<Detail>('findings')
   const wide = useMediaQuery('(min-width: 1440px)')
@@ -136,10 +135,10 @@ export function Results({ response, busy, mode, stale, onLocate, onExample }: { 
   const recoveredCount = result?.deobfuscation?.transformations.filter(t => t.deterministic_verified && t.recovered_text !== null).length
   return <>
   <section className="results-panel panel" aria-label="Resultados del análisis" aria-busy={busy}>
-    <div className="panel-heading"><h2>{results.length === 3 ? 'Perspectivas A/B/C' : 'Resultados del análisis'}</h2>
+    <div className="panel-heading"><h2><span className="heading-icon" aria-hidden="true"><ScanSearch size={16} /></span>{results.length === 3 ? 'Perspectivas A/B/C' : 'Resultados del análisis'}</h2>
       {response && !busy ? <button className="button secondary export-button" title="Exportar resultado JSON" aria-label="Exportar resultado JSON" onClick={exportResult}><ArrowDownToLine size={16} /><span>JSON</span></button> : <span className="result-readiness">{busy ? 'En proceso' : 'Sin análisis'}</span>}
     </div>
-    {busy ? <Loading mode={mode} /> : !result ? <EmptyResults onExample={onExample} /> : <div className="results-scroll">
+    {busy ? <Loading mode={mode} /> : !result ? <EmptyResults /> : <div className="results-scroll">
       {stale && <div className="stale-notice" role="status">El texto cambió. Estos resultados corresponden al análisis anterior.</div>}
       {results.length === 3 && <div className="comparison-strip" role="group" aria-label="Comparación de pipelines" onKeyDown={event => {
         if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return

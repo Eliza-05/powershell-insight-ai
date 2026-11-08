@@ -250,6 +250,22 @@ describe('Resultados y procedencia', () => {
     expect(screen.getByText('studio-local')).toBeVisible()
     expect(screen.getByText('Verificado por 1A')).toBeVisible()
   })
+  it('numbers every script line and locates the exact cited fragment from the findings table', async () => {
+    const user = await renderApp(); await loadExample(user)
+    const gutter = document.querySelector('.line-numbers')!
+    expect(Array.from(gutter.children, n => n.textContent)).toEqual(['1', '2'])
+    await user.click(screen.getByRole('button', { name: /Analizar script/ }))
+    await screen.findByRole('heading', { name: 'Reconocimiento' })
+    await user.click(screen.getByRole('button', { name: 'Ver origen de B05' }))
+    const editor = screen.getByRole('textbox', { name: 'Script PowerShell' }) as HTMLTextAreaElement
+    expect(editor).toHaveFocus()
+    expect(editor.value.slice(editor.selectionStart, editor.selectionEnd)).toBe('Get-Process -Id 734201')
+    expect(editor.value.slice(0, editor.selectionStart).split('\n')).toHaveLength(2) // second line, as the anchor says
+    expect(Array.from(document.querySelectorAll('.line-numbers .is-marked'), n => n.textContent)).toEqual(['2'])
+    expect(document.querySelector('.line-mark')).not.toBeNull()
+    await user.type(editor, ' ') // editing the text drops the mark: it no longer matches the analysed source
+    expect(document.querySelector('.line-mark')).toBeNull()
+  })
   it('supports keyboard navigation between result tabs', async () => {
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { AlertCircle, Check, CircleDashed, LoaderCircle, ShieldQuestion } from 'lucide-react'
+import { AlertCircle, Check, CircleDashed, ShieldQuestion } from 'lucide-react'
 import type { ExecutionStatus, Risk } from '../types/api'
 import { riskNames, statusNames } from '../types/api'
 
@@ -18,7 +18,13 @@ export function Notice({ children, tone = 'muted' }: { children: ReactNode; tone
 }
 export function Loading({ mode }: { mode: string }) {
   return <div className="loading-state" role="status" aria-live="polite">
-    <h3><LoaderCircle className="spin" size={18} aria-hidden="true" />Análisis {mode === 'ABC' ? 'A/B/C' : mode} en curso</h3>
+    <h3>Análisis {mode === 'ABC' ? 'A/B/C' : mode} en curso</h3>
     <p>{mode === 'A' ? 'El motor revisa el texto y sus transformaciones estáticas.' : 'Las solicitudes se procesan una a una. El modelo local puede tardar varios minutos.'}</p>
+    {/* Neutral placeholders for the layout to come: no percentages, no fake stages. */}
+    <div className="skeleton" aria-hidden="true">
+      <div className="skeleton-row"><i className="sk-circle" /><i className="sk-line w40" /><i className="sk-pill" /></div>
+      <div className="skeleton-row"><i className="sk-block" /><i className="sk-block" /><i className="sk-block" /></div>
+      <i className="sk-line w100" /><i className="sk-line w85" /><i className="sk-line w60" />
+    </div>
   </div>
 }

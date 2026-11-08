@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronDown, CircleHelp, Moon, Sun, Terminal, X } from 'lucide-react'
 import type { AnalysisResponse, Capabilities, Metadata, Mode, ModelStatus, Span } from './types/api'
 import { api, ApiFailure } from './services/api'
-import { DEMO_SCRIPT, Editor, textareaOffset, utf8Bytes } from './components/Editor'
+import { Editor, textareaOffset, utf8Bytes, type MarkedLines } from './components/Editor'
 import { Help } from './components/Help'
 import { Notice } from './components/Primitives'
 import { Results } from './components/Results'
@@ -27,6 +27,7 @@ export default function App() {
   const [modelStatus, setModelStatus] = useState<ModelStatus | null>(null)
   const [statusLoading, setStatusLoading] = useState(false)
   const [apiOnline, setApiOnline] = useState(false)
+  const [marked, setMarked] = useState<MarkedLines | null>(null) // lines last located with "Ver origen" (display only)
   const editorRef = useRef<HTMLTextAreaElement>(null)
   const running = useRef(false)
   const mounted = useRef(true)
@@ -80,7 +81,7 @@ export default function App() {
     if (script !== analyzedScript) { setError('El texto cambió. Vuelve a analizarlo antes de ubicar una evidencia.'); return }
     if (span.layer_id !== 'L0') { setError('Este fragmento pertenece a una capa recuperada. Revisa su trazabilidad en Recuperación.'); return }
     const editor = editorRef.current
-    if (editor) { editor.focus(); editor.setSelectionRange(textareaOffset(analyzedScript, span.start), textareaOffset(analyzedScript, span.end)); editor.scrollTop = Math.max(0, (span.line - 3) * 24); editor.scrollIntoView?.({ behavior: 'smooth', block: 'center' }) }
+    if (editor) { editor.focus(); editor.setSelectionRange(textareaOffset(analyzedScript, span.start), textareaOffset(analyzedScript, span.end)); editor.scrollTop = Math.max(0, (span.line - 3) * 24); editor.scrollIntoView?.({ behavior: 'smooth', block: 'center' }); setMarked({ line: span.line, endLine: span.end_line, key: Date.now() }) }
   }
   function replaceScript(text: string, name: string) { setScript(text); setFilename(name); setError('') }
 
@@ -111,8 +112,8 @@ export default function App() {
       {oversized && <p className="input-warning" role="alert">El texto supera el límite de {maxBytes.toLocaleString('es-CO')} bytes UTF-8.</p>}
       {error && <div className="workspace-error" role="alert"><Notice tone="error">{error}</Notice><button className="icon-button" aria-label="Cerrar error" onClick={() => setError('')}><X size={18} /></button></div>}
       <div className="workbench-grid">
-        <Editor script={script} onChange={setScript} busy={busy} maxBytes={maxBytes} filename={filename} onFile={replaceScript} onError={setError} onRun={() => void analyze()} editorRef={editorRef} />
-        <Results response={response} busy={busy} mode={activeMode} stale={!!response && script !== analyzedScript} onLocate={locate} onExample={() => replaceScript(DEMO_SCRIPT, 'ejemplo_estatico.ps1')} />
+        <Editor script={script} onChange={setScript} busy={busy} maxBytes={maxBytes} filename={filename} onFile={replaceScript} onError={setError} onRun={() => void analyze()} editorRef={editorRef} marked={response && script === analyzedScript ? marked : null} />
+        <Results response={response} busy={busy} mode={activeMode} stale={!!response && script !== analyzedScript} onLocate={locate} />
       </div>
     </main>
     <Help open={helpOpen} onClose={() => setHelpOpen(false)} metadata={metadata} />

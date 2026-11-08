@@ -3,7 +3,27 @@
    Teal is reserved for interaction: selected mode, primary action, focus and links. No green state colours. */
 :root {
   color-scheme: light;
-  --bg: #edf0f4;               /* slightly greyer page so white cards stand out */
+  --bg: #f2f6f9;               /* flat fallback for sticky surfaces; the page itself uses --page-gradient */
+  --page-gradient: linear-gradient(135deg, #f1f7f8 0%, #f4f6fb 100%);
+  /* Approach identity colours: they identify A/B/C, they never express quality or risk. */
+  --mode-a: #0b7f8c;
+  --mode-b: #4f46e5;
+  --mode-c: #7c3aed;
+  --mode-a-text: #0a6d78;      /* teal as text on the tinted page stays >= 4.5:1 */
+  --mode-ink: #ffffff;
+  /* Editor terminal window: graphite in both themes. Plain textarea, no prompt, no highlighting. */
+  --term-bg: #1e1e1e;
+  --term-chrome: #2b2b2b;
+  --term-text: #e6e6e6;
+  --term-chrome-text: #c9cdd3;      /* 8.87:1 on #2b2b2b */
+  --term-status-text: #b4b4b4;
+  --term-gutter: #8b929e;      /* requested #6b7280 is 3.45:1 on #1e1e1e; this grey is 5.32:1 */
+  --term-placeholder: #9ca3af;
+  --term-line: #3a3a3a;
+  --term-dot: #5c5c5c;
+  --term-caret: #3fc1d0;
+  --term-selection: rgba(63, 193, 208, .35);
+  --term-error: #ffa8a8;
   --surface: #ffffff;
   --surface-raised: #eef2f6;
   --surface-subtle: #f6f8fa;
@@ -45,6 +65,12 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
   --bg: #111c2e;
+  --page-gradient: linear-gradient(135deg, #10202d 0%, #121b31 100%);
+  --mode-a: #3fc1d0;
+  --mode-b: #a5b4fc;
+  --mode-c: #c4b5fd;
+  --mode-a-text: #3fc1d0;
+  --mode-ink: #0f1b2a;
   --surface: #17243a;
   --surface-raised: #1e2d46;
   --surface-subtle: #142035;
