@@ -38,7 +38,7 @@ async function loadExample(user: ReturnType<typeof userEvent.setup>) {
 describe('Workspace', () => {
   it('starts empty with A selected and never infers on mount', async () => {
     await renderApp()
-    expect(screen.getByRole('heading', { name: 'Una lectura. Tres perspectivas.' })).toBeVisible()
+    expect(screen.getByRole('heading', { name: 'Sin análisis todavía' })).toBeVisible()
     expect(screen.getByRole('radio', { name: 'A · Determinista' })).toBeChecked()
     expect(screen.getByRole('button', { name: /Analizar script/ })).toBeDisabled()
     expect(api.analyze).not.toHaveBeenCalled()
@@ -59,7 +59,7 @@ describe('Workspace', () => {
     vi.mocked(api.analyze).mockImplementation(() => new Promise(resolve => { finish = resolve }))
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))
-    expect(await screen.findByText('Conectando las evidencias')).toBeVisible()
+    expect(await screen.findByText('Análisis A en curso')).toBeVisible()
     expect(screen.getByRole('textbox', { name: 'Script PowerShell' })).toBeDisabled()
     expect(screen.getByRole('radio', { name: 'B · LLM directo' })).toBeDisabled()
     expect(api.analyze).toHaveBeenCalledTimes(1)
@@ -71,7 +71,7 @@ describe('Workspace', () => {
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))
     expect(await screen.findByRole('alert')).toHaveTextContent('API local no disponible')
-    expect(screen.getByRole('heading', { name: 'Una lectura. Tres perspectivas.' })).toBeVisible()
+    expect(screen.getByRole('heading', { name: 'Sin análisis todavía' })).toBeVisible()
     expect(api.analyze).toHaveBeenCalledTimes(1)
   })
   it('shows stale results after edits and does not relabel them', async () => {

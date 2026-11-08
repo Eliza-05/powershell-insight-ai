@@ -18,9 +18,7 @@ export function Notice({ children, tone = 'muted' }: { children: ReactNode; tone
 }
 export function Loading({ mode }: { mode: string }) {
   return <div className="loading-state" role="status" aria-live="polite">
-    <div className="scan-visual"><div className="scan-line" /><LoaderCircle className="spin" size={28} /></div>
-    <span className="eyebrow">ANÁLISIS {mode}</span><h3>Conectando las evidencias</h3>
+    <h3><LoaderCircle className="spin" size={18} aria-hidden="true" />Análisis {mode === 'ABC' ? 'A/B/C' : mode} en curso</h3>
     <p>{mode === 'A' ? 'El motor revisa el texto y sus transformaciones estáticas.' : 'Las solicitudes se procesan una a una. El modelo local puede tardar varios minutos.'}</p>
-    <span className="subtle">Tu script se trata exclusivamente como texto.</span>
   </div>
 }

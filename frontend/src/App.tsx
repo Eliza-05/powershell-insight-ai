@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ArrowRight, BookOpen, ChevronRight, CircleHelp, GitCompareArrows, LockKeyhole, Moon, PanelLeft, ShieldCheck, Sun, Terminal, X } from 'lucide-react'
+import { ChevronDown, CircleHelp, Moon, Sun, Terminal, X } from 'lucide-react'
 import type { AnalysisResponse, Capabilities, Metadata, Mode, ModelStatus, Span } from './types/api'
 import { api, ApiFailure } from './services/api'
-import { Editor, textareaOffset, utf8Bytes } from './components/Editor'
+import { DEMO_SCRIPT, Editor, textareaOffset, utf8Bytes } from './components/Editor'
 import { Help } from './components/Help'
 import { Notice } from './components/Primitives'
 import { Results } from './components/Results'
@@ -32,6 +32,12 @@ export default function App() {
   const mounted = useRef(true)
   const maxBytes = capabilities?.max_input_bytes ?? 65536
   const oversized = utf8Bytes(script) > maxBytes
+  // Display-only summary of the provider status already fetched; it never gates or triggers analysis.
+  const ollamaReady = !!(modelStatus?.available && modelStatus.ready_for_inference)
+  const ollamaLabel = !modelStatus ? (statusLoading ? 'consultando Ollama' : 'Ollama sin datos')
+    : ollamaReady ? 'Ollama disponible'
+    : modelStatus.available && modelStatus.resource_ready === false ? 'Ollama sin memoria suficiente'
+    : modelStatus.available ? 'Ollama no listo' : 'Ollama no disponible'
 
   const refreshStatus = useCallback(async () => {
     setStatusLoading(true)
@@ -80,60 +86,35 @@ export default function App() {
 
   return <div className="app-shell">
     <a className="skip-link" href="#workspace">Ir al espacio de análisis</a>
-    <aside className="sidebar" aria-label="Navegación del estudio">
-      <a className="brand" href="#workspace" aria-label="PowerShell Insight AI · inicio">
-        <span className="brand-mark"><Terminal size={25} /></span>
-        <span>PowerShell<strong>Insight <em>AI</em></strong></span>
-      </a>
-      <div className="sidebar-workspace"><span className="dot mint" />Security workspace</div>
-      <div className="nav-caption">ANALIZAR</div>
-      <nav>
-        <button className={mode !== 'ABC' ? 'active' : ''} aria-label="Analysis studio" disabled={busy} onClick={() => { setMode('A'); editorRef.current?.focus() }}>
-          <PanelLeft size={20} /><span>Analysis studio</span>
-        </button>
-        <button className={mode === 'ABC' ? 'active' : ''} aria-label="Comparar pipelines" disabled={busy} onClick={() => setMode('ABC')}>
-          <GitCompareArrows size={20} /><span>Comparar pipelines</span>
-        </button>
-      </nav>
-      <div className="nav-divider" />
-      <div className="nav-caption">CONTEXTO</div>
-      <nav><button aria-label="Guía del estudio" onClick={() => setHelpOpen(true)}><BookOpen size={20} /><span>Guía y límites</span><ArrowRight size={15} /></button></nav>
-      <div className="sidebar-bottom">
-        <div className="local-context"><LockKeyhole size={17} /><span>Tu equipo. Tu evidencia.<small>Procesamiento local</small></span></div>
-        <SystemStatus status={modelStatus} capabilities={capabilities} loading={statusLoading} onRefresh={() => void refreshStatus()} apiOnline={apiOnline} />
-        <div className="sidebar-footer"><span>v{metadata?.version ?? '0.3.0'}</span><span>LOCAL ONLY</span></div>
+    <header className="topbar">
+      <div className="brand">
+        <span className="brand-mark" aria-hidden="true"><Terminal size={16} /></span>
+        <span className="brand-name">PowerShell Insight AI</span>
+        <span className="brand-version">v{metadata?.version ?? '0.3.0'}</span>
       </div>
-    </aside>
-    <div className="main-shell">
-      <header className="topbar">
-        <div className="breadcrumbs"><LockKeyhole size={16} /><span>Workspace local</span><ChevronRight size={15} /><strong>Analysis studio</strong></div>
-        <div className="topbar-actions">
-          <button id="system-toggle" className={`api-chip ${apiOnline ? 'online' : ''}`} aria-label="Ver estado del sistema" aria-expanded={systemOpen} onClick={() => setSystemOpen(v => !v)}>
-            <span className={`dot ${apiOnline ? 'mint' : 'amber'}`} />{apiOnline ? 'API conectada' : 'API sin conexión'}<ChevronRight size={14} />
-          </button>
-          <button className="icon-button" title="Guía y límites" aria-label="Abrir ayuda contextual" onClick={() => setHelpOpen(true)}><CircleHelp size={20} /></button>
-          <button className="icon-button theme-button" title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'} aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'} onClick={toggle}>{theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}</button>
-        </div>
-        {systemOpen && <div className="system-popover" role="region" aria-label="Estado del sistema">
-          <div><span>Estado del sistema</span><button className="icon-button" aria-label="Cerrar estado del sistema" onClick={() => setSystemOpen(false)}><X size={19} /></button></div>
-          <SystemStatus expanded status={modelStatus} capabilities={capabilities} loading={statusLoading} onRefresh={() => void refreshStatus()} apiOnline={apiOnline} />
-        </div>}
-      </header>
-      <main id="workspace" className="workspace">
-        <div className="page-heading">
-          <div><div className="eyebrow">SCRIPT INTELLIGENCE</div><h1>Analysis studio</h1><p>Del código a la evidencia, sin ejecutarlo.</p></div>
-          <div className="page-context"><span><ShieldCheck size={18} />Análisis estático</span><button className="provisional-label" onClick={() => setHelpOpen(true)}><span className="dot amber" />LLM experimental<CircleHelp size={15} /></button></div>
-        </div>
-        <PipelineSelector mode={mode} onChange={setMode} busy={busy} canRun={!!script.trim() && !oversized} onRun={() => void analyze()} />
-        {oversized && <p className="input-warning" role="alert">El texto supera el límite de {maxBytes.toLocaleString('es-CO')} bytes UTF-8.</p>}
-        {error && <div className="workspace-error" role="alert"><Notice tone="error">{error}</Notice><button className="icon-button" aria-label="Cerrar error" onClick={() => setError('')}><X size={18} /></button></div>}
-        <div className="workbench-grid">
-          <Editor script={script} onChange={setScript} busy={busy} maxBytes={maxBytes} filename={filename} onFile={replaceScript} onError={setError} onRun={() => void analyze()} editorRef={editorRef} />
-          <Results response={response} busy={busy} mode={activeMode} stale={!!response && script !== analyzedScript} onLocate={locate} />
-        </div>
-        <footer className="workspace-footer"><span><LockKeyhole size={14} />No ejecutamos scripts ni visitamos sus destinos.</span><button onClick={() => setHelpOpen(true)}>Cómo interpretar los resultados<ArrowRight size={15} /></button></footer>
-      </main>
-    </div>
+      <div className="topbar-actions">
+        <button id="system-toggle" className={`api-chip ${apiOnline ? 'online' : ''}`} aria-label="Ver estado del sistema" aria-expanded={systemOpen} onClick={() => setSystemOpen(v => !v)}>
+          <span className={`dot ${apiOnline && ollamaReady ? 'mint' : 'amber'}`} />{apiOnline ? 'API conectada' : 'API sin conexión'}{apiOnline && <span className="chip-detail"> · {ollamaLabel}</span>}<ChevronDown size={14} />
+        </button>
+        <button className="icon-button" title="Guía y límites" aria-label="Abrir ayuda contextual" onClick={() => setHelpOpen(true)}><CircleHelp size={19} /></button>
+        <button className="icon-button" title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'} aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'} onClick={toggle}>{theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}</button>
+      </div>
+      {systemOpen && <div className="system-popover" role="region" aria-label="Estado del sistema">
+        <div><span>Estado del sistema</span><button className="icon-button" aria-label="Cerrar estado del sistema" onClick={() => setSystemOpen(false)}><X size={19} /></button></div>
+        <SystemStatus expanded status={modelStatus} capabilities={capabilities} loading={statusLoading} onRefresh={() => void refreshStatus()} apiOnline={apiOnline} />
+      </div>}
+    </header>
+    <main id="workspace" className="workspace">
+      <h1 className="page-title">Análisis de script</h1>
+      <PipelineSelector mode={mode} onChange={setMode} busy={busy} canRun={!!script.trim() && !oversized} onRun={() => void analyze()}
+        warning={mode !== 'A' && apiOnline && !ollamaReady ? `${mode === 'ABC' ? 'Comparar necesita' : `${mode} necesita`} Ollama y ahora no está disponible: ${mode === 'ABC' ? 'B y C' : mode} devolverá «No disponible». A funciona sin Ollama.` : undefined} />
+      {oversized && <p className="input-warning" role="alert">El texto supera el límite de {maxBytes.toLocaleString('es-CO')} bytes UTF-8.</p>}
+      {error && <div className="workspace-error" role="alert"><Notice tone="error">{error}</Notice><button className="icon-button" aria-label="Cerrar error" onClick={() => setError('')}><X size={18} /></button></div>}
+      <div className="workbench-grid">
+        <Editor script={script} onChange={setScript} busy={busy} maxBytes={maxBytes} filename={filename} onFile={replaceScript} onError={setError} onRun={() => void analyze()} editorRef={editorRef} />
+        <Results response={response} busy={busy} mode={activeMode} stale={!!response && script !== analyzedScript} onLocate={locate} onExample={() => replaceScript(DEMO_SCRIPT, 'ejemplo_estatico.ps1')} />
+      </div>
+    </main>
     <Help open={helpOpen} onClose={() => setHelpOpen(false)} metadata={metadata} />
   </div>
 }

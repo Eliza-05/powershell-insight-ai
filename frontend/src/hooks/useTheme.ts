@@ -3,7 +3,7 @@ export type Theme = 'dark' | 'light'
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     try { const saved = localStorage.getItem('psi-theme'); if (saved === 'light' || saved === 'dark') return saved } catch { /* browser storage can be disabled */ }
-    return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+    return 'light' // light is the product default; dark stays available as an explicit choice
   })
   useEffect(() => {
     document.documentElement.dataset.theme = theme
