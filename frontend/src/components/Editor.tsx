@@ -44,6 +44,7 @@ export function Editor({ script, onChange, busy, maxBytes, filename, onFile, onE
   const dragDepth = useRef(0)
   const [dragging, setDragging] = useState(false)
   const size = utf8Bytes(script)
+  const lineCount = script ? script.split('\n').length : 0
   async function loadFile(file?: File) {
     if (!file) return
     if (!/\.(ps1|txt)$/i.test(file.name)) { onError('Selecciona un archivo .ps1 o .txt.'); return }
@@ -87,7 +88,7 @@ export function Editor({ script, onChange, busy, maxBytes, filename, onFile, onE
         onChange={e => onChange(e.target.value)}
         onKeyDown={e => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); onRun() } }} />
     </div>
-    <div className="editor-status" id="source-meta"><span>{script ? script.split('\n').length : 0} líneas <span className="meta-separator">·</span> <span className={size > maxBytes ? 'text-error' : ''}>{size.toLocaleString('es-CO')} / {maxBytes.toLocaleString('es-CO')} B</span> <span className="meta-separator">·</span> UTF-8</span><span>Análisis estático: el script no se ejecuta</span></div>
+    <div className="editor-status" id="source-meta"><span>{lineCount} {lineCount === 1 ? 'línea' : 'líneas'} <span className="meta-separator">·</span> <span className={size > maxBytes ? 'text-error' : ''}>{size.toLocaleString('es-CO')} / {maxBytes.toLocaleString('es-CO')} B</span> <span className="meta-separator">·</span> UTF-8</span><span>Análisis estático: el script no se ejecuta</span></div>
     </div>
     {dragging && <div className="drop-overlay" role="status"><FileUp size={32} /><strong>Suelta el archivo para cargarlo</strong><span>UTF-8 · un archivo a la vez · sin ejecución</span></div>}
       <input ref={fileRef} type="file" accept=".ps1,.txt,text/plain" aria-label="Seleccionar archivo PowerShell" className="sr-only" disabled={busy}
