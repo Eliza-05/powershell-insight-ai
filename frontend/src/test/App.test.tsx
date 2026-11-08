@@ -91,13 +91,16 @@ describe('Workspace', () => {
   })
   it('changes and persists light/dark preference without storing source', async () => {
     const user = await renderApp()
+    // Light is the default theme; the first toggle switches to dark.
+    expect(document.documentElement).toHaveAttribute('data-theme', 'light')
+    await user.click(screen.getByRole('button', { name: 'Activar modo oscuro' }))
+    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+    expect(localStorage.getItem('psi-theme')).toBe('dark')
+    await loadExample(user)
+    expect(localStorage.length).toBe(1)
     await user.click(screen.getByRole('button', { name: 'Activar modo claro' }))
     expect(document.documentElement).toHaveAttribute('data-theme', 'light')
     expect(localStorage.getItem('psi-theme')).toBe('light')
-    await loadExample(user)
-    expect(localStorage.length).toBe(1)
-    await user.click(screen.getByRole('button', { name: 'Activar modo oscuro' }))
-    expect(localStorage.getItem('psi-theme')).toBe('dark')
   })
   it('exposes model state and digest from the header even without the desktop sidebar', async () => {
     const user = await renderApp()
