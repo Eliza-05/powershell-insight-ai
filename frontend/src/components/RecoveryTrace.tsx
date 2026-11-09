@@ -23,7 +23,7 @@ export function RecoveryTrace({ result, onLocate, embedded = false }: { result: 
     else loose.push({ key: `unresolved-${i}`, span: u.source, kind: 'unresolved', reason: u.reason })
   })
   const entries = [...steps, ...loose].sort((a, b) => layerRank(a.span.layer_id) - layerRank(b.span.layer_id) || a.span.start - b.span.start || (a.kind === 'step' ? -1 : 1))
-  const layers = new Set(['L0', ...entries.map(e => e.span.layer_id)]).size
+  const layers = new Set(recovery?.layers.map(layer => layer.layer_id) ?? []).size
   const unresolvedCount = recovery?.unresolved.length ?? 0
   const stepCount = recovery?.transformations.length ?? 0
   const summary = `${layers} ${layers === 1 ? 'capa' : 'capas'} · ${stepCount} ${stepCount === 1 ? 'transformación' : 'transformaciones'} · ${unresolvedCount} sin resolver`

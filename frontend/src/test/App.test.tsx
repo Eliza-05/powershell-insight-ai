@@ -116,7 +116,7 @@ describe('Workspace', () => {
     const user = await renderApp()
     await user.click(screen.getByRole('button', { name: 'Abrir ayuda contextual' }))
     expect(screen.getByRole('dialog')).toBeVisible()
-    expect(screen.getByText('Qwen2.5-Coder 14B es experimental.')).toBeVisible()
+    expect(screen.getByText('qwen3.5:4b-q4_K_M es experimental.')).toBeVisible()
     await user.click(screen.getByText('Estado de la investigación y pendientes de Fase 4'))
     expect(screen.getByText(/Piloto histórico Qwen3.5 v2: PENDIENTE/)).toBeVisible()
     await user.click(screen.getByRole('button', { name: 'Volver al estudio' }))

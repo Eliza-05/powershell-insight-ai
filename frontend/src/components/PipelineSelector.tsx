@@ -8,15 +8,15 @@ const choices = [
   { id: 'ABC', title: 'Comparar' },
 ] as const
 
-const descriptions: Record<Mode, string> = {
+function descriptions(modelName?: string): Record<Mode, string> { return {
   A: 'Original → desofuscación → reglas. Funciona sin Ollama.',
-  B: 'Solo el original → Qwen2.5-Coder 14B experimental. Sin información del motor determinista.',
-  C: 'Original + recuperación verificada de 1A → Qwen2.5-Coder 14B experimental. Sin etiquetas de 1B.',
+  B: `Solo el original → ${modelName ?? 'modelo configurado'} experimental. Sin información del motor determinista.`,
+  C: `Original + recuperación verificada de 1A → ${modelName ?? 'modelo configurado'} experimental. Sin etiquetas de 1B.`,
   ABC: 'El mismo script, tres ejecuciones independientes. Las diferencias no miden calidad científica.',
-}
+} }
 
-export function PipelineSelector({ mode, onChange, busy, canRun, onRun, warning }: {
-  mode: Mode; onChange: (mode: Mode) => void; busy: boolean; canRun: boolean; onRun: () => void; warning?: string;
+export function PipelineSelector({ mode, onChange, busy, canRun, onRun, warning, modelName }: {
+  mode: Mode; onChange: (mode: Mode) => void; busy: boolean; canRun: boolean; onRun: () => void; warning?: string; modelName?: string;
 }) {
   return <section className="analysis-command" aria-label="Selección del pipeline">
     <div className="command-row">
@@ -37,7 +37,7 @@ export function PipelineSelector({ mode, onChange, busy, canRun, onRun, warning 
         {!busy && <kbd aria-hidden="true">Ctrl+Enter</kbd>}
       </button>
     </div>
-    <p className="pipeline-description" id="pipeline-description"><span className={`description-mark mode-${mode}`}>{mode === 'ABC' ? 'A/B/C' : mode}</span>{descriptions[mode]}</p>
+    <p className="pipeline-description" id="pipeline-description"><span className={`description-mark mode-${mode}`}>{mode === 'ABC' ? 'A/B/C' : mode}</span>{descriptions(modelName)[mode]}</p>
     {warning && <p className="run-warning" id="run-warning"><TriangleAlert size={15} aria-hidden="true" />{warning}</p>}
   </section>
 }

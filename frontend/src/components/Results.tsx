@@ -105,7 +105,7 @@ function Trace({ result }: { result: PipelineResult }) {
     {!!op.request?.options && <details><summary>Parámetros de inferencia solicitados</summary><Code>{JSON.stringify({ options: op.request.options, think: op.request.think }, null, 2)}</Code></details>}
     {!!result.llm?.prompt_injection.detected && <Notice tone="warning"><strong>Instrucciones adversarias declaradas por el modelo.</strong>{result.llm.prompt_injection.snippets.map((s, i) => <Code key={i}>{s}</Code>)}</Notice>}
     <details open={result.status !== 'completed'}><summary>Advertencias y limitaciones ({warnings.length + limits.length + (result.deterministic?.indicators.length ?? 0)})</summary><p className="technical-caption">Mensajes técnicos del motor, en su idioma original.</p><ul className="technical-list">{warnings.map((l, i) => <li key={i}>{l}</li>)}{limits.map(l => <li key={l}>Límite alcanzado: {l}</li>)}{result.deterministic?.indicators.map(i => <li key={i.indicator_id}>{i.reason}</li>)}</ul></details>
-    {!!op.response?.message?.content && result.errors.length > 0 && <details className="raw-response"><summary>Respuesta cruda rechazada · solo diagnóstico</summary><Notice>Contenido no aceptado por el validador. No se presenta como hallazgo.</Notice><Code>{op.response.message.content}</Code></details>}
+    {typeof op.response?.message?.content === 'string' && !!op.response.message.content && result.errors.length > 0 && <details className="raw-response"><summary>Respuesta cruda rechazada · solo diagnóstico</summary><Notice>Contenido no aceptado por el validador. No se presenta como hallazgo.</Notice><Code>{op.response.message.content}</Code></details>}
   </div>
 }
 
@@ -120,11 +120,15 @@ export function Results({ response, busy, mode, stale, onLocate }: { response: A
   const hasTrace = !busy && !!result?.deobfuscation && (result.deobfuscation.transformations.length > 0 || result.deobfuscation.unresolved.length > 0)
   const visibleTabs = tabs.filter(t => t.id !== 'timeline' || (hasTrace && !wide))
   const detail: Detail = visibleTabs.some(t => t.id === detailChoice) ? detailChoice : 'findings'
+  const comparison = response !== null && 'results' in response
+  const exportScope = comparison ? 'comparación completa A/B/C' : `análisis ${result?.configuration ?? ''}`
+  const exportLabel = `Exportar ${exportScope} en JSON${stale ? ' · entrada anterior' : ''}`
   function exportResult() {
     if (!response) return
     const blob = new Blob([JSON.stringify(response, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
-    const a = document.createElement('a'); a.href = url; a.download = `powershell-insight-${result.run_id}.json`; a.click()
+    const identity = comparison ? `comparacion-ABC-${results[0].run_id}` : `analisis-${result.configuration}-${result.run_id}`
+    const a = document.createElement('a'); a.href = url; a.download = `powershell-insight-${identity}${stale ? '-entrada-anterior' : ''}.json`; a.click()
     setTimeout(() => URL.revokeObjectURL(url), 0)
   }
   const techniques = result ? [
@@ -137,10 +141,10 @@ export function Results({ response, busy, mode, stale, onLocate }: { response: A
   return <>
   <section className="results-panel panel" aria-label="Resultados del análisis" aria-busy={busy}>
     <div className="panel-heading"><h2><span className="heading-icon" aria-hidden="true"><ScanSearch size={16} /></span>{results.length === 3 ? 'Perspectivas A/B/C' : 'Resultados del análisis'}</h2>
-      {response && !busy ? <button className="button secondary export-button" title="Exportar resultado JSON" aria-label="Exportar resultado JSON" onClick={exportResult}><ArrowDownToLine size={16} /><span>JSON</span></button> : <span className="result-readiness">{busy ? 'En proceso' : 'Sin análisis'}</span>}
+      {response && !busy ? <button className="button secondary export-button" title={exportLabel} aria-label={exportLabel} onClick={exportResult}><ArrowDownToLine size={16} /><span>{comparison ? 'JSON A/B/C' : `JSON ${result.configuration}`}{stale ? ' · anterior' : ''}</span></button> : <span className="result-readiness">{busy ? 'En proceso' : 'Sin análisis'}</span>}
     </div>
     {busy ? <Loading mode={mode} /> : !result ? <EmptyResults /> : <div className="results-scroll">
-      {stale && <div className="stale-notice" role="status">El texto cambió. Estos resultados corresponden al análisis anterior.</div>}
+      {stale && <div className="stale-notice" role="status">El texto cambió. Estos resultados corresponden al análisis anterior. La exportación JSON conserva esa entrada anterior.</div>}
       {results.length === 3 && <div className="comparison-strip" role="group" aria-label="Comparación de pipelines" onKeyDown={event => {
         if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
         event.preventDefault()

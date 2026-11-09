@@ -7,8 +7,11 @@ export interface Transformation {
   transformation_id: string; technique: string; source: Span; root_source: Span;
   original_fragment: string; recovered_text: string | null; recovered_bytes_base64: string | null;
   recovery_kind: string; status: string; deterministic_verified: boolean; dependencies: string[]; warnings: string[];
+  output_layer_id: string | null;
 }
 export interface Recovery {
+  input_sha256: string | null;
+  layers: { layer_id: string; source_name: string; provenance: string; text: string; depth: number; parent_transformation_id: string | null; root_source: Span | null }[];
   status: string; engine_version: string; techniques_detected: string[];
   transformations: Transformation[]; unresolved: { source: Span; reason: string }[];
   limits_hit: string[]; warnings: string[];
@@ -18,6 +21,7 @@ export interface RuleEvidence {
   provenance: string; transformation_ids: string[]; recovered_value: string | null;
 }
 export interface Deterministic {
+  deobfuscation: Recovery;
   status: string; ruleset_version: string; behaviors: string[];
   findings: { finding_id: string; behavior_id: string; description: string; rule_id: string; evidence_ids: string[]; conditions: string[]; limitations: string[] }[];
   evidence: RuleEvidence[]; warnings: string[]; limits_hit: string[];
@@ -54,6 +58,7 @@ export interface PipelineResult {
 export interface Comparison { schema_version: string; results: PipelineResult[]; quality_metrics_computed: false }
 export type AnalysisResponse = PipelineResult | Comparison
 export interface Capabilities {
+  provider?: string; llm_disclaimer?: string;
   max_input_bytes: number; model: string; expected_digest: string; options: Record<string, number>;
   timeout_seconds: number; minimum_margin_bytes: number; mode_descriptions: Record<Mode, string>;
 }
@@ -64,7 +69,7 @@ export interface ModelStatus {
   memory?: { available_bytes: number; commit_available_bytes: number };
   error?: { code: string; message: string };
 }
-export interface Metadata { name: string; version: string; pilot_v2: string; pending_phase4: string[] }
+export interface Metadata { name: string; version: string; pilot_v2: string; pending_phase4: string[]; experimental_model?: string; human_adjudications_pending?: number }
 export const behaviorNames: Record<string, string> = {
   B01: 'Obtención remota', B02: 'Ejecución dinámica', B03: 'Persistencia', B04: 'Cambio de defensas',
   B05: 'Reconocimiento', B06: 'Comunicación de red', B07: 'Acceso a credenciales',
