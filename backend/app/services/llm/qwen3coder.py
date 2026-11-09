@@ -21,6 +21,7 @@ RESERVE = 18_600_000_000 + 3 * GIB
 class Qwen3CoderSettings(Qwen14Settings):
     model: Literal["qwen3-coder:30b"] = MODEL
     expected_digest: Literal[DIGEST] = DIGEST
+    port: Literal[11434] = 11434
     options: Qwen14Options = Field(default_factory=Qwen14Options)
     unloaded_reserve_bytes: int = Field(default=RESERVE, ge=RESERVE, strict=True)
 

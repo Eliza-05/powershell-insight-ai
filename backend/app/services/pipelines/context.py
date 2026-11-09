@@ -27,16 +27,17 @@ class AnalysisContext:
     deobfuscation: DeobfuscationResult | None
     prompt_sha256: str
     context_sha256: str
+    preprocessing: tuple[dict, ...] = ()
 
 
 def build_context(script: str, deobfuscation: DeobfuscationResult | None = None, *,
-                  policy_path: Path = POLICY_PATH, preprocess=None) -> AnalysisContext:
+                  policy_path: Path = POLICY_PATH, preprocess=None, policy_text: str | None = None) -> AnalysisContext:
     """`preprocess` (optional) rewrites only the text shown to the model, never `sources`.
 
     It must preserve length and offsets (e.g. comment blanking) so citations stay literal in
     the real original/recovery, which is what validation checks. Defaults keep v1 unchanged.
     """
-    policy = Path(policy_path).read_text(encoding="utf-8")
+    policy = policy_text if policy_text is not None else Path(policy_path).read_text(encoding="utf-8")
     show = preprocess or (lambda text: text)
     sources = {"original": script}
     data = {"original": show(script)}

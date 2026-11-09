@@ -77,6 +77,7 @@ class AnalysisService:
                 data["engine_versions"]["llm_contract"] = "application-report-v1"
                 if self.strategy:
                     data["engine_versions"].update(self.strategy.versions())
+                    data["limitations"].extend(self.strategy.prepare_record(context, data["operational"]))
                 stage = getattr(self.adapter, "provider", "ollama")
                 response = self.adapter.infer(context, data["operational"])
                 stage = "response"

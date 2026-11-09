@@ -13,6 +13,7 @@ from app.services.pipelines.resources import InferenceGate, OperationalFailure
 from experiments.gemma4_v2.protocol import Protocol, ROOT, SOURCE_FILES, FREEZE_SHA, digest, load, save, now
 from experiments.gemma4_v2.runner import Campaign, CampaignLock
 from experiments.gemma4_v2.evaluation import evaluate
+from tests.historical_sources import load_verified_module, verified_source
 
 GIB = 1024 ** 3
 
@@ -104,7 +105,7 @@ class Server:
 
 
 @pytest.fixture
-def rig(tmp_path):
+def rig(tmp_path, monkeypatch):
     freeze_path = ROOT / "artifacts/gemma4_development_v2/FREEZE.json"
     manifest = load(freeze_path)
     names = set(manifest["files_sha256"]) | set(manifest["runtime_contract_sources_sha256"]) | set(SOURCE_FILES)
@@ -114,14 +115,27 @@ def rig(tmp_path):
         target = tmp_path / name
         target.parent.mkdir(parents=True, exist_ok=True)
         source = ROOT / name
-        # The prototype entry point evolved after this closed campaign. Test the
-        # exact historical source, retaining the original hash and every guard.
-        if name == "backend/app/api/application.py":
-            expected = manifest["runtime_contract_sources_sha256"][name]
-            if digest(source) != expected:
-                source = ROOT / "artifacts/qwen14_exploratory_adoption/diagnostic_source_archive" / name
-                assert digest(source) == expected
+        # Reproduce historical integrity with exact archived sources, while
+        # current-code regression suites continue to test the live implementation.
+        expected = manifest["runtime_contract_sources_sha256"].get(name) or manifest["files_sha256"].get(name)
+        if expected is not None:
+            source = verified_source(ROOT, name, expected)
         shutil.copyfile(source, target)
+    # Copying the files alone is insufficient: controller globals would otherwise
+    # still call the evolved live context/service. Bind the verified historical
+    # implementations in isolated modules for these historical controller tests.
+    import experiments.gemma4_v2.protocol as protocol_module
+    import experiments.gemma4_v2.runner as runner_module
+    hashes = manifest["runtime_contract_sources_sha256"]
+    context_name = "backend/app/services/pipelines/context.py"
+    service_name = "backend/app/services/pipelines/service.py"
+    historical_context = load_verified_module(tmp_path, context_name, hashes[context_name],
+                                              "tests._gemma4_historical_context", monkeypatch)
+    historical_service = load_verified_module(tmp_path, service_name, hashes[service_name],
+                                              "tests._gemma4_historical_service", monkeypatch)
+    historical_service.build_context = historical_context.build_context
+    monkeypatch.setattr(protocol_module, "build_context", historical_context.build_context)
+    monkeypatch.setattr(runner_module, "AnalysisService", historical_service.AnalysisService)
     protocol = Protocol(tmp_path)
     save(protocol.binding_path, {"freeze_sha256": FREEZE_SHA,
         "clarification_sha256": digest(protocol.clarification_path),

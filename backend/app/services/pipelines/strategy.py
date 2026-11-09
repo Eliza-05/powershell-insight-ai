@@ -1,12 +1,12 @@
-"""Strategy "v2 + capas deterministas": policy v2, comment blanking before the LLM and an
-evidence check after it. Same strategy for B and C (only the 1A context differs).
+"""Policy v2 and conservative deterministic layers, shared by B and C.
 
-Lab evidence (exploratory, not an independent evaluation): qwen3-coder:30b + policy v2 +
-comment blanking obeyed 0/8 comment injections (v2 alone: 3/4 on development); the evidence
-check raised selection F1 from 0.78 to 0.87 on the same answers it was written from.
+The former R7 postcheck was exploratory and developed on selection responses.
+This revised subset requires independent evaluation; no previous F1 applies to it.
 """
 from __future__ import annotations
 
+from dataclasses import dataclass, replace
+import hashlib
 from pathlib import Path
 
 from app.services.pipelines import evidence_check, sanitize
@@ -16,39 +16,83 @@ from app.services.pipelines.validation import validate_report
 
 POLICY_V2_PATH = Path(__file__).with_name("policy_v2.md")
 POLICY_V2_SHA256 = "53d4cc36ca6b19dd5630065aabb0bd3d0a6f6627eb946989d32d6f773f10c081"
-NAME = "v2-deterministic-layers-1"
+NAME = "v2-deterministic-layers-2"
 
 
+@dataclass(frozen=True, init=False)
 class DeterministicLayersStrategy:
+    policy_path: Path
+    policy_text: str
+    policy_sha256: str
+    policy_bytes_sha256: str
+
     def __init__(self, policy_path: Path = POLICY_V2_PATH, expected_policy_sha256: str = POLICY_V2_SHA256):
-        text = Path(policy_path).read_text(encoding="utf-8")
+        raw = Path(policy_path).read_bytes()
+        text = raw.decode("utf-8").replace("\r\n", "\n").replace("\r", "\n")
         if sha(text) != expected_policy_sha256:
-            raise ValueError("Policy v2 differs from the frozen text; refusing to run a silent variant")
-        self.policy_path = Path(policy_path)
+            raise ValueError("Policy v2 differs from the authorized text; refusing a silent variant")
+        object.__setattr__(self, "policy_path", Path(policy_path))
+        object.__setattr__(self, "policy_text", text)
+        object.__setattr__(self, "policy_sha256", sha(text))
+        object.__setattr__(self, "policy_bytes_sha256", hashlib.sha256(raw).hexdigest())
 
     def versions(self):
-        return {"strategy": NAME, "policy": "policy-v2-lab@" + POLICY_V2_SHA256[:12],
+        return {"strategy": NAME, "policy": "policy-v2-lab@" + self.policy_sha256,
+                "policy_bytes_sha256": self.policy_bytes_sha256,
                 "preprocess": sanitize.VERSION, "postcheck": evidence_check.VERSION}
 
     def build_context(self, script, deobfuscation):
-        return build_context(script, deobfuscation, policy_path=self.policy_path,
-                             preprocess=lambda text: sanitize.blank_comments(text)[0])
+        records = []
+
+        def preprocess(text):
+            result = sanitize.sanitize_comments(text)
+            records.append({"source_text_sha256": sha(text), "comment_spans": list(result.spans),
+                            "diagnostics": list(result.diagnostics),
+                            "coverage": "partial_or_opaque" if result.diagnostics else "lexical_subset"})
+            return result.text
+
+        context = build_context(script, deobfuscation, policy_text=self.policy_text, preprocess=preprocess)
+        for item in records:
+            item["source_ids"] = [key for key, value in context.sources.items() if sha(value) == item["source_text_sha256"]]
+        return replace(context, preprocessing=tuple(records))
+
+    def prepare_record(self, context, record):
+        record["policy_integrity"] = {"text_sha256": self.policy_sha256,
+            "loaded_bytes_sha256": self.policy_bytes_sha256, "mode": "validated_immutable_snapshot"}
+        record["preprocessing"] = {"version": sanitize.VERSION, "sources": list(context.preprocessing)}
+        notes = [evidence_check.LIMITATION]
+        if any(item["diagnostics"] for item in context.preprocessing):
+            notes.append("Sanitizacion parcial o region opaca: se conserva el texto incierto. "
+                    "Pueden quedar comentarios visibles; ver operational.preprocessing. "
+                    "Esta capa no es proteccion universal contra prompt injection.")
+        return notes
 
     def post_validate(self, report, evidence, context, record):
+        record["model_report_before_evidence_check"] = report.model_dump(mode="json")
         record["model_behaviors_before_evidence_check"] = [
-            {"behavior_id": getattr(f.behavior_id, "value", f.behavior_id),
+            {"behavior_id": f.behavior_id.value,
              "evidence": [c.model_dump(mode="json") for c in f.evidence]} for f in report.behaviors]
         try:
-            checked, changes = evidence_check.verify(report, evidence, context.sources)
-        except ValueError as exc:  # e.g. high_risk left with a single behavior
-            raise OperationalFailure("evidence_check_incoherent", str(exc)[:500], "evidence_check") from exc
-        record["evidence_check"] = {"version": evidence_check.VERSION, "changes": changes}
-        if not changes:
-            return report, evidence, []
-        # Re-run the literal validator on the checked report: citations are unchanged, so this only
-        # rebuilds the evidence list consistently (and fails loudly if anything is inconsistent).
-        checked, evidence = validate_report(canonical(checked.model_dump(mode="json")), context)
-        summary = "; ".join(f"{c['from']}→{c['to']}" if c["to"] else f"{c['from']} descartada" for c in changes)
-        return checked, evidence, [
-            "Verificador determinista de evidencia aplicado (" + summary + "). El riesgo sigue siendo el que "
-            "asignó el modelo y puede citar comportamientos descartados; ver operational.evidence_check."]
+            checked, decisions = evidence_check.verify(report, evidence, context.sources)
+        except evidence_check.IncoherentEvidence as exc:
+            record["evidence_check"] = {"version": evidence_check.VERSION,
+                "decisions": exc.decisions, "changes": [d for d in exc.decisions if d["action"] != "kept"],
+                "candidate_behavior_ids": exc.final_ids, "status": "rejected_incoherent",
+                "risk_preserved_from_model": report.risk_label.value, "error": str(exc)[:500],
+                "limitations": [evidence_check.LIMITATION]}
+            raise OperationalFailure("evidence_check_incoherent",
+                "Conservative evidence filtering conflicts with the model risk contract; "
+                "raw report and all decisions preserved in operational. " + str(exc)[:500], "evidence_check") from exc
+        changes = [d for d in decisions if d["action"] != "kept"]
+        record["evidence_check"] = {"version": evidence_check.VERSION, "decisions": decisions,
+            "changes": changes, "final_behavior_ids": [f.behavior_id.value for f in checked.behaviors],
+            "status": "filtered" if changes else "unchanged",
+            "risk_preserved_from_model": report.risk_label.value, "limitations": [evidence_check.LIMITATION]}
+        if changes:
+            checked, evidence = validate_report(canonical(checked.model_dump(mode="json")), context)
+        notes = []
+        if changes:
+            notes.append("Verificador determinista: etiquetas no verificadas descartadas. El riesgo sigue siendo "
+                         "el que asigno el modelo y puede citar comportamientos descartados; "
+                         "ver operational.evidence_check y model_report_before_evidence_check.")
+        return checked, evidence, notes
