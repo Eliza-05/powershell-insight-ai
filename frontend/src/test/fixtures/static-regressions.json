@@ -1,0 +1,725 @@
+{
+  "multilayer": {
+    "schema_version": "pipeline-v1",
+    "run_id": "42bc85e2-0fa7-461a-91e5-7920dc916db7",
+    "configuration": "A",
+    "status": "completed",
+    "input_sha256": "919031584862d9cc68f16334238af61a3064045a053c7f73321f60ea743009d8",
+    "original": "powershell -EncodedCommand cABvAHcAZQByAHMAaABlAGwAbAAgAC0ARQBuAGMAbwBkAGUAZABDAG8AbQBtAGEAbgBkACAAUgB3AEIAbABBAEgAUQBBAEwAUQBCAFEAQQBIAEkAQQBiAHcAQgBqAEEARwBVAEEAYwB3AEIAegBBAEMAQQBBAEwAUQBCAEoAQQBHAFEAQQBJAEEAQQAzAEEARABNAEEATgBBAEEAeQBBAEQAQQBBAE0AUQBBAD0A",
+    "started_at": "2026-11-09T18:52:14.122632+00:00",
+    "duration_seconds": 0.0019174999997630948,
+    "engine_versions": {
+      "orchestrator": "pipeline-v1",
+      "deobfuscator": "static-subset-v1",
+      "detector": "static-behaviors-v1"
+    },
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "919031584862d9cc68f16334238af61a3064045a053c7f73321f60ea743009d8",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "complete",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "powershell -EncodedCommand cABvAHcAZQByAHMAaABlAGwAbAAgAC0ARQBuAGMAbwBkAGUAZABDAG8AbQBtAGEAbgBkACAAUgB3AEIAbABBAEgAUQBBAEwAUQBCAFEAQQBIAEkAQQBiAHcAQgBqAEEARwBVAEEAYwB3AEIAegBBAEMAQQBBAEwAUQBCAEoAQQBHAFEAQQBJAEEAQQAzAEEARABNAEEATgBBAEEAeQBBAEQAQQBBAE0AUQBBAD0A",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        },
+        {
+          "layer_id": "L1",
+          "source_name": "input",
+          "provenance": "deobfuscator_recovered",
+          "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMANAAyADAAMQA=",
+          "depth": 1,
+          "parent_transformation_id": "T0001",
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 259,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 260
+          }
+        },
+        {
+          "layer_id": "L2",
+          "source_name": "input",
+          "provenance": "deobfuscator_recovered",
+          "text": "Get-Process -Id 734201",
+          "depth": 2,
+          "parent_transformation_id": "T0002",
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 259,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 260
+          }
+        }
+      ],
+      "transformations": [
+        {
+          "transformation_id": "T0001",
+          "technique": "OT-B64-ENCCMD",
+          "source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 259,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 260
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 259,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 260
+          },
+          "original_fragment": "cABvAHcAZQByAHMAaABlAGwAbAAgAC0ARQBuAGMAbwBkAGUAZABDAG8AbQBtAGEAbgBkACAAUgB3AEIAbABBAEgAUQBBAEwAUQBCAFEAQQBIAEkAQQBiAHcAQgBqAEEARwBVAEEAYwB3AEIAegBBAEMAQQBBAEwAUQBCAEoAQQBHAFEAQQBJAEEAQQAzAEEARABNAEEATgBBAEEAeQBBAEQAQQBBAE0AUQBBAD0A",
+          "provenance": "deobfuscator_recovered",
+          "recovery_kind": "script_text",
+          "recovered_text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMANAAyADAAMQA=",
+          "recovered_bytes_base64": null,
+          "dependencies": [],
+          "status": "success",
+          "deterministic_verified": true,
+          "warnings": [
+            "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+          ],
+          "added_operation": "LAUNCHER_ENCCMD",
+          "output_layer_id": "L1"
+        },
+        {
+          "transformation_id": "T0002",
+          "technique": "OT-B64-ENCCMD",
+          "source": {
+            "layer_id": "L1",
+            "start": 27,
+            "end": 87,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 88
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 259,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 260
+          },
+          "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMANAAyADAAMQA=",
+          "provenance": "deobfuscator_recovered",
+          "recovery_kind": "script_text",
+          "recovered_text": "Get-Process -Id 734201",
+          "recovered_bytes_base64": null,
+          "dependencies": [
+            "T0001"
+          ],
+          "status": "success",
+          "deterministic_verified": true,
+          "warnings": [
+            "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+          ],
+          "added_operation": "LAUNCHER_ENCCMD",
+          "output_layer_id": "L2"
+        }
+      ],
+      "unresolved": [],
+      "techniques_detected": [
+        "OT-B64-ENCCMD"
+      ],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 1308,
+      "artifact_bytes": 510
+    },
+    "deterministic": {
+      "schema_version": "behavior-analysis-v1",
+      "ruleset_version": "static-behaviors-v1",
+      "status": "complete",
+      "coverage_partial": true,
+      "deobfuscation": {
+        "schema_version": "deobfuscation-v1",
+        "engine_version": "static-subset-v1",
+        "input_sha256": "919031584862d9cc68f16334238af61a3064045a053c7f73321f60ea743009d8",
+        "source_name": "input",
+        "input_provenance": "original",
+        "status": "complete",
+        "semantic_equivalence": "not_claimed",
+        "limits": {
+          "max_input_bytes": 65536,
+          "max_artifact_bytes": 262144,
+          "max_total_artifact_bytes": 2097152,
+          "max_transformations": 512,
+          "max_depth": 3,
+          "max_expression_depth": 24,
+          "max_concat_terms": 128,
+          "max_tokens": 50000,
+          "max_work_units": 4000000,
+          "max_unresolved": 128
+        },
+        "layers": [
+          {
+            "layer_id": "L0",
+            "source_name": "input",
+            "provenance": "original",
+            "text": "powershell -EncodedCommand cABvAHcAZQByAHMAaABlAGwAbAAgAC0ARQBuAGMAbwBkAGUAZABDAG8AbQBtAGEAbgBkACAAUgB3AEIAbABBAEgAUQBBAEwAUQBCAFEAQQBIAEkAQQBiAHcAQgBqAEEARwBVAEEAYwB3AEIAegBBAEMAQQBBAEwAUQBCAEoAQQBHAFEAQQBJAEEAQQAzAEEARABNAEEATgBBAEEAeQBBAEQAQQBBAE0AUQBBAD0A",
+            "depth": 0,
+            "parent_transformation_id": null,
+            "root_source": null
+          },
+          {
+            "layer_id": "L1",
+            "source_name": "input",
+            "provenance": "deobfuscator_recovered",
+            "text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMANAAyADAAMQA=",
+            "depth": 1,
+            "parent_transformation_id": "T0001",
+            "root_source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 259,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 260
+            }
+          },
+          {
+            "layer_id": "L2",
+            "source_name": "input",
+            "provenance": "deobfuscator_recovered",
+            "text": "Get-Process -Id 734201",
+            "depth": 2,
+            "parent_transformation_id": "T0002",
+            "root_source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 259,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 260
+            }
+          }
+        ],
+        "transformations": [
+          {
+            "transformation_id": "T0001",
+            "technique": "OT-B64-ENCCMD",
+            "source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 259,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 260
+            },
+            "root_source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 259,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 260
+            },
+            "original_fragment": "cABvAHcAZQByAHMAaABlAGwAbAAgAC0ARQBuAGMAbwBkAGUAZABDAG8AbQBtAGEAbgBkACAAUgB3AEIAbABBAEgAUQBBAEwAUQBCAFEAQQBIAEkAQQBiAHcAQgBqAEEARwBVAEEAYwB3AEIAegBBAEMAQQBBAEwAUQBCAEoAQQBHAFEAQQBJAEEAQQAzAEEARABNAEEATgBBAEEAeQBBAEQAQQBBAE0AUQBBAD0A",
+            "provenance": "deobfuscator_recovered",
+            "recovery_kind": "script_text",
+            "recovered_text": "powershell -EncodedCommand RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMANAAyADAAMQA=",
+            "recovered_bytes_base64": null,
+            "dependencies": [],
+            "status": "success",
+            "deterministic_verified": true,
+            "warnings": [
+              "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+            ],
+            "added_operation": "LAUNCHER_ENCCMD",
+            "output_layer_id": "L1"
+          },
+          {
+            "transformation_id": "T0002",
+            "technique": "OT-B64-ENCCMD",
+            "source": {
+              "layer_id": "L1",
+              "start": 27,
+              "end": 87,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 88
+            },
+            "root_source": {
+              "layer_id": "L0",
+              "start": 27,
+              "end": 259,
+              "line": 1,
+              "column": 28,
+              "end_line": 1,
+              "end_column": 260
+            },
+            "original_fragment": "RwBlAHQALQBQAHIAbwBjAGUAcwBzACAALQBJAGQAIAA3ADMANAAyADAAMQA=",
+            "provenance": "deobfuscator_recovered",
+            "recovery_kind": "script_text",
+            "recovered_text": "Get-Process -Id 734201",
+            "recovered_bytes_base64": null,
+            "dependencies": [
+              "T0001"
+            ],
+            "status": "success",
+            "deterministic_verified": true,
+            "warnings": [
+              "Decoded text only; syntactic validity, reachability and semantic equivalence are not proved."
+            ],
+            "added_operation": "LAUNCHER_ENCCMD",
+            "output_layer_id": "L2"
+          }
+        ],
+        "unresolved": [],
+        "techniques_detected": [
+          "OT-B64-ENCCMD"
+        ],
+        "limits_hit": [],
+        "warnings": [],
+        "work_units": 1308,
+        "artifact_bytes": 510
+      },
+      "detection_limits": {
+        "max_operations": 512,
+        "max_findings": 256,
+        "max_indicators": 128,
+        "max_evidence": 1024
+      },
+      "added_operations": [],
+      "behaviors": [
+        "B05"
+      ],
+      "findings": [
+        {
+          "finding_id": "F0001",
+          "behavior_id": "B05",
+          "rule_id": "BD-B05-HOSTQUERY",
+          "description": "Consulta explícita de información del host.",
+          "operation_source": {
+            "layer_id": "L2",
+            "start": 0,
+            "end": 22,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 23
+          },
+          "evidence_ids": [
+            "E0001"
+          ],
+          "support": "individual",
+          "conditions": [
+            "Consulta explícita en posición de comando."
+          ],
+          "limitations": [
+            "No infiere intención; no resuelve funciones/alias que oculten cmdlets."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E0001",
+          "role": "operation",
+          "source": {
+            "layer_id": "L2",
+            "start": 0,
+            "end": 22,
+            "line": 1,
+            "column": 1,
+            "end_line": 1,
+            "end_column": 23
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 27,
+            "end": 259,
+            "line": 1,
+            "column": 28,
+            "end_line": 1,
+            "end_column": 260
+          },
+          "fragment": "Get-Process -Id 734201",
+          "provenance": "deobfuscator_recovered",
+          "recovered_value": null,
+          "transformation_ids": [
+            "T0002"
+          ]
+        }
+      ],
+      "indicators": [],
+      "obstructing_techniques": [],
+      "warnings": [
+        "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+        "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+      ],
+      "limits_hit": [],
+      "operations_examined": 3,
+      "work_units": 439,
+      "artifact_bytes": 22
+    },
+    "llm": null,
+    "llm_review_status": "unreviewed_model_claims",
+    "evidence": [],
+    "risk_label": "unknown",
+    "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+    "limitations": [
+      "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "errors": [],
+    "operational": {}
+  },
+  "empty": {
+    "schema_version": "pipeline-v1",
+    "run_id": "197697be-7b04-46cb-9ef3-669abe8433b0",
+    "configuration": "A",
+    "status": "completed",
+    "input_sha256": "8107ea774ea7c537feca41d9c8553444e488008d501f12de7a5e6ea4ccf8b11d",
+    "original": "Write-Output 'static-only'",
+    "started_at": "2026-11-09T18:52:14.124918+00:00",
+    "duration_seconds": 0.0002589999994597747,
+    "engine_versions": {
+      "orchestrator": "pipeline-v1",
+      "deobfuscator": "static-subset-v1",
+      "detector": "static-behaviors-v1"
+    },
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "8107ea774ea7c537feca41d9c8553444e488008d501f12de7a5e6ea4ccf8b11d",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "complete",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "Write-Output 'static-only'",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        }
+      ],
+      "transformations": [],
+      "unresolved": [],
+      "techniques_detected": [],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 33,
+      "artifact_bytes": 0
+    },
+    "deterministic": {
+      "schema_version": "behavior-analysis-v1",
+      "ruleset_version": "static-behaviors-v1",
+      "status": "complete",
+      "coverage_partial": true,
+      "deobfuscation": {
+        "schema_version": "deobfuscation-v1",
+        "engine_version": "static-subset-v1",
+        "input_sha256": "8107ea774ea7c537feca41d9c8553444e488008d501f12de7a5e6ea4ccf8b11d",
+        "source_name": "input",
+        "input_provenance": "original",
+        "status": "complete",
+        "semantic_equivalence": "not_claimed",
+        "limits": {
+          "max_input_bytes": 65536,
+          "max_artifact_bytes": 262144,
+          "max_total_artifact_bytes": 2097152,
+          "max_transformations": 512,
+          "max_depth": 3,
+          "max_expression_depth": 24,
+          "max_concat_terms": 128,
+          "max_tokens": 50000,
+          "max_work_units": 4000000,
+          "max_unresolved": 128
+        },
+        "layers": [
+          {
+            "layer_id": "L0",
+            "source_name": "input",
+            "provenance": "original",
+            "text": "Write-Output 'static-only'",
+            "depth": 0,
+            "parent_transformation_id": null,
+            "root_source": null
+          }
+        ],
+        "transformations": [],
+        "unresolved": [],
+        "techniques_detected": [],
+        "limits_hit": [],
+        "warnings": [],
+        "work_units": 33,
+        "artifact_bytes": 0
+      },
+      "detection_limits": {
+        "max_operations": 512,
+        "max_findings": 256,
+        "max_indicators": 128,
+        "max_evidence": 1024
+      },
+      "added_operations": [],
+      "behaviors": [],
+      "findings": [],
+      "evidence": [],
+      "indicators": [],
+      "obstructing_techniques": [],
+      "warnings": [
+        "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+        "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+      ],
+      "limits_hit": [],
+      "operations_examined": 1,
+      "work_units": 35,
+      "artifact_bytes": 0
+    },
+    "llm": null,
+    "llm_review_status": "unreviewed_model_claims",
+    "evidence": [],
+    "risk_label": "unknown",
+    "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+    "limitations": [
+      "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "errors": [],
+    "operational": {}
+  },
+  "unicode": {
+    "schema_version": "pipeline-v1",
+    "run_id": "8338505f-82f3-470e-b6ec-5b5829c83243",
+    "configuration": "A",
+    "status": "completed",
+    "input_sha256": "0a4ee17b7e37bf6ebc85759a998ff3c44916df128734874148a9f999d6cb6581",
+    "original": "# á🧪\r\nGet-Process -Id 734201\r\n",
+    "started_at": "2026-11-09T18:52:14.125223+00:00",
+    "duration_seconds": 0.0006855000001451117,
+    "engine_versions": {
+      "orchestrator": "pipeline-v1",
+      "deobfuscator": "static-subset-v1",
+      "detector": "static-behaviors-v1"
+    },
+    "deobfuscation": {
+      "schema_version": "deobfuscation-v1",
+      "engine_version": "static-subset-v1",
+      "input_sha256": "0a4ee17b7e37bf6ebc85759a998ff3c44916df128734874148a9f999d6cb6581",
+      "source_name": "input",
+      "input_provenance": "original",
+      "status": "complete",
+      "semantic_equivalence": "not_claimed",
+      "limits": {
+        "max_input_bytes": 65536,
+        "max_artifact_bytes": 262144,
+        "max_total_artifact_bytes": 2097152,
+        "max_transformations": 512,
+        "max_depth": 3,
+        "max_expression_depth": 24,
+        "max_concat_terms": 128,
+        "max_tokens": 50000,
+        "max_work_units": 4000000,
+        "max_unresolved": 128
+      },
+      "layers": [
+        {
+          "layer_id": "L0",
+          "source_name": "input",
+          "provenance": "original",
+          "text": "# á🧪\r\nGet-Process -Id 734201\r\n",
+          "depth": 0,
+          "parent_transformation_id": null,
+          "root_source": null
+        }
+      ],
+      "transformations": [],
+      "unresolved": [],
+      "techniques_detected": [],
+      "limits_hit": [],
+      "warnings": [],
+      "work_units": 45,
+      "artifact_bytes": 0
+    },
+    "deterministic": {
+      "schema_version": "behavior-analysis-v1",
+      "ruleset_version": "static-behaviors-v1",
+      "status": "complete",
+      "coverage_partial": true,
+      "deobfuscation": {
+        "schema_version": "deobfuscation-v1",
+        "engine_version": "static-subset-v1",
+        "input_sha256": "0a4ee17b7e37bf6ebc85759a998ff3c44916df128734874148a9f999d6cb6581",
+        "source_name": "input",
+        "input_provenance": "original",
+        "status": "complete",
+        "semantic_equivalence": "not_claimed",
+        "limits": {
+          "max_input_bytes": 65536,
+          "max_artifact_bytes": 262144,
+          "max_total_artifact_bytes": 2097152,
+          "max_transformations": 512,
+          "max_depth": 3,
+          "max_expression_depth": 24,
+          "max_concat_terms": 128,
+          "max_tokens": 50000,
+          "max_work_units": 4000000,
+          "max_unresolved": 128
+        },
+        "layers": [
+          {
+            "layer_id": "L0",
+            "source_name": "input",
+            "provenance": "original",
+            "text": "# á🧪\r\nGet-Process -Id 734201\r\n",
+            "depth": 0,
+            "parent_transformation_id": null,
+            "root_source": null
+          }
+        ],
+        "transformations": [],
+        "unresolved": [],
+        "techniques_detected": [],
+        "limits_hit": [],
+        "warnings": [],
+        "work_units": 45,
+        "artifact_bytes": 0
+      },
+      "detection_limits": {
+        "max_operations": 512,
+        "max_findings": 256,
+        "max_indicators": 128,
+        "max_evidence": 1024
+      },
+      "added_operations": [],
+      "behaviors": [
+        "B05"
+      ],
+      "findings": [
+        {
+          "finding_id": "F0001",
+          "behavior_id": "B05",
+          "rule_id": "BD-B05-HOSTQUERY",
+          "description": "Consulta explícita de información del host.",
+          "operation_source": {
+            "layer_id": "L0",
+            "start": 6,
+            "end": 28,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 23
+          },
+          "evidence_ids": [
+            "E0001"
+          ],
+          "support": "individual",
+          "conditions": [
+            "Consulta explícita en posición de comando."
+          ],
+          "limitations": [
+            "No infiere intención; no resuelve funciones/alias que oculten cmdlets."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E0001",
+          "role": "operation",
+          "source": {
+            "layer_id": "L0",
+            "start": 6,
+            "end": 28,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 23
+          },
+          "root_source": {
+            "layer_id": "L0",
+            "start": 6,
+            "end": 28,
+            "line": 2,
+            "column": 1,
+            "end_line": 2,
+            "end_column": 23
+          },
+          "fragment": "Get-Process -Id 734201",
+          "provenance": "original",
+          "recovered_value": null,
+          "transformation_ids": []
+        }
+      ],
+      "indicators": [],
+      "obstructing_techniques": [],
+      "warnings": [
+        "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+        "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+      ],
+      "limits_hit": [],
+      "operations_examined": 1,
+      "work_units": 69,
+      "artifact_bytes": 22
+    },
+    "llm": null,
+    "llm_review_status": "unreviewed_model_claims",
+    "evidence": [],
+    "risk_label": "unknown",
+    "risk_rationale": "Deterministic behavior does not establish intent or safety.",
+    "limitations": [
+      "Static subset only; no execution/effect/safety guarantee. Unsupported syntax can hide behavior.",
+      "Reconocedor estático parcial: no prueba ejecución, alcanzabilidad, intención ni ausencia de otros comportamientos.",
+      "Resolución de nombres y procedencia funcional de IEX no se prueban; declare los wrappers añadidos conocidos."
+    ],
+    "errors": [],
+    "operational": {}
+  }
+}

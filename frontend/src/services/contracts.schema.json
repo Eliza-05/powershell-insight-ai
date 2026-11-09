@@ -1,0 +1,1435 @@
+{
+  "$defs": {
+    "AddedOperation": {
+      "additionalProperties": false,
+      "description": "Caller-declared transformation metadata, never inferred from expected labels.",
+      "properties": {
+        "operation": {
+          "const": "EXEC_WRAPPER_IEX",
+          "title": "Operation",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceSpan"
+        }
+      },
+      "required": [
+        "operation",
+        "source"
+      ],
+      "title": "AddedOperation",
+      "type": "object"
+    },
+    "ApiError": {
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "details": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Details",
+          "type": "array"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "ApiError",
+      "type": "object"
+    },
+    "BehaviorAnalysisResult": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "behavior-analysis-v1",
+          "default": "behavior-analysis-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "ruleset_version": {
+          "const": "static-behaviors-v1",
+          "default": "static-behaviors-v1",
+          "title": "Ruleset Version",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "rejected"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "coverage_partial": {
+          "const": true,
+          "default": true,
+          "title": "Coverage Partial",
+          "type": "boolean"
+        },
+        "deobfuscation": {
+          "$ref": "#/$defs/DeobfuscationResult"
+        },
+        "detection_limits": {
+          "$ref": "#/$defs/DetectionLimits"
+        },
+        "added_operations": {
+          "items": {
+            "$ref": "#/$defs/AddedOperation"
+          },
+          "title": "Added Operations",
+          "type": "array"
+        },
+        "behaviors": {
+          "items": {
+            "$ref": "#/$defs/BehaviorId"
+          },
+          "title": "Behaviors",
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/BehaviorFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/DetectionEvidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "indicators": {
+          "items": {
+            "$ref": "#/$defs/BehaviorIndicator"
+          },
+          "title": "Indicators",
+          "type": "array"
+        },
+        "obstructing_techniques": {
+          "items": {
+            "$ref": "#/$defs/ObfuscationTechnique"
+          },
+          "title": "Obstructing Techniques",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "limits_hit": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limits Hit",
+          "type": "array"
+        },
+        "operations_examined": {
+          "minimum": 0,
+          "title": "Operations Examined",
+          "type": "integer"
+        },
+        "work_units": {
+          "minimum": 0,
+          "title": "Work Units",
+          "type": "integer"
+        },
+        "artifact_bytes": {
+          "minimum": 0,
+          "title": "Artifact Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "deobfuscation",
+        "detection_limits",
+        "operations_examined",
+        "work_units",
+        "artifact_bytes"
+      ],
+      "title": "BehaviorAnalysisResult",
+      "type": "object"
+    },
+    "BehaviorFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "finding_id": {
+          "title": "Finding Id",
+          "type": "string"
+        },
+        "behavior_id": {
+          "$ref": "#/$defs/BehaviorId"
+        },
+        "rule_id": {
+          "enum": [
+            "BD-B01-WEBGET",
+            "BD-B01-WEBCLIENT",
+            "BD-B02-IEX",
+            "BD-B03-RUNWRITE",
+            "BD-B04-DEFENDER-DISABLE",
+            "BD-B04-DEFENDER-EXCLUSION",
+            "BD-B04-FIREWALL-DISABLE",
+            "BD-B05-HOSTQUERY",
+            "BD-B05-RUNQUERY",
+            "BD-B06-HTTP-SEND",
+            "BD-B06-CONNECTIVITY",
+            "BD-B07-STORED-CREDENTIAL"
+          ],
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "operation_source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "support": {
+          "enum": [
+            "individual",
+            "contextual"
+          ],
+          "title": "Support",
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Conditions",
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "finding_id",
+        "behavior_id",
+        "rule_id",
+        "description",
+        "operation_source",
+        "evidence_ids",
+        "support",
+        "conditions"
+      ],
+      "title": "BehaviorFinding",
+      "type": "object"
+    },
+    "BehaviorId": {
+      "enum": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07"
+      ],
+      "title": "BehaviorId",
+      "type": "string"
+    },
+    "BehaviorIndicator": {
+      "additionalProperties": false,
+      "properties": {
+        "indicator_id": {
+          "title": "Indicator Id",
+          "type": "string"
+        },
+        "behavior_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BehaviorId"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "rule_id": {
+          "anyOf": [
+            {
+              "enum": [
+                "BD-B01-WEBGET",
+                "BD-B01-WEBCLIENT",
+                "BD-B02-IEX",
+                "BD-B03-RUNWRITE",
+                "BD-B04-DEFENDER-DISABLE",
+                "BD-B04-DEFENDER-EXCLUSION",
+                "BD-B04-FIREWALL-DISABLE",
+                "BD-B05-HOSTQUERY",
+                "BD-B05-RUNQUERY",
+                "BD-B06-HTTP-SEND",
+                "BD-B06-CONNECTIVITY",
+                "BD-B07-STORED-CREDENTIAL"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rule Id"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "indicator_id",
+        "source",
+        "reason"
+      ],
+      "title": "BehaviorIndicator",
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "snippet": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Snippet",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "snippet"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "ComparisonResult": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "comparison-v1",
+          "default": "comparison-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/$defs/PipelineResult"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Results",
+          "type": "array"
+        },
+        "quality_metrics_computed": {
+          "const": false,
+          "default": false,
+          "title": "Quality Metrics Computed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "results"
+      ],
+      "title": "ComparisonResult",
+      "type": "object"
+    },
+    "DeobfuscationLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_input_bytes": {
+          "default": 1048576,
+          "maximum": 4194304,
+          "minimum": 1,
+          "title": "Max Input Bytes",
+          "type": "integer"
+        },
+        "max_artifact_bytes": {
+          "default": 262144,
+          "maximum": 1048576,
+          "minimum": 1,
+          "title": "Max Artifact Bytes",
+          "type": "integer"
+        },
+        "max_total_artifact_bytes": {
+          "default": 2097152,
+          "maximum": 8388608,
+          "minimum": 1,
+          "title": "Max Total Artifact Bytes",
+          "type": "integer"
+        },
+        "max_transformations": {
+          "default": 512,
+          "maximum": 4096,
+          "minimum": 1,
+          "title": "Max Transformations",
+          "type": "integer"
+        },
+        "max_depth": {
+          "default": 3,
+          "maximum": 8,
+          "minimum": 0,
+          "title": "Max Depth",
+          "type": "integer"
+        },
+        "max_expression_depth": {
+          "default": 24,
+          "maximum": 48,
+          "minimum": 1,
+          "title": "Max Expression Depth",
+          "type": "integer"
+        },
+        "max_concat_terms": {
+          "default": 128,
+          "maximum": 1024,
+          "minimum": 2,
+          "title": "Max Concat Terms",
+          "type": "integer"
+        },
+        "max_tokens": {
+          "default": 50000,
+          "maximum": 200000,
+          "minimum": 1,
+          "title": "Max Tokens",
+          "type": "integer"
+        },
+        "max_work_units": {
+          "default": 4000000,
+          "maximum": 16000000,
+          "minimum": 1,
+          "title": "Max Work Units",
+          "type": "integer"
+        },
+        "max_unresolved": {
+          "default": 128,
+          "maximum": 1024,
+          "minimum": 1,
+          "title": "Max Unresolved",
+          "type": "integer"
+        }
+      },
+      "title": "DeobfuscationLimits",
+      "type": "object"
+    },
+    "DeobfuscationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "deobfuscation-v1",
+          "default": "deobfuscation-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "engine_version": {
+          "const": "static-subset-v1",
+          "default": "static-subset-v1",
+          "title": "Engine Version",
+          "type": "string"
+        },
+        "input_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Input Sha256"
+        },
+        "source_name": {
+          "maxLength": 1024,
+          "title": "Source Name",
+          "type": "string"
+        },
+        "input_provenance": {
+          "enum": [
+            "original",
+            "obfuscated_variant",
+            "reference_manual",
+            "reference_decoded"
+          ],
+          "title": "Input Provenance",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "rejected"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "semantic_equivalence": {
+          "const": "not_claimed",
+          "default": "not_claimed",
+          "title": "Semantic Equivalence",
+          "type": "string"
+        },
+        "limits": {
+          "$ref": "#/$defs/DeobfuscationLimits"
+        },
+        "layers": {
+          "items": {
+            "$ref": "#/$defs/SourceLayer"
+          },
+          "title": "Layers",
+          "type": "array"
+        },
+        "transformations": {
+          "items": {
+            "$ref": "#/$defs/Transformation"
+          },
+          "title": "Transformations",
+          "type": "array"
+        },
+        "unresolved": {
+          "items": {
+            "$ref": "#/$defs/UnresolvedFragment"
+          },
+          "title": "Unresolved",
+          "type": "array"
+        },
+        "techniques_detected": {
+          "items": {
+            "$ref": "#/$defs/ObfuscationTechnique"
+          },
+          "title": "Techniques Detected",
+          "type": "array"
+        },
+        "limits_hit": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limits Hit",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "work_units": {
+          "minimum": 0,
+          "title": "Work Units",
+          "type": "integer"
+        },
+        "artifact_bytes": {
+          "minimum": 0,
+          "title": "Artifact Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_sha256",
+        "source_name",
+        "input_provenance",
+        "status",
+        "limits",
+        "work_units",
+        "artifact_bytes"
+      ],
+      "title": "DeobfuscationResult",
+      "type": "object"
+    },
+    "DetectionEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "operation",
+            "argument",
+            "receiver",
+            "execution_input"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "root_source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "fragment": {
+          "title": "Fragment",
+          "type": "string"
+        },
+        "provenance": {
+          "enum": [
+            "original",
+            "obfuscated_variant",
+            "reference_manual",
+            "reference_decoded",
+            "deobfuscator_recovered"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "recovered_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Recovered Value"
+        },
+        "transformation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Transformation Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "role",
+        "source",
+        "root_source",
+        "fragment",
+        "provenance"
+      ],
+      "title": "DetectionEvidence",
+      "type": "object"
+    },
+    "DetectionLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_operations": {
+          "default": 512,
+          "maximum": 4096,
+          "minimum": 1,
+          "title": "Max Operations",
+          "type": "integer"
+        },
+        "max_findings": {
+          "default": 256,
+          "maximum": 2048,
+          "minimum": 1,
+          "title": "Max Findings",
+          "type": "integer"
+        },
+        "max_indicators": {
+          "default": 128,
+          "maximum": 1024,
+          "minimum": 1,
+          "title": "Max Indicators",
+          "type": "integer"
+        },
+        "max_evidence": {
+          "default": 1024,
+          "maximum": 8192,
+          "minimum": 1,
+          "title": "Max Evidence",
+          "type": "integer"
+        }
+      },
+      "title": "DetectionLimits",
+      "type": "object"
+    },
+    "ErrorResponse": {
+      "properties": {
+        "error": {
+          "$ref": "#/$defs/ApiError"
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "title": "ErrorResponse",
+      "type": "object"
+    },
+    "InjectionAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "detected": {
+          "title": "Detected",
+          "type": "boolean"
+        },
+        "snippets": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Snippets",
+          "type": "array"
+        },
+        "notes": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "detected",
+        "snippets",
+        "notes"
+      ],
+      "title": "InjectionAssessment",
+      "type": "object"
+    },
+    "Level": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Level",
+      "type": "string"
+    },
+    "ModelFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior_id": {
+          "$ref": "#/$defs/BehaviorId"
+        },
+        "explanation": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Explanation",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Level"
+        }
+      },
+      "required": [
+        "behavior_id",
+        "explanation",
+        "evidence",
+        "confidence"
+      ],
+      "title": "ModelFinding",
+      "type": "object"
+    },
+    "ModelReport": {
+      "additionalProperties": false,
+      "properties": {
+        "obfuscation_techniques": {
+          "items": {
+            "$ref": "#/$defs/ObfuscationTechnique"
+          },
+          "maxItems": 6,
+          "title": "Obfuscation Techniques",
+          "type": "array"
+        },
+        "recovered_content": {
+          "description": "Model reconstructions, NOT verified evidence.",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Recovered Content",
+          "type": "array"
+        },
+        "behaviors": {
+          "items": {
+            "$ref": "#/$defs/ModelFinding"
+          },
+          "maxItems": 7,
+          "title": "Behaviors",
+          "type": "array"
+        },
+        "risk_label": {
+          "$ref": "#/$defs/RiskLabel"
+        },
+        "risk_rationale": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Risk Rationale",
+          "type": "string"
+        },
+        "uncertainty": {
+          "$ref": "#/$defs/ModelUncertainty"
+        },
+        "prompt_injection": {
+          "$ref": "#/$defs/InjectionAssessment"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 32,
+          "title": "Limitations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "obfuscation_techniques",
+        "recovered_content",
+        "behaviors",
+        "risk_label",
+        "risk_rationale",
+        "uncertainty",
+        "prompt_injection",
+        "limitations"
+      ],
+      "title": "ModelReport",
+      "type": "object"
+    },
+    "ModelUncertainty": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/Level"
+        },
+        "uninterpretable_fragments": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 32,
+          "title": "Uninterpretable Fragments",
+          "type": "array"
+        },
+        "notes": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "level",
+        "uninterpretable_fragments",
+        "notes"
+      ],
+      "title": "ModelUncertainty",
+      "type": "object"
+    },
+    "ObfuscationTechnique": {
+      "enum": [
+        "OT-B64-ENCCMD",
+        "OT-B64-INLINE",
+        "OT-CONCAT",
+        "OT-VARSUB",
+        "OT-FORMAT",
+        "OT-OTHER"
+      ],
+      "title": "ObfuscationTechnique",
+      "type": "string"
+    },
+    "PipelineError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "stage": {
+          "title": "Stage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "stage"
+      ],
+      "title": "PipelineError",
+      "type": "object"
+    },
+    "PipelineResult": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "pipeline-v1",
+          "default": "pipeline-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "configuration": {
+          "enum": [
+            "A",
+            "B",
+            "C"
+          ],
+          "title": "Configuration",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "partial",
+            "rejected",
+            "unavailable",
+            "error"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "input_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Sha256"
+        },
+        "original": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Original"
+        },
+        "started_at": {
+          "title": "Started At",
+          "type": "string"
+        },
+        "duration_seconds": {
+          "minimum": 0,
+          "title": "Duration Seconds",
+          "type": "number"
+        },
+        "engine_versions": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Engine Versions",
+          "type": "object"
+        },
+        "deobfuscation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DeobfuscationResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "deterministic": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BehaviorAnalysisResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "llm": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ModelReport"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "llm_review_status": {
+          "const": "unreviewed_model_claims",
+          "default": "unreviewed_model_claims",
+          "title": "Llm Review Status",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/ValidatedEvidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "risk_label": {
+          "$ref": "#/$defs/RiskLabel",
+          "default": "unknown"
+        },
+        "risk_rationale": {
+          "default": "Deterministic behavior does not establish intent or safety.",
+          "title": "Risk Rationale",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/$defs/PipelineError"
+          },
+          "title": "Errors",
+          "type": "array"
+        },
+        "operational": {
+          "additionalProperties": true,
+          "title": "Operational",
+          "type": "object"
+        }
+      },
+      "required": [
+        "run_id",
+        "configuration",
+        "status",
+        "started_at",
+        "duration_seconds"
+      ],
+      "title": "PipelineResult",
+      "type": "object"
+    },
+    "RiskLabel": {
+      "enum": [
+        "benign",
+        "suspicious",
+        "high_risk",
+        "unknown"
+      ],
+      "title": "RiskLabel",
+      "type": "string"
+    },
+    "SourceLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "source_name": {
+          "maxLength": 1024,
+          "title": "Source Name",
+          "type": "string"
+        },
+        "provenance": {
+          "enum": [
+            "original",
+            "obfuscated_variant",
+            "reference_manual",
+            "reference_decoded",
+            "deobfuscator_recovered"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "depth": {
+          "minimum": 0,
+          "title": "Depth",
+          "type": "integer"
+        },
+        "parent_transformation_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Transformation Id"
+        },
+        "root_source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SourceSpan"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "layer_id",
+        "source_name",
+        "provenance",
+        "text",
+        "depth"
+      ],
+      "title": "SourceLayer",
+      "type": "object"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "line": {
+          "minimum": 1,
+          "title": "Line",
+          "type": "integer"
+        },
+        "column": {
+          "minimum": 1,
+          "title": "Column",
+          "type": "integer"
+        },
+        "end_line": {
+          "minimum": 1,
+          "title": "End Line",
+          "type": "integer"
+        },
+        "end_column": {
+          "minimum": 1,
+          "title": "End Column",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "layer_id",
+        "start",
+        "end",
+        "line",
+        "column",
+        "end_line",
+        "end_column"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    },
+    "Transformation": {
+      "additionalProperties": false,
+      "properties": {
+        "transformation_id": {
+          "title": "Transformation Id",
+          "type": "string"
+        },
+        "technique": {
+          "$ref": "#/$defs/ObfuscationTechnique"
+        },
+        "source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "root_source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "original_fragment": {
+          "title": "Original Fragment",
+          "type": "string"
+        },
+        "provenance": {
+          "const": "deobfuscator_recovered",
+          "default": "deobfuscator_recovered",
+          "title": "Provenance",
+          "type": "string"
+        },
+        "recovery_kind": {
+          "enum": [
+            "script_text",
+            "string",
+            "bytes",
+            "variable_definition",
+            "variable_use",
+            "unresolved"
+          ],
+          "title": "Recovery Kind",
+          "type": "string"
+        },
+        "recovered_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Recovered Text"
+        },
+        "recovered_bytes_base64": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Recovered Bytes Base64"
+        },
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "success",
+            "partial",
+            "failed",
+            "unsupported"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "deterministic_verified": {
+          "title": "Deterministic Verified",
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "added_operation": {
+          "anyOf": [
+            {
+              "const": "LAUNCHER_ENCCMD",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Added Operation"
+        },
+        "output_layer_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Layer Id"
+        }
+      },
+      "required": [
+        "transformation_id",
+        "technique",
+        "source",
+        "root_source",
+        "original_fragment",
+        "recovery_kind",
+        "status",
+        "deterministic_verified"
+      ],
+      "title": "Transformation",
+      "type": "object"
+    },
+    "UnresolvedFragment": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "technique_hint": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObfuscationTechnique"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "transformation_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Transformation Id"
+        }
+      },
+      "required": [
+        "source",
+        "reason"
+      ],
+      "title": "UnresolvedFragment",
+      "type": "object"
+    },
+    "ValidatedEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "behavior_id": {
+          "$ref": "#/$defs/BehaviorId"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "snippet": {
+          "title": "Snippet",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "line": {
+          "minimum": 1,
+          "title": "Line",
+          "type": "integer"
+        },
+        "column": {
+          "minimum": 1,
+          "title": "Column",
+          "type": "integer"
+        },
+        "provenance": {
+          "enum": [
+            "original",
+            "deobfuscator_recovered"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "root_source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SourceSpan"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "transformation_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Transformation Id"
+        },
+        "validation": {
+          "const": "literal_only_semantics_unverified",
+          "default": "literal_only_semantics_unverified",
+          "title": "Validation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "behavior_id",
+        "source_id",
+        "snippet",
+        "start",
+        "end",
+        "line",
+        "column",
+        "provenance"
+      ],
+      "title": "ValidatedEvidence",
+      "type": "object"
+    }
+  }
+}

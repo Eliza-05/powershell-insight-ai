@@ -38,7 +38,7 @@ async function loadExample(user: ReturnType<typeof userEvent.setup>) {
 describe('Workspace', () => {
   it('starts empty with A selected and never infers on mount', async () => {
     await renderApp()
-    expect(screen.getByRole('heading', { name: 'Una lectura. Tres perspectivas.' })).toBeVisible()
+    expect(screen.getByRole('heading', { name: 'Sin análisis todavía' })).toBeVisible()
     expect(screen.getByRole('radio', { name: 'A · Determinista' })).toBeChecked()
     expect(screen.getByRole('button', { name: /Analizar script/ })).toBeDisabled()
     expect(api.analyze).not.toHaveBeenCalled()
@@ -52,14 +52,14 @@ describe('Workspace', () => {
     expect(await screen.findByRole('heading', { name: 'Reconocimiento' })).toBeVisible()
     expect(screen.getByText('REGLA')).toBeVisible()
     expect(screen.getByText('Desofuscador 1A + detector 1B')).toBeVisible()
-    expect(screen.getByText(/El motor identifica operaciones/)).toBeVisible()
+    expect(screen.getByText('Riesgo: no aplica (A no clasifica riesgo)')).toBeVisible()
   })
   it('shows a real loading state, blocks duplicates and isolates selection', async () => {
     let finish!: (value: AnalysisResponse) => void
     vi.mocked(api.analyze).mockImplementation(() => new Promise(resolve => { finish = resolve }))
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))
-    expect(await screen.findByText('Conectando las evidencias')).toBeVisible()
+    expect(await screen.findByText('Análisis A en curso')).toBeVisible()
     expect(screen.getByRole('textbox', { name: 'Script PowerShell' })).toBeDisabled()
     expect(screen.getByRole('radio', { name: 'B · LLM directo' })).toBeDisabled()
     expect(api.analyze).toHaveBeenCalledTimes(1)
@@ -71,7 +71,7 @@ describe('Workspace', () => {
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))
     expect(await screen.findByRole('alert')).toHaveTextContent('API local no disponible')
-    expect(screen.getByRole('heading', { name: 'Una lectura. Tres perspectivas.' })).toBeVisible()
+    expect(screen.getByRole('heading', { name: 'Sin análisis todavía' })).toBeVisible()
     expect(api.analyze).toHaveBeenCalledTimes(1)
   })
   it('shows stale results after edits and does not relabel them', async () => {
@@ -91,13 +91,16 @@ describe('Workspace', () => {
   })
   it('changes and persists light/dark preference without storing source', async () => {
     const user = await renderApp()
+    // Light is the default theme; the first toggle switches to dark.
+    expect(document.documentElement).toHaveAttribute('data-theme', 'light')
+    await user.click(screen.getByRole('button', { name: 'Activar modo oscuro' }))
+    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+    expect(localStorage.getItem('psi-theme')).toBe('dark')
+    await loadExample(user)
+    expect(localStorage.length).toBe(1)
     await user.click(screen.getByRole('button', { name: 'Activar modo claro' }))
     expect(document.documentElement).toHaveAttribute('data-theme', 'light')
     expect(localStorage.getItem('psi-theme')).toBe('light')
-    await loadExample(user)
-    expect(localStorage.length).toBe(1)
-    await user.click(screen.getByRole('button', { name: 'Activar modo oscuro' }))
-    expect(localStorage.getItem('psi-theme')).toBe('dark')
   })
   it('exposes model state and digest from the header even without the desktop sidebar', async () => {
     const user = await renderApp()
@@ -113,7 +116,7 @@ describe('Workspace', () => {
     const user = await renderApp()
     await user.click(screen.getByRole('button', { name: 'Abrir ayuda contextual' }))
     expect(screen.getByRole('dialog')).toBeVisible()
-    expect(screen.getByText('Qwen2.5-Coder 14B es experimental.')).toBeVisible()
+    expect(screen.getByText('qwen3.5:4b-q4_K_M es experimental.')).toBeVisible()
     await user.click(screen.getByText('Estado de la investigación y pendientes de Fase 4'))
     expect(screen.getByText(/Piloto histórico Qwen3.5 v2: PENDIENTE/)).toBeVisible()
     await user.click(screen.getByRole('button', { name: 'Volver al estudio' }))
@@ -178,8 +181,8 @@ describe('Resultados y procedencia', () => {
     const user = await renderApp(); await loadExample(user)
     await user.click(screen.getByRole('radio', { name: 'C · LLM asistido' }))
     await user.click(screen.getByRole('button', { name: /Analizar script/ }))
-    expect(await screen.findByText('OT-CONCAT · 1A')).toBeVisible()
-    expect(screen.getByText('OT-CONCAT · LLM')).toBeVisible()
+    expect(await screen.findByText('Concatenación · OT-CONCAT · 1A')).toBeVisible()
+    expect(screen.getByText('Concatenación · OT-CONCAT · LLM')).toBeVisible()
   })
   it('marks differences without reporting a comparative quality score', async () => {
     const value = structuredClone(comparison)
@@ -219,6 +222,21 @@ describe('Resultados y procedencia', () => {
     await user.click(screen.getByRole('tab', { name: 'Recuperación' }))
     expect(screen.getByText('Fragmentos aún desconocidos')).toBeVisible()
   })
+  it('groups a failed 1A step with its unresolved fragment and shows Spanish labels and numbers', async () => {
+    vi.mocked(api.analyze).mockResolvedValue(partial)
+    const user = await renderApp(); await loadExample(user)
+    await user.click(screen.getByRole('radio', { name: 'C · LLM asistido' }))
+    await user.click(screen.getByRole('button', { name: /Analizar script/ }))
+    expect(await screen.findByText('0,00 s')).toBeVisible() // decimal comma
+    await user.click(screen.getByRole('tab', { name: 'Traza 1A' }))
+    const entries = document.querySelectorAll('.trace-entry')
+    expect(entries).toHaveLength(1) // step and unresolved fragment share L0 position: one grouped entry
+    const entry = entries[0] as HTMLElement
+    expect(within(entry).getByText('Sustitución de variable · OT-VARSUB')).toBeVisible()
+    expect(entry).toHaveTextContent('fallida · sin resolver')
+    expect(entry).toHaveTextContent('Motivo técnico: No unambiguous prior literal binding in the supported scope.')
+    expect(within(entry).getByRole('button', { name: /Ver origen de T/ })).toBeVisible()
+  })
   it('rejected model output is never shown as accepted findings or HTML', async () => {
     vi.mocked(api.analyze).mockResolvedValue(rejected)
     const user = await renderApp(); await loadExample(user)
@@ -246,6 +264,22 @@ describe('Resultados y procedencia', () => {
     await user.click(screen.getByRole('tab', { name: 'Recuperación' }))
     expect(screen.getByText('studio-local')).toBeVisible()
     expect(screen.getByText('Verificado por 1A')).toBeVisible()
+  })
+  it('numbers every script line and locates the exact cited fragment from the findings table', async () => {
+    const user = await renderApp(); await loadExample(user)
+    const gutter = document.querySelector('.line-numbers')!
+    expect(Array.from(gutter.children, n => n.textContent)).toEqual(['1', '2'])
+    await user.click(screen.getByRole('button', { name: /Analizar script/ }))
+    await screen.findByRole('heading', { name: 'Reconocimiento' })
+    await user.click(screen.getByRole('button', { name: 'Ver origen de B05' }))
+    const editor = screen.getByRole('textbox', { name: 'Script PowerShell' }) as HTMLTextAreaElement
+    expect(editor).toHaveFocus()
+    expect(editor.value.slice(editor.selectionStart, editor.selectionEnd)).toBe('Get-Process -Id 734201')
+    expect(editor.value.slice(0, editor.selectionStart).split('\n')).toHaveLength(2) // second line, as the anchor says
+    expect(Array.from(document.querySelectorAll('.line-numbers .is-marked'), n => n.textContent)).toEqual(['2'])
+    expect(document.querySelector('.line-mark')).not.toBeNull()
+    await user.type(editor, ' ') // editing the text drops the mark: it no longer matches the analysed source
+    expect(document.querySelector('.line-mark')).toBeNull()
   })
   it('supports keyboard navigation between result tabs', async () => {
     const user = await renderApp(); await loadExample(user)
