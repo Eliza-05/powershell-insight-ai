@@ -78,16 +78,34 @@ class LocalBoundary:
         await self.app(scope, receive, send)
 
 
+PROFILES = ("qwen14", "qwen3coder-v2")
+
+
+def selected_profile():
+    """PSI_LLM_PROFILE picks exactly one local profile; unknown values fail (no silent fallback)."""
+    profile = os.environ.get("PSI_LLM_PROFILE", "qwen14")
+    if profile not in PROFILES:
+        raise ValueError(f"PSI_LLM_PROFILE must be one of {PROFILES}")
+    return profile
+
+
 def load_pipeline_settings():
-    from app.services.llm.qwen14_prototype import load_settings
+    if selected_profile() == "qwen3coder-v2":
+        from app.services.llm.qwen3coder_prototype import load_settings
+    else:
+        from app.services.llm.qwen14_prototype import load_settings
     return load_settings()
 
 
 def create_app(*, service: AnalysisService | None = None, status_provider=None, frontend_dir: Path | None = None):
     if service is None:
-        from app.services.llm.qwen14_prototype import PrototypeAdapter
-        settings = load_pipeline_settings()
-        service = AnalysisService(settings, adapter=PrototypeAdapter(settings))
+        if selected_profile() == "qwen3coder-v2":
+            from app.services.llm.qwen3coder_prototype import create_service
+            service = create_service()
+        else:
+            from app.services.llm.qwen14_prototype import PrototypeAdapter
+            settings = load_pipeline_settings()
+            service = AnalysisService(settings, adapter=PrototypeAdapter(settings))
     cfg = service.settings
     provider_metadata = getattr(service.adapter, "public_metadata", lambda: {})()
     status_provider = status_provider or (service.status if provider_metadata else

@@ -32,6 +32,8 @@ class Qwen14Settings(PipelineSettings):
                                         ge=9_100_000_000 + 7*GIB//2, strict=True)
 
 class Qwen14Transport(LocalTransport):
+    model = MODEL  # Subclasses may authorize exactly one other model; never a list.
+
     def __init__(self, *, authorize_dispatch=None, timeout=300):
         super().__init__(11434, timeout)
         self.authorize_dispatch = authorize_dispatch
@@ -39,8 +41,8 @@ class Qwen14Transport(LocalTransport):
     def json(self, endpoint, payload=None):
         if endpoint not in {"version", "tags", "ps", "show", "chat"}:
             raise OperationalFailure("endpoint_forbidden", "Experimental endpoint forbidden")
-        if payload is not None and payload.get("model") != MODEL:
-            raise OperationalFailure("model_forbidden", "Only qwen2.5-coder:14b is authorized")
+        if payload is not None and payload.get("model") != self.model:
+            raise OperationalFailure("model_forbidden", f"Only {self.model} is authorized")
         if endpoint == "chat" and (payload is None or self.authorize_dispatch is None):
             raise OperationalFailure("campaign_authorization_required", "Chat needs durable eight-attempt authorization")
         self.last_response = None

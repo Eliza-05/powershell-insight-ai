@@ -21,8 +21,11 @@ LLM_LIMITATION = "Provisional LLM. Schema and literal evidence checks do not cer
 
 
 class AnalysisService:
-    def __init__(self, settings: PipelineSettings | None = None, *, adapter: InferenceAdapter | None = None):
+    def __init__(self, settings: PipelineSettings | None = None, *, adapter: InferenceAdapter | None = None,
+                 strategy=None):
         self.settings = settings or PipelineSettings()
+        # Optional deterministic layers around the LLM (see strategy.py). None keeps v1 behavior.
+        self.strategy = strategy
         if adapter is not None and hasattr(adapter, "settings") and adapter.settings != self.settings:
             raise ValueError("Service and adapter settings must match")
         self.adapter = adapter or OllamaAdapter(self.settings)
@@ -70,8 +73,10 @@ class AnalysisService:
                     if deob.status == "rejected":
                         raise OperationalFailure("deobfuscation_rejected", "Deterministic recovery rejected input", stage)
                 stage = "context"
-                context = build_context(script, deob)
+                context = self.strategy.build_context(script, deob) if self.strategy else build_context(script, deob)
                 data["engine_versions"]["llm_contract"] = "application-report-v1"
+                if self.strategy:
+                    data["engine_versions"].update(self.strategy.versions())
                 stage = getattr(self.adapter, "provider", "ollama")
                 response = self.adapter.infer(context, data["operational"])
                 stage = "response"
@@ -79,6 +84,10 @@ class AnalysisService:
                 if not isinstance(content, str) or not content.strip():
                     raise OperationalFailure("empty_response", "Missing model JSON", "response")
                 report, evidence = validate_report(content, context)
+                if self.strategy:
+                    stage = "evidence_check"
+                    report, evidence, notes = self.strategy.post_validate(report, evidence, context, data["operational"])
+                    data["limitations"].extend(notes)
                 data.update(llm=report, evidence=evidence, risk_label=report.risk_label, risk_rationale=report.risk_rationale)
                 data["limitations"].extend(report.limitations)
                 if deob and deob.status == "partial":

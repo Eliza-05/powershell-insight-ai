@@ -29,10 +29,17 @@ class AnalysisContext:
     context_sha256: str
 
 
-def build_context(script: str, deobfuscation: DeobfuscationResult | None = None) -> AnalysisContext:
-    policy = POLICY_PATH.read_text(encoding="utf-8")
+def build_context(script: str, deobfuscation: DeobfuscationResult | None = None, *,
+                  policy_path: Path = POLICY_PATH, preprocess=None) -> AnalysisContext:
+    """`preprocess` (optional) rewrites only the text shown to the model, never `sources`.
+
+    It must preserve length and offsets (e.g. comment blanking) so citations stay literal in
+    the real original/recovery, which is what validation checks. Defaults keep v1 unchanged.
+    """
+    policy = Path(policy_path).read_text(encoding="utf-8")
+    show = preprocess or (lambda text: text)
     sources = {"original": script}
-    data = {"original": script}
+    data = {"original": show(script)}
     if deobfuscation is not None:
         # Revalidate nested/mutable structures before trusting trace provenance.
         deobfuscation = DeobfuscationResult.model_validate(deobfuscation.model_dump())
@@ -42,10 +49,10 @@ def build_context(script: str, deobfuscation: DeobfuscationResult | None = None)
         for t in deobfuscation.transformations:
             if t.deterministic_verified and t.recovered_text is not None and t.status == "success":
                 sources[t.transformation_id] = t.recovered_text
-                traces.append({"source_id": t.transformation_id, "text": t.recovered_text,
+                traces.append({"source_id": t.transformation_id, "text": show(t.recovered_text),
                                "technique": t.technique.value, "recovery_kind": t.recovery_kind,
                                "source": t.source.model_dump(), "root_source": t.root_source.model_dump(),
-                               "original_fragment": t.original_fragment, "dependencies": t.dependencies,
+                               "original_fragment": show(t.original_fragment), "dependencies": t.dependencies,
                                "warnings": t.warnings})
         data["deterministic_recovery"] = {"verified_texts": traces,
             "unresolved": [u.model_dump(mode="json") for u in deobfuscation.unresolved],
