@@ -28,7 +28,7 @@ El diagnóstico, los datos de calibración (solo desarrollo, nunca F4) y la apro
 ## 3. Infraestructura
 
 - **AWS (histórico):** la EC2 de `7fc29f8` dejó de estar disponible el 10 nov 2026, cuando AWS cerró la cuenta por una verificación de pago pendiente. Las copias, el binding y los logs recuperados de esa etapa existen solo donde se guardaron localmente (`logs/` del workspace original, ver `EVIDENCIAS.md`). Esta etapa no los modificó.
-- **Google Cloud (vigente):** proyecto `psi-cierre`, instancia `psi-cierre`, e2-standard-8 (8 vCPU, 32 GB), us-central1-c, disco balanceado de 60 GB.
+- **Google Cloud (vigente):** proyecto `psi-cierre`, instancia `psi-cierre`, us-central1-c, disco balanceado de 60 GB. Primero fue e2-standard-8 (8 vCPU AMD EPYC Rome, 32 GB); desde la campaña 3 es **n2-custom-12-49152** (12 vCPU Intel Xeon, 48 GB). Ver §7.
   - Sistema: Ubuntu 24.04.5 LTS, kernel 7.0.0-1017-gcp.
   - Python 3.13.18 en un venv propio (uv), con las dependencias fijadas de `requirements-app.txt` y `requirements-pilot.txt`. `pip check` sin conflictos.
   - Ollama 0.40.16, solo CPU, escuchando únicamente en `127.0.0.1:11434`. El modelo se descargó una vez y su digest coincide: `06c1097e…`.
@@ -79,6 +79,10 @@ Autorizada por Karol (2026-11-10 10:37 −05:00) y ejecutada en `psi-sci-4133033
 | AWS cerró la cuenta | Migración a GCP antes de congelar nada; documentada en el protocolo §4 |
 | `prepare` no puede escribir sobre el plan histórico Qwen14 | Copia científica sin ese directorio; el histórico sigue intacto en Git |
 | Chrome como root exige `--no-sandbox` | Se ejecutó como usuario no root, sin desactivar la sandbox |
+| **Campaña 1** (copia `psi-sci-4133033`, candidato `cfc1cc98`, FREEZE `cf560115`): el preflight rechazó `vm.overcommit_memory=1` de la imagen de GCP | Parada antes de cualquier llamada: 1 resultado A, 0 intenciones LLM. Se conserva con STOP. Con autorización de Karol se fijó `vm.overcommit_memory=0` (`/etc/sysctl.d/99-psi-overcommit.conf`), el valor estándar de Linux y el de AWS |
+| **Campaña 2** (`psi-sci-4133033-r2`, candidato `637dcd0b`, FREEZE `d13b8173`): la primera llamada (F4-11 B) superó el plazo de 300 s en e2-standard-8 (carga en frío 2 min 20 s + generación lenta) | Timeout, sin respuesta del modelo. 1 intención gastada, STOP, sin reintento. La primera autorización tenía la hora truncada y el validador la rechazó sin despachar nada; se reemitió con la hora completa |
+| Velocidad insuficiente en E2 | El límite de la cuenta de prueba es 12 vCPU, así que c3-standard-22 no era posible. Con autorización se cambió a **n2-custom-12-49152** (12 vCPU Intel Xeon 2,8 GHz, 48 GB). Prueba de velocidad con 7 llamadas de desarrollo (no F4): en frío desde disco, 280 s el peor caso (carga 118 s); con el modelo cargado, 37–95 s; en frío con el archivo en la caché del sistema, carga de 35 s (`bench_n2c12*.json`) |
+| Margen para la primera llamada en frío | Con autorización: 1 llamada de calentamiento con un caso de desarrollo (D04-B, carga de 36 s) y descarga del modelo (`ollama stop`) antes de la campaña 3. Se cumple `first_dispatch_requires_idle_no_residents`; el plazo de 300 s **no cambió** |
 
 ## 8. Pendiente en este informe
 
