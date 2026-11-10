@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import platform
 import random
+import os
 
 from app.schemas.deobfuscation import DeobfuscationLimits
 from app.services.deobfuscation.engine import deobfuscate
@@ -14,6 +15,12 @@ from experiments.phase4.profile import context_for, payload_for, profile_name, s
 
 
 def prepare():
+    # Validate optional operational storage metadata before importing reserved data.
+    storage_binding = None
+    if binding_path := os.getenv("PSI_PHASE4_STORAGE_BINDING"):
+        from experiments.phase4.storage import storage_snapshot
+        storage_binding = load(binding_path)
+        storage_snapshot(storage_binding)
     # Reserved authorship/solutions are loaded only by this explicitly invoked
     # preparation command, never by importing controller/profile support in tests.
     from experiments.phase4.dataset import proposed_cases
@@ -100,6 +107,8 @@ def prepare():
         "prepared_environment_only": {"python": platform.python_version(), "platform": platform.platform()},
         "execution_authorized_now": False, "reference_review_complete": False}
     configuration["llm_profile"] = profile_name(settings)
+    if storage_binding is not None:
+        configuration["model_storage_binding"] = storage_binding
     strategy = strategy_for(settings)
     if strategy:
         configuration.update(strategy=strategy.versions(), policy_text_sha256=strategy.policy_sha256,

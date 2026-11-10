@@ -1,5 +1,49 @@
 # Compatibilidad prospectiva con EC2 Ubuntu
 
+## Seguimiento: almacenamiento del candidato AWS, pendiente de commit
+
+La copia aislada del SHA `18f772ecfbf2241616ad948f36318bcb6abc6e8d` pasó 744
+pruebas nativas sin generación, pero `phase4.campaign.native_state` falla al
+medir el almacén: el HOME de ubuntu no contiene modelos y la ruta del servicio
+no es accesible a ese usuario. Dos consultas de metadatos autorizadas como
+`ollama` confirmaron la ruta canónica `/usr/share/ollama/.ollama/models` y un
+filesystem de 32.092.319.744 bytes, con unos 7,86 GiB disponibles en esa captura.
+No se leyeron pesos ni se cambiaron permisos. La opción `--existing` propuesta
+inicialmente para realpath falló; la ayuda confirmó `--canonicalize-existing`,
+con la que se completó la misma consulta de ruta.
+
+Se prepara localmente `linux-model-filesystem-binding-v1`, exclusivamente para
+contabilidad de disco del controlador. Sin binding explícito conserva la ruta
+directa y el fallo por permisos; no busca un padre silenciosamente. La opción
+`PSI_PHASE4_STORAGE_BINDING` permite incorporar los metadatos operativos al
+`configuration.json` de una propuesta nueva, que luego queda cubierto por el
+manifiesto y la revisión del candidato. La validación de ese binding precede
+la importación de cualquier material reservado.
+
+El binding fija ruta canónica observada, ancestro accesible para statvfs,
+dispositivo, montaje, raíz y tipo de filesystem, capacidad total y hash de la
+evidencia técnica. Cada captura verifica la ruta del ancestro sin symlinks,
+su condición de directorio, el montaje más específico para ambas ubicaciones y
+la capacidad. Rechaza montajes adicionales o ambiguos, raíces ocultas,
+filesystem cambiado, campos incompletos y un OLLAMA_MODELS contradictorio.
+La lectura fresca de espacio disponible mantiene el mismo mínimo de 2 GiB.
+No se sustituyen ni alteran modelo/digest, RAM, opciones LLM o hipótesis.
+
+Límite explícito: se comprueba en vivo el filesystem mediante su ancestro, no
+se vuelven a resolver los descendientes protegidos ni se leen los blobs. La
+ruta canónica procede de la captura autorizada; modificaciones concurrentes
+de enlaces o del almacén protegido siguen siendo un riesgo externo que debe
+constar en la revisión y atestación de sesión exclusiva. Este mecanismo no
+concede permisos ni garantiza la integridad de los pesos por lectura local.
+
+**Esta corrección aún no está registrada ni desplegada.** Antes de usarla:
+revisión del diff y de sus límites, autorización para commit/push, nuevo SHA
+limpio confirmado en el remoto, nuevo despliegue por SHA y pruebas nativas
+pertinentes. El SHA anterior y sus resultados AWS se conservan. Tampoco se ha
+regenerado la propuesta F4 antigua de Qwen14 ni se ha creado un FREEZE.
+
+---
+
 Fecha: 2026-11-09. Política **aprobada prospectivamente y activada solo en el código local**.
 Despliegue, ejecución nativa Ubuntu, inferencias y FREEZE siguen sin autorización.
 

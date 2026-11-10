@@ -16,21 +16,19 @@ from experiments.phase4.resources import snapshot
 from experiments.phase4.common import load, save, require, digest, now
 from experiments.phase4.protocol import Proposal
 from experiments.phase4.profile import transport_for, service_for
+from experiments.phase4.storage import storage_snapshot
 
 
-def native_state(settings=None):
+def native_state(settings=None, *, storage_binding=None):
     # Metadata only, bounded loopback transport. Model path can be on another drive;
     # measure that location explicitly rather than assuming workspace storage.
-    import shutil
     if settings is None:
         from app.api.application import load_pipeline_settings
         settings = load_pipeline_settings()
     client = transport_for(settings, timeout=3)
-    model_path = Path(os.getenv("OLLAMA_MODELS") or Path.home() / ".ollama/models")
     return {"at": now(), "version": client.json("version"), "tags": client.json("tags"),
         "ps": client.json("ps"), "show": client.json("show", {"model": settings.model}),
-        "memory": snapshot(), "disk_free_bytes": shutil.disk_usage(model_path).free,
-        "model_path": str(model_path)}
+        "memory": snapshot(), **storage_snapshot(storage_binding)}
 
 
 class Campaign:
@@ -40,7 +38,8 @@ class Campaign:
         self.out = self.p.out / "execution"
         self.transport_builder = transport_builder or (lambda callback: transport_for(self.p.settings,
             authorize_dispatch=callback, timeout=self.p.settings.timeout_seconds))
-        self.sampler, self.metadata, self.gate_factory = sampler, metadata or (lambda: native_state(self.p.settings)), gate_factory
+        self.sampler, self.metadata, self.gate_factory = sampler, metadata or (lambda: native_state(
+            self.p.settings, storage_binding=self.p.configuration.get("model_storage_binding"))), gate_factory
         self.active = None
         self.authorization_path = None
         self.authorization_hash = None
