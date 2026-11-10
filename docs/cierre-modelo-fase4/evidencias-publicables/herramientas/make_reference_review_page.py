@@ -4,7 +4,9 @@ Runs on the VM next to the candidate. The agent never opens the output: it only 
 already in the candidate (cases.json, scripts, reference_review.template.json). The page lets the
 reviewer read every script as text, record a decision and notes per case and download the review
 JSON in the exact schema `Proposal.seal` validates. Nothing is approved by default.
-Usage: python make_reference_review_page.py <artifacts/phase4_preparation> <out.html>
+Usage: python make_reference_review_page.py <artifacts/phase4_preparation> <out.html> [prior_review.json]
+With a prior review, per-case decisions/notes are PREFILLED only for cases whose script and
+reference hashes are identical; name and the three global approvals must be re-entered.
 """
 from __future__ import annotations
 
@@ -23,7 +25,7 @@ def esc(value):
     return html.escape(value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, indent=1))
 
 
-def main(out_dir, target):
+def main(out_dir, target, prior_path=None):
     out = Path(out_dir)
     plan = out / "proposal"
     cases = json.loads((plan / "cases.json").read_text(encoding="utf-8"))["cases"]
@@ -32,6 +34,12 @@ def main(out_dir, target):
     manifest_sha = hashlib.sha256((out / "CANDIDATE_MANIFEST.json").read_bytes()).hexdigest()
     assert template["candidate_sha256"] == manifest_sha, "template not bound to current candidate"
     rows = {r["id"]: r for r in template["case_reviews"]}
+    prior = {}
+    if prior_path:
+        old = json.loads(Path(prior_path).read_text(encoding="utf-8"))
+        prior = {r["id"]: r for r in old["case_reviews"]
+                 if r["id"] in rows and (r["script_sha256"], r["reference_sha256"]) ==
+                 (rows[r["id"]]["script_sha256"], rows[r["id"]]["reference_sha256"])}
     audit_by_id = {c.get("id"): c for c in audit.get("cases", []) if isinstance(c, dict)}
     blocks = []
     for c in cases:
@@ -56,9 +64,10 @@ script_sha256 <code>{esc(c['script_sha256'])}</code> · reference_sha256 <code>{
 <details><summary>Novedad, independencia y seguridad propuestas</summary><pre>{esc({k: c.get(k) for k in ('novel_logic', 'independence_status', 'safety')})}
 Auditoría automática: {esc(audit_by_id.get(c['id'], 'ver independence_audit.json'))}</pre></details>
 <div class="decision">
-<label><input type="radio" name="d_{esc(c['id'])}" value="approve"> Apruebo esta referencia</label>
-<label><input type="radio" name="d_{esc(c['id'])}" value="reject"> No la apruebo / requiere corrección</label>
-<textarea placeholder="Observaciones (obligatorio si no apruebas; recomendado siempre)" data-notes="{esc(c['id'])}"></textarea>
+{('<p class="meta">Precargado de tu revisión anterior (mismo script y misma referencia). Revísalo y cámbialo si quieres.</p>' if c['id'] in prior else '')}
+<label><input type="radio" name="d_{esc(c['id'])}" value="approve"{' checked' if prior.get(c['id'], {}).get('approved') is True else ''}> Apruebo esta referencia</label>
+<label><input type="radio" name="d_{esc(c['id'])}" value="reject"{' checked' if prior.get(c['id'], {}).get('approved') is False else ''}> No la apruebo / requiere corrección</label>
+<textarea placeholder="Observaciones (obligatorio si no apruebas; recomendado siempre)" data-notes="{esc(c['id'])}">{esc(prior.get(c['id'], {}).get('notes', ''))}</textarea>
 </div></section>""")
     page = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Revisión personal de referencias F4</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,6 +83,7 @@ pre{{white-space:pre-wrap;word-break:break-word;background:rgba(127,127,127,.1);
 button{{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:8px 14px;font-size:15px;cursor:pointer}} #msg{{color:#c33}}
 </style></head><body>
 <h1>Revisión personal de las 16 referencias F4</h1>
+{('<p style="border:2px solid var(--acc);padding:10px;border-radius:8px"><b>Ratificación:</b> el candidato se volvió a preparar (copia nueva, tras la parada por configuración de memoria). Casos y referencias idénticos en ' + str(len(prior)) + ' de 16; tus decisiones y observaciones anteriores están precargadas. Revisa, escribe tu nombre, marca de nuevo las tres casillas y descarga.</p>') if prior else ''}
 <p>Candidato <code>{manifest_sha}</code>. Esta página la generó el código a partir del candidato; nada viene aprobado. Lee cada script como texto, contrasta la referencia con la taxonomía B01–B07 y decide. Si no apruebas alguna, el FREEZE no se puede sellar (hay que corregir y versionar el candidato).</p>
 <p><b>Taxonomía:</b> {' · '.join(f'{k} {v}' for k, v in LABELS.items())}. Las dos indeterminadas deben quedar como <i>null</i>, no como vacías.</p>
 <p><b>Auditoría automática de independencia:</b> duplicado exacto o de programa encontrado: {esc(str(audit.get('automatic_exact_or_program_duplicate_found')))}. {esc(audit.get('algorithm', ''))}</p>
@@ -86,7 +96,7 @@ button{{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:8px 
 <button id="dl">Descargar revisión (JSON)</button> <span id="msg"></span>
 </div>
 <script>
-const TEMPLATE = {json.dumps(template, ensure_ascii=False)};
+const TEMPLATE = {json.dumps(template, ensure_ascii=False)}; const PRIOR = {json.dumps(bool(prior))};
 function tzIso(d){{const p=n=>String(n).padStart(2,'0');const o=-d.getTimezoneOffset();const s=o>=0?'+':'-';const a=Math.abs(o);
 return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'T'+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())+s+p(Math.floor(a/60))+':'+p(a%60);}}
 document.getElementById('dl').onclick=()=>{{
@@ -105,7 +115,7 @@ document.getElementById('dl').onclick=()=>{{
   out.semantic_independence_approved=document.getElementById('si').checked;
   out.safety_approved=document.getElementById('sa').checked;
   const blob=new Blob([JSON.stringify(out,null,2)+'\\n'],{{type:'application/json'}});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='revision_referencias_F4_Karol.json'; a.click();
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='revision_referencias_F4_Karol'+(PRIOR?'_ratificacion':'')+'.json'; a.click();
   if(!allOk) msg.textContent='Descargado. Hay casos no aprobados: el FREEZE no podrá sellarse hasta corregirlos.';
 }};
 </script></body></html>"""
@@ -114,4 +124,4 @@ document.getElementById('dl').onclick=()=>{{
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
