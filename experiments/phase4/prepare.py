@@ -140,7 +140,11 @@ def refresh_candidate():
     runtime += list((ROOT / "experiments/phase4").glob("*.py"))
     runtime += list((ROOT / "backend/tests/phase4").glob("*.py"))
     runtime += [ROOT / "experiments/gemma4_v2/runner.py", ROOT / "experiments/pilot_v2_runtime/resources.py"]
-    runtime += [ROOT / name for name in ("docs/methodology.md", "docs/behavior_taxonomy.md", "backend/requirements-app.txt")]
+    runtime += [ROOT / name for name in ("docs/methodology.md", "docs/behavior_taxonomy.md", "backend/requirements-app.txt",
+                                         "backend/requirements-pilot.txt")]
+    # Prospective closure protocol and the CTX-01 amendment are immutable parts of the candidate.
+    runtime += [p for p in (ROOT / "docs/cierre-modelo-fase4").glob("PROTOCOLO_FASE4.md")]
+    runtime += [p for p in (ROOT / "docs/cierre-modelo-fase4").glob("CTX01_DIAGNOSTICO_Y_ENMIENDA.md")]
     runtime += [p for p in (ROOT / "docs").glob("phase4_*proposed.md")]
     runtime += [p for p in (ROOT / "docs").glob("phase4_human_review.md")]
     runtime += [p for p in (ROOT / "docs").glob("phase4_independence_review.md")]

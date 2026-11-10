@@ -107,3 +107,9 @@ def test_all_pilot_development_inputs_fit_for_B_and_C():
         for mode in ("B", "C"):
             bound, version = message_token_upper_bound(context_for(script, mode, settings).messages, settings)
             assert version == "message-bytes-scaled-v3" and bound <= budget, (case["case_id"], mode, bound)
+
+
+def test_candidate_manifest_covers_closure_protocol_and_pinned_requirements():
+    source = inspect.getsource(phase4_prepare.refresh_candidate)
+    for name in ("PROTOCOLO_FASE4.md", "CTX01_DIAGNOSTICO_Y_ENMIENDA.md", "backend/requirements-pilot.txt"):
+        assert name in source
