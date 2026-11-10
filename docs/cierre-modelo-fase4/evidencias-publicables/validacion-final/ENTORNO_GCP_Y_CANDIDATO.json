@@ -1,0 +1,58 @@
+{
+ "kind": "entorno_gcp_validacion_nativa_y_preparacion_candidato",
+ "recorded_at": "2026-11-10T16:00:00Z",
+ "environment": {
+  "provider": "Google Cloud Compute Engine",
+  "project": "psi-cierre",
+  "instance": "psi-cierre",
+  "machine_type": "e2-standard-8 (8 vCPU, 32 GB)",
+  "zone": "us-central1-c",
+  "os": "Ubuntu 24.04.5 LTS",
+  "kernel": "Linux 7.0.0-1017-gcp x86_64",
+  "physical_memory_bytes": 33646927872,
+  "boot_disk": "60 GB balanced persistent disk (ext4, filesystem_total_bytes 61285326848)",
+  "python_venv": "3.13.18 (uv 0.13.7); pip check: all installed packages are compatible",
+  "pip_freeze_sha256": "cce29ce5da10ed9104fde8924d21c92b507a9c7a6454b810500b30d69ba90839",
+  "ollama": "0.40.16, CPU only, listening only on 127.0.0.1:11434",
+  "model": "qwen3-coder:30b",
+  "model_digest_reported_by_ollama": "06c1097efce0431c2045fe7b2e5108366e43bee1b4603a7aded8f21689e90bca",
+  "model_size_bytes": 18556700761,
+  "public_address": "omitted from public evidence"
+ },
+ "storage_binding": {
+  "file": "model_storage_binding.gcp.json (VM, restricted operational evidence)",
+  "file_sha256": "65d5dc7c078c43c6026cf71529c45f026267d82b4c60ea3d78d8feb6cbaea781",
+  "content": {"version": "linux-model-filesystem-binding-v1", "canonical_model_path": "/usr/share/ollama/.ollama/models",
+   "probe_path": "/usr/share", "mount": {"device": "8:1", "root": "/", "mountpoint": "/", "filesystem": "ext4"},
+   "filesystem_total_bytes": 61285326848, "metadata_evidence_sha256": "61e6111e58b94a94fd860c5eed8552545d64d6fd0eea86a16b526707426ba62a"},
+  "metadata_evidence": "storage_metadata_gcp.json: sudo read-only realpath/stat/findmnt/du + Ollama tags/version; no blobs read",
+  "native_state_check": "experiments.phase4.campaign.native_state(storage_binding=...) OK, metadata only, no generation"
+ },
+ "native_backend_tests": [
+  {"commit": "ec63f7f", "selection": "plan section 16 + test_context_budget_ctx01.py", "result": "778 passed, exit 0"},
+  {"commit": "41330339abc5ba8a73ca6b595c9ed4396d275e82", "selection": "same", "result": "779 passed, 0 failures, 0 errors, 0 skipped",
+   "junit_sha256": "1f22cfdca6bf0cd8258d2c063641c46e8b3310c5ce2e52dac04ce7dfb3846116", "timestamp": "2026-11-10T15:18:09Z"}
+ ],
+ "scientific_copy": {
+  "source": "git archive 41330339 excluding artifacts/phase4_preparation (historical Qwen14 plan kept in Git, not overwritten)",
+  "archive_sha256": "db1b155e4d3f097351e9635662d1fc634700fddb50cb8390ac27674a5f57c6ad",
+  "files": 1346
+ },
+ "preparation": {
+  "authorized_by": "Karol, 2026-11-10 10:37 -05:00: 'autorizo preparar el candidato'",
+  "command": "PSI_LLM_PROFILE=qwen3coder-v2 PSI_PHASE4_STORAGE_BINDING=<binding> python -B -m experiments.phase4 prepare",
+  "started_at": "2026-11-10T15:37:20Z",
+  "exit_code": 0,
+  "output": "Proposal prepared: 16 units, 32 requests, 8/8 recovery strata; no FREEZE or execution authorization",
+  "inferences": 0,
+  "hashes": {"CANDIDATE_MANIFEST.json": "cfc1cc9878e32e71a91ae69cd7d1d2eeee32ce33d65467e65422684a66b2ef90",
+   "reference_review.template.json": "bd7ff29466217a8c858e7a8c6557a44f4c5b9112698ac7d9ba498fd32fd08e9e",
+   "proposal/cases.json": "faff199bb84cd84177e3ce6a5c011ca04cb5b4043bf552035a65f32128d555d4",
+   "proposal/order.json": "1c9b44a9c98baf2acd1e18207da015f167fcc2082a86c3af9a347c506940507e",
+   "proposal/configuration.json": "fe6073c8ec768ab0204f02530393869f804d57a5779f6dbba6d5ecb1acdd60dc",
+   "proposal/independence_audit.json": "11326e2208b69b1a318e25c1777eec74c91a5289cd965a29528e3d0c6a3793f0"},
+  "context_budget_aggregate": {"requests": 32, "max_message_bytes": 6284, "max_scaled_bound_tokens": 3142,
+   "input_budget_tokens": 5632, "would_have_been_rejected_by_byte_rule": 5, "min_headroom_tokens": 2490},
+  "independence_audit": {"automatic_exact_or_program_duplicate_found": false, "prior_unique_exact_texts": 670, "prior_unique_normalized_views": 502}
+ }
+}

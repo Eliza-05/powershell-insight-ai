@@ -1,0 +1,50 @@
+{
+ "kind": "validacion_frontend_y_api_sintetica",
+ "recorded_at": "2026-11-10T15:48:40.000012+00:00",
+ "source_commit": "41330339abc5ba8a73ca6b595c9ed4396d275e82",
+ "environment": "contenedor Linux de la sesión (Node 22.23.4, npm 10.9.9, Python 3.13); Chromium de Playwright 1243 en modo headless con sandbox, ejecutado como usuario no root",
+ "steps": [
+  {
+   "command": "npm ci --no-audit --no-fund",
+   "exit": 0
+  },
+  {
+   "command": "npx vitest run --cache=false",
+   "exit": 0,
+   "result": "141 passed (141)"
+  },
+  {
+   "command": "npm run build",
+   "exit": 0,
+   "result": "tsc -b && vite build OK"
+  },
+  {
+   "command": "uvicorn tests.api.integration_server:make_app --factory (127.0.0.1:8765, PSI_LLM_PROFILE=qwen3coder-v2, transporte sintético)",
+   "note": "servidor de prueba explícito; no contacta Ollama real"
+  },
+  {
+   "command": "npx vitest run --config vite.integration.config.ts --cache=false",
+   "exit": 0,
+   "result": "11 passed (11)"
+  },
+  {
+   "command": "node frontend/browser/integrated.mjs",
+   "exit": 0,
+   "summary": "20 casos, 6 descargas JSON, 0 fallos"
+  },
+  {
+   "command": "node frontend/browser/integrated.mjs --zoom200",
+   "exit": 0,
+   "summary": "10 casos, 6 descargas JSON, 0 fallos"
+  },
+  {
+   "command": "node frontend/browser/verify.mjs --comparison-layout",
+   "exit": 0,
+   "summary": "87 casos, 4 descargas, 0 errores, 0 fallos"
+  }
+ ],
+ "limitations": [
+  "Datos sintéticos; B/C con transporte simulado, no con el modelo real",
+  "Primer intento del navegador como root falló por la sandbox de Chrome; no se desactivó la sandbox, se ejecutó como usuario no root"
+ ]
+}
