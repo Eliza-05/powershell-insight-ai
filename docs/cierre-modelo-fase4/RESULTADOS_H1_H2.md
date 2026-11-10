@@ -89,7 +89,7 @@ Archivo: `revision_H2_Karol.json`, sha256 `9ad26920…`. Archivos por salida: `S
 | C | 125 | 8 | 99 | 14 | 4 | **18** | 14,4 % |
 
 - **Primaria:** media por bloque de (no respaldadas C − no respaldadas B) = **−0,033** afirmaciones por unidad. Intercambio exacto de signos por bloques (32 768 asignaciones): p unilateral (C < B) = **0,50**. Holm: p ajustado = 1,0.
-- **Diferencias por unidad:** 4 unidades con C mejor, 4 con C peor y 8 iguales. Los valores van de −2 a +2.
+- **Diferencias por unidad:** 6 unidades con C mejor, 4 con C peor y 6 iguales. Los valores van de −2 a +2.
 - **Reconstrucciones inventadas o alteradas:** 0 en B y 0 en C.
 - **Lectura:**
   - Los datos **no apoyan H2**: C no reduce de forma apreciable el número de afirmaciones no respaldadas por unidad.
