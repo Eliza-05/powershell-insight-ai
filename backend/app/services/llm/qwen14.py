@@ -12,7 +12,7 @@ import time
 from typing import Literal
 from pydantic import Field
 from app.services.pipelines.config import PipelineSettings, InferenceOptions, GIB
-from app.services.pipelines.context import canonical, sha, PROMPT_VERSION
+from app.services.pipelines.context import canonical, message_token_upper_bound, sha, PROMPT_VERSION
 from app.services.pipelines.ollama import LocalTransport
 from app.services.pipelines.provider import response_schema
 from app.services.pipelines.resources import InferenceGate, OperationalFailure, ResourceMonitor, memory_snapshot
@@ -153,10 +153,10 @@ class Qwen14Adapter:
                       request=payload, inference_dispatched=False, truncated=False)
         # `format` constrains decoding; it is not text in the chat messages. Count it only
         # if a caller explicitly includes schema text in a message. Never truncate context.
-        upper_bound = (sum(len(m["content"].encode("utf-8")) for m in context.messages)
-                       + cfg.context_overhead_tokens)
+        message_bound, budget_version = message_token_upper_bound(context.messages, cfg)
+        upper_bound = message_bound + cfg.context_overhead_tokens
         record["input_token_upper_bound"] = upper_bound
-        record["context_budget_version"] = "message-bytes-v2"
+        record["context_budget_version"] = budget_version
         record["validation_version"] = "literal-provenance-v1"
         record["lifecycle_version"] = "persistent-dispatch-v2"
         if upper_bound + cfg.options.num_predict > cfg.options.num_ctx:
@@ -262,4 +262,9 @@ class Qwen14Adapter:
             if sum(counts) > cfg.options.num_ctx or counts[1] > cfg.options.num_predict:
                 record["truncated"] = True
                 raise OperationalFailure("context_limit", "Actual token budget exceeded")
+            if budget_version != "message-bytes-v2" and counts[0] > cfg.options.num_ctx - cfg.options.num_predict:
+                # A scaled estimate can under-count; real input that invades the output reserve
+                # could mean server-side truncation, so it is never published as a valid answer.
+                record["truncated"] = True
+                raise OperationalFailure("context_limit", "Actual input tokens exceed the reserved input budget")
             return response

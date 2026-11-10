@@ -8,7 +8,7 @@ import os
 from app.schemas.deobfuscation import DeobfuscationLimits
 from app.services.deobfuscation.engine import deobfuscate
 from app.api.application import load_pipeline_settings as load_settings
-from app.services.pipelines.context import build_context, canonical, sha
+from app.services.pipelines.context import build_context, canonical, message_token_upper_bound, sha
 from app.services.pipelines.provider import response_schema
 from experiments.phase4.common import ROOT, OUT, VERSION, LABELS, now, digest, save, require, load
 from experiments.phase4.profile import context_for, payload_for, profile_name, strategy_for
@@ -66,7 +66,9 @@ def prepare():
         for mode in ("B", "C"):
             context = context_for(script, mode, settings)
             payload = payload_for(context, settings)
-            require(sum(len(m["content"].encode()) for m in context.messages) + settings.context_overhead_tokens + settings.options.num_predict <= settings.options.num_ctx,
+            # Same pre-dispatch rule as the adapter (CTX-01); never truncates inputs.
+            message_bound, _budget_version = message_token_upper_bound(context.messages, settings)
+            require(message_bound + settings.context_overhead_tokens + settings.options.num_predict <= settings.options.num_ctx,
                     "proposal_context_budget_exceeded")
             request = f"requests/{case['id']}-{mode}.json"
             save(plan / request, payload)

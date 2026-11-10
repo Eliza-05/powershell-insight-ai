@@ -24,6 +24,10 @@ class Qwen3CoderSettings(Qwen14Settings):
     port: Literal[11434] = 11434
     options: Qwen14Options = Field(default_factory=Qwen14Options)
     unloaded_reserve_bytes: int = Field(default=RESERVE, ge=RESERVE, strict=True)
+    # CTX-01: 207 real qwen3-coder:30b calls on pilot-v2 development/selection inputs (never F4)
+    # measured 0.205-0.323 prompt tokens per message byte. 0.5 keeps >1.5x margin over the worst
+    # observed ratio; it may only be made more conservative (up to the historical 1.0).
+    context_tokens_per_byte_upper_bound: float = Field(default=0.5, ge=0.5, le=1.0, allow_inf_nan=False)
 
 
 class Qwen3CoderTransport(Qwen14Transport):
