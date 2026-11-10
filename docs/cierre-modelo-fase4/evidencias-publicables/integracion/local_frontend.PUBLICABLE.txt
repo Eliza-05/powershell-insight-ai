@@ -1,0 +1,13 @@
+
+> powershell-insight-studio@0.3.0 test
+> vitest run --cache=false --fsModuleCache=false --configLoader=runner
+
+
+ RUN  v5.1.0 <RAIZ_PROYECTO>/frontend
+
+
+ Test Files  8 passed (8)
+      Tests  141 passed (141)
+   Start at  20:16:40
+   Duration  11.34s (environment 41%, tests 39%, setup 9%, transform 6%, import 4%)
+

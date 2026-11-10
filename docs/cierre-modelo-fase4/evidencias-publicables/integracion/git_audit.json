@@ -1,0 +1,15 @@
+{
+  "commit": "7fc29f86d50298207a2a480ac3989be175ec9cb1",
+  "branch": "integration/final-validation",
+  "tree_clean": true,
+  "tracked_files": 1685,
+  "tracked_artifact_count": 1215,
+  "tracked_result_count": 28,
+  "tracked_sensitive_names": [],
+  "new_sensitive_names": [],
+  "new_historical_or_reserved_paths": [],
+  "changed_files_count": 5,
+  "payload_files_count": 171,
+  "remote_verified_sha": "7fc29f86d50298207a2a480ac3989be175ec9cb1",
+  "remote_verification": "git ls-remote --exit-code origin refs/heads/integration/final-validation succeeded"
+}

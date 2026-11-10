@@ -1,0 +1,9 @@
+{
+  "review_package_sha256": "076f25757eb452af2eac5779bff2dcc447598715354da88f5daaca496b669782",
+  "evidence_archive_sha256": "69944dce90e96ea741fccccb2534543eb7aafc3082a51bc829f9d88df71b23f6",
+  "candidate_sha256": "41028c708d628ed37c9841bd50bcdc6a80fa5c86eb477bba2e3cb042e4acdba3",
+  "package_files": 40,
+  "source_files": 180,
+  "verdict": "BLOQUEADO ANTES DEL FREEZE",
+  "new_inferences": 0
+}

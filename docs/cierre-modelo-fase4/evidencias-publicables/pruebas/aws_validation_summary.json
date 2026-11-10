@@ -1,0 +1,8 @@
+{
+  "pip_check": 0,
+  "pip_freeze": 0,
+  "cli_help": 0,
+  "cli_run_help": 0,
+  "native_tests": 0,
+  "source_integrity_after": true
+}

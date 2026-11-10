@@ -1,0 +1,21 @@
+{
+  "kind": "public_preservation_receipt",
+  "scope": "Previously inventoried non-private files only",
+  "entries": [
+    {
+      "group": "historical_repository",
+      "known_files_checked": 1645,
+      "changed_count": 0
+    },
+    {
+      "group": "historical_lab",
+      "known_files_checked": 951,
+      "changed_count": 0
+    },
+    {
+      "group": "previous_deployment",
+      "known_files_checked": 169,
+      "changed_count": 0
+    }
+  ]
+}

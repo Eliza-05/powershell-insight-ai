@@ -1,0 +1,19 @@
+{
+  "kind": "public_storage_provenance_not_executable_binding",
+  "binding_version": "linux-model-filesystem-binding-v1",
+  "metadata_evidence_sha256_declared": "192636e09e02add5e5b5291ef58530ffeff95e3fee9aa12afcc92a30aa8b16fa",
+  "metadata_evidence_sha256_actual": "192636e09e02add5e5b5291ef58530ffeff95e3fee9aa12afcc92a30aa8b16fa",
+  "hash_matches": true,
+  "prior_canonical_path_query_succeeded": true,
+  "protected_path_re_resolved_in_latest_run": false,
+  "filesystem_type": "ext4",
+  "filesystem_total_bytes": 32092319744,
+  "metadata_observed_at": "2026-11-10T01:38:37.824471+00:00",
+  "omitted": [
+    "model_store_path",
+    "probe_path",
+    "device_identity",
+    "privileged_commands"
+  ],
+  "scope": "Existing evidence; no sudo or new AWS check in publication task"
+}

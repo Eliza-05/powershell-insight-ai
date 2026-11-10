@@ -1,0 +1,6 @@
+usage: __main__.py run [-h] --authorization AUTHORIZATION [--resume]
+
+options:
+  -h, --help            show this help message and exit
+  --authorization AUTHORIZATION
+  --resume

@@ -1,0 +1,493 @@
+{
+  "status": "Prepared_not_staged_committed_or_pushed",
+  "source_HEAD": "7fc29f86d50298207a2a480ac3989be175ec9cb1",
+  "date_bogota": "2026-11-09",
+  "copies": [
+    {
+      "public_path": "evidencias-publicables/aws/LOCAL_RECOVERY_VERIFIED.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "21ba5641d503cd17b6c999a89383f6c25fa35671d55a0678ad1977472121a653",
+      "public_bytes": 490,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/LOCAL_RECOVERY_VERIFIED.json",
+          "sha256": "21ba5641d503cd17b6c999a89383f6c25fa35671d55a0678ad1977472121a653",
+          "bytes": 490
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/final_export_receipt.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "e5a183a4529062ca207e98151cf6ae4e6feedb47ae5cff720ae8eac4f1cd2dcb",
+      "public_bytes": 397,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/final_export_receipt.json",
+          "sha256": "e5a183a4529062ca207e98151cf6ae4e6feedb47ae5cff720ae8eac4f1cd2dcb",
+          "bytes": 397
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/deployment_verified.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "b6976796e677380e4db0d21112b5907326cd68831d9fda2ab5322060fc644c3d",
+      "public_bytes": 183,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/deployment_verified.json",
+          "sha256": "b6976796e677380e4db0d21112b5907326cd68831d9fda2ab5322060fc644c3d",
+          "bytes": 183
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/git_audit.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "74a160443660c6aee579ff52f90b1a5197324ec41aa7e089593ed427f1d87855",
+      "public_bytes": 571,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/git_audit.json",
+          "sha256": "74a160443660c6aee579ff52f90b1a5197324ec41aa7e089593ed427f1d87855",
+          "bytes": 571
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/git_export_representation.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "5634207318233d48527249edf355808cd3f2550e276a731b4d7047b729fb7b42",
+      "public_bytes": 43198,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/git_export_representation.json",
+          "sha256": "5634207318233d48527249edf355808cd3f2550e276a731b4d7047b729fb7b42",
+          "bytes": 43198
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/PROCEDENCIA_EXPORTACION_GIT.md",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "a038633b4f15c67056e7b149be0682719ae6bcb8e07816435a5eb77e60f6823b",
+      "public_bytes": 1691,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/PROCEDENCIA_EXPORTACION_GIT.md",
+          "sha256": "a038633b4f15c67056e7b149be0682719ae6bcb8e07816435a5eb77e60f6823b",
+          "bytes": 1691
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/pruebas/aws_validation_summary.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "81f795493f1f170736af4be5aa861c49b81de61eb230dbc140683962986c335d",
+      "public_bytes": 132,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_validation_summary.json",
+          "sha256": "81f795493f1f170736af4be5aa861c49b81de61eb230dbc140683962986c335d",
+          "bytes": 132
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/pruebas/aws_controller_synthetic_audit.json",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "d03268aa507d431d515c215c45383539030057357274efc7da81fd77bc9de6f0",
+      "public_bytes": 989,
+      "transformations": [
+        "byte_identical_copy",
+        "same_basename"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_controller_synthetic_audit.json",
+          "sha256": "d03268aa507d431d515c215c45383539030057357274efc7da81fd77bc9de6f0",
+          "bytes": 989
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/pruebas/aws_pip_freeze.txt",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "6c48ce3726d64b137b7c6056b730f7baacff8bb8292aea9d990272937c24c333",
+      "public_bytes": 419,
+      "transformations": [
+        "byte_identical_copy",
+        "extension_log_to_txt"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_pip_freeze.log",
+          "sha256": "6c48ce3726d64b137b7c6056b730f7baacff8bb8292aea9d990272937c24c333",
+          "bytes": 419
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/pruebas/aws_pip_check.txt",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "public_bytes": 30,
+      "transformations": [
+        "byte_identical_copy",
+        "extension_log_to_txt"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_pip_check.log",
+          "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+          "bytes": 30
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/aws_cli_help.txt",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "5b647217d65f158839a2588d9f55995825b900d1e892e17f42e91e88b72697c0",
+      "public_bytes": 325,
+      "transformations": [
+        "byte_identical_copy",
+        "extension_log_to_txt"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_cli_help.log",
+          "sha256": "5b647217d65f158839a2588d9f55995825b900d1e892e17f42e91e88b72697c0",
+          "bytes": 325
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/aws_cli_run_help.txt",
+      "category_of_original": "A",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "cd3050ee744dd55819679a357324a8bfcdd48f83703ea3d81ee9e995d896defa",
+      "public_bytes": 178,
+      "transformations": [
+        "byte_identical_copy",
+        "extension_log_to_txt"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_cli_run_help.log",
+          "sha256": "cd3050ee744dd55819679a357324a8bfcdd48f83703ea3d81ee9e995d896defa",
+          "bytes": 178
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/INFORME_FINAL_ESTADO.PUBLICABLE.md",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "3b1208e667c2453dc80f9f569698eebabe575b49be8ba11e6ef10aa6b97d6cda",
+      "public_bytes": 4793,
+      "transformations": [
+        "paths_redacted",
+        "links_redirected",
+        "historical_scope_banner",
+        "UTF8_derivative"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/INFORME_FINAL_ESTADO.md",
+          "sha256": "79845c74a0a837b10dd53b8f4db23068354be0770e0da63c5e6df1839fa95468",
+          "bytes": 4650
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/INFORME_PUERTA_PROVISIONAL.PUBLICABLE.md",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "8d68dcd787e870925073ea915b65381b887880f31e4f3d7f24b195d6cc44bc86",
+      "public_bytes": 8416,
+      "transformations": [
+        "paths_redacted",
+        "links_redirected",
+        "historical_scope_banner",
+        "UTF8_derivative"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/recovered/phase4_review_PROVISIONAL/INFORME_PUERTA_PROVISIONAL.md",
+          "sha256": "ae3e85f7321449345e41ffe8be33994d6d832ad128451f02d9ea1c6a2c12c178",
+          "bytes": 8282
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/INFORME_VALIDACION_PROVISIONAL.18f772e.PUBLICABLE.md",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "c206326f085cf36326cf658374f930220e0cafe814455c68f2a91a6d32fcdd47",
+      "public_bytes": 16294,
+      "transformations": [
+        "paths_redacted",
+        "links_redirected",
+        "historical_scope_banner",
+        "UTF8_derivative"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_18f772e/INFORME_VALIDACION_PROVISIONAL.md",
+          "sha256": "1fdd76e800daad4771072b5ab5845c79643533e4c0564dd8c811fc15fdd9f881",
+          "bytes": 16257
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/evaluacion/PROTOCOLO_QWEN3_PROVISIONAL.PUBLICABLE.md",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "d18a3e65d54943a802edc9f5f5ce2dfd08e33673d9c84ed4c4958c465b806a5e",
+      "public_bytes": 12237,
+      "transformations": [
+        "paths_redacted",
+        "links_redirected",
+        "historical_scope_banner",
+        "UTF8_derivative"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/PROTOCOLO_QWEN3_PROVISIONAL.md",
+          "sha256": "ad9c1b9767bb22fd4c343567e26f3cda03869f1296277c5aa4d3580363eecbad",
+          "bytes": 12037
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/pruebas/aws_native_tests.PUBLICABLE.txt",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "57e532d4fc62310932e015ff07e7173514360a576b171fd34a50944c19816ee2",
+      "public_bytes": 1385,
+      "transformations": [
+        "paths_redacted_if_present",
+        "ANSI_removed_if_present",
+        "UTF8_encoding_conversion"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_native_tests.log",
+          "sha256": "9bbcc25f658e898c9a6089f8d16fb29b7b42dfdc865275cbd7b685ef1cf28420",
+          "bytes": 1451
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/local_frontend.PUBLICABLE.txt",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "2d1207efdcb5a944a3dfc22767b0c69f7461d95e5da869cdd26997414918af4b",
+      "public_bytes": 329,
+      "transformations": [
+        "paths_redacted_if_present",
+        "ANSI_removed_if_present",
+        "UTF8_encoding_conversion"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_18f772e/local_frontend.log",
+          "sha256": "6109e2e69239f2aabd2c968bac87ab56b0377fa69f14c7550fe88b47ad7fd256",
+          "bytes": 816
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/integracion/local_frontend_build.PUBLICABLE.txt",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "662a0e04d7a694e6d8577e661d885ba73f49d6da8f71da9c1213485c78174fc4",
+      "public_bytes": 1564,
+      "transformations": [
+        "paths_redacted_if_present",
+        "ANSI_removed_if_present",
+        "UTF8_encoding_conversion"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_18f772e/local_frontend_build.log",
+          "sha256": "39058044e136d5595895ec40836b7572327426274a1980043d770cfc0a30f499",
+          "bytes": 3110
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/pruebas/RESUMEN_PYTEST.PUBLICABLE.json",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "9c91f2b86235a5f8c378ef626d6d71c696a07b6d8204e82d20b335dad50d59bd",
+      "public_bytes": 408,
+      "transformations": [
+        "aggregate_only",
+        "testcase_details_omitted"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_native_tests.xml",
+          "sha256": "a7ee1151c2f769c8faba7d59ef59016919e3b118ca104c58146876e36fe76d18",
+          "bytes": 122652
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/RESUMEN_PREFLIGHT.PUBLICABLE.json",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "b82fbcea2e861e37f8bb1a8a7206bf0f990e49b5ba7ffda10db4ef5c7bd8b51b",
+      "public_bytes": 1182,
+      "transformations": [
+        "allowlisted_metrics_only",
+        "paths_processes_devices_and_model_template_omitted"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/recovered/validation_evidence/final_runtime_state.json",
+          "sha256": "30544309ad46041128e6e8f1d106ed1ec566ffbe9cba7e573b1b0fedcdd1fa6a",
+          "bytes": 33811
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/RESUMEN_ALMACENAMIENTO.PUBLICABLE.json",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "b6e04bf4f0c115c67739f07b2c1b93f6079283755073f4f7f36271e33d6bcc67",
+      "public_bytes": 781,
+      "transformations": [
+        "paths_devices_and_privileged_commands_omitted",
+        "real_evidence_hash_verified"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/model_storage_binding.PROVISIONAL.json",
+          "sha256": "c5a09087c8a2ad8b74ed0e8448b670b6f68c491f0849b3e8b8c5d97a53f7eb3b",
+          "bytes": 410
+        },
+        {
+          "path": "logs/final_7fc29f8/STORAGE_METADATA_QUERIES_01.json",
+          "sha256": "192636e09e02add5e5b5291ef58530ffeff95e3fee9aa12afcc92a30aa8b16fa",
+          "bytes": 1279
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/evaluacion/SITUACION_EXPERIMENTAL.PUBLICABLE.json",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "76999f69b611d73948737f94555ec01503e5fe84058717277d969890037ab536",
+      "public_bytes": 547,
+      "transformations": [
+        "aggregate_status_only",
+        "reserved_paths_and_input_hash_map_omitted",
+        "blocking_code_verified_in_original_trace"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/aws_partial_preparation_inventory.json",
+          "sha256": "15a73a467d328cb34cb0e3f5b1a8712a5a451e87f752088137bb85911cd725d9",
+          "bytes": 993
+        },
+        {
+          "path": "logs/final_7fc29f8/aws_prospective_preparation_receipt.json",
+          "sha256": "1999a8a2cfb014f67d80d5b808280ab239a6668334c1f9db5cfe8d3f41d9588e",
+          "bytes": 209
+        },
+        {
+          "path": "logs/final_7fc29f8/aws_prospective_preparation.log",
+          "sha256": "8dbecea8936fbc71084f1ffdadc5073e141182dc0101423576257a1a9c5249bd",
+          "bytes": 1374
+        }
+      ]
+    },
+    {
+      "public_path": "evidencias-publicables/aws/PRESERVACION_HISTORICOS.PUBLICABLE.json",
+      "category_of_original": "B",
+      "publication_status": "prepared_not_staged_committed_or_pushed",
+      "public_sha256": "af941cff363e253607c2130fdca9fc02b1d315440b02a74305edbca251d7d94f",
+      "public_bytes": 451,
+      "transformations": [
+        "host_paths_replaced_by_groups",
+        "file_names_omitted"
+      ],
+      "sources": [
+        {
+          "path": "logs/final_7fc29f8/recovered/validation_evidence/preservation_receipt.json",
+          "sha256": "b999adfe8a9cc68679fa7468f371820b2f5fae9c267aca3ccbbd660959821c7e",
+          "bytes": 352
+        }
+      ]
+    }
+  ],
+  "inventory_sha256": "67b7cf307b8cddcd052477fee6ed20979169377639ebedc191a239ae7c42f0f6",
+  "inventory_files": 4080,
+  "categories": {
+    "C": 54,
+    "B": 107,
+    "D": 3907,
+    "A": 12
+  },
+  "publication_is_not_freeze_or_review_approval": true,
+  "original_preservation": {
+    "size_mtime_unchanged": 4080,
+    "content_hashes_unchanged": 4080,
+    "credential_like_files_not_opened": 0,
+    "original_file_writes": 0,
+    "reserved_payloads_semantically_read": false
+  },
+  "documentation_validation": {
+    "relative_links_valid_without_logs": 92,
+    "original_content_hashes_rechecked": 4080,
+    "plan_sections_preserved": 24,
+    "public_copies_hashes_match": 24,
+    "document_files_ready_for_review": 29,
+    "all_candidate_files_not_ignored": true,
+    "tracked_functional_files_changed": false,
+    "git_write_operations_performed": false,
+    "new_tests_inferences_or_freezes_executed": false
+  }
+}
