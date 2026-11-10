@@ -4,10 +4,9 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 
-from app.services.llm.qwen14_prototype import PrototypeSettings
 from app.services.pipelines.context import canonical, sha
 from experiments.phase4.common import ROOT, OUT, VERSION, digest, load, now, require, save
-from experiments.phase4.prepare import context_for, payload_for
+from experiments.phase4.profile import context_for, payload_for, settings_for, strategy_for
 
 
 class Proposal:
@@ -18,7 +17,12 @@ class Proposal:
         self.verify_candidate()
         self.cases = load(self.plan / "cases.json")["cases"]
         self.configuration = load(self.plan / "configuration.json")
-        self.settings = PrototypeSettings.model_validate(self.configuration["settings"])
+        self.settings = settings_for(self.configuration)
+        strategy = strategy_for(self.settings)
+        if strategy:
+            require(self.configuration.get("strategy") == strategy.versions()
+                    and self.configuration.get("policy_text_sha256") == strategy.policy_sha256,
+                    "prospective_profile_binding_mismatch")
         self.sequence = load(self.plan / "order.json")["sequence"]
         require(len(self.cases) == 16 and len(self.sequence) == 48, "wrong_phase4_size")
         require(len({c["id"] for c in self.cases}) == 16, "duplicate_unit")

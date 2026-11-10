@@ -1,4 +1,4 @@
-"""Read-only Windows RAM/commit sampling and application-wide inference exclusion."""
+"""Read-only Windows/Linux resource sampling and application-wide inference exclusion."""
 from __future__ import annotations
 
 import ctypes
@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from uuid import uuid4
 
 from app.services.pipelines.config import GIB
+from app.services.pipelines.resource_policy import resource_admission
 
 
 class OperationalFailure(Exception):
@@ -22,7 +23,14 @@ class OperationalFailure(Exception):
 
 def memory_snapshot():
     if os.name != "nt":
-        raise OperationalFailure("resource_monitor_unavailable", "Windows resource collector required", "resources")
+        import sys
+        if not sys.platform.startswith("linux"):
+            raise OperationalFailure("resource_monitor_unavailable", "Unsupported platform resource collector", "resources")
+        from app.services.pipelines.linux_resources import linux_memory_snapshot
+        try:
+            return linux_memory_snapshot()
+        except (OSError, ValueError) as exc:
+            raise OperationalFailure("resource_monitor_unavailable", "Linux accounting unavailable: " + str(exc), "resources") from exc
 
     class Memory(ctypes.Structure):
         _fields_ = [("length", ctypes.c_ulong), ("load", ctypes.c_ulong)] + [
@@ -148,7 +156,7 @@ class InferenceGate:
 class ResourceMonitor:
     def __init__(self, sampler, cancel, minimum=2 * GIB, interval=1):
         self.sampler, self.cancel, self.minimum, self.interval = sampler, cancel, minimum, interval
-        self.samples, self.errors = [], []
+        self.samples, self.errors, self.admissions = [], [], []
         self.violated = False
         self.stop = threading.Event()
 
@@ -156,7 +164,9 @@ class ResourceMonitor:
         try:
             value = self.sampler()
             self.samples.append(value)
-            if min(value["available_bytes"], value["commit_available_bytes"]) < self.minimum:
+            decision = resource_admission(value, self.minimum)
+            self.admissions.append(decision)
+            if not decision["allowed"]:
                 self.violated = True
         except Exception as exc:
             self.errors.append(str(exc))
@@ -180,6 +190,10 @@ class ResourceMonitor:
         self.collect()
 
     def summary(self):
+        def minimum(key):
+            return min((v[key] for v in self.samples if isinstance(v, dict)
+                        and type(v.get(key)) is int and v[key] >= 0), default=None)
         return {"samples": self.samples, "monitor_errors": self.errors, "margin_violated": self.violated,
-                "minimum_available_bytes": min((v["available_bytes"] for v in self.samples), default=None),
-                "minimum_commit_available_bytes": min((v["commit_available_bytes"] for v in self.samples), default=None)}
+                "admission_decisions": self.admissions,
+                "minimum_available_bytes": minimum("available_bytes"),
+                "minimum_commit_available_bytes": minimum("commit_available_bytes")}

@@ -38,6 +38,29 @@ export interface LocatedEvidence {
   line: number; column: number; root_source: Span | null; transformation_id: string | null;
   provenance: 'original' | 'deobfuscator_recovered'; validation: string;
 }
+export interface VerifierOperation {
+  behavior_id: string; rule_id: string; start: number; end: number; snippet: string;
+  conditions: string[]; limitations: string[];
+  operands: { role: string; start: number; end: number; snippet: string }[];
+}
+export interface VerifierDecision {
+  from: string; to: string | null; action: 'kept' | 'dropped' | 'relabelled';
+  support: string; reason: string; human_validated: boolean; source_diagnostics: string[];
+  citations: { source_id: string; start: number; end: number; snippet: string; line: number; column: number;
+    provenance: string; root_source: Span | null; support: string; reason: string; operations: VerifierOperation[] }[];
+}
+export interface EvidenceCheck {
+  version: string; status?: string; decisions?: VerifierDecision[];
+  changes: { from: string; to: string | null; action: string }[];
+  final_behavior_ids?: string[]; candidate_behavior_ids?: string[];
+  risk_preserved_from_model?: Risk; limitations?: string[]; error?: string;
+}
+export interface Preprocessing {
+  version: string;
+  sources: { source_text_sha256: string; source_ids: string[]; coverage: string;
+    comment_spans: [number, number][];
+    diagnostics: { start: number; end: number; reason: string; fatal: boolean }[] }[];
+}
 export interface PipelineResult {
   schema_version: string; run_id: string; configuration: Pipeline; status: ExecutionStatus;
   input_sha256: string | null; original: string | null; started_at: string; duration_seconds: number;
@@ -46,6 +69,10 @@ export interface PipelineResult {
   risk_label: Risk; risk_rationale: string; limitations: string[];
   errors: { code: string; message: string; stage: string }[];
   operational: {
+    model_report_before_evidence_check?: ModelReport;
+    model_behaviors_before_evidence_check?: { behavior_id: string; evidence: { source_id: string; snippet: string }[] }[];
+    evidence_check?: EvidenceCheck;
+    preprocessing?: Preprocessing;
     model?: string; installed_digest?: string; expected_digest?: string; prompt_version?: string;
     prompt_sha256?: string; context_sha256?: string; request_sha256?: string;
     inference_dispatched?: boolean; truncated?: boolean; input_token_upper_bound?: number;

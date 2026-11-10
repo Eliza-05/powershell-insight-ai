@@ -6,6 +6,7 @@ import { Code, Loading, Notice, RiskBadge, StatusBadge, TechnicalDetail } from '
 import { formatSeconds, recoveryKindLabel, stepStatusLabel, techniqueLabel } from '../utils/labels'
 import { RecoveryTrace } from './RecoveryTrace'
 import { useMediaQuery } from '../hooks/useMediaQuery'
+import { SanitizationNotice, VerificationDetails } from './VerificationDetails'
 
 type Detail = 'findings' | 'evidence' | 'recovery' | 'timeline' | 'trace'
 const tabs: { id: Detail; name: string }[] = [
@@ -48,7 +49,7 @@ function Findings({ result, onLocate }: { result: PipelineResult; onLocate: (spa
           : <span className="subtle">—</span>}</td>
       </tr>)}</tbody>
     </table> : <div className="quiet-empty"><h3>{result.errors.length ? 'Sin hallazgos aceptados' : 'Sin etiquetas sustentadas'}</h3><p>{result.errors.length ? 'La respuesta no produjo un reporte aceptado. Revisa el motivo de rechazo.' : 'La ausencia de etiquetas no confirma que el script sea benigno.'}</p></div>}
-    {result.configuration !== 'A' && <div className="risk-explanation"><div><span className="field-label">Riesgo declarado por el modelo</span><RiskBadge risk={result.risk_label} /></div>
+    {result.configuration !== 'A' && result.llm && <div className="risk-explanation"><div><span className="field-label">Riesgo declarado por el modelo</span><RiskBadge risk={result.risk_label} /></div>
       <p>{result.risk_rationale}</p></div>}
     {result.llm && <div className="uncertainty-box"><h4>Incertidumbre <span>{levelNames[result.llm.uncertainty.level] ?? result.llm.uncertainty.level}</span></h4><p>{result.llm.uncertainty.notes}</p>
       {result.llm.uncertainty.uninterpretable_fragments.map((s, i) => <Code key={i}>{s}</Code>)}</div>}
@@ -92,7 +93,7 @@ function RecoveryView({ result, onLocate }: { result: PipelineResult; onLocate: 
   </div>
 }
 
-function Trace({ result }: { result: PipelineResult }) {
+function Trace({ result, onLocate }: { result: PipelineResult; onLocate: (span: Span) => void }) {
   const op = result.operational
   const warnings = [...new Set([...result.limitations, ...(result.deobfuscation?.warnings ?? []), ...(result.deterministic?.warnings ?? [])])]
   const limits = [...new Set([...(result.deobfuscation?.limits_hit ?? []), ...(result.deterministic?.limits_hit ?? [])])]
@@ -102,6 +103,7 @@ function Trace({ result }: { result: PipelineResult }) {
       ['Prompt', op.prompt_version ?? 'No construido'], ['Hash de prompt', op.prompt_sha256 ?? 'No disponible'], ['Hash de contexto', op.context_sha256 ?? 'No disponible'],
       ['Inferencia despachada', op.inference_dispatched ? 'Sí' : 'No'], ['Respuesta truncada', op.truncated ? 'Sí' : 'No']])]
   return <div className="detail-content"><dl className="metadata-grid">{rows.map(([name, value]) => <div key={name}><dt>{name}</dt><dd>{value}</dd></div>)}</dl>
+    <VerificationDetails result={result} onLocate={onLocate} />
     {!!op.request?.options && <details><summary>Parámetros de inferencia solicitados</summary><Code>{JSON.stringify({ options: op.request.options, think: op.request.think }, null, 2)}</Code></details>}
     {!!result.llm?.prompt_injection.detected && <Notice tone="warning"><strong>Instrucciones adversarias declaradas por el modelo.</strong>{result.llm.prompt_injection.snippets.map((s, i) => <Code key={i}>{s}</Code>)}</Notice>}
     <details open={result.status !== 'completed'}><summary>Advertencias y limitaciones ({warnings.length + limits.length + (result.deterministic?.indicators.length ?? 0)})</summary><p className="technical-caption">Mensajes técnicos del motor, en su idioma original.</p><ul className="technical-list">{warnings.map((l, i) => <li key={i}>{l}</li>)}{limits.map(l => <li key={l}>Límite alcanzado: {l}</li>)}{result.deterministic?.indicators.map(i => <li key={i.indicator_id}>{i.reason}</li>)}</ul></details>
@@ -172,8 +174,10 @@ export function Results({ response, busy, mode, stale, onLocate }: { response: A
           : <>Riesgo declarado por el modelo <RiskBadge risk={result.risk_label} /></>}</p>}
         {techniques.length > 0 && <div className="techniques"><span>Técnicas</span>{techniques.map(t => <code key={`${t.technique}-${t.origin}`} title={t.origin === '1A' ? 'Detectada por el motor determinista 1A' : 'Declarada por el modelo provisional'}>{techniqueLabel(t.technique)} · {t.origin}</code>)}</div>}
       </div>
+      {result.configuration !== 'A' && result.operational.evidence_check && <div className="result-notices"><Notice>Hay decisiones del postprocesamiento. Consulta <button className="text-button" onClick={() => setDetail('trace')}>Predicción y postprocesamiento</button> para distinguir la predicción original del resultado aceptado.</Notice></div>}
+      {result.configuration !== 'A' && result.operational.preprocessing?.sources.some(s => s.diagnostics.length) && <div className="result-notices"><SanitizationNotice result={result} /></div>}
       {(result.status === 'partial' || !!result.llm?.uncertainty.uninterpretable_fragments.length || !!result.deobfuscation?.unresolved.length) && <div className="result-notices"><Notice tone="warning"><strong>Caso indeterminado o de alcance parcial.</strong> Hay fragmentos sin resolver; la ausencia de etiquetas no demuestra benignidad.</Notice></div>}
-      {!!result.errors.length && <div className="result-errors" role="alert">{result.errors.map((e, i) => <Notice tone="error" key={i}><strong>{e.code === 'context_limit' ? 'El contexto completo supera el límite del modelo' : e.code === 'insufficient_memory' ? 'Sin margen suficiente de memoria' : e.code === 'invalid_response' ? 'La respuesta no superó la validación' : 'No se pudo completar este pipeline'}</strong><TechnicalDetail>{e.message}</TechnicalDetail><code>{e.code} · {e.stage}</code></Notice>)}</div>}
+      {!!result.errors.length && <div className="result-errors" role="alert">{result.errors.map((e, i) => <Notice tone="error" key={i}><strong>{e.code === 'evidence_check_incoherent' ? 'Publicación rechazada: el riesgo del modelo es incoherente con las etiquetas finales' : e.code === 'context_limit' ? 'El contexto completo supera el límite del modelo' : e.code === 'insufficient_memory' ? 'Sin margen suficiente de memoria' : e.code === 'invalid_response' ? 'La respuesta no superó la validación' : 'No se pudo completar este pipeline'}</strong><TechnicalDetail>{e.message}</TechnicalDetail><code>{e.code} · {e.stage}</code></Notice>)}</div>}
       <div className="detail-tabs" role="tablist" aria-label="Detalles del resultado" onKeyDown={event => {
         if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
         event.preventDefault(); const i = visibleTabs.findIndex(t => t.id === detail)
@@ -183,7 +187,7 @@ export function Results({ response, busy, mode, stale, onLocate }: { response: A
       <div role="tabpanel" id="result-detail" aria-labelledby={`tab-${detail}`}>
         {detail === 'findings' && <Findings result={result} onLocate={onLocate} />}{detail === 'evidence' && <Evidence result={result} onLocate={onLocate} />}
         {detail === 'recovery' && <RecoveryView result={result} onLocate={onLocate} />}
-        {detail === 'timeline' && <RecoveryTrace embedded result={result} onLocate={onLocate} />}{detail === 'trace' && <Trace result={result} />}
+        {detail === 'timeline' && <RecoveryTrace embedded result={result} onLocate={onLocate} />}{detail === 'trace' && <Trace result={result} onLocate={onLocate} />}
       </div>
       <div className="result-footer"><span title={result.input_sha256 ?? ''}>SHA-256 {result.input_sha256?.slice(0, 16) ?? 'no disponible'}…</span></div>
     </div>}

@@ -6,32 +6,24 @@ import random
 
 from app.schemas.deobfuscation import DeobfuscationLimits
 from app.services.deobfuscation.engine import deobfuscate
-from app.services.llm.qwen14_prototype import load_settings
+from app.api.application import load_pipeline_settings as load_settings
 from app.services.pipelines.context import build_context, canonical, sha
 from app.services.pipelines.provider import response_schema
 from experiments.phase4.common import ROOT, OUT, VERSION, LABELS, now, digest, save, require, load
-from experiments.phase4.dataset import proposed_cases
-from experiments.phase4.independence import audit
-
-
-def context_for(script, mode, settings):
-    recovery = deobfuscate(script, input_provenance="original",
-        limits=DeobfuscationLimits(max_input_bytes=settings.max_input_bytes)) if mode == "C" else None
-    return build_context(script, recovery)
-
-
-def payload_for(context, settings):
-    return {"model": settings.model, "messages": context.messages, "format": response_schema(),
-        "stream": False, "truncate": False, "keep_alive": settings.keep_alive, "options": settings.options.model_dump()}
+from experiments.phase4.profile import context_for, payload_for, profile_name, strategy_for
 
 
 def prepare():
+    # Reserved authorship/solutions are loaded only by this explicitly invoked
+    # preparation command, never by importing controller/profile support in tests.
+    from experiments.phase4.dataset import proposed_cases
+    from experiments.phase4.independence import audit
     plan = OUT / "proposal"
     require(not plan.exists(), "proposal_exists_create_new_revision_instead_of_overwriting")
     settings = load_settings()
     # No environment-dependent model/parameter overrides may silently affect a proposal.
-    from app.services.llm.qwen14_prototype import PrototypeSettings
-    require(settings == PrototypeSettings.model_validate(PrototypeSettings().model_dump(mode="json")), "unexpected_settings_override")
+    cls = type(settings)
+    require(settings == cls.model_validate(cls().model_dump(mode="json")), "unexpected_settings_override")
     cases = proposed_cases()
     exclusion_rules = {
         "B01": "No hay obtención activa de contenido remoto sustentada; una URL literal o un envío no bastan para B01.",
@@ -107,6 +99,11 @@ def prepare():
             "scientific": "Operational completion plus personally approved references and complete hash-bound claim adjudication; performance does not gate completion"},
         "prepared_environment_only": {"python": platform.python_version(), "platform": platform.platform()},
         "execution_authorized_now": False, "reference_review_complete": False}
+    configuration["llm_profile"] = profile_name(settings)
+    strategy = strategy_for(settings)
+    if strategy:
+        configuration.update(strategy=strategy.versions(), policy_text_sha256=strategy.policy_sha256,
+            policy_sha256=strategy.policy_bytes_sha256, configuration_revision="qwen3coder-v2-bounded-prospective-1")
     save(plan / "configuration.json", configuration)
     full_cases = [{**c, "script": (plan / c["script_file"]).read_text(encoding="utf-8")} for c in cases]
     novelty = audit(full_cases)

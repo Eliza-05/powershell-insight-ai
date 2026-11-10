@@ -19,6 +19,7 @@ export async function launchChrome({ zoom = 1 } = {}) {
   const executable = process.env.PSI_TEST_CHROME ?? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
   const child = spawn(executable, [
     '--headless', '--remote-debugging-port=0', '--remote-debugging-address=127.0.0.1',
+    '--disable-gpu',
     `--user-data-dir=${join(output, 'profile')}`, '--no-first-run', '--no-default-browser-check',
     '--disable-extensions', '--disable-background-networking', '--disable-component-update', '--disable-sync',
     'about:blank',
