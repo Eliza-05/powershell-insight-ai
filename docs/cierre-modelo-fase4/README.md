@@ -1,45 +1,53 @@
 # Cierre técnico y experimental de PowerShell Insight AI
 
-**Estado documentado:** BLOQUEADO ANTES DEL FREEZE. **Rama de trabajo:** `integration/final-validation`. **SHA de las últimas validaciones conservadas:** `7fc29f86d50298207a2a480ac3989be175ec9cb1`. **Actualización documental:** 9 de noviembre de 2026, America/Bogota.
+**Estado final:** CAMPAÑA DE FASE 4 COMPLETA Y EVALUADA. H1 y H2 no tienen apoyo; es un resultado negativo válido.
+**Rama:** `integration/final-validation`, integrada en `develop` (SHA final en `CIERRE_GIT.md`).
+**SHA científico (código ejecutado):** `41330339abc5ba8a73ca6b595c9ed4396d275e82`.
+**Actualización:** 10 nov 2026, America/Bogota.
+**Responsable:** Karol. **Ejecución técnica y redacción:** Claude (IA), a petición de Karol.
 
-Esta carpeta reúne el plan de Karol y evidencia técnica preparada para conservarse posteriormente en Git. Esta organización no ejecuta actividades experimentales, no aprueba referencias y no constituye un FREEZE. Las copias son históricas; no se hizo una nueva consulta a AWS ni una nueva ejecución de pruebas para producirlas.
+## Orden de lectura
 
-## Responsabilidades y orden de lectura
-
-Karol completa el cierre técnico, científico, operativo, documental y la integración final a `develop`. Realizará personalmente la revisión de las **16 referencias** y, después de las inferencias autorizadas, la revisión semántica necesaria para **H2**. Ambas tareas están pendientes. Si participó en construir referencias o preparar la evaluación, declarará esa participación y no calificará su revisión como independiente. Un requisito metodológico vigente que no se satisfaga necesita enmienda prospectiva o decisión formal aprobada; no se simulará mediante cambios de validadores.
-
-1. Leer el [plan de cierre](PLAN_CIERRE_KAROL.md): conserva las 24 secciones, prioridades, dependencias, pruebas, permisos y merge final a `develop`.
-2. Consultar [EVIDENCIAS.md](EVIDENCIAS.md): alcance, categorías A/B/C/D, originales, copias y hashes.
-3. Revisar el [estado técnico publicable](evidencias-publicables/aws/INFORME_FINAL_ESTADO.PUBLICABLE.md) y el [resumen experimental](evidencias-publicables/evaluacion/SITUACION_EXPERIMENTAL.PUBLICABLE.json).
-4. Resolver el bloqueo de contexto y las decisiones prospectivas; realizar y documentar Karol su revisión humana antes de solicitar el FREEZE.
+1. [RESULTADOS_H1_H2.md](RESULTADOS_H1_H2.md): resultados, aprobaciones transcritas, incidentes y limitaciones.
+2. [PROTOCOLO_FASE4.md](PROTOCOLO_FASE4.md): protocolo prospectivo aprobado, congelado en el candidato.
+3. [INFORME_TECNICO.md](INFORME_TECNICO.md): arquitectura, cambios, infraestructura (AWS → GCP), pruebas e incidencias.
+4. [CTX01_DIAGNOSTICO_Y_ENMIENDA.md](CTX01_DIAGNOSTICO_Y_ENMIENDA.md): causa y corrección del bloqueo de contexto.
+5. [GUIA_DEMO.md](GUIA_DEMO.md): cómo encender, conectar y demostrar la aplicación.
+6. [CIERRE_GIT.md](CIERRE_GIT.md): commits, merge y SHA final.
+7. [EVIDENCIAS.md](EVIDENCIAS.md): inventario, hashes y ubicación del material restringido.
+8. [PLAN_CIERRE_KAROL.md](PLAN_CIERRE_KAROL.md): plan original (9 nov), que se conserva como encargo.
 
 ## Estado de las puertas de cierre
 
-| Elemento | Estado y alcance |
+| Elemento | Estado |
 |---|---|
-| Validación técnica conservada | 767 pruebas nativas aprobadas y preflight aprobado con observaciones en el SHA indicado; no acredita inferencia exitosa |
-| Bloqueo de preparación | `proposal_context_budget_exceeded`; intento conservado con 1 request B y 0 C, sin repetirlo ni adaptar F4 |
-| Revisión humana de referencias | Pendiente; revisora designada: Karol; 14 casos determinados y dos indeterminados |
-| Protocolo científico definitivo | Pendiente; el borrador publicable es una propuesta histórica incompleta |
-| FREEZE definitivo | Pendiente / no creado en la evidencia conservada |
-| Campaña F4 | Pendiente / no ejecutada; 0 inferencias reales registradas, 32 previstas sin autorizar |
-| Revisión humana de salidas H2 | Pendiente; responsable: Karol, después de la campaña autorizada |
-| Resultados H1/H2 | No evaluados; no existen métricas reales que completar en informes futuros |
-| Merge final a `develop` | Pendiente, asignado a Karol tras cerrar el alcance técnico, experimental, funcional y documental y obtener las revisiones correspondientes |
+| CTX-01 (presupuesto de contexto) | **Resuelto**: enmienda aprobada (10 nov 09:47) y 32/32 solicitudes preparadas |
+| Protocolo definitivo | **Aprobado** (10 nov 10:17) y congelado en el candidato |
+| Revisión humana de las 16 referencias | **Hecha por Karol**: 16/16 aprobadas y ratificadas en el candidato final. No es independiente |
+| FREEZE | **Sellado**: candidato `d960f81b`, FREEZE `f0468a2d` |
+| Campaña F4 | **Completa**: 16 A + 32 intenciones LLM, 0 timeouts, 0 paradas. Hubo 2 intentos previos detenidos y conservados (1 intención gastada en total) |
+| Revisión humana H2 | **Hecha por Karol**: 32/32 salidas, 200 afirmaciones |
+| H1 | Δ micro-F1 (C−B) = 0,00; p = 1,0. **Sin apoyo** |
+| H2 | Δ no respaldadas por unidad (C−B) = −0,03; p = 0,50. **Sin apoyo** |
+| Validación funcional | Backend nativo 779/779 en GCP; frontend 141 + integración 11 + navegador (20/10/87); demo: ver `GUIA_DEMO.md` §8 |
+| Merge final a `develop` | Ver `CIERRE_GIT.md` |
 
 ## Documentos de cierre
 
 | Documento | Estado |
 |---|---|
-| [PLAN_CIERRE_KAROL.md](PLAN_CIERRE_KAROL.md) | Actualizado: revisión directa de Karol, evidencias, cierre técnico y merge final |
-| [EVIDENCIAS.md](EVIDENCIAS.md) | Creado: inventario y correspondencia entre originales/copias publicables |
-| `INFORME_TECNICO.md` | Pendiente: informe definitivo, sin sustituir las capturas históricas |
-| `PROTOCOLO_FASE4.md` | Pendiente: protocolo definitivo y aprobaciones prospectivas |
-| `RESULTADOS_H1_H2.md` | Pendiente: resultados reales o impedimento formal, sin cifras ficticias |
-| `GUIA_DEMO.md` | Pendiente: procedimiento comprobado con fixtures sintéticos y permisos |
-| `CIERRE_GIT.md` | Pendiente: commits, revisión, merge, pruebas y SHA final publicado de `develop` |
+| [PLAN_CIERRE_KAROL.md](PLAN_CIERRE_KAROL.md) | Plan del 9 nov (encargo; no se reescribe) |
+| [INFORME_TECNICO.md](INFORME_TECNICO.md) | Completo |
+| [PROTOCOLO_FASE4.md](PROTOCOLO_FASE4.md) | Aprobado y congelado |
+| [RESULTADOS_H1_H2.md](RESULTADOS_H1_H2.md) | Completo (H1 y H2) |
+| [EVIDENCIAS.md](EVIDENCIAS.md) | Actualizado con la evidencia del cierre |
+| [GUIA_DEMO.md](GUIA_DEMO.md) | Procedimiento y estado de reproducción |
+| [CIERRE_GIT.md](CIERRE_GIT.md) | Commits, merge y SHA final |
+| [CTX01_DIAGNOSTICO_Y_ENMIENDA.md](CTX01_DIAGNOSTICO_Y_ENMIENDA.md) | Enmienda aprobada |
 
-Los nombres pendientes no son enlaces a archivos inexistentes. Las copias de informes bajo `evidencias-publicables/` no sustituyen esos entregables definitivos.
+## Antecedentes (9 nov)
+
+La organización inicial de esta carpeta, del 9 nov, documentaba el estado "BLOQUEADO ANTES DEL FREEZE" en `7fc29f8` (AWS). Esa evidencia histórica se conserva sin cambios en `evidencias-publicables/aws`, `integracion`, `pruebas` y `evaluacion`. La evidencia nueva del cierre está en `evidencias-publicables/ctx01`, `validacion-final`, `herramientas` y en `evaluacion/EVALUACION_F4_CAMPANA3_AGREGADA.json`.
 
 ## Evidencias preparadas para Git
 

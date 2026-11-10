@@ -108,3 +108,29 @@ No se publicó todo `logs/`, no se cambió `.gitignore` y no se eliminó ningún
 - Se revisa la selección en busca de rutas personales, claves/tokens, direcciones de infraestructura y estructuras de inputs/referencias. La inspección es un control documental del alcance seleccionado, no una certificación de todos los archivos privados del proyecto.
 
 **Estado Git:** archivos preparados para revisión posterior, sin `git add`, commit, push o merge. La rama base y el cierre final de `develop` asignado a Karol se mantienen. Ninguna evidencia preparada aquí aprueba referencias, FREEZE, inferencias o enmiendas científicas.
+
+<a id="cierre-10-nov"></a>
+## Evidencia del cierre (10 nov 2026)
+
+### Publicable en Git
+
+| Archivo | Contenido |
+|---|---|
+| `evidencias-publicables/ctx01/CALIBRACION_TOKENS_DESARROLLO.json` (sha256 `f846d7e7…`) | 207 llamadas de desarrollo y selección (nunca F4): tokens por byte |
+| `evidencias-publicables/validacion-final/ENTORNO_GCP_Y_CANDIDATO.json` | Entorno GCP, binding, pruebas nativas y preparación del primer candidato |
+| `evidencias-publicables/validacion-final/VALIDACION_FRONTEND_SINTETICA.json` | Frontend, integración HTTP y navegador (sintético) |
+| `evidencias-publicables/evaluacion/EVALUACION_F4_CAMPANA3_AGREGADA.json` | Agregados oficiales de H1/H2 y contadores, sin contenido F4 |
+| `evidencias-publicables/herramientas/*.py` | Generadores de los formularios de revisión personal y el divisor de H2 |
+
+### Restringido (fuera de Git)
+
+| Ubicación | Contenido | SHA-256 |
+|---|---|---|
+| VM GCP `psi-cierre`: `~/psi-sci-4133033-r3/artifacts/phase4_preparation/` | Candidato final, FREEZE, ejecución (ledger, 48 resultados, checkpoints) y evaluaciones | Manifiesto `d960f81b…`, FREEZE `f0468a2d…`, evaluación final `15ff07f7…` |
+| VM: `~/psi-sci-4133033/` y `~/psi-sci-4133033-r2/` | Campañas 1 y 2, detenidas, con STOP conservado | Ver `~/psi-evidence/run-r2_final_hashes.txt` |
+| VM: `~/psi-evidence/` | Binding (`65d5dc7c…`) y su evidencia (`61e6111e…`), revisiones de Karol (`c5246441…`, `73c398dc…`, `e0f6190d…`), revisión H2 (`9ad26920…`) y su división (`2a6dcb0c…`), autorizaciones (`846be19f…`, `659fbd18…` rechazada por hora truncada, `a3e56508…`, `7ccbb881…`), logs, pruebas de velocidad | Ver cada archivo |
+| PC de Karol: `Descargas\psi-evidencia-RESTRINGIDA\psi-evidence-backup-20261110T173926Z.tgz` | Respaldo de las campañas 1 y 2 y de `psi-evidence` en ese momento | `d5c60127…` |
+| PC de Karol: `Descargas\psi-evidencia-RESTRINGIDA\psi-evidence-r3-20261110T184609Z.tgz` | Respaldo de la campaña 3 (ejecución, FREEZE, manifiesto, configuración, orden) y de `psi-evidence` | `9c4be707…` |
+| PC de Karol: `Descargas\psi-revision-F4\` y `Descargas\revision_referencias_F4_Karol*.json` | Formularios con contenido F4 y descargas de las revisiones | — |
+
+**Custodia:** Karol. Estas ubicaciones son la custodia real observada al cerrar. **La VM de GCP es un almacenamiento temporal:** antes de borrarla, conviene copiar `~/psi-sci-4133033*/artifacts/phase4_preparation/` y `~/psi-evidence/` completos a un almacenamiento duradero autorizado por el equipo. Los respaldos de arriba cubren la ejecución, pero no todos los temporales.
