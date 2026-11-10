@@ -2,7 +2,7 @@
 
 **Versión:** 1, 10 nov 2026, America/Bogota. **Rama:** `integration/final-validation`.
 **Responsable y aprobadora:** Karol. **Redacción:** Claude (IA), a petición de Karol.
-**Estado:** propuesta para aprobación. Este documento entra en el manifiesto del candidato (`refresh_candidate`) y queda congelado con el FREEZE. Cualquier cambio posterior exige un candidato nuevo y una nueva aprobación.
+**Estado:** APROBADO por Karol el 2026-11-10 10:17 −05:00 ("2 aprobar", en respuesta a la solicitud de aprobar el PROTOCOLO_FASE4 v1). Este documento entra en el manifiesto del candidato (`refresh_candidate`) y queda congelado con el FREEZE. Cualquier cambio posterior exige un candidato nuevo y una nueva aprobación.
 
 > Sustituye prospectivamente la especificación Qwen14 de `docs/phase4_protocol_proposed.md`, que se conserva sin modificar como antecedente histórico. Hereda `docs/methodology.md` y `docs/behavior_taxonomy.md`. Toma como base la propuesta provisional `evidencias-publicables/evaluacion/PROTOCOLO_QWEN3_PROVISIONAL.PUBLICABLE.md`, pero no la reemplaza retroactivamente.
 
@@ -52,7 +52,7 @@ Los detalles verificados (versiones, recursos, binding y su evidencia) se regist
 - **Datos:** 16 unidades F4 (F4-01…F4-16), con 14 referencias determinadas y 2 indeterminadas (`expected_labels = null`). Hay 8 unidades con recuperación 1A y 8 sin ella. Los textos se generan con `experiments/phase4/dataset.py`, sin editar ningún caso.
 - **Validez de la reserva (decisión):** el único contacto previo con F4 fue la preparación interrumpida en `7fc29f8`. Produjo 1 request B, ninguna inferencia y ninguna respuesta del modelo. El factor CTX-01 se fijó solo con datos de desarrollo y selección, sin abrir F4. Por eso F4 se mantiene como reserva válida, con esa exposición declarada. Si al preparar algún caso sigue sin caber, **no se cambia el factor**: la unidad se documenta como impedimento.
 - **Independencia de casos:** la auditoría automática de `independence.audit` se ejecuta al preparar. Si encuentra un duplicado exacto o de programa, el candidato se detiene. La independencia semántica la aprueba Karol en su revisión (`semantic_independence_approved`).
-- **Revisión de referencias:** la hace Karol personalmente, sobre las 16 unidades del candidato y ligada a su hash, antes del FREEZE. **Declaración:** Karol participó en la selección del modelo y en el laboratorio de desarrollo. [CONFIRMAR CON KAROL: si participó o no en la redacción de las referencias F4]. Su revisión es humana y nominativa, **no independiente**: no hay segundo revisor, cegamiento ni acuerdo entre revisores. Esta limitación se acepta para el alcance académico del cierre y se repite en los resultados.
+- **Revisión de referencias:** la hace Karol personalmente, sobre las 16 unidades del candidato y ligada a su hash, antes del FREEZE. **Declaración:** Karol participó en la selección del modelo y en el laboratorio de desarrollo. No participó en redactar las referencias F4; las redactó otra persona (respuesta de Karol, 2026-11-10 10:17 −05:00). Su revisión es humana y nominativa, **no independiente**: no hay segundo revisor, cegamiento ni acuerdo entre revisores. Esta limitación se acepta para el alcance académico del cierre y se repite en los resultados.
 
 ## 6. Orden y presupuesto
 
@@ -91,7 +91,7 @@ Todo se calcula con `experiments/phase4/metrics.py` y `evaluation.py` (`evaluate
 | # | Puerta | Estado |
 |---|---|---|
 | 1 | Enmienda CTX-01 | **Aprobada** por Karol el 2026-11-10 09:47 −05:00 |
-| 2 | Este protocolo (incluido el cambio de entorno y la decisión de reserva) | Pendiente de aprobación escrita de Karol |
+| 2 | Este protocolo (incluido el cambio de entorno y la decisión de reserva) | **Aprobado** por Karol el 2026-11-10 10:17 −05:00 |
 | 3 | Preparación del candidato con F4 (sin inferencias) | Pendiente de autorización escrita |
 | 4 | Revisión personal de las 16 referencias, con independencia semántica y seguridad | Pendiente (Karol) |
 | 5 | FREEZE (`seal`) | Después de la puerta 4 |
