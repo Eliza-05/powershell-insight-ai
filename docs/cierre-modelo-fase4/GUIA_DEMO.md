@@ -76,7 +76,7 @@ ssh -N -L 8000:127.0.0.1:8000 -i <clave_privada> psi@<IP>
 
 | Paso | Resultado |
 |---|---|
-| 2. Encender la VM y obtener la IP | Hecho desde la consola de GCP. La IP cambió entre arranques (`35.224.28.89` → `34.45.175.64`), lo que confirma la advertencia |
+| 2. Encender la VM y obtener la IP | Hecho desde la consola de GCP. La IP pública cambió entre arranques, lo que confirma la advertencia. Las IP concretas se omiten de la documentación pública |
 | 3. Comprobaciones del servicio | Ollama activo solo en 127.0.0.1, digest correcto, `overcommit_memory = 0` |
 | 4. App en loopback con el perfil explícito | `uvicorn app.main:app` en 127.0.0.1:8000. `/api/health` OK; `/api/capabilities` muestra `qwen3-coder:30b`, el digest, `timeout_seconds 300`, `fallback_enabled false` y la estrategia `v2-deterministic-layers-2`; `/api/provider/status`: `available` y `ready_for_inference` en true; `/` (frontend) devuelve 200 |
 | 6.1 Modo A | D02 de desarrollo: `partial` (cobertura parcial de 1A/1B), sin etiquetas deterministas |
