@@ -72,12 +72,18 @@ ssh -N -L 8000:127.0.0.1:8000 -i <clave_privada> psi@<IP>
 2. Comprueba que no hay campañas ni transferencias en curso: `pgrep -fa experiments.phase4` debe salir vacío.
 3. Con autorización de la responsable, **detén la VM** en la consola (Detener). Detenida solo cobra el disco.
 
-## 8. Verificación de esta guía
+## 8. Verificación de esta guía (10 nov 2026, VM n2-custom-12, SHA `4133033`, frontend compilado `9ff68d9c…`)
 
-| Paso | Estado |
+| Paso | Resultado |
 |---|---|
-| 3. Comprobaciones del servicio | Verificado el 2026-11-10 (ver `INFORME_TECNICO.md` §3) |
-| 4–5. App en loopback, túnel, health/capabilities | Pendiente de reproducir tras la campaña |
-| 6.1 Modo A | Pendiente |
-| 6.2 B/C reales | Pendiente de autorización separada y de que termine la campaña |
-| 6.3–6.4 Exportar y errores | Pendiente |
+| 2. Encender la VM y obtener la IP | Hecho desde la consola de GCP. La IP cambió entre arranques (`35.224.28.89` → `34.45.175.64`), lo que confirma la advertencia |
+| 3. Comprobaciones del servicio | Ollama activo solo en 127.0.0.1, digest correcto, `overcommit_memory = 0` |
+| 4. App en loopback con el perfil explícito | `uvicorn app.main:app` en 127.0.0.1:8000. `/api/health` OK; `/api/capabilities` muestra `qwen3-coder:30b`, el digest, `timeout_seconds 300`, `fallback_enabled false` y la estrategia `v2-deterministic-layers-2`; `/api/provider/status`: `available` y `ready_for_inference` en true; `/` (frontend) devuelve 200 |
+| 6.1 Modo A | D02 de desarrollo: `partial` (cobertura parcial de 1A/1B), sin etiquetas deterministas |
+| 6.2 Comparar (A+B+C) con el modelo real, autorizado ("Autorizo 2 llamadas de demo con un script sintético de desarrollo", 14:10) | Exactamente **2 llamadas**. **B:** `completed`, 76 s; el modelo propuso **B01** (correcto según la referencia de desarrollo de D02), el verificador lo **descartó** y no se publicó ninguna etiqueta; riesgo del modelo `suspicious`. **C:** `invalid_response` (49 s). Resultado guardado en `compare_D02.json` (sha256 `38389238…`, restringido) |
+| 6.4 Errores | Entrada vacía → `empty_input`; 70 000 bytes → HTTP 413; segunda solicitud LLM durante Comparar → `analysis_busy` (409, sin despachar ni reintentar) |
+| 6.3 Exportar | La respuesta JSON de la API es el mismo objeto que descarga la interfaz. La descarga desde el navegador está verificada con las pruebas E2E sintéticas (`integrated.mjs`: 6 descargas) |
+| 5. Túnel y recorrido visual en vivo | No reproducido en esta sesión: la automatización no tiene un navegador en el PC conectado al túnel. Lo hace Karol con los pasos 5–6. La interfaz está validada con E2E en el navegador (`VALIDACION_FRONTEND_SINTETICA.json`) |
+| 7. Parada | uvicorn detenido; sin procesos de campaña. La VM **sigue encendida** hasta que Karol autorice detenerla |
+
+**Observación para la demo:** el caso B de arriba muestra en pequeño el hallazgo de Fase 4. El modelo acertó la etiqueta y el verificador conservador la descartó. Conviene explicarlo así en la presentación.

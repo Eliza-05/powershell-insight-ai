@@ -84,6 +84,11 @@ Autorizada por Karol (2026-11-10 10:37 −05:00) y ejecutada en `psi-sci-4133033
 | Velocidad insuficiente en E2 | El límite de la cuenta de prueba es 12 vCPU, así que c3-standard-22 no era posible. Con autorización se cambió a **n2-custom-12-49152** (12 vCPU Intel Xeon 2,8 GHz, 48 GB). Prueba de velocidad con 7 llamadas de desarrollo (no F4): en frío desde disco, 280 s el peor caso (carga 118 s); con el modelo cargado, 37–95 s; en frío con el archivo en la caché del sistema, carga de 35 s (`bench_n2c12*.json`) |
 | Margen para la primera llamada en frío | Con autorización: 1 llamada de calentamiento con un caso de desarrollo (D04-B, carga de 36 s) y descarga del modelo (`ollama stop`) antes de la campaña 3. Se cumple `first_dispatch_requires_idle_no_residents`; el plazo de 300 s **no cambió** |
 
-## 8. Pendiente en este informe
+## 8. Campaña, evaluación y demo
 
-Las secciones de campaña, demostración y SHA final se completan cuando terminen esas etapas. Estado: ver `README.md`.
+- **Campaña 3** (candidato `d960f81b`, FREEZE `f0468a2d`): 48/48 registros, 32 intenciones, 0 timeouts y 0 paradas. Latencia LLM: mediana de 41 s, máximo de 95 s. Ejecutada el 2026-11-10 entre las 18:19 y las 18:44 UTC.
+- **Evaluación oficial** con las revisiones personales: H1 Δ = 0,00 (p = 1,0) y H2 Δ = −0,03 (p = 0,50). El detalle está en `RESULTADOS_H1_H2.md`.
+- **Hallazgo técnico principal:** el verificador `evidence-check-v2-bounded` descartó las 19 etiquetas que el modelo propuso en F4. En la demo con un caso de desarrollo también descartó un B01 correcto. Es una limitación del diseño congelado, no un fallo de ejecución, y se recomienda revisarlo en trabajo futuro con una evaluación independiente.
+- **Demo:** ver `GUIA_DEMO.md` §8. Fueron 2 llamadas autorizadas, separadas de la campaña.
+- **Respaldo final** (restringido): `psi-evidence-final-20261110T191331Z.tgz`, sha256 `744cb6cd…`, en la VM y en el PC de Karol.
+- **SHA final de `develop`:** ver `CIERRE_GIT.md`.
