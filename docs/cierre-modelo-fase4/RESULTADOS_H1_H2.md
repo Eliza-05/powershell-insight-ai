@@ -9,7 +9,7 @@
 
 | Elemento | Valor |
 |---|---|
-| SHA científico (código desplegado) | `41330339abc5ba8a73ca6b595c9ed4396d275e82` |
+| SHA científico (código desplegado) | `bbc316a6107f0bb43efa46036f97fbf1f8998123` (árbol `ceaa019d2148`; desplegado en la VM desde el commit local `41330339abc5`, que tenía el mismo árbol y solo difería en las líneas de coautoría de los mensajes) |
 | Protocolo | `PROTOCOLO_FASE4.md` v1, aprobado por Karol el 2026-11-10 10:17 −05:00 |
 | Candidato / FREEZE | `d960f81b8a5adb352ade6df80a767b882121c19a3b34eb7cec7ed3ca22255225` / `f0468a2d22575fa7dbc1f5de352602852ed1f73e459d3eea1bbb50ac0be16589` |
 | Revisión de referencias (ratificación) | `e0f6190d…`: Karol Estupiñan, 2026-11-10 13:15 −05:00, 16/16 aprobadas, independencia semántica y seguridad aprobadas |

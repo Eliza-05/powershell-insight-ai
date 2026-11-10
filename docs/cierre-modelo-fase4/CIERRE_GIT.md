@@ -8,33 +8,33 @@
 |---|---|
 | `develop` antes del cierre (publicado) | `2c10019dccff0e261752f032ac156c8638ab7f65` |
 | Base de `integration/final-validation` recibida el 9 nov | `a3ba71eea3a264b16b11c090b0e1f03b1a53b5f1` |
-| **SHA científico** (código desplegado en la campaña 3) | `41330339abc5ba8a73ca6b595c9ed4396d275e82` |
+| **SHA científico** (código desplegado en la campaña 3) | `bbc316a6107f0bb43efa46036f97fbf1f8998123` (árbol `ceaa019d2148`; desplegado en la VM desde el commit local `41330339abc5`, que tenía el mismo árbol y solo difería en las líneas de coautoría de los mensajes) |
 | Último commit de `integration/final-validation` | El que contiene este archivo (ver el recibo externo) |
 | SHA final de `develop` (merge) | Se registra en el recibo externo `RECIBO_CIERRE_GIT.txt`, porque un commit no puede incluir su propio SHA |
 
-Los commits posteriores a `4133033` solo cambian documentación y evidencia publicable. No modifican código, el protocolo congelado ni los archivos que cubre el manifiesto del candidato. Por eso los resultados corresponden al SHA científico, no a commits posteriores.
+Los commits posteriores a `bbc316a` solo cambian documentación y evidencia publicable. No modifican código, el protocolo congelado ni los archivos que cubre el manifiesto del candidato. Por eso los resultados corresponden al SHA científico, no a commits posteriores.
 
 ## 2. Commits del cierre (sobre `a3ba71e`)
 
 | Commit | Tipo | Resumen |
 |---|---|---|
-| `ec63f7f` | fix | CTX-01: presupuesto de contexto escalado; regla única para el adaptador y `prepare`; comprobación posterior; 11 pruebas |
-| `9a18262` | docs+code | Protocolo prospectivo; `refresh_candidate` cubre el protocolo, CTX-01 y `requirements-pilot`; 1 prueba |
-| `4133033` | docs | Protocolo aprobado; autoría de las referencias declarada (**SHA científico**) |
-| `2dd83bb` | docs | Informe técnico, evidencia del entorno GCP y validación del frontend |
-| `f17c343` | docs | Guía de demo (borrador) y herramientas de revisión personal |
-| `488638f` | docs | Campaña 3 completa, H1 evaluada, incidentes 1–2 |
-| `c357fb5`, `2465e41` | docs | H2 evaluada; corrección de un recuento |
-| `09f78c6` | docs | README final e índice de evidencias |
-| `3c82616` | docs | Demo reproducida, informe técnico final y respaldo indexado |
+| `3b1ceaf` | fix | CTX-01: presupuesto de contexto escalado; regla única para el adaptador y `prepare`; comprobación posterior; 11 pruebas |
+| `f4dcd35` | docs+code | Protocolo prospectivo; `refresh_candidate` cubre el protocolo, CTX-01 y `requirements-pilot`; 1 prueba |
+| `bbc316a` | docs | Protocolo aprobado; autoría de las referencias declarada (**SHA científico**) |
+| `f87618c` | docs | Informe técnico, evidencia del entorno GCP y validación del frontend |
+| `0eca4d3` | docs | Guía de demo (borrador) y herramientas de revisión personal |
+| `e0bcbb2` | docs | Campaña 3 completa, H1 evaluada, incidentes 1–2 |
+| `5c04d1b`, `b131b55` | docs | H2 evaluada; corrección de un recuento |
+| `14806ec` | docs | README final e índice de evidencias |
+| `aaaf30f` | docs | Demo reproducida, informe técnico final y respaldo indexado |
 | (este) | docs | Cierre Git |
 
-Todos los commits tienen como autora a Karol, con la línea `Co-Authored-By: Claude`.
+Todos los commits tienen como autora y committer a Karol. Por decisión de Karol (10 nov, 14:21), antes de publicar se quitaron de los mensajes las líneas de coautoría (`git filter-branch --msg-filter`). Ese cambio no altera ningún árbol de archivos. Correspondencia entre el SHA local previo y el publicado: `ec63f7f`→`3b1ceaf`, `9a18262`→`f4dcd35`, `2dd83bb`→`f87618c`, `f17c343`→`0eca4d3`, `488638f`→`e0bcbb2`, `c357fb5`→`5c04d1b`, `2465e41`→`b131b55`, `09f78c6`→`14806ec`, `3c82616`→`aaaf30f`, `6d6b77c`→`f5d6851`, `4133033`→`bbc316a`. La VM ejecutó el código del commit local `41330339abc5`, cuyo árbol es idéntico al de `bbc316a` (`ceaa019d2148`). Las evidencias JSON conservan el SHA local que se registró en su momento.
 
 ## 3. Pruebas sobre el resultado integrado
 
 - **Antes del merge:**
-  - Selección segura del plan (§16) más CTX-01: 779 aprobadas en GCP nativo (`4133033`).
+  - Selección segura del plan (§16) más CTX-01: 779 aprobadas en GCP nativo (`bbc316a`).
   - Frontend: 141 pruebas, build, integración (11) y navegador (20/10/87).
 - **Después del merge:** se repite la misma selección sobre el árbol integrado (§4).
 - No se ejecuta la suite científica completa (`pytest backend/tests`), porque lee material reservado y crea propuestas.

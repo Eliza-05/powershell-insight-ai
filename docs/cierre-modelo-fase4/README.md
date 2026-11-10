@@ -2,7 +2,7 @@
 
 **Estado final:** CAMPAÑA DE FASE 4 COMPLETA Y EVALUADA. H1 y H2 no tienen apoyo; es un resultado negativo válido.
 **Rama:** `integration/final-validation`, integrada en `develop` (SHA final en `CIERRE_GIT.md`).
-**SHA científico (código ejecutado):** `41330339abc5ba8a73ca6b595c9ed4396d275e82`.
+**SHA científico (código ejecutado):** `bbc316a6107f0bb43efa46036f97fbf1f8998123` (árbol `ceaa019d2148`; desplegado en la VM desde el commit local `41330339abc5`, que tenía el mismo árbol y solo difería en las líneas de coautoría de los mensajes).
 **Actualización:** 10 nov 2026, America/Bogota.
 **Responsable:** Karol. **Ejecución técnica y redacción:** Claude (IA), a petición de Karol.
 

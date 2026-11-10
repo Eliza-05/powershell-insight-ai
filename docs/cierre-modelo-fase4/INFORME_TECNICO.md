@@ -19,9 +19,9 @@
 
 | Commit | Cambio | Pruebas |
 |---|---|---|
-| `ec63f7f` | **CTX-01:** presupuesto de contexto escalado (0,5 tokens/byte) para `qwen3coder-v2`, con una regla única para el adaptador y `prepare.py`. La comprobación posterior no publica respuestas cuya entrada real invada la reserva de salida. Los perfiles históricos no cambian | 11 nuevas; selección segura: 767 → 778 |
-| `9a18262` | `PROTOCOLO_FASE4.md` prospectivo. `refresh_candidate` cubre el protocolo, la enmienda CTX-01 y `requirements-pilot.txt` | +1 (779) |
-| `4133033` | Protocolo aprobado por Karol; declarada la autoría de las referencias | — |
+| `3b1ceaf` | **CTX-01:** presupuesto de contexto escalado (0,5 tokens/byte) para `qwen3coder-v2`, con una regla única para el adaptador y `prepare.py`. La comprobación posterior no publica respuestas cuya entrada real invada la reserva de salida. Los perfiles históricos no cambian | 11 nuevas; selección segura: 767 → 778 |
+| `f4dcd35` | `PROTOCOLO_FASE4.md` prospectivo. `refresh_candidate` cubre el protocolo, la enmienda CTX-01 y `requirements-pilot.txt` | +1 (779) |
+| `bbc316a` | Protocolo aprobado por Karol; declarada la autoría de las referencias | — |
 
 El diagnóstico, los datos de calibración (solo desarrollo, nunca F4) y la aprobación están en `CTX01_DIAGNOSTICO_Y_ENMIENDA.md`.
 
@@ -52,9 +52,9 @@ El diagnóstico, los datos de calibración (solo desarrollo, nunca F4) y la apro
 | Fecha (UTC) | SHA | Entorno | Prueba | Resultado |
 |---|---|---|---|---|
 | 2026-11-10 05:2x | `a3ba71e` + CTX-01 | Contenedor | Selección segura del plan (§16) | 767 aprobadas (base) |
-| 2026-11-10 15:12 | `ec63f7f` | GCP nativo | Selección segura + CTX-01 | 778 aprobadas, exit 0 |
-| 2026-11-10 15:18 | `4133033` | GCP nativo | Igual | **779 aprobadas, 0 fallos/errores/omitidas** (junit `1f22cfdc…`) |
-| 2026-11-10 15:4x | `4133033` | Contenedor | Frontend: vitest | 141 aprobadas |
+| 2026-11-10 15:12 | `3b1ceaf` | GCP nativo | Selección segura + CTX-01 | 778 aprobadas, exit 0 |
+| 2026-11-10 15:18 | `bbc316a` | GCP nativo | Igual | **779 aprobadas, 0 fallos/errores/omitidas** (junit `1f22cfdc…`) |
+| 2026-11-10 15:4x | `bbc316a` | Contenedor | Frontend: vitest | 141 aprobadas |
 | 〃 | 〃 | 〃 | `npm run build` (tsc + vite) | OK |
 | 〃 | 〃 | 〃 | Integración HTTP+React contra el servidor sintético | 11 aprobadas |
 | 〃 | 〃 | 〃 | Navegador: `integrated.mjs` / `--zoom200` / `verify.mjs --comparison-layout` | 20 / 10 / 87 casos, 0 fallos |

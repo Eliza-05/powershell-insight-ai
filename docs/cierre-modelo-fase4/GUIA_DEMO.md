@@ -72,7 +72,7 @@ ssh -N -L 8000:127.0.0.1:8000 -i <clave_privada> psi@<IP>
 2. Comprueba que no hay campañas ni transferencias en curso: `pgrep -fa experiments.phase4` debe salir vacío.
 3. Con autorización de la responsable, **detén la VM** en la consola (Detener). Detenida solo cobra el disco.
 
-## 8. Verificación de esta guía (10 nov 2026, VM n2-custom-12, SHA `4133033`, frontend compilado `9ff68d9c…`)
+## 8. Verificación de esta guía (10 nov 2026, VM n2-custom-12, SHA `bbc316a`, frontend compilado `9ff68d9c…`)
 
 | Paso | Resultado |
 |---|---|
