@@ -1,0 +1,10 @@
+usage: __main__.py [-h]
+                   {prepare,refresh-candidate,report-proposal,seal,run,evaluate} ...
+
+Phase 4 preparation and explicitly authorized future campaign
+
+positional arguments:
+  {prepare,refresh-candidate,report-proposal,seal,run,evaluate}
+
+options:
+  -h, --help            show this help message and exit

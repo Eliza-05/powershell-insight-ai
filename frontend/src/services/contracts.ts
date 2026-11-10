@@ -167,6 +167,65 @@ async function checkResult(result: PipelineResult, script: string) {
   for (const key of ['model', 'installed_digest', 'expected_digest', 'prompt_version', 'prompt_sha256', 'context_sha256']) {
     requireContract(result.operational[key] === undefined || typeof result.operational[key] === 'string')
   }
+  checkVerifier(result)
+}
+
+function checkVerifier(result: PipelineResult) {
+  const op = result.operational
+  const bounds = (v: unknown) => object(v) && Number.isInteger(v.start) && Number.isInteger(v.end)
+    && Number(v.start) >= 0 && Number(v.end) >= Number(v.start)
+  if (op.model_report_before_evidence_check !== undefined) serialized(op.model_report_before_evidence_check, 'ModelReport')
+  if (op.model_behaviors_before_evidence_check !== undefined) {
+    requireContract(Array.isArray(op.model_behaviors_before_evidence_check))
+    for (const b of op.model_behaviors_before_evidence_check) {
+      fields(b, { behavior_id: string, evidence: Array.isArray })
+      for (const e of b.evidence) fields(e, { source_id: string, snippet: string })
+    }
+  }
+  const check = op.evidence_check
+  if (check !== undefined) {
+    fields(check, { version: string, changes: Array.isArray })
+    for (const c of check.changes) fields(c, { from: string, to: v => v === null || string(v), action: string })
+    for (const key of ['final_behavior_ids', 'candidate_behavior_ids', 'limitations'] as const) requireContract(check[key] === undefined || strings(check[key]))
+    for (const key of ['status', 'error'] as const) requireContract(check[key] === undefined || typeof check[key] === 'string')
+    requireContract(check.risk_preserved_from_model === undefined || ['unknown', 'benign', 'suspicious', 'high_risk'].includes(check.risk_preserved_from_model))
+    if (check.final_behavior_ids) requireContract(same(check.final_behavior_ids, result.llm?.behaviors.map(b => b.behavior_id) ?? []))
+    if (check.decisions !== undefined) {
+      requireContract(Array.isArray(check.decisions))
+      for (const d of check.decisions) {
+        fields(d, { from: string, to: v => v === null || string(v), action: v => ['kept', 'dropped', 'relabelled'].includes(String(v)),
+          support: string, reason: string, human_validated: v => typeof v === 'boolean', source_diagnostics: strings, citations: Array.isArray })
+        for (const c of d.citations) {
+          fields(c, { source_id: string, snippet: string, line: v => Number.isInteger(v) && Number(v) > 0,
+            column: v => Number.isInteger(v) && Number(v) > 0, provenance: string, support: string, reason: string, operations: Array.isArray })
+          requireContract(bounds(c))
+          const text = c.source_id === 'original' ? result.original : result.deobfuscation?.transformations.find(t => t.transformation_id === c.source_id)?.recovered_text
+          requireContract(typeof text === 'string' && c.end === c.start + Array.from(c.snippet).length && slice(text, c.start, c.end) === c.snippet)
+          const at = position(text, c.start); requireContract(c.line === at.line && c.column === at.column)
+          requireContract(c.root_source === null || matches(c.root_source, definitions.SourceSpan))
+          if (c.root_source) { requireContract(result.original !== null); checkSpan(c.root_source, result.original) }
+          for (const operation of c.operations) {
+            fields(operation, { behavior_id: string, rule_id: string, snippet: string, conditions: strings, limitations: strings, operands: Array.isArray })
+            requireContract(bounds(operation) && c.start <= operation.start && operation.end <= c.end
+              && slice(text, operation.start, operation.end) === operation.snippet)
+            for (const atom of operation.operands) {
+              fields(atom, { role: string, snippet: string }); requireContract(bounds(atom)
+                && operation.start <= atom.start && atom.end <= operation.end && slice(text, atom.start, atom.end) === atom.snippet)
+            }
+          }
+        }
+      }
+    }
+  }
+  const preprocessing = op.preprocessing
+  if (preprocessing !== undefined) {
+    fields(preprocessing, { version: string, sources: Array.isArray })
+    for (const source of preprocessing.sources) {
+      fields(source, { source_text_sha256: string, source_ids: strings, coverage: string, comment_spans: Array.isArray, diagnostics: Array.isArray })
+      requireContract(source.comment_spans.every(s => Array.isArray(s) && s.length === 2 && bounds({ start: s[0], end: s[1] })))
+      for (const diagnostic of source.diagnostics) { fields(diagnostic, { reason: string, fatal: v => typeof v === 'boolean' }); requireContract(bounds(diagnostic)) }
+    }
+  }
 }
 
 export async function analysisResponse(value: unknown, mode: Mode, script: string): Promise<AnalysisResponse> {

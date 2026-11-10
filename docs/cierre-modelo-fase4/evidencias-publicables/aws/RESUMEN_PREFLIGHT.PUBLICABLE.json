@@ -1,0 +1,38 @@
+{
+  "kind": "public_summary_not_executable",
+  "observed_at_utc": "2026-11-10T02:07:02.660323+00:00",
+  "preflight_passed": true,
+  "ollama_version": "0.40.15",
+  "model": "qwen3-coder:30b",
+  "model_digest": "06c1097efce0431c2045fe7b2e5108366e43bee1b4603a7aded8f21689e90bca",
+  "resident_models": 0,
+  "memory": {
+    "physical_total_bytes": 33647419392,
+    "available_bytes": 32890433536,
+    "commit_available_bytes": 15745601536,
+    "collector": "linux-proc-cgroup-v2-v2",
+    "overcommit_memory": 0,
+    "swap_total_bytes": 0
+  },
+  "admission": {
+    "policy": "linux-resident-mode-aware-v1",
+    "allowed": true,
+    "required_bytes": 23968709120,
+    "checks": {
+      "critical_accounting": true,
+      "ram_reserve": true,
+      "cgroup_reserve": true,
+      "supported_overcommit": true,
+      "commit_reserve": null
+    },
+    "reasons": [],
+    "commit_role": "diagnostic_only_in_mode_0"
+  },
+  "disk_free_bytes_observed": 8369348608,
+  "storage_method": "linux-model-filesystem-binding-v1",
+  "limitations": [
+    "historical_snapshot_not_current_AWS_state",
+    "not_a_memory_reservation_or_inference_success_proof",
+    "protected_path_not_re_resolved_live"
+  ]
+}

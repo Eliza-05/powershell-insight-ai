@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  // Keep even small font subsets as same-origin files, compatible with FastAPI's
+  // font-src 'self'. Inlined data: fonts were blocked in the production build.
+  build: { assetsInlineLimit: 0 },
   server: { host: '127.0.0.1', port: 5173, strictPort: true,
     proxy: { '/api': { target: 'http://127.0.0.1:8000' } } },
   test: { environment: 'jsdom', setupFiles: ['./src/test/setup.ts'],

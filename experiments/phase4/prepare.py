@@ -3,35 +3,34 @@ from __future__ import annotations
 
 import platform
 import random
+import os
 
 from app.schemas.deobfuscation import DeobfuscationLimits
 from app.services.deobfuscation.engine import deobfuscate
-from app.services.llm.qwen14_prototype import load_settings
-from app.services.pipelines.context import build_context, canonical, sha
+from app.api.application import load_pipeline_settings as load_settings
+from app.services.pipelines.context import build_context, canonical, message_token_upper_bound, sha
 from app.services.pipelines.provider import response_schema
 from experiments.phase4.common import ROOT, OUT, VERSION, LABELS, now, digest, save, require, load
-from experiments.phase4.dataset import proposed_cases
-from experiments.phase4.independence import audit
-
-
-def context_for(script, mode, settings):
-    recovery = deobfuscate(script, input_provenance="original",
-        limits=DeobfuscationLimits(max_input_bytes=settings.max_input_bytes)) if mode == "C" else None
-    return build_context(script, recovery)
-
-
-def payload_for(context, settings):
-    return {"model": settings.model, "messages": context.messages, "format": response_schema(),
-        "stream": False, "truncate": False, "keep_alive": settings.keep_alive, "options": settings.options.model_dump()}
+from experiments.phase4.profile import context_for, payload_for, profile_name, strategy_for
 
 
 def prepare():
+    # Validate optional operational storage metadata before importing reserved data.
+    storage_binding = None
+    if binding_path := os.getenv("PSI_PHASE4_STORAGE_BINDING"):
+        from experiments.phase4.storage import storage_snapshot
+        storage_binding = load(binding_path)
+        storage_snapshot(storage_binding)
+    # Reserved authorship/solutions are loaded only by this explicitly invoked
+    # preparation command, never by importing controller/profile support in tests.
+    from experiments.phase4.dataset import proposed_cases
+    from experiments.phase4.independence import audit
     plan = OUT / "proposal"
     require(not plan.exists(), "proposal_exists_create_new_revision_instead_of_overwriting")
     settings = load_settings()
     # No environment-dependent model/parameter overrides may silently affect a proposal.
-    from app.services.llm.qwen14_prototype import PrototypeSettings
-    require(settings == PrototypeSettings.model_validate(PrototypeSettings().model_dump(mode="json")), "unexpected_settings_override")
+    cls = type(settings)
+    require(settings == cls.model_validate(cls().model_dump(mode="json")), "unexpected_settings_override")
     cases = proposed_cases()
     exclusion_rules = {
         "B01": "No hay obtención activa de contenido remoto sustentada; una URL literal o un envío no bastan para B01.",
@@ -67,7 +66,9 @@ def prepare():
         for mode in ("B", "C"):
             context = context_for(script, mode, settings)
             payload = payload_for(context, settings)
-            require(sum(len(m["content"].encode()) for m in context.messages) + settings.context_overhead_tokens + settings.options.num_predict <= settings.options.num_ctx,
+            # Same pre-dispatch rule as the adapter (CTX-01); never truncates inputs.
+            message_bound, _budget_version = message_token_upper_bound(context.messages, settings)
+            require(message_bound + settings.context_overhead_tokens + settings.options.num_predict <= settings.options.num_ctx,
                     "proposal_context_budget_exceeded")
             request = f"requests/{case['id']}-{mode}.json"
             save(plan / request, payload)
@@ -107,6 +108,13 @@ def prepare():
             "scientific": "Operational completion plus personally approved references and complete hash-bound claim adjudication; performance does not gate completion"},
         "prepared_environment_only": {"python": platform.python_version(), "platform": platform.platform()},
         "execution_authorized_now": False, "reference_review_complete": False}
+    configuration["llm_profile"] = profile_name(settings)
+    if storage_binding is not None:
+        configuration["model_storage_binding"] = storage_binding
+    strategy = strategy_for(settings)
+    if strategy:
+        configuration.update(strategy=strategy.versions(), policy_text_sha256=strategy.policy_sha256,
+            policy_sha256=strategy.policy_bytes_sha256, configuration_revision="qwen3coder-v2-bounded-prospective-1")
     save(plan / "configuration.json", configuration)
     full_cases = [{**c, "script": (plan / c["script_file"]).read_text(encoding="utf-8")} for c in cases]
     novelty = audit(full_cases)
@@ -132,7 +140,11 @@ def refresh_candidate():
     runtime += list((ROOT / "experiments/phase4").glob("*.py"))
     runtime += list((ROOT / "backend/tests/phase4").glob("*.py"))
     runtime += [ROOT / "experiments/gemma4_v2/runner.py", ROOT / "experiments/pilot_v2_runtime/resources.py"]
-    runtime += [ROOT / name for name in ("docs/methodology.md", "docs/behavior_taxonomy.md", "backend/requirements-app.txt")]
+    runtime += [ROOT / name for name in ("docs/methodology.md", "docs/behavior_taxonomy.md", "backend/requirements-app.txt",
+                                         "backend/requirements-pilot.txt")]
+    # Prospective closure protocol and the CTX-01 amendment are immutable parts of the candidate.
+    runtime += [p for p in (ROOT / "docs/cierre-modelo-fase4").glob("PROTOCOLO_FASE4.md")]
+    runtime += [p for p in (ROOT / "docs/cierre-modelo-fase4").glob("CTX01_DIAGNOSTICO_Y_ENMIENDA.md")]
     runtime += [p for p in (ROOT / "docs").glob("phase4_*proposed.md")]
     runtime += [p for p in (ROOT / "docs").glob("phase4_human_review.md")]
     runtime += [p for p in (ROOT / "docs").glob("phase4_independence_review.md")]

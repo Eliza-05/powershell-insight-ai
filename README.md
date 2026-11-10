@@ -47,7 +47,7 @@ Los comportamientos se organizan en siete categorías, B01–B07: descarga, ejec
 |---|---|
 | Backend | Python, FastAPI y Uvicorn |
 | Frontend | React, TypeScript, Vite y CSS propio |
-| IA local | Ollama y Qwen2.5-Coder 14B como modelo experimental configurado |
+| IA local | Ollama y Qwen3-Coder 30B como perfil definitivo experimental explícito; Qwen14 conserva compatibilidad histórica |
 | Validación | Pydantic y comprobación literal de evidencias |
 | Pruebas | Pytest, Vitest y Testing Library |
 
@@ -73,7 +73,7 @@ El entorno principal documentado es Windows con PowerShell:
 - Python **3.13**; las dependencias se fijaron con Python 3.13.3.
 - Node.js **24** y npm.
 
-La aplicación y el análisis A funcionan sin Ollama ni claves de API. Para B y C se necesita además Ollama en `127.0.0.1:11434`, el modelo configurado y memoria suficiente. El perfil CPU exige aproximadamente **14 GiB de RAM y compromiso disponibles para cargar el modelo en frío**; el backend comprueba los recursos antes de inferir.
+La aplicación y el análisis A funcionan sin Ollama ni claves de API. Para B y C se necesita además Ollama en `127.0.0.1:11434`, el modelo configurado y memoria suficiente. Qwen3-Coder CPU requiere **23968709120 bytes (aproximadamente 22,32 GiB) disponibles de RAM y de margen de commit para carga en frío**, incluido el margen de 2 GiB. El backend comprueba recursos; la contabilidad Linux y sus límites cgroup se validan por separado en infraestructura. La verificación local usa transporte simulado y no necesita instalar el modelo.
 
 ## Instalación
 
@@ -105,6 +105,7 @@ Desde la raíz del repositorio, abrir dos terminales.
 **1. Iniciar el backend:**
 
 ```powershell
+$env:PSI_LLM_PROFILE = 'qwen3coder-v2'
 .\.venv\Scripts\python.exe -B -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --no-access-log
 ```
 
@@ -141,7 +142,7 @@ Construir antes de iniciar el backend y abrir [http://127.0.0.1:8000](http://127
 
 ## Configuración de modelos
 
-B y C utilizan **`qwen2.5-coder:14b` mediante Ollama**. Instalar Ollama siguiendo su [documentación oficial para Windows](https://docs.ollama.com/windows) e iniciarlo desde el menú Inicio. Si no hay un servidor activo, también se puede ejecutar `ollama serve` en otra terminal.
+B y C utilizan **`qwen3-coder:30b` mediante Ollama** al definir `PSI_LLM_PROFILE=qwen3coder-v2` en el entorno del proceso. Es la selección experimental del equipo, no una certificación científica. Si se omite la variable se conserva el perfil histórico `qwen2.5-coder:14b`; valores desconocidos se rechazan. `.env` no se carga automáticamente.
 
 Consultar modelos instalados y residentes no genera inferencias:
 
@@ -150,17 +151,15 @@ ollama list
 ollama ps
 ```
 
-La descarga del modelo es **opcional** y debe iniciarse expresamente si se desea usar B/C:
-
-```powershell
-ollama pull qwen2.5-coder:14b
-```
+La validación local no descarga modelos ni llama al proveedor real. La instancia de evaluación deberá disponer del modelo y digest autorizados antes de una ejecución expresamente aprobada.
 
 Los pesos se almacenan en la ubicación configurada por Ollama y no deben añadirse al repositorio. El backend verifica el modelo y su digest esperado; si no coinciden o faltan recursos, informa la indisponibilidad sin cambiar automáticamente de modelo. `/api/capabilities` permite consultar el perfil configurado.
 
 Para opciones avanzadas mediante `PSI_PIPELINE_SETTINGS`, consultar la [guía del prototipo](docs/prototype_exploratory.md). El perfil estándar fija modelo, digest y puerto; cambiar de proveedor requiere una integración explícita. Existe trabajo experimental con Gemini Developer API, separado del proveedor predeterminado, descrito en la [documentación de Gemini](docs/gemini_viability.md).
 
 ## Pruebas
+
+Para la verificación integrada sin inferencias, comandos seguros, entorno Linux y preparación prospectiva del FREEZE, consultar [integración local final](docs/final_local_integration.md). No ejecutar toda la suite científica como prueba ordinaria: algunos controladores generan propuestas o congelaciones en sus fixtures.
 
 Desde la raíz, con las dependencias instaladas:
 

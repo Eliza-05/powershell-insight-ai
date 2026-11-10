@@ -1,0 +1,34 @@
+{
+  "reserved_cases_used": false,
+  "freezes_created": 0,
+  "real_generation_calls": 0,
+  "normal_simulation": {
+    "records": 48,
+    "simulated_intents": 32,
+    "duplicate_launch_rejected": true,
+    "checkpoints_verified": true
+  },
+  "timeout": {
+    "simulated_spent_intents": 1,
+    "automatic_retry": false,
+    "stop": {
+      "at": "2026-11-10T01:56:12.691177+00:00",
+      "reason": "critical_resource_or_transport_interrupt",
+      "detail": "critical_resource_or_transport_interrupt",
+      "automatic_resume": false
+    },
+    "orphan_rejected": null
+  },
+  "interrupt": {
+    "simulated_spent_intents": 1,
+    "automatic_retry": false,
+    "stop": {
+      "at": "2026-11-10T01:56:12.796866+00:00",
+      "reason": "controller_interrupted_or_storage_failure",
+      "detail": "SYNTHETIC interrupt after reservation",
+      "automatic_resume": false
+    },
+    "orphan_rejected": true
+  },
+  "real_authorization_guard": "personal_reference_freeze_required_before_execution"
+}

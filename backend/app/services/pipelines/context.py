@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import math
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -10,6 +11,22 @@ from app.schemas.deobfuscation import DeobfuscationResult
 
 PROMPT_VERSION = "application-analysis-v1"
 POLICY_PATH = Path(__file__).with_name("policy_v1.md")
+
+
+def message_token_upper_bound(messages, settings) -> tuple[int, str]:
+    """Pre-dispatch upper bound of chat-message tokens (CTX-01).
+
+    Historical profiles count one token per UTF-8 byte ("message-bytes-v2"), a strict bound that
+    over-estimates real tokens 3-5x for PowerShell text. Profiles that declare
+    `context_tokens_per_byte_upper_bound` < 1 scale the byte count ("message-bytes-scaled-v3").
+    The template reserve (`context_overhead_tokens`) is added by the caller. Real token counts
+    reported by Ollama are still checked after the call; nothing is ever truncated here.
+    """
+    raw = sum(len(m["content"].encode("utf-8")) for m in messages)
+    factor = getattr(settings, "context_tokens_per_byte_upper_bound", 1.0)
+    if factor >= 1.0:
+        return raw, "message-bytes-v2"
+    return math.ceil(raw * factor), "message-bytes-scaled-v3"
 
 
 def canonical(value) -> str:

@@ -1,0 +1,13 @@
+{
+  "archives_sha256_match": true,
+  "package_files_verified": 40,
+  "partial_raw_files_verified": 4,
+  "manifest_source_files_match_git_archive_for_commit": true,
+  "recorded_git_export_line_ending_conversions": 136,
+  "all_non_line_ending_bytes_match_git_blobs": true,
+  "candidate_sha256": "41028c708d628ed37c9841bd50bcdc6a80fa5c86eb477bba2e3cb042e4acdba3",
+  "review_packets": 16,
+  "human_approvals": 0,
+  "real_inferences": 0,
+  "verdict": "BLOQUEADO ANTES DEL FREEZE"
+}

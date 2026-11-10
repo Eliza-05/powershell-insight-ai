@@ -8,35 +8,38 @@ from uuid import uuid4
 from packaging.version import Version
 
 from app.schemas.pipeline import PipelineResult
-from app.services.llm.qwen14 import Qwen14Adapter, Qwen14Transport
 from app.services.pipelines.context import canonical, sha
 from app.services.pipelines.resources import InferenceGate
-from app.services.pipelines.service import AnalysisService
+from app.services.pipelines.resource_policy import resource_admission
 from experiments.gemma4_v2.runner import CampaignLock
-from experiments.pilot_v2_runtime.resources import snapshot
+from experiments.phase4.resources import snapshot
 from experiments.phase4.common import load, save, require, digest, now
 from experiments.phase4.protocol import Proposal
+from experiments.phase4.profile import transport_for, service_for
+from experiments.phase4.storage import storage_snapshot
 
 
-def native_state():
+def native_state(settings=None, *, storage_binding=None):
     # Metadata only, bounded loopback transport. Model path can be on another drive;
     # measure that location explicitly rather than assuming workspace storage.
-    import shutil
-    client = Qwen14Transport(timeout=3)
-    model_path = Path(os.getenv("OLLAMA_MODELS") or Path.home() / ".ollama/models")
+    if settings is None:
+        from app.api.application import load_pipeline_settings
+        settings = load_pipeline_settings()
+    client = transport_for(settings, timeout=3)
     return {"at": now(), "version": client.json("version"), "tags": client.json("tags"),
-        "ps": client.json("ps"), "show": client.json("show", {"model": "qwen2.5-coder:14b"}),
-        "memory": snapshot(), "disk_free_bytes": shutil.disk_usage(model_path).free,
-        "model_path": str(model_path)}
+        "ps": client.json("ps"), "show": client.json("show", {"model": settings.model}),
+        "memory": snapshot(), **storage_snapshot(storage_binding)}
 
 
 class Campaign:
-    def __init__(self, proposal=None, *, transport_builder=None, sampler=snapshot, metadata=native_state,
+    def __init__(self, proposal=None, *, transport_builder=None, sampler=snapshot, metadata=None,
                  gate_factory=InferenceGate):
         self.p = proposal or Proposal()
         self.out = self.p.out / "execution"
-        self.transport_builder = transport_builder or (lambda callback: Qwen14Transport(authorize_dispatch=callback))
-        self.sampler, self.metadata, self.gate_factory = sampler, metadata, gate_factory
+        self.transport_builder = transport_builder or (lambda callback: transport_for(self.p.settings,
+            authorize_dispatch=callback, timeout=self.p.settings.timeout_seconds))
+        self.sampler, self.metadata, self.gate_factory = sampler, metadata or (lambda: native_state(
+            self.p.settings, storage_binding=self.p.configuration.get("model_storage_binding"))), gate_factory
         self.active = None
         self.authorization_path = None
         self.authorization_hash = None
@@ -68,16 +71,22 @@ class Campaign:
             require(not first or not residents, "first_dispatch_requires_idle_no_residents")
             require(len(residents) <= 1 and all(m["digest"] == cfg.expected_digest for m in residents), "other_model_resident")
             require("completion" in s["show"].get("capabilities", []) and "thinking" not in s["show"].get("capabilities", []), "wrong_capabilities")
-            require(s["show"]["model_info"].get("qwen2.context_length", 0) >= cfg.options.num_ctx, "context_not_supported")
+            info = s["show"]["model_info"]
+            architecture = info.get("general.architecture", "qwen2" if cfg.model == "qwen2.5-coder:14b" else "qwen3moe")
+            require(info.get(architecture + ".context_length", 0) >= cfg.options.num_ctx, "context_not_supported")
             warm = bool(residents) and residents[0].get("context_length") == cfg.options.num_ctx and residents[0].get("size_vram") == 0
             needed = cfg.minimum_margin_bytes + (cfg.loaded_growth_reserve_bytes if warm else cfg.unloaded_reserve_bytes)
             s["required_available_bytes"] = needed
             memory = s["memory"]
             require(all(type(memory.get(k)) is int and memory[k] >= 0 for k in ("available_bytes", "commit_available_bytes", "commit_limit_bytes", "physical_total_bytes")), "resource_snapshot_unavailable")
-            require(min(memory["available_bytes"], memory["commit_available_bytes"]) >= needed, "insufficient_memory")
+            s["resource_admission"] = resource_admission(memory, needed)
+            require(s["resource_admission"]["allowed"], "insufficient_memory")
             require(s["disk_free_bytes"] >= self.p.configuration["disk_free_minimum_bytes"], "insufficient_disk")
             runtime = [p for p in memory["processes"] if p.get("is_ollama_runtime")]
-            require(runtime and all(type(p.get("private")) is int and type(p.get("working_set")) is int for p in runtime), "process_monitor_unavailable")
+            linux = str(memory.get("collector", "")).startswith("linux-")
+            fields = ("rss_bytes",) if linux else ("private", "working_set")
+            require(runtime and all(not p.get("counters_unavailable") and
+                all(type(p.get(k)) is int and p[k] >= 0 for k in fields) for p in runtime), "process_monitor_unavailable")
             require(not self.gate_factory().marker.exists(), "interrupted_dispatch_circuit")
             s["passed"] = True
         finally:
@@ -138,7 +147,8 @@ class Campaign:
         if reply.get("model") != self.p.settings.model: return "response_model_mismatch"
         if reply.get("message", {}).get("tool_calls") or reply.get("message", {}).get("thinking"): return "unauthorized_capability"
         for error in pipeline.get("errors", []):
-            ordinary = error["code"] == "invalid_response" and error["stage"] == "response"
+            ordinary = (error["code"] == "invalid_response" and error["stage"] == "response") or (
+                error["code"] == "evidence_check_incoherent" and error["stage"] == "evidence_check")
             length = error["code"] == "truncated_response" and reply.get("done") is True and reply.get("done_reason") == "length"
             if not ordinary and not length: return error["code"]
         if reply.get("done") is not True or reply.get("done_reason") not in {"stop", "length"}: return "nonterminal_response"
@@ -171,13 +181,13 @@ class Campaign:
                     case, mode = self.p.case(step["unit"]), step["mode"]
                     script = (self.p.plan / case["script_file"]).read_text(encoding="utf-8")
                     require(sha(script) == case["script_sha256"], "sample_hash_mismatch")
-                    adapter = Qwen14Adapter(self.p.settings, sampler=self.sampler, gate_factory=self.gate_factory,
-                        transport_factory=lambda: self.transport_builder(self.reserve))
                     if mode != "A":
                         self.p.context(case, mode)
                         with self.gate_factory(): self.preflight(first=not self.intents())
                         self.active = (case, mode)
-                    result = AnalysisService(self.p.settings, adapter=adapter).analyze(script, mode).model_dump(mode="json")
+                    service = service_for(self.p.settings, sampler=self.sampler, gate_factory=self.gate_factory,
+                        transport_factory=lambda: self.transport_builder(self.reserve))
+                    result = service.analyze(script, mode).model_dump(mode="json")
                     path = self.out / "results" / (case["id"] + "-" + mode + ".json")
                     save(path, {"unit": case["id"], "mode": mode, "candidate_sha256": self.p.candidate_hash,
                         "authorization_sha256": self.authorization_hash, "pipeline": result})

@@ -12,10 +12,11 @@ import time
 from typing import Literal
 from pydantic import Field
 from app.services.pipelines.config import PipelineSettings, InferenceOptions, GIB
-from app.services.pipelines.context import canonical, sha, PROMPT_VERSION
+from app.services.pipelines.context import canonical, message_token_upper_bound, sha, PROMPT_VERSION
 from app.services.pipelines.ollama import LocalTransport
 from app.services.pipelines.provider import response_schema
 from app.services.pipelines.resources import InferenceGate, OperationalFailure, ResourceMonitor, memory_snapshot
+from app.services.pipelines.resource_policy import resource_admission
 from app.services.pipelines.validation import strict_json
 
 MODEL = "qwen2.5-coder:14b"
@@ -132,7 +133,8 @@ class Qwen14Adapter:
                     and resident[0].get("size_vram", 0) == 0)
             reserve = self.settings.loaded_growth_reserve_bytes if warm else self.settings.unloaded_reserve_bytes
             record["required_available_bytes"] = self.settings.minimum_margin_bytes + reserve
-            record["resource_ready"] = min(record["memory"]["available_bytes"], record["memory"]["commit_available_bytes"]) >= record["required_available_bytes"]
+            record["resource_admission"] = resource_admission(record["memory"], record["required_available_bytes"])
+            record["resource_ready"] = record["resource_admission"]["allowed"]
             record["circuit_blocked"] = self.gate_factory().marker.exists()
             record["ready_for_inference"] = record["resource_ready"] and not record["circuit_blocked"]
         except Exception as exc:
@@ -151,10 +153,10 @@ class Qwen14Adapter:
                       request=payload, inference_dispatched=False, truncated=False)
         # `format` constrains decoding; it is not text in the chat messages. Count it only
         # if a caller explicitly includes schema text in a message. Never truncate context.
-        upper_bound = (sum(len(m["content"].encode("utf-8")) for m in context.messages)
-                       + cfg.context_overhead_tokens)
+        message_bound, budget_version = message_token_upper_bound(context.messages, cfg)
+        upper_bound = message_bound + cfg.context_overhead_tokens
         record["input_token_upper_bound"] = upper_bound
-        record["context_budget_version"] = "message-bytes-v2"
+        record["context_budget_version"] = budget_version
         record["validation_version"] = "literal-provenance-v1"
         record["lifecycle_version"] = "persistent-dispatch-v2"
         if upper_bound + cfg.options.num_predict > cfg.options.num_ctx:
@@ -181,8 +183,10 @@ class Qwen14Adapter:
             reserve = cfg.loaded_growth_reserve_bytes if warm else cfg.unloaded_reserve_bytes
             needed = cfg.minimum_margin_bytes + reserve
             record["required_available_bytes"] = needed
-            if min(memory["available_bytes"], memory["commit_available_bytes"]) < needed:
-                raise OperationalFailure("insufficient_memory", "RAM/commit cannot preserve required load reserve and >=2 GiB margin", "resources")
+            record["resource_admission"] = resource_admission(memory, needed)
+            if not record["resource_admission"]["allowed"]:
+                raise OperationalFailure("insufficient_memory", "Resource policy " + record["resource_admission"]["policy"] +
+                    " rejected: " + ", ".join(record["resource_admission"]["reasons"]), "resources")
             expired = threading.Event()
 
             def deadline_cancel():
@@ -199,7 +203,8 @@ class Qwen14Adapter:
                     if monitor.violated:
                         raise OperationalFailure("resource_monitor_failure", "Resource margin/monitor failed before dispatch", "resources")
                     latest = monitor.samples[-1]
-                    if min(latest["available_bytes"], latest["commit_available_bytes"]) < needed:
+                    record["resource_admission_before_dispatch"] = resource_admission(latest, needed)
+                    if not record["resource_admission_before_dispatch"]["allowed"]:
                         raise OperationalFailure("insufficient_memory", "Load reserve lost before dispatch", "resources")
                     timer.start()
                     gate.start(record["request_sha256"])
@@ -257,4 +262,9 @@ class Qwen14Adapter:
             if sum(counts) > cfg.options.num_ctx or counts[1] > cfg.options.num_predict:
                 record["truncated"] = True
                 raise OperationalFailure("context_limit", "Actual token budget exceeded")
+            if budget_version != "message-bytes-v2" and counts[0] > cfg.options.num_ctx - cfg.options.num_predict:
+                # A scaled estimate can under-count; real input that invades the output reserve
+                # could mean server-side truncation, so it is never published as a valid answer.
+                record["truncated"] = True
+                raise OperationalFailure("context_limit", "Actual input tokens exceed the reserved input budget")
             return response

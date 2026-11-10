@@ -1,0 +1,16 @@
+{
+  "kind": "public_JUnit_aggregate",
+  "source_commit": "7fc29f86d50298207a2a480ac3989be175ec9cb1",
+  "source_sha256": "a7ee1151c2f769c8faba7d59ef59016919e3b118ca104c58146876e36fe76d18",
+  "tests": 767,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 11.916,
+  "omitted": [
+    "testcase_names_parameters",
+    "local_paths",
+    "captured_outputs"
+  ],
+  "not_a_new_test_run": true
+}

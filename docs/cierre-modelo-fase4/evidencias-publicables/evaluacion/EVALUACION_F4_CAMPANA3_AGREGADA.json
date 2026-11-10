@@ -1,0 +1,1190 @@
+{
+ "at": "2026-11-10T18:45:37.625121+00:00",
+ "candidate_sha256": "d960f81b8a5adb352ade6df80a767b882121c19a3b34eb7cec7ed3ca22255225",
+ "operationally_complete": true,
+ "planned_units": 16,
+ "planned_LLM_intents": 32,
+ "recorded_results": 48,
+ "recorded_pairs": 16,
+ "A_coverage": {
+  "complete": 2,
+  "partial": 14
+ },
+ "literal_citations": {
+  "B": {
+   "correct": 16,
+   "denominator_raw": 16,
+   "fraction": 1.0,
+   "original_claimed": 16,
+   "recovered_claimed": 0
+  },
+  "C": {
+   "correct": 12,
+   "denominator_raw": 16,
+   "fraction": 0.75,
+   "original_claimed": 12,
+   "recovered_claimed": 4
+  }
+ },
+ "H1": {
+  "status": "conditional_descriptive_sensitivity",
+  "delta_micro_F1_C_minus_B": 0.0,
+  "determinate_pairs": 14,
+  "clusters": 13,
+  "exact_swap_p_one_sided_C_greater": 1.0,
+  "assignments": 8192,
+  "paired_cluster_bootstrap_percentile_95": [
+   0.0,
+   0.0
+  ],
+  "bootstrap_resamples": 2000,
+  "seed": 40716,
+  "assumptions": "Cluster independence and B/C exchangeability under null; purposive small sample. No automatic significance, causality or generalization conclusion."
+ },
+ "H2": {
+  "status": "personally_reviewed_conditional_sensitivity",
+  "delta_mean_count_C_minus_B": -0.03333333333333333,
+  "exact_sign_swap_p_one_sided_C_less": 0.5,
+  "assignments": 32768,
+  "by_mode": {
+   "B": {
+    "unsupported_count": 19,
+    "claim_count": 75,
+    "unsupported_fraction_secondary": 0.25333333333333335,
+    "invented_reconstructions": 0,
+    "altered_reconstructions": 0
+   },
+   "C": {
+    "unsupported_count": 18,
+    "claim_count": 125,
+    "unsupported_fraction_secondary": 0.144,
+    "invented_reconstructions": 0,
+    "altered_reconstructions": 0
+   }
+  },
+  "unit_differences_C_minus_B": [
+   2,
+   1,
+   1,
+   0,
+   2,
+   -1,
+   0,
+   0,
+   -1,
+   -1,
+   0,
+   -1,
+   0,
+   0,
+   -2,
+   -1
+  ],
+  "review_file_sha256": "9ad26920fa43213df7f4f10e486eebeec2044dda34f1d2280d3239274919e562",
+  "split_manifest_sha256": "2a6dcb0c23f5cdd7577ae15340ac146ea4d435a1e33afbb3547eff235e82d071",
+  "strict_category_counts": {
+   "B": {
+    "individual": 9,
+    "contextual_cited": 47,
+    "insufficient": 10,
+    "contradicted": 9
+   },
+   "C": {
+    "individual": 8,
+    "contextual_cited": 99,
+    "insufficient": 14,
+    "contradicted": 4
+   }
+  }
+ },
+ "Holm_adjusted_conditional_p": {
+  "H1": 1,
+  "H2": 1
+ },
+ "hypotheses_automatically_accepted": false,
+ "human_interpretation_required": true,
+ "classification": {
+  "A": {
+   "micro": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 17,
+    "precision": null,
+    "recall": 0.0,
+    "F1": 0.0
+   },
+   "macro_reference_supported_classes": {
+    "precision": 0,
+    "recall": 0,
+    "F1": 0
+   },
+   "macro_denominator": 7,
+   "per_label": {
+    "B01": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B02": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B03": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B04": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B05": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B06": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 5,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 5
+    },
+    "B07": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    }
+   },
+   "exact_sets": {
+    "correct": 3,
+    "denominator": 14
+   },
+   "exact_sets_coverage_qualified": {
+    "correct": 0,
+    "denominator": 14
+   },
+   "unusable": 0,
+   "indeterminate_reference_count": 2,
+   "indeterminate_usable_abstentions": 0,
+   "indeterminate_known_only_high_uncertainty": 0,
+   "accepted_empty_sets": 16,
+   "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+  },
+  "B": {
+   "micro": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 17,
+    "precision": null,
+    "recall": 0.0,
+    "F1": 0.0
+   },
+   "macro_reference_supported_classes": {
+    "precision": 0,
+    "recall": 0,
+    "F1": 0
+   },
+   "macro_denominator": 7,
+   "per_label": {
+    "B01": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B02": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B03": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B04": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B05": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B06": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 5,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 5
+    },
+    "B07": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    }
+   },
+   "exact_sets": {
+    "correct": 3,
+    "denominator": 14
+   },
+   "exact_sets_coverage_qualified": {
+    "correct": 3,
+    "denominator": 14
+   },
+   "unusable": 0,
+   "indeterminate_reference_count": 2,
+   "indeterminate_usable_abstentions": 1,
+   "indeterminate_known_only_high_uncertainty": 0,
+   "accepted_empty_sets": 16,
+   "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+  },
+  "C": {
+   "micro": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 17,
+    "precision": null,
+    "recall": 0.0,
+    "F1": 0.0
+   },
+   "macro_reference_supported_classes": {
+    "precision": 0,
+    "recall": 0,
+    "F1": 0
+   },
+   "macro_denominator": 7,
+   "per_label": {
+    "B01": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B02": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B03": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B04": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B05": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B06": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 5,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 5
+    },
+    "B07": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    }
+   },
+   "exact_sets": {
+    "correct": 3,
+    "denominator": 14
+   },
+   "exact_sets_coverage_qualified": {
+    "correct": 3,
+    "denominator": 14
+   },
+   "unusable": 4,
+   "indeterminate_reference_count": 2,
+   "indeterminate_usable_abstentions": 2,
+   "indeterminate_known_only_high_uncertainty": 0,
+   "accepted_empty_sets": 12,
+   "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+  }
+ },
+ "both_usable_paired_secondary": {
+  "pair_count": 12,
+  "B": {
+   "micro": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 10,
+    "precision": null,
+    "recall": 0.0,
+    "F1": 0.0
+   },
+   "macro_reference_supported_classes": {
+    "precision": 0,
+    "recall": 0,
+    "F1": 0
+   },
+   "macro_denominator": 6,
+   "per_label": {
+    "B01": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 0,
+     "precision": null,
+     "recall": null,
+     "F1": null,
+     "support": 0
+    },
+    "B02": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 1,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 1
+    },
+    "B03": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B04": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 1,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 1
+    },
+    "B05": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 1,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 1
+    },
+    "B06": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 3,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 3
+    },
+    "B07": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    }
+   },
+   "exact_sets": {
+    "correct": 3,
+    "denominator": 10
+   },
+   "exact_sets_coverage_qualified": {
+    "correct": 3,
+    "denominator": 10
+   },
+   "unusable": 0,
+   "indeterminate_reference_count": 2,
+   "indeterminate_usable_abstentions": 1,
+   "indeterminate_known_only_high_uncertainty": 0,
+   "accepted_empty_sets": 12,
+   "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+  },
+  "C": {
+   "micro": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 10,
+    "precision": null,
+    "recall": 0.0,
+    "F1": 0.0
+   },
+   "macro_reference_supported_classes": {
+    "precision": 0,
+    "recall": 0,
+    "F1": 0
+   },
+   "macro_denominator": 6,
+   "per_label": {
+    "B01": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 0,
+     "precision": null,
+     "recall": null,
+     "F1": null,
+     "support": 0
+    },
+    "B02": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 1,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 1
+    },
+    "B03": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    },
+    "B04": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 1,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 1
+    },
+    "B05": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 1,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 1
+    },
+    "B06": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 3,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 3
+    },
+    "B07": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 2,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0,
+     "support": 2
+    }
+   },
+   "exact_sets": {
+    "correct": 3,
+    "denominator": 10
+   },
+   "exact_sets_coverage_qualified": {
+    "correct": 3,
+    "denominator": 10
+   },
+   "unusable": 0,
+   "indeterminate_reference_count": 2,
+   "indeterminate_usable_abstentions": 2,
+   "indeterminate_known_only_high_uncertainty": 0,
+   "accepted_empty_sets": 12,
+   "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+  },
+  "warning": "Selection-limited secondary summary; never replaces all-attempted primary metrics."
+ },
+ "strata": {
+  "verified_nonempty": {
+   "A": {
+    "micro": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 11,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0
+    },
+    "macro_reference_supported_classes": {
+     "precision": 0,
+     "recall": 0,
+     "F1": 0
+    },
+    "macro_denominator": 7,
+    "per_label": {
+     "B01": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B02": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B03": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B04": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B05": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B06": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 3,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 3
+     },
+     "B07": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     }
+    },
+    "exact_sets": {
+     "correct": 1,
+     "denominator": 8
+    },
+    "exact_sets_coverage_qualified": {
+     "correct": 0,
+     "denominator": 8
+    },
+    "unusable": 0,
+    "indeterminate_reference_count": 0,
+    "indeterminate_usable_abstentions": 0,
+    "indeterminate_known_only_high_uncertainty": 0,
+    "accepted_empty_sets": 8,
+    "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+   },
+   "B": {
+    "micro": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 11,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0
+    },
+    "macro_reference_supported_classes": {
+     "precision": 0,
+     "recall": 0,
+     "F1": 0
+    },
+    "macro_denominator": 7,
+    "per_label": {
+     "B01": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B02": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B03": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B04": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B05": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B06": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 3,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 3
+     },
+     "B07": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     }
+    },
+    "exact_sets": {
+     "correct": 1,
+     "denominator": 8
+    },
+    "exact_sets_coverage_qualified": {
+     "correct": 1,
+     "denominator": 8
+    },
+    "unusable": 0,
+    "indeterminate_reference_count": 0,
+    "indeterminate_usable_abstentions": 0,
+    "indeterminate_known_only_high_uncertainty": 0,
+    "accepted_empty_sets": 8,
+    "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+   },
+   "C": {
+    "micro": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 11,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0
+    },
+    "macro_reference_supported_classes": {
+     "precision": 0,
+     "recall": 0,
+     "F1": 0
+    },
+    "macro_denominator": 7,
+    "per_label": {
+     "B01": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B02": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B03": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B04": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B05": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B06": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 3,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 3
+     },
+     "B07": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     }
+    },
+    "exact_sets": {
+     "correct": 1,
+     "denominator": 8
+    },
+    "exact_sets_coverage_qualified": {
+     "correct": 1,
+     "denominator": 8
+    },
+    "unusable": 4,
+    "indeterminate_reference_count": 0,
+    "indeterminate_usable_abstentions": 0,
+    "indeterminate_known_only_high_uncertainty": 0,
+    "accepted_empty_sets": 4,
+    "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+   }
+  },
+  "no_relevant_verified_text": {
+   "A": {
+    "micro": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 6,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0
+    },
+    "macro_reference_supported_classes": {
+     "precision": 0,
+     "recall": 0,
+     "F1": 0
+    },
+    "macro_denominator": 5,
+    "per_label": {
+     "B01": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "precision": null,
+      "recall": null,
+      "F1": null,
+      "support": 0
+     },
+     "B02": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "precision": null,
+      "recall": null,
+      "F1": null,
+      "support": 0
+     },
+     "B03": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B04": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B05": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B06": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B07": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     }
+    },
+    "exact_sets": {
+     "correct": 2,
+     "denominator": 6
+    },
+    "exact_sets_coverage_qualified": {
+     "correct": 0,
+     "denominator": 6
+    },
+    "unusable": 0,
+    "indeterminate_reference_count": 2,
+    "indeterminate_usable_abstentions": 0,
+    "indeterminate_known_only_high_uncertainty": 0,
+    "accepted_empty_sets": 8,
+    "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+   },
+   "B": {
+    "micro": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 6,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0
+    },
+    "macro_reference_supported_classes": {
+     "precision": 0,
+     "recall": 0,
+     "F1": 0
+    },
+    "macro_denominator": 5,
+    "per_label": {
+     "B01": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "precision": null,
+      "recall": null,
+      "F1": null,
+      "support": 0
+     },
+     "B02": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "precision": null,
+      "recall": null,
+      "F1": null,
+      "support": 0
+     },
+     "B03": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B04": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B05": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B06": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B07": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     }
+    },
+    "exact_sets": {
+     "correct": 2,
+     "denominator": 6
+    },
+    "exact_sets_coverage_qualified": {
+     "correct": 2,
+     "denominator": 6
+    },
+    "unusable": 0,
+    "indeterminate_reference_count": 2,
+    "indeterminate_usable_abstentions": 1,
+    "indeterminate_known_only_high_uncertainty": 0,
+    "accepted_empty_sets": 8,
+    "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+   },
+   "C": {
+    "micro": {
+     "TP": 0,
+     "FP": 0,
+     "FN": 6,
+     "precision": null,
+     "recall": 0.0,
+     "F1": 0.0
+    },
+    "macro_reference_supported_classes": {
+     "precision": 0,
+     "recall": 0,
+     "F1": 0
+    },
+    "macro_denominator": 5,
+    "per_label": {
+     "B01": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "precision": null,
+      "recall": null,
+      "F1": null,
+      "support": 0
+     },
+     "B02": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 0,
+      "precision": null,
+      "recall": null,
+      "F1": null,
+      "support": 0
+     },
+     "B03": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B04": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B05": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     },
+     "B06": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 2,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 2
+     },
+     "B07": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 1,
+      "precision": null,
+      "recall": 0.0,
+      "F1": 0.0,
+      "support": 1
+     }
+    },
+    "exact_sets": {
+     "correct": 2,
+     "denominator": 6
+    },
+    "exact_sets_coverage_qualified": {
+     "correct": 2,
+     "denominator": 6
+    },
+    "unusable": 0,
+    "indeterminate_reference_count": 2,
+    "indeterminate_usable_abstentions": 2,
+    "indeterminate_known_only_high_uncertainty": 0,
+    "accepted_empty_sets": 8,
+    "policy": "All attempted determinate units; unusable positive references become coverage FN. Unusable outputs never earn exact-set credit. Indeterminate references excluded from label metrics."
+   }
+  }
+ },
+ "unexecuted_steps": [],
+ "note": "Resumen agregado de la evaluación oficial (experiments.phase4 evaluate --personal-reviews; evaluación final 13662845…json, sha256 15ff07f7d6c45b64f1e6c9e7653ab238bca939b437ffeaf3d99a95bf8b89ed10) de la campaña 3. Sin salidas crudas, scripts ni referencias F4. Archivo de evaluación completo (restringido): execution/evaluations/c9660947-2fc4-4a95-b9f1-3632dac850e8.json, sha256 f7b20b42bfc6cc6faf9ff9c5205cb0d04ad129e9e06fc0d5e077da09a313fe66.",
+ "pipeline_aggregates": {
+  "B": {
+   "completed": 16,
+   "raw_behavior_claims_before_evidence_check": 13,
+   "published_behaviors": 0,
+   "evidence_check_dropped": 13
+  },
+  "C": {
+   "completed": 3,
+   "partial": 9,
+   "error_invalid_response": 4,
+   "raw_behavior_claims_before_evidence_check": 6,
+   "published_behaviors": 0,
+   "evidence_check_dropped": 6
+  },
+  "A": {
+   "completed": 2,
+   "partial": 14,
+   "published_behaviors": 0
+  },
+  "llm_total_duration_s": {
+   "max": 95.3,
+   "median": 41.2
+  }
+ }
+}
