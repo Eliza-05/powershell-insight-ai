@@ -42,10 +42,65 @@
   "assumptions": "Cluster independence and B/C exchangeability under null; purposive small sample. No automatic significance, causality or generalization conclusion."
  },
  "H2": {
-  "status": "pending_complete_hash_bound_personal_claim_review",
-  "reviewed_complete_outputs": 0
+  "status": "personally_reviewed_conditional_sensitivity",
+  "delta_mean_count_C_minus_B": -0.03333333333333333,
+  "exact_sign_swap_p_one_sided_C_less": 0.5,
+  "assignments": 32768,
+  "by_mode": {
+   "B": {
+    "unsupported_count": 19,
+    "claim_count": 75,
+    "unsupported_fraction_secondary": 0.25333333333333335,
+    "invented_reconstructions": 0,
+    "altered_reconstructions": 0
+   },
+   "C": {
+    "unsupported_count": 18,
+    "claim_count": 125,
+    "unsupported_fraction_secondary": 0.144,
+    "invented_reconstructions": 0,
+    "altered_reconstructions": 0
+   }
+  },
+  "unit_differences_C_minus_B": [
+   2,
+   1,
+   1,
+   0,
+   2,
+   -1,
+   0,
+   0,
+   -1,
+   -1,
+   0,
+   -1,
+   0,
+   0,
+   -2,
+   -1
+  ],
+  "review_file_sha256": "9ad26920fa43213df7f4f10e486eebeec2044dda34f1d2280d3239274919e562",
+  "split_manifest_sha256": "2a6dcb0c23f5cdd7577ae15340ac146ea4d435a1e33afbb3547eff235e82d071",
+  "strict_category_counts": {
+   "B": {
+    "individual": 9,
+    "contextual_cited": 47,
+    "insufficient": 10,
+    "contradicted": 9
+   },
+   "C": {
+    "individual": 8,
+    "contextual_cited": 99,
+    "insufficient": 14,
+    "contradicted": 4
+   }
+  }
  },
- "Holm_adjusted_conditional_p": null,
+ "Holm_adjusted_conditional_p": {
+  "H1": 1,
+  "H2": 1
+ },
  "hypotheses_automatically_accepted": false,
  "human_interpretation_required": true,
  "classification": {
@@ -1106,7 +1161,7 @@
   }
  },
  "unexecuted_steps": [],
- "note": "Resumen agregado de la evaluación oficial (experiments.phase4 evaluate, sin revisiones H2) de la campaña 3. Sin salidas crudas, scripts ni referencias F4. Archivo de evaluación completo (restringido): execution/evaluations/c9660947-2fc4-4a95-b9f1-3632dac850e8.json, sha256 f7b20b42bfc6cc6faf9ff9c5205cb0d04ad129e9e06fc0d5e077da09a313fe66.",
+ "note": "Resumen agregado de la evaluación oficial (experiments.phase4 evaluate --personal-reviews; evaluación final 13662845…json, sha256 15ff07f7d6c45b64f1e6c9e7653ab238bca939b437ffeaf3d99a95bf8b89ed10) de la campaña 3. Sin salidas crudas, scripts ni referencias F4. Archivo de evaluación completo (restringido): execution/evaluations/c9660947-2fc4-4a95-b9f1-3632dac850e8.json, sha256 f7b20b42bfc6cc6faf9ff9c5205cb0d04ad129e9e06fc0d5e077da09a313fe66.",
  "pipeline_aggregates": {
   "B": {
    "completed": 16,

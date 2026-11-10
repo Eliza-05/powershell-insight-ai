@@ -1,7 +1,7 @@
 # Resultados de Fase 4 — H1 y H2
 
 **Responsable:** Karol. **Cálculo y redacción:** Claude (IA), con el código congelado y sin cambiar fórmulas después de ver resultados.
-**Estado:** campaña **completa** y evaluación **H1 terminada**. **H2 pendiente** de la revisión semántica personal de Karol (ver §6).
+**Estado:** campaña **completa**; **H1 y H2 evaluadas** con el código congelado. Resultado: **ninguna de las dos hipótesis tiene apoyo** (§5 y §6).
 
 > Todo lo que sigue procede de datos reales de la campaña 3. Este documento no reproduce scripts, referencias ni salidas F4; su ubicación restringida y sus hashes están en `EVIDENCIAS.md`. Las revisiones humanas son de Karol, son nominativas y **no son independientes** (ver §7).
 
@@ -16,7 +16,7 @@
 | Autorización de ejecución | `7ccbb881…`: máximo 32, sin reintentos, sesión exclusiva; frase textual de Karol, 2026-11-10 13:16 −05:00 |
 | Entorno | GCP n2-custom-12-49152, Ubuntu 24.04.5, Ollama 0.40.16, `qwen3-coder:30b` (digest `06c1097e…`) |
 | Ejecución | 2026-11-10, de 18:19 a 18:44 UTC (`COMPLETED.json`: 16 A + 32 intenciones, `operationally_complete: true`) |
-| Evaluación oficial | `experiments.phase4 evaluate`, archivo `c9660947…json` (sha256 `f7b20b42…`). Resumen agregado: `evidencias-publicables/evaluacion/EVALUACION_F4_CAMPANA3_AGREGADA.json` |
+| Evaluación oficial | `experiments.phase4 evaluate --personal-reviews`, archivo `13662845…json` (sha256 `15ff07f7…`). La evaluación previa sin revisiones (`c9660947…`, sha256 `f7b20b42…`) se conserva. Resumen agregado: `evidencias-publicables/evaluacion/EVALUACION_F4_CAMPANA3_AGREGADA.json` |
 
 ## 2. Aprobaciones transcritas
 
@@ -29,6 +29,7 @@
 | Máquina más rápida y prueba de velocidad (desarrollo) | "Elijo B: autorizo crear una VM c3-standard-22 y hacer una prueba de velocidad con ~6 llamadas de desarrollo (no F4)", 12:39 (la cuota de la cuenta solo permitía n2-custom-12) |
 | Candidato nuevo y calentamiento (desarrollo) | "Autorizo preparar un nuevo candidato en copia nueva y hacer 1 llamada de calentamiento con un caso de desarrollo antes de la campaña", 13:07 |
 | FREEZE y ejecución (campaña 3) | "Apruebo sellar el FREEZE del candidato d960f81b. Autorizo la ejecución de Fase 4 con un máximo de 32 llamadas, sin reintentos y en sesión exclusiva.", 13:16 |
+| Revisión H2 personal | Archivo guardado a las 13:55 (página disponible desde las 13:46). A la pregunta explícita sobre la autoría, Karol respondió: "La hice yo personalmente, leyendo cada salida", 14:06 |
 
 ## 3. Intentos anteriores (incidentes conservados)
 
@@ -62,7 +63,7 @@ Las campañas 1 y 2 conservan su STOP, ledger, resultados y checkpoints sin modi
 | B | 0 | 0 | 17 | 0,00 | 3/14 | 0 |
 | C | 0 | 0 | 17 | 0,00 | 3/14 | 4 |
 
-- **Δ micro-F1 (C − B) = 0,00.** Intercambio exacto por bloques (13 bloques, 8192 asignaciones): p unilateral = 1,0. Bootstrap pareado (2000, semilla 40716): IC 95 % [0,00, 0,00]. Sin ajuste de Holm, porque H2 no está evaluada.
+- **Δ micro-F1 (C − B) = 0,00.** Intercambio exacto por bloques (13 bloques, 8192 asignaciones): p unilateral = 1,0. Bootstrap pareado (2000, semilla 40716): IC 95 % [0,00, 0,00]. Holm (H1, H2): p ajustado = 1,0.
 - **Lectura:** los datos **no apoyan H1**. Tampoco la contradicen en sentido opuesto: en ambos modos el pipeline no publicó ninguna etiqueta.
 - **Mecanismo, observado en los agregados operativos:**
   - El modelo propuso 13 comportamientos en B y 6 en C. El verificador de evidencia conservador (`evidence-check-v2-bounded`) **descartó los 19**, así que las 32 salidas publicaron conjuntos vacíos.
@@ -77,18 +78,27 @@ Las campañas 1 y 2 conservan su STOP, ledger, resultados y checkpoints sin modi
   - El verificador revisado se integró en `develop` después de la exploración del laboratorio y no tenía una evaluación independiente previa (lo advierte `strategy.py`). En estos casos nuevos se comportó como un filtro que lo anula todo.
   - Muestra pequeña e intencional, de autoría común: sin conclusiones poblacionales ni causales.
 
-## 6. H2: afirmaciones no respaldadas (pendiente)
+## 6. H2: afirmaciones no respaldadas por unidad (C − B)
 
-- **Estado del evaluador:** `pending_complete_hash_bound_personal_claim_review`, con 0 de 32 salidas revisadas.
-- **Herramienta para Karol:** `REVISION_H2_F4.html`, en su carpeta restringida.
-  - Muestra cada salida cruda (incluidas las 4 rechazadas), el script y las fuentes 1A de C.
-  - Trae el inventario de afirmaciones **segmentado mecánicamente por campo**, sin juicio previo.
-  - El script `split_h2_reviews.py` separa la descarga en los 32 archivos que valida `evaluate --personal-reviews`.
-- Si la revisión no está completa, H2 queda como **no evaluada**. Nunca se informa un cero favorable.
+**Revisión:** la hizo Karol personalmente sobre las 32 salidas crudas, incluidas las 4 rechazadas de C. Partió de un inventario segmentado mecánicamente y lo editó ella. El validador oficial aceptó las 32 revisiones (hash de cada salida, citas literales, inventario completo).
+Archivo: `revision_H2_Karol.json`, sha256 `9ad26920…`. Archivos por salida: `SPLIT_MANIFEST.json`, sha256 `2a6dcb0c…`.
+
+| Modo | Afirmaciones | `individual` | `contextual_cited` | `insufficient` | `contradicted` | No respaldadas (estricto) | Fracción (secundaria) |
+|---|---|---|---|---|---|---|---|
+| B | 75 | 9 | 47 | 10 | 9 | **19** | 25,3 % |
+| C | 125 | 8 | 99 | 14 | 4 | **18** | 14,4 % |
+
+- **Primaria:** media por bloque de (no respaldadas C − no respaldadas B) = **−0,033** afirmaciones por unidad. Intercambio exacto de signos por bloques (32 768 asignaciones): p unilateral (C < B) = **0,50**. Holm: p ajustado = 1,0.
+- **Diferencias por unidad:** 4 unidades con C mejor, 4 con C peor y 8 iguales. Los valores van de −2 a +2.
+- **Reconstrucciones inventadas o alteradas:** 0 en B y 0 en C.
+- **Lectura:**
+  - Los datos **no apoyan H2**: C no reduce de forma apreciable el número de afirmaciones no respaldadas por unidad.
+  - C hace más afirmaciones (125 frente a 75), de modo que su fracción no respaldada es menor (14 % frente a 25 %). Esa medida es secundaria, no se planteó como prueba principal y no debe leerse como confirmación.
+  - Ninguna de las 32 salidas publicó etiquetas (§5). H2 evalúa el texto crudo completo del modelo, no las etiquetas publicadas.
 
 ## 7. Limitaciones
 
-- **Revisora única, no independiente.** Karol hizo la revisión de referencias y hará la de H2. Participó en la selección del modelo y en el laboratorio. No redactó las referencias F4. No hay segundo revisor, cegamiento ni acuerdo entre revisores.
+- **Revisora única, no independiente.** Karol hizo la revisión de referencias y la de H2. La de H2 se completó en una sola sesión corta (≈9 min registrados para 200 afirmaciones); Karol confirmó por escrito que la hizo personalmente. Participó en la selección del modelo y en el laboratorio. No redactó las referencias F4. No hay segundo revisor, cegamiento ni acuerdo entre revisores.
 - **Entorno distinto del laboratorio.** CPU distinta y Ollama 0.40.16. Hubo una llamada de calentamiento con un caso de desarrollo para que la primera carga en frío cupiera en el plazo, que no cambió (protocolo intacto).
 - **Contaminación de F4.** Las campañas 1 y 2 tocaron F4 sin producir salidas, como consta en §3.
 - **Muestra.** Son 16 unidades en 13 bloques; la potencia estadística es mínima.
